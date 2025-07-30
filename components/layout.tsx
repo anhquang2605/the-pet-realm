@@ -1,5 +1,5 @@
-import "./../pages/globals.css";
 
+import { Head } from "next/document";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -7,9 +7,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-      </head>
+      </Head>
       <body
       >
         {children}
