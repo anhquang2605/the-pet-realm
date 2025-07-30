@@ -1,4 +1,4 @@
-import "../pages/globals.css";
+import "./../pages/globals.css";
 
 export default function RootLayout({
   children,
@@ -7,6 +7,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+      </head>
       <body
       >
         {children}
