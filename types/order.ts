@@ -3,7 +3,9 @@ interface Order{
     id: string;
     price: number;
     dateCreated: Date;
-    status: string; // e.g., 'pending', 'completed', 'cancelled'
+    status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
     descrition?: string; // Optional field for additional details
-    
+    dateUpdated?: Date; // Optional field for tracking updates
 }
+
+export default Order
