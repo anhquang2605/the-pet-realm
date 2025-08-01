@@ -1,6 +1,8 @@
-interface Order{
+import { ObjectId } from "mongodb";
+
+export interface Order{
     name: string;
-    id: string;
+    id: string | ObjectId;
     price: number;
     dateCreated: Date;
     status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
@@ -8,10 +10,9 @@ interface Order{
     dateUpdated?: Date; // Optional field for tracking updates
 }
 
-export default Order
 
-interface OrderImage {
-    id: string;
+export interface OrderImage {
+    id: string | ObjectId;
     orderId: string;
     imageUrl: string;
     altText?: string; // Optional field for image description
