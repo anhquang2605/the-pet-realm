@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
+import Wstyles from "./banner-carousel.module.css";
 
 export interface Banner {
   id: string;
   title: string;
   dateCreated: Date;
-  eventid: string;
+  eventURL: string;
   imageURL: string;
 }
 
@@ -36,7 +37,12 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({ banners }) => {
   };
 
   const handleBannerClick = (eventid: string) => {
-    router.push(`/event/${eventid}`);
+    //if not a link
+    if( eventid.startsWith("http") || eventid.startsWith("https") ){
+        router.push(eventid);
+    } else {
+         router.push(`/event/${eventid}`);
+    }
   };
 
   return (
@@ -55,7 +61,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({ banners }) => {
           <div
             key={banner.id}
             className="flex-shrink-0 w-full h-full cursor-pointer flex justify-center items-center bg-black"
-            onClick={() => handleBannerClick(banner.eventid)}
+            onClick={() => handleBannerClick(banner.eventURL)}
           >
             <img
               src={banner.imageURL}
