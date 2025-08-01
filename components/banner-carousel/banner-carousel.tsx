@@ -43,7 +43,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({ banners }) => {
     <div
       className="relative w-full overflow-hidden"
       style={{
-        height: `min(50vh, ${window.innerHeight * 0.5}px)`,
+        height: `min(50vh)`,
       }}
     >
       {/* Slides */}
