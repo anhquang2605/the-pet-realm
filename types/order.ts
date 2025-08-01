@@ -9,3 +9,12 @@ interface Order{
 }
 
 export default Order
+
+interface OrderImage {
+    id: string;
+    orderId: string;
+    imageUrl: string;
+    altText?: string; // Optional field for image description
+    dateCreated: Date;
+    isThumbnail: boolean; // Indicates if this is the main image for the order,
+}
