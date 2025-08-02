@@ -13,7 +13,7 @@ const MainBanner: React.FC<MainBannerProps> = ({}) => {
                 src="/asset/images/banner.png"
                 alt="Main Banner"
                 width={1920}
-                height={600}
+                height={1080}
             />   
         </div>
     );
