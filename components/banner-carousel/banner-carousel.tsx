@@ -60,7 +60,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({ banners }) => {
         {banners.map((banner) => (
           <div
             key={banner.id}
-            className="flex-shrink-0 w-full h-full cursor-pointer flex justify-center items-center bg-black"
+            className="flex-shrink-0 w-full h-full cursor-pointer flex justify-center items-center bg-gray-700"
             onClick={() => handleBannerClick(banner.eventURL)}
           >
             <img
