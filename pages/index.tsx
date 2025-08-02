@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import { mockBanners } from '../local_data/mock-banner-data';
 import BannerCarousel from '../components/banner-carousel/banner-carousel';
-
+import MainBanner from '../components/main-banner/main-banner';
 interface HomeProps {
     title: string;
     description: string;
@@ -38,6 +38,7 @@ export default function Home(props: HomeProps) {
   }, []);
     return (
     <div>
+        <MainBanner/>
         <h1 className="text-amber-300">Welcome to My Next.js App</h1>
         <BannerCarousel banners={mockBanners} />
       

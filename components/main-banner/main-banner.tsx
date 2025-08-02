@@ -10,7 +10,7 @@ const MainBanner: React.FC<MainBannerProps> = ({}) => {
     return (
         <div className={style['main-banner']}>
             <Image
-                src="/images/banner.jpg"
+                src="/asset/images/banner.png"
                 alt="Main Banner"
                 width={1920}
                 height={600}
