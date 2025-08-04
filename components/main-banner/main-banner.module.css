@@ -6,7 +6,7 @@
     @apply rounded-lg;
     img{
         width: 100%;
-        height: auto;
+        height: 50vh;
         border-radius: 10px;
         object-fit: contain;
     }
