@@ -1,3 +1,4 @@
 .action-button{
     font: var(--title-font);
+    cursor: pointer;
 }
