@@ -15,6 +15,7 @@ const MainBanner: React.FC<MainBannerProps> = ({}) => {
                 width={1920}
                 height={1080}
                 layout="responsive"
+                className="cover h-1/2"
             />   
         </div>
     );
