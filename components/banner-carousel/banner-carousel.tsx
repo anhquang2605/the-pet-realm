@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
-import Wstyles from "./banner-carousel.module.css";
+import styles from "./banner-carousel.module.css";
 
 export interface Banner {
   id: string;
@@ -47,7 +47,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({ banners }) => {
 
   return (
     <div
-      className="relative w-full overflow-hidden"
+      className={"relative w-full overflow-hidden" + " " + styles['banner-carousel']}
       style={{
         height: `min(50vh)`,
       }}

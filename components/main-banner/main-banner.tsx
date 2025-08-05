@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './main-banner.module.css';
+import styles from './main-banner.module.css';
 import Image from 'next/image';
 interface MainBannerProps {
     imageUrl?: string; // Optional image URL for the banner
@@ -8,12 +8,13 @@ interface MainBannerProps {
 
 const MainBanner: React.FC<MainBannerProps> = ({}) => {
     return (
-        <div className={style['main-banner']}>
+        <div className={styles['main-banner']}>
             <Image
                 src="/asset/images/banner.png"
                 alt="Main Banner"
                 width={1920}
                 height={1080}
+                layout="responsive"
             />   
         </div>
     );
