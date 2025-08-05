@@ -177,9 +177,6 @@
   .flex {
     display: flex;
   }
-  .h-1\/2 {
-    height: calc(1/2 * 100%);
-  }
   .h-3 {
     height: calc(var(--spacing) * 3);
   }
@@ -257,6 +254,7 @@
   :root {
     --background: #364153;
     --foreground: #171717;
+    --title-font: 'Press Start 2P', cursive;
   }
 }
 body {

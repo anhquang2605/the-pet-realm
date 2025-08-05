@@ -11,7 +11,7 @@ const InvitationBtns: React.FC<InvitationBtnsProps> = ({actions}) => {
         <div className={style['invitation-btns']}>
             {actions.map((action, index) => (
                 <div key={index} className="flex items-center justify-center">
-                    <ActionButton title={action.title} href={action.href} />
+                    <ActionButton title={action.title} href={action.href}  />
                 </div>
             ))}            
         </div>

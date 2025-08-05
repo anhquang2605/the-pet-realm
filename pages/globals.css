@@ -11,7 +11,7 @@
   :root {
     --background: #364153;
   --foreground: #171717;
-
+  --title-font: 'Press Start 2P', cursive;
   }
 }
 
