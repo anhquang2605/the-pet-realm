@@ -7,11 +7,11 @@ interface BannerTitleProps {
 
 const BannerTitle: React.FC<BannerTitleProps> = ({title}) => {
     return (
-        <div className={style['banner-title']}>
+        <h1 className={style['banner-title']}>
             {
                 title
             }
-        </div>
+        </h1>
     );
 };
 
