@@ -3,6 +3,4 @@
     padding: 20px;
     text-align: center;
     height: 50vh;
-    @apply rounded-lg;
-
 }
