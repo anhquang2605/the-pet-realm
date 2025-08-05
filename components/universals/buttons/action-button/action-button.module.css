@@ -1,4 +1,6 @@
 .action-button{
     font: var(--title-font);
     cursor: pointer;
+    background-color: gray;
+    color: white;
 }
