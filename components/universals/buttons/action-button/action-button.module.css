@@ -4,3 +4,7 @@
     background-color: gray;
     color: white;
 }
+.action-button:hover{
+    background-color: #4a5568;
+    color: yellow;
+}
