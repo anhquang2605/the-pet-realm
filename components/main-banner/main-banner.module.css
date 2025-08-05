@@ -6,4 +6,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url('/asset/images/banner.png') no-repeat center center;
 }
