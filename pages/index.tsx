@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import { mockBanners } from '../local_data/mock-banner-data';
+import { mockOrderItems } from '../local_data/mock-order-data';
 import BannerCarousel from '../components/banner-carousel/banner-carousel';
 import MainBanner from '../components/main-banner/main-banner';
 interface HomeProps {
@@ -7,13 +8,13 @@ interface HomeProps {
     description: string;
     sections: string[];
 }
-export async function getServerSideProps(
+export async function getStaticProps(
   
 ) {
     const prop: HomeProps = {
         title: 'The Pet Realm',
         description: 'This is a sample application built with Next.js.',
-        sections: []
+        sections: [],
       };
    /*  const PATH: string = 'sections';
     const options: any = {};
@@ -25,6 +26,8 @@ export async function getServerSideProps(
         }
         return acc
     }, []); */
+    // Mock data for featured items
+    const featuredItems = mockOrderItems;
     return {
         props: prop,
     };

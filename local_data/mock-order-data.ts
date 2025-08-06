@@ -1,6 +1,6 @@
 import { FeatureItems } from "../types/order";
 
-  const mockOrderItems: FeatureItems[] = [
+ export const mockOrderItems: FeatureItems[] = [
       {
     id: "pet-001",
     name: "Golden Retriever Puppy",
