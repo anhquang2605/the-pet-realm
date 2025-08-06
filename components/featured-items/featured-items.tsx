@@ -17,7 +17,7 @@ const FeaturedItems: React.FC<FeaturedItemsProps> = ({
                     key={index}
                     name={item.name}
                     price={item.price}
-                    imageUrl={item.orderImageUrls? item.orderImageUrls[0] : '/default-image.png'} // Fallback image
+                    imageUrl={item.orderImageUrls[0] || '/asset/images/default-image-url'} // Fallback image
                     description={item.description}
                     discount={item.discount}
                 />
