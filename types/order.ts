@@ -12,6 +12,12 @@ export interface Order{
     discount: number; // Optional field for discount percentage
     isFeatured: boolean;
 }
-
-
+export interface FeatureItems{
+    id: string | ObjectId;
+    name: string;
+    price: number;
+    imageUrl: string;
+    description?: string;
+    discount: number; //(from 0.1 to 1)
+}
 
