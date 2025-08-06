@@ -23,7 +23,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         }
     }
     return (
-        <div onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center rounded"}>
+        <div onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center"}>
            {title}
         </div>
     );

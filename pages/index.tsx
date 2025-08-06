@@ -39,9 +39,6 @@ export default function Home(props: HomeProps) {
     return (
     <div>
         <MainBanner/>
-        <h1 className="text-amber-300">Welcome to My Next.js App</h1>
-        <BannerCarousel banners={mockBanners} />
-      
     </div>
   );
 }
