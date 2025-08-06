@@ -7,9 +7,9 @@ interface FeaturedItemsProps {
 
 const FeaturedItems: React.FC<FeaturedItemsProps> = ({}) => {
     return (
-        <div className={style['featured-items']}>
+        <section className={style['featured-items']}>
             FeaturedItems
-        </div>
+        </section>
     );
 };
 
