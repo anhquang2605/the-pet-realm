@@ -6,16 +6,11 @@ export interface Order{
     price: number;
     dateCreated: Date;
     status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
-    descrition?: string; // Optional field for additional details
+    description?: string; // Optional field for additional details
     dateUpdated?: Date; // Optional field for tracking updates
+    orderImageUrls?: string[]; // Array of image URLs associated with the order
+    discount?: number; // Optional field for discount percentage
 }
 
 
-export interface OrderImage {
-    id: string | ObjectId;
-    orderId: string;
-    imageUrl: string;
-    altText?: string; // Optional field for image description
-    dateCreated: Date;
-    isThumbnail: boolean; // Indicates if this is the main image for the order,
-}
+
