@@ -32,13 +32,15 @@ export async function getServerSideProps(
 
 export default function Home(props: HomeProps) {
   const { title, description, sections } = props;
-  const BANNERS = 
   useEffect(() => {
     document.title = title;
   }, []);
     return (
     <div>
         <MainBanner/>
+
+  
+      
     </div>
   );
 }
