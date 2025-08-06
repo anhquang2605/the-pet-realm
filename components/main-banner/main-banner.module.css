@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('/asset/images/banner.png') no-repeat center center;
+    background: url('/asset/images/banner.png') no-repeat center 65%;
+    background-size: cover;
     flex-direction: column ;
+    border-radius: 15px;
 }

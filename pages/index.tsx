@@ -39,11 +39,11 @@ export default function Home(props: HomeProps) {
     document.title = title;
   }, []);
     return (
-    <div>
+    <main className="">
         <MainBanner/>
 
   
       
-    </div>
+    </main>
   );
 }
