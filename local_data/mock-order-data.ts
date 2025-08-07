@@ -13,7 +13,7 @@ import { FeatureItems } from "../types/order";
     id: "pet-002",
     name: "Siamese Cat",
     price: 800,
-    imageUrl: "https://placekitten.com/200/200", // Cat image
+    imageUrl: "https://placebacon.net/200/200", // Cat image
     description: "Elegant and vocal.",
     discount: 0.15,
   },
@@ -57,7 +57,7 @@ import { FeatureItems } from "../types/order";
     id: "pet-002",
     name: "Siamese Cat",
     price: 800,
-    imageUrl: "https://placekitten.com/200/200", // Cat image
+    imageUrl: "https://placebacon.net/200/200", // Cat image
     description: "Elegant and vocal.",
     discount: 0.15,
   },

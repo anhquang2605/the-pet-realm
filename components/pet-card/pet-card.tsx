@@ -18,7 +18,7 @@ const PetCard: React.FC<PetCardProps> = ({
 }) => {
     return (
         <div className={style['pet-card']}>
-            <Image src={imageUrl} alt={name} width={100} height={100} /> 
+            <Image src={imageUrl} alt={name} width={300} height={100} /> 
             <section className={style['pet-details']}>
                 <h5 className={style['pet-name']}>{name}</h5>
                 <span className={`${style['pet-price']} ${discount !== 1 ? style['discount'] : ''}`}>{price * discount}</span>
