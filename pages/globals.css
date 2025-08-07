@@ -12,6 +12,9 @@
     --background: #364153;
   --foreground: #171717;
   --title-font: 'Press Start 2P', cursive;
+  --spacing: 48px;
+  --half-spacing: 24px;
+  --quarter-spacing: 12px;
   }
 }
 
