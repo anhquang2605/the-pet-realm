@@ -5,7 +5,7 @@ import { FeatureItems } from "../types/order";
     id: "pet-001",
     name: "Golden Retriever Puppy",
     price: 1200,
-    imageUrl: "https://picsum.photos/id/237/200/200", // Dog image
+    imageUrl: "https://picsum.photos/id/237/300/100", // Dog image
     description: "Friendly and loves fetch!",
     discount: 0.2,
   },
@@ -13,7 +13,7 @@ import { FeatureItems } from "../types/order";
     id: "pet-002",
     name: "Siamese Cat",
     price: 800,
-    imageUrl: "https://placebacon.net/200/200", // Cat image
+    imageUrl: "https://placebacon.net/300/100", // Cat image
     description: "Elegant and vocal.",
     discount: 0.15,
   },
@@ -21,35 +21,35 @@ import { FeatureItems } from "../types/order";
     id: "pet-003",
     name: "Parakeet (Blue)",
     price: 45,
-    imageUrl: "https://picsum.photos/id/100/200/200", // Bird-like image
+    imageUrl: "https://picsum.photos/id/100/300/100", // Bird-like image
     discount: 0.1,
   },
   {
     id: "pet-004",
     name: "Holland Lop Rabbit",
     price: 150,
-    imageUrl: "https://picsum.photos/id/400/200/200", // Rabbit-like image
+    imageUrl: "https://picsum.photos/id/400/300/100", // Rabbit-like image
     discount: 0.25,
   },
   {
     id: "pet-005",
     name: "Bearded Dragon",
     price: 90,
-    imageUrl: "https://picsum.photos/id/500/200/200", // Reptile-like image
+    imageUrl: "https://picsum.photos/id/500/300/100", // Reptile-like image
     discount: 0.3,
   },
   {
     id: "pet-006",
     name: "Pomeranian",
     price: 950,
-    imageUrl: "https://picsum.photos/id/1025/200/200", // Small dog image
+    imageUrl: "https://picsum.photos/id/1025/300/100", // Small dog image
     discount: 0.4,
   },
     {
     id: "pet-001",
     name: "Golden Retriever Puppy",
     price: 1200,
-    imageUrl: "https://picsum.photos/id/237/200/200", // Dog image
+    imageUrl: "https://picsum.photos/id/237/300/100", // Dog image
     description: "Friendly and loves fetch!",
     discount: 0.2,
   },
@@ -57,7 +57,7 @@ import { FeatureItems } from "../types/order";
     id: "pet-002",
     name: "Siamese Cat",
     price: 800,
-    imageUrl: "https://placebacon.net/200/200", // Cat image
+    imageUrl: "https://placebacon.net/300/100", // Cat image
     description: "Elegant and vocal.",
     discount: 0.15,
   },
@@ -65,28 +65,28 @@ import { FeatureItems } from "../types/order";
     id: "pet-003",
     name: "Parakeet (Blue)",
     price: 45,
-    imageUrl: "https://picsum.photos/id/100/200/200", // Bird-like image
+    imageUrl: "https://picsum.photos/id/100/300/100", // Bird-like image
     discount: 0.1,
   },
   {
     id: "pet-004",
     name: "Holland Lop Rabbit",
     price: 150,
-    imageUrl: "https://picsum.photos/id/400/200/200", // Rabbit-like image
+    imageUrl: "https://picsum.photos/id/400/300/100", // Rabbit-like image
     discount: 0.25,
   },
   {
     id: "pet-005",
     name: "Bearded Dragon",
     price: 90,
-    imageUrl: "https://picsum.photos/id/500/200/200", // Reptile-like image
+    imageUrl: "https://picsum.photos/id/500/300/100", // Reptile-like image
     discount: 0.3,
   },
   {
     id: "pet-006",
     name: "Pomeranian",
     price: 950,
-    imageUrl: "https://picsum.photos/id/1025/200/200", // Small dog image
+    imageUrl: "https://picsum.photos/id/1025/300/100", // Small dog image
     discount: 0.4,
   }
   ]
