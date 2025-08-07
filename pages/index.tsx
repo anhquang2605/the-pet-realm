@@ -4,6 +4,7 @@ import { mockOrderItems } from '../local_data/mock-order-data';
 import BannerCarousel from '../components/banner-carousel/banner-carousel';
 import MainBanner from '../components/main-banner/main-banner';
 import { FeatureItems } from '../types/order';
+import FeaturedItems from '../components/featured-items/featured-items';
 interface HomeProps {
     title: string;
     description: string;
@@ -37,14 +38,14 @@ export async function getStaticProps(
 };
 
 export default function Home(props: HomeProps) {
-  const { title, description, sections } = props;
+  const { title, description, sections, featuredItems } = props;
   useEffect(() => {
     document.title = title;
   }, []);
     return (
     <main className="">
         <MainBanner/>
-
+        <FeaturedItems featuredItems={featuredItems} />
   
       
     </main>
