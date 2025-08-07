@@ -225,9 +225,6 @@
   .object-contain {
     object-fit: contain;
   }
-  .text-amber-300 {
-    color: var(--color-amber-300);
-  }
   .transition-transform {
     transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));

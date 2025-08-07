@@ -3,10 +3,12 @@ import { mockBanners } from '../local_data/mock-banner-data';
 import { mockOrderItems } from '../local_data/mock-order-data';
 import BannerCarousel from '../components/banner-carousel/banner-carousel';
 import MainBanner from '../components/main-banner/main-banner';
+import { FeatureItems } from '../types/order';
 interface HomeProps {
     title: string;
     description: string;
     sections: string[];
+    featuredItems: FeatureItems[];
 }
 export async function getStaticProps(
   
@@ -15,6 +17,7 @@ export async function getStaticProps(
         title: 'The Pet Realm',
         description: 'This is a sample application built with Next.js.',
         sections: [],
+        featuredItems: mockOrderItems
       };
    /*  const PATH: string = 'sections';
     const options: any = {};
@@ -27,7 +30,7 @@ export async function getStaticProps(
         return acc
     }, []); */
     // Mock data for featured items
-    const featuredItems = mockOrderItems;
+
     return {
         props: prop,
     };
