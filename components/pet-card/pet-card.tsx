@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './pet-card.module.css';
 import Image from 'next/image';
+import ActionButton from '../universals/buttons/action-button/action-button';
 interface PetCardProps {
     name: string;
     price: number;
@@ -23,6 +24,7 @@ const PetCard: React.FC<PetCardProps> = ({
                 <h5 className={style['pet-name']}>{name}</h5>
                 <span className={`${style['pet-price']} ${discount !== 1 ? style['discount'] : ''}`}>{price * discount}</span>
                 {discount !== 1 && <span className={style['original-price']}>{price}</span>}
+                <ActionButton type="add" title="Buy Now" />
             </section>
             
                       
