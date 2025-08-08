@@ -13,7 +13,12 @@
     background-color: #4a5568;
     color: yellow;
 }
+.action-type{
+}
 .add{
     background-color: green;
-    
+    color: white;
+}
+.add:hover{
+    background-color: #2f855a;
 }
