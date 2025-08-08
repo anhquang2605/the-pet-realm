@@ -15,10 +15,10 @@
 }
 .action-type{
 }
-.add{
+.action-button.add{
     background-color: green;
     color: white;
 }
-.add:hover{
+.action-button.add:hover{
     background-color: #2f855a;
 }

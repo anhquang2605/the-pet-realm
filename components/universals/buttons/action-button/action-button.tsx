@@ -15,7 +15,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     onClick,
     type = ""
 }) => {
-    const styleType = type !== "main" ? `action-type ${type}` : '';
+    const styleType = type !== "main" ? `action-type ${style[type]}` : '';
     const router = useRouter();
     const handleClick = () => {
         if (onClick) {
@@ -26,7 +26,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         }
     }
     return (
-        <div onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center" + " " + style[styleType]}>
+        <div onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center" + " " + styleType}>
            {title}
         </div>
     );
