@@ -22,7 +22,7 @@ const PetCard: React.FC<PetCardProps> = ({
             <Image className={style['pet-image']} src={imageUrl} alt={name} width={300} height={400} /> 
             <section className={style['pet-details']}>
                 <h5 className={style['pet-name']}>{name}</h5>
-                <span className={`${style['pet-price']} ${discount !== 1 ? style['discount'] : ''}`}>{price * discount}</span>
+                <span className={`${style['pet-price']} ${discount !== 1 ? style['discount'] : ''}`}>{(price * discount).toFixed(2)}</span>
                 {discount !== 1 && <span className={style['original-price']}>{price}</span>}
                 <ActionButton type="add" title="Buy Now" />
             </section>
