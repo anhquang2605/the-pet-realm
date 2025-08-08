@@ -15,15 +15,15 @@ const PetCard: React.FC<PetCardProps> = ({
     price,
     imageUrl,
     description,
-    discount = 1
+    discount = 0
 }) => {
     return (
         <div className={style['pet-card']}>
             <Image className={style['pet-image']} src={imageUrl} alt={name} width={300} height={400} /> 
             <section className={style['pet-details']}>
                 <h5 className={style['pet-name']}>{name}</h5>
-                <span className={`${style['pet-price']} ${discount !== 1 ? style['discount'] : ''}`}>{+(price * discount)}</span>
-                {discount !== 1 && <span className={style['original-price']}>{+price}</span>}
+                <span className={`${style['pet-price']} ${discount !== 0 ? style['discount'] : ''}`}>$ {+(price - price * discount).toFixed(2)}</span>
+                {discount !== 1 && <span className={style['original-price']}>$ {+price.toFixed(2)}</span>}
                 <ActionButton type="add" title="Buy Now" />
             </section>
             
