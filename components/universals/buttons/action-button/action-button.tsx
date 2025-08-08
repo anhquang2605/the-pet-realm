@@ -6,12 +6,14 @@ interface ActionButtonProps {
     href?: string
     title: string;
     onClick?: () => void;
+    type: 'action' | 'link' | 'add' | 'remove';
 }
 
 const ActionButton: React.FC<ActionButtonProps> = ({
     href,
     title,
-    onClick
+    onClick,
+    type = ""
 }) => {
     const router = useRouter();
     const handleClick = () => {
@@ -23,7 +25,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         }
     }
     return (
-        <div onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center"}>
+        <div onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center" + " " + style['action-button-' + type]}>
            {title}
         </div>
     );
