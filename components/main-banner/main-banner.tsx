@@ -29,6 +29,7 @@ const MainBanner: React.FC<MainBannerProps> = ({}) => {
             <InvitationBtns 
                 actions={ACTIONS}
             />
+            
         </section>
     );
 };
