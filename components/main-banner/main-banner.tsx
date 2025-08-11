@@ -23,12 +23,13 @@ const ACTIONS = [
 ]
 const MainBanner: React.FC<MainBannerProps> = ({}) => {
     return (
-        <div className={styles['main-banner']}>
+        <section className={styles['main-banner']}>
+            <div className={styles['banner-overlay']}></div>
             <BannerTitle title={"Welcome to The Pet Realm"} />
             <InvitationBtns 
                 actions={ACTIONS}
             />
-        </div>
+        </section>
     );
 };
 
