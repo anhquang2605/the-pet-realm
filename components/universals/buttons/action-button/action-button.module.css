@@ -10,7 +10,7 @@
     inset 0 -2px 4px rgba(0, 0, 0, 0.7);      /* bottom shadow */
 }
 .action-button:hover{
-    filter: brightness(0.5);
+    filter: brightness(1.2);
     color: yellow;
 }
 .action-button.action-type{
