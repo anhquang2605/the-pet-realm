@@ -10,15 +10,18 @@ interface MainBannerProps {
 export interface Action{
     title: string;
     href: string;
+    color: string
 }
 const ACTIONS = [
     {
         title: 'Browse Shop',
-        href: '/browse'
+        href: '/browse',
+        color: 'green'
     },
     {
         title: 'Join Discord',
-        href: 'https://discord.gg/your-discord-link'
+        href: 'https://discord.gg/your-discord-link',
+        color: '#5865F2'
     }
 ]
 const MainBanner: React.FC<MainBannerProps> = ({}) => {
