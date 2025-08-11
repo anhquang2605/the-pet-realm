@@ -10,16 +10,8 @@
     inset 0 -2px 4px rgba(0, 0, 0, 0.7);      /* bottom shadow */
 }
 .action-button:hover{
-    filter: brightness(1.2);
-    color: yellow;
+    filter: brightness(1.1);
 }
 .action-button.action-type{
     font-size: 0.75rem;
-}
-.action-button.add{
-    background-color: green;
-    color: white;
-}
-.action-button.add:hover{
-    background-color: #2f855a;
 }
