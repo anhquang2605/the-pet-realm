@@ -3,7 +3,7 @@
 :root {
   --background: #2e343f;
   --foreground: #171717;
-  --title-font: 'Press Start 2P', cursive;
+  --title-font: 'Montserrat', sans-serif;
 }
 
 
@@ -11,7 +11,7 @@
   :root {
     --background: #364153;
   --foreground: #171717;
-  --title-font: 'Press Start 2P', cursive;
+  --title-font: 'Montserrat', sans-serif;
   --spacing: 48px;
   --half-spacing: 24px;
   --quarter-spacing: 12px;
@@ -25,5 +25,5 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Montserrat', sans-serif;
 }
