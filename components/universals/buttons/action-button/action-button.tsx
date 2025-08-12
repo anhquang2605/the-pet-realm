@@ -8,6 +8,7 @@ interface ActionButtonProps {
     onClick?: () => void;
     type: 'main' | 'link' | 'add' | 'remove';
     color?: string; // Optional color prop for custom styling
+    extraStyle?: React.CSSProperties; // Optional style prop for additional styles
 }
 
 const ActionButton: React.FC<ActionButtonProps> = ({
@@ -15,9 +16,14 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     title,
     onClick,
     type = "",
-    color= ""
+    color= "",
+    extraStyle = {}
 }) => {
     const styleType = type !== "main" ? `${style['action-type']} ${style[type]}` : '';
+    const addedStyle = {
+        ...extraStyle,
+        backgroundColor: color
+    }
     const router = useRouter();
     const handleClick = () => {
         if (onClick) {
@@ -28,9 +34,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         }
     }
     return (
-        <button onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center" + " " + styleType} style={{
-            backgroundColor: color
-        }}>
+        <button onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center" + " " + styleType} style={addedStyle}>
            {title}
         </button>
     );
