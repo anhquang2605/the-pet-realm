@@ -16,7 +16,7 @@ const ACTIONS = [
     {
         title: 'Browse Shop',
         href: '/browse',
-        color: 'green'
+        color: 'chocolate'
     },
     {
         title: 'Join Discord',
