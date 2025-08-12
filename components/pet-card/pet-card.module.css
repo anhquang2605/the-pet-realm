@@ -38,3 +38,8 @@
     width: max-content;
 }
 
+.pet-name{
+    font-weight: semibold;
+    font-family: Comic Sans MS;
+    font-size: 1.2rem;
+}
