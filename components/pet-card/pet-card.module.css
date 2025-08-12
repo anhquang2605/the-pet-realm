@@ -17,7 +17,7 @@
     left: 0;
     width: 100%;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 16px;
     display: flex;
     gap: 4px;
