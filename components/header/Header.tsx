@@ -7,9 +7,9 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({}) => {
     return (
-        <div className={style['header']}>
-            Header
-        </div>
+        <header className={style['header']}>
+            
+        </header>
     );
 };
 
