@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './navigation-bar.module.css';
-import { useRouter } from 'next/router';
 
 interface NavigationBarProps {
 
@@ -18,9 +17,11 @@ const NAVIGATION_ITEMS = [
 ]
 
 const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
-    const router = useRouter();
     const handleOnClick = (href: string) => {
-        router.push(href);
+        const $window  = window as any;
+        if($window){
+            $window.location.href = href;
+        }
     }
     return (
         <nav className={style['navigation-bar']}>
