@@ -1,8 +1,7 @@
 import React from 'react';
 import style from './featured-items.module.css';
-import { Order } from '../../types/order';
-import PetCard from '../pet-card/pet-card';
-import { FeatureItems } from '../../types/order';
+import PetCard from '../../universals/pet-card/pet-card';
+import { FeatureItems } from '../../../types/order';
 
 interface FeaturedItemsProps {
     featuredItems?: FeatureItems[]
