@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './pet-card.module.css';
 import Image from 'next/image';
-import ActionButton from '../universals/buttons/action-button/action-button';
+import ActionButton from '../buttons/action-button/action-button';
 interface PetCardProps {
     name: string;
     price: number;

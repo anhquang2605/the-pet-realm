@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './invitation-btns.module.css';
 import { Action } from '../main-banner';
-import ActionButton from '../../universals/buttons/action-button/action-button';
+import ActionButton from '../../buttons/action-button/action-button';
 interface InvitationBtnsProps {
     actions: Action[];
 }
