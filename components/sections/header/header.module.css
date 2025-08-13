@@ -1,5 +1,5 @@
 .header{
-    padding: 8px;
+    padding: 16px var(--side-outer-padding);
     font-size: 1.3rem;
-    
+    display: flex;
 }

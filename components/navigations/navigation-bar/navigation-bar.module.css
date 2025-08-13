@@ -4,6 +4,7 @@
 .navigation-list {
     display: flex;
     flex-direction: row;
+    gap: 48px;
 }
 .navigation-item {
     margin-right: 10px;
