@@ -24,7 +24,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
         }
     }
     return (
-        <nav className={style['navigation-bar']}>
+        <nav className={`${style['navigation-bar']}`} >
             <ul className={style['navigation-list']}>
                 {NAVIGATION_ITEMS.map((item: NavigationItem, index: number) => (
                     <li key={index} className={style['navigation-item']} onClick={() => handleOnClick(item.href)}>

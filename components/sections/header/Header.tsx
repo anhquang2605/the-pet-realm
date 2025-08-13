@@ -8,7 +8,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({}) => {
     return (
-        <header className={style['header']}>
+        <header className={style['header'] + ' main-bg'}>
             <NavigationBar />
         </header>
     );
