@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import { mockBanners } from '../local_data/mock-banner-data';
 import { mockOrderItems } from '../local_data/mock-order-data';
-import BannerCarousel from '../components/banner-carousel/banner-carousel';
+import BannerCarousel from '../components/universals/banner-carousel/banner-carousel';
 import MainBanner from '../components/main-banner/main-banner';
 import { FeatureItems } from '../types/order';
 import FeaturedItems from '../components/featured-items/featured-items';

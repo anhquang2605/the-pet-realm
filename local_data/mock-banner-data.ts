@@ -1,4 +1,4 @@
-import  {Banner}  from "./../components/banner-carousel/banner-carousel";
+import  {Banner}  from "../components/universals/banner-carousel/banner-carousel";
 
 export const mockBanners: Banner[] = [
   {
