@@ -1,22 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #2e343f;
-  --foreground: #171717;
-  --title-font: 'Montserrat', sans-serif;
-}
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
     --background: #364153;
   --foreground: #171717;
   --title-font: 'Montserrat', sans-serif;
   --spacing: 48px;
   --half-spacing: 24px;
   --quarter-spacing: 12px;
+  --main-bg: #1e2939;
+  --secondary-bg: #334155;
   }
-}
+
 
 body {
   background: var(--background);
