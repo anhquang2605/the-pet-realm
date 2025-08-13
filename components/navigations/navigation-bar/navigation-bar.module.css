@@ -1,3 +1,11 @@
 .navigation-bar{
-    
+    background-color: #f8f9fa;
+}
+.navigation-list {
+    display: flex;
+    flex-direction: row;
+}
+.navigation-item {
+    margin-right: 10px;
+    cursor: pointer;
 }
