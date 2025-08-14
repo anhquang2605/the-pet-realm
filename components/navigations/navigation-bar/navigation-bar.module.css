@@ -10,3 +10,6 @@
     margin-right: 10px;
     cursor: pointer;
 }
+.navigation-item:hover {
+    color: yellowgreen;
+}

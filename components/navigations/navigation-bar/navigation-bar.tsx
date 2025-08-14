@@ -11,7 +11,6 @@ interface NavigationItem {
 const NAVIGATION_ITEMS = [
     { title: 'Home', href: '/' },
     { title: 'Browse Shop', href: '/blog' },
-    { title: 'About', href: '/about' },
     { title: 'Contact', href: '/contact' },
 
 ]
