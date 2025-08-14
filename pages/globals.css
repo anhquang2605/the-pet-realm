@@ -10,6 +10,8 @@
   --main-bg: #1e2939;
   --secondary-bg: #334155;
   --side-outer-padding: 72px;
+  --mobile-checkpoint: 768px;
+  --tablet-checkpoint: 1024px;
   }
 
 

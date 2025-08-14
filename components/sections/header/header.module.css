@@ -1,5 +1,19 @@
 .header{
-    padding: 16px var(--side-outer-padding);
     font-size: 1.3rem;
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+@media screen and (min-width: var(--mobile-checkpoint)) {
+    .header{
+        padding: 16px var(--side-outer-padding);
+        font-size: 1.3rem;
+        position: relative;
+    }
+
+    
 }

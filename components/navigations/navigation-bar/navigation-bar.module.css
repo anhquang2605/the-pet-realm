@@ -3,13 +3,24 @@
 }
 .navigation-list {
     display: flex;
-    flex-direction: row;
-    gap: 48px;
+    flex-direction: column;
+
 }
 .navigation-item {
-    margin-right: 10px;
+    
     cursor: pointer;
 }
 .navigation-item:hover {
     color: yellowgreen;
+}
+
+@media screen and (min-width: 768px) {
+
+    .navigation-list {
+        flex-direction: row;
+        gap: 48px;
+    }
+    .navigation-item{
+        margin-right: 10px;
+    }
 }
