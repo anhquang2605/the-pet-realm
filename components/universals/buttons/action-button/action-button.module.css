@@ -7,6 +7,9 @@
         border: 1px solid lightgray;
     border-radius: 5px;
     background-image: url('/asset/textures/stud.webp');
+    background-repeat: repeat;
+    background-size: 45px;
+    font-weight: bold;
 }
 .action-button:hover{
     filter: brightness(1.1);
