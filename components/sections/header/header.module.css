@@ -18,7 +18,21 @@
     left: 0;
     transition: left 0.3s ease-in-out;
 }
-
+.mobile-menu-button{
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 9;
+    background-color: var(--main-bg);
+    color: lightgray;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 .exit-menu-button{
     margin-right: auto;
     z-index: 2;

@@ -1,7 +1,7 @@
 .pet-card{
     position: relative;
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #ccc;
@@ -43,4 +43,19 @@
     font-weight: semibold;
     font-family: Comic Sans MS;
     font-size: 1.2rem;
+}
+
+@media  screen and (min-width: var(--mobile-checkpoint)) {
+    .pet-card{
+
+        width: 300px;
+        height: 400px;
+    }
+    .pet-name{
+        font-size: 1.5rem;
+    }
+    .pet-details{
+        padding: 20px;
+    }
+    
 }

@@ -1,13 +1,24 @@
 .featured-items{
     display: flex;
     flex-wrap: wrap;
-    gap: 48px;
+    gap: 32px;
     padding: 16px var(--side-outer-padding);
     margin-top: 16px;
 }
 .featured-items-title {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: white;
+}
+
+@media  screen and  (min-width: var(--mobile-checkpoint)) {
+    .featured-items{
+        padding: 16px var(--side-outer-padding);
+        gap: 48px;
+    }
+    .featured-items-title {
+        font-size: 1.5rem;
+    }
+    
 }
