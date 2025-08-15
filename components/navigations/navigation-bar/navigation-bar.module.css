@@ -4,7 +4,8 @@
 .navigation-list {
     display: flex;
     flex-direction: column;
-
+    font-size: 2rem;
+    gap: 24px;
 }
 .navigation-item {
     
@@ -18,6 +19,7 @@
     .navigation-list {
         flex-direction: row;
         gap: 48px;
+        font-size: 1rem;
     }
     .navigation-item{
         margin-right: 10px;
