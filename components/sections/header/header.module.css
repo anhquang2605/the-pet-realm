@@ -47,13 +47,15 @@
 }
 @media screen and (min-width: 768px) {
     .header{
-        padding: 16px var(--side-outer-padding);
+        padding: 12px var(--side-outer-padding);
         position: relative;
         height: auto;
         left: auto;
         top: auto;
         z-index: 1;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
     .exit-menu-button{
         display: none;

@@ -31,7 +31,8 @@
     .navigation-item{
         margin-right: 10px;
         text-align: left;
-        border: none;
+        border: none!important;
         padding: 0;
+        width: max-content;
     }
 }
