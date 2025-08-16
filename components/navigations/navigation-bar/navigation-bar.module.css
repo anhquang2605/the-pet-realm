@@ -6,7 +6,7 @@
 .navigation-list {
     display: flex;
     flex-direction: column;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .navigation-item {
     text-align: center;
@@ -31,5 +31,7 @@
     .navigation-item{
         margin-right: 10px;
         text-align: left;
+        border: none;
+        padding: 0;
     }
 }
