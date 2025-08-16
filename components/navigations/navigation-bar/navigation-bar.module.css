@@ -1,17 +1,22 @@
+
 .navigation-bar{
     color: white;
+    --border: 1px solid gray;
 }
 .navigation-list {
     display: flex;
     flex-direction: column;
     font-size: 2rem;
-    gap: 24px;
 }
 .navigation-item {
     text-align: center;
     cursor: pointer;
     width: 100%;
-    border-top: 1px solid lightgray;
+    border-top: var(--border);
+    padding: 24px 0;
+}
+.navigation-item:last-child {
+    border-bottom: var(--border);
 }
 .navigation-item:hover {
     color: yellowgreen;
