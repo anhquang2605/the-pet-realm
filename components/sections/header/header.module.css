@@ -34,9 +34,16 @@
     cursor: pointer;
 }
 .exit-menu-button{
-    margin-right: auto;
+    margin-left: auto;
     z-index: 2;
     color: tomato;
+}
+.mobile-top-group{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    flex-direction: row;
 }
 @media screen and (min-width: 768px) {
     .header{

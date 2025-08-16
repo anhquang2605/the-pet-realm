@@ -22,10 +22,11 @@ const Header: React.FC<HeaderProps> = ({}) => {
             </button>
             <header className={style['header'] + ' main-bg'}>
                 <span className={style['mobile-top-group']}>
+                    <HomeIcon />
                      <button className={style['exit-menu-button']} onClick={handleMobileMenuClick}>
                         <IoCloseCircle size={48} />
                     </button>
-                    <HomeIcon />
+                    
                 </span>
                 <NavigationBar />
             </header>
