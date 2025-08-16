@@ -14,12 +14,11 @@ const HomeIcon: React.FC<HomeIconProps> = ({}) => {
     return (
         <div className={style['home-icon']} >
             <Image
-                src="/asset/icon/icon.png"
+                src="/asset/icon/large-icon.png"
                 alt="Home Icon"
                 width={36}
                 height={36}
             />
-            <span className={style['home-icon-title']}>The Pet Realm</span>
         </div>
     );
 };
