@@ -10,6 +10,8 @@
 .navigation-item {
     text-align: center;
     cursor: pointer;
+    width: 100%;
+    border-top: 1px solid lightgray;
 }
 .navigation-item:hover {
     color: yellowgreen;
@@ -23,5 +25,6 @@
     }
     .navigation-item{
         margin-right: 10px;
+        text-align: left;
     }
 }
