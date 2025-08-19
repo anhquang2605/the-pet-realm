@@ -1,4 +1,4 @@
-import { FeatureItems } from "../types/order";
+import { FeatureItems, Order } from "../types/order";
 
  export const mockOrderItems: FeatureItems[] = [
       {
@@ -75,3 +75,6 @@ import { FeatureItems } from "../types/order";
   }
   ]
 
+export const browseOrderItems: Order[] = [
+  
+]
