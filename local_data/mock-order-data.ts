@@ -7,7 +7,7 @@ import { FeatureItems } from "../types/order";
     price: 1200,
     imageUrl: "https://picsum.photos/id/237/300/400", // Dog image
     description: "Friendly and loves fetch!",
-    discount: 1,
+    discount: 0,
   },
   {
     id: "pet-003",
