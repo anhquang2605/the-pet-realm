@@ -23,7 +23,7 @@ const PetCard: React.FC<PetCardProps> = ({
             <section className={style['pet-details']}>
                 <h5 className={style['pet-name']}>{name}</h5>
                 <span className={`${style['pet-price']} ${discount !== 0 ? style['discount'] : ''}`}>$ {+(price - (price * discount)).toFixed(2)}</span>
-                {discount !== 1 && <span className={style['original-price']}>$ {+price.toFixed(2)}</span>}
+                {discount !== 0 && <span className={style['original-price']}>$ {+price.toFixed(2)}</span>}
                 <ActionButton type="add" title="Buy Now" color='green' extraStyle={{
                     fontSize: '1rem',
                 }} />
