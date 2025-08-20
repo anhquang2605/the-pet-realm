@@ -19,6 +19,7 @@ export async function getStaticProps() {
     if (browseData) {
         browseData.forEach((order: Order) => {
             order.id = order.id.toString();
+            order.dateCreated = order.dateCreated.toString();
         })
         props.orders = browseData;
     }
