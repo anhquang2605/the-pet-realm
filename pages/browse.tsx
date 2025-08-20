@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './page-styles/browse.module.css';
 import { browseOrderItems } from '../local_data/mock-order-data';
-import { Order } from '../types/order';
+import { Order, RawOrder } from '../types/order';
 interface BrowseProps {
-    orders: Order[]
+    orders: RawOrder[]
 }
 const fetchBrowseData = async () => {
     // Simulate fetching data for the browse page
@@ -19,7 +19,7 @@ export async function getStaticProps() {
     if (browseData) {
         browseData.forEach((order: Order) => {
             order.id = order.id.toString();
-            order.dateCreated = order.dateCreated.toString();
+            order.dateCreated = order.dateCreated.toISOString();
         })
         props.orders = browseData;
     }
