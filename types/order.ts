@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 
 export interface Order{
     name: string;
-    id: string;
+    id: string | ObjectId;
     price: number;
     dateCreated: Date;
     status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
@@ -14,7 +14,7 @@ export interface Order{
 }
 export interface RawOrder{
      name: string;
-    id: string;
+    id: ObjectId | string;
     price: number;
     dateCreated: string; // ISO string format
     status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'

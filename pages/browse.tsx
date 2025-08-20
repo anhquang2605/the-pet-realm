@@ -17,12 +17,14 @@ export async function getStaticProps() {
     // Fetch data for the browse page
     const browseData = await fetchBrowseData()
     if (browseData) {
-        browseData.forEach((order: Order) => {
-            order.id = order.id.toString();
-            order.dateCreated = order.dateCreated.toISOString();
-        })
-        props.orders = browseData;
+       const rawOrders: RawOrder[] = browseData.map((order: Order) => ({
+            ...order,
+            dateCreated: order.dateCreated.toISOString(), // Convert Date to ISO string
+            dateUpdated: order.dateUpdated.toISOString(), // Convert Date to ISO string
+        }));
+          props.orders = rawOrders; // Assign the fetched data to props
     }
+      
     return { props,
     };
 }
