@@ -17,6 +17,9 @@ export async function getStaticProps() {
     // Fetch data for the browse page
     const browseData = await fetchBrowseData()
     if (browseData) {
+        browseData.forEach((order: Order) => {
+            order.id = order.id.toString();
+        })
         props.orders = browseData;
     }
     return { props,
