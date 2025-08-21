@@ -44,7 +44,7 @@ const Browse: React.FC<BrowseProps> = ({
         <div className={style['browse']}>
            <OrderFilter />
            <OrderSorter />
-           <OrderViewer orders={orderItems} />
+          {/*  <OrderViewer orders={orderItems} /> */}
         </div>
     );
 };
