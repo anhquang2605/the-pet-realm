@@ -20,6 +20,7 @@ export async function getStaticProps() {
     if (browseData) {
        const rawOrders: RawOrder[] = browseData.map((order: Order) => ({
             ...order,
+            id: order.id.toString(),
             dateCreated: order.dateCreated.toISOString(), // Convert Date to ISO string
             dateUpdated: order.dateUpdated.toISOString(), // Convert Date to ISO string
         }));
