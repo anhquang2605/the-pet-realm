@@ -85,7 +85,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "30kg bag of premium grain-free dog food",
     dateUpdated: new Date('2024-01-17'),
-    orderImageUrls: ["https://picsum.photos/id/237/300/200", "https://picsum.photos/id/237/300/201"],
+    imageUrls: ["https://picsum.photos/id/237/300/200", "https://picsum.photos/id/237/300/201"],
     discount: 0.15,
     isFeatured: true
   },
@@ -97,7 +97,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Large 5-tier cat tree with scratching posts",
     dateUpdated: new Date('2024-02-03'),
-    orderImageUrls: ["https://picsum.photos/id/219/300/200"],
+    imageUrls: ["https://picsum.photos/id/219/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -109,7 +109,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "20 gallon aquarium with filter and lighting",
     dateUpdated: new Date('2024-02-10'),
-    orderImageUrls: ["https://picsum.photos/id/100/300/200", "https://picsum.photos/id/101/300/200"],
+    imageUrls: ["https://picsum.photos/id/100/300/200", "https://picsum.photos/id/101/300/200"],
     discount: 0.25,
     isFeatured: true
   },
@@ -121,7 +121,7 @@ export const browseOrderItems: Order[] =
     status: 'cancelled',
     description: "Large wrought iron cage with stand",
     dateUpdated: new Date('2024-02-14'),
-    orderImageUrls: ["https://picsum.photos/id/108/300/200"],
+    imageUrls: ["https://picsum.photos/id/108/300/200"],
     discount: 0.1,
     isFeatured: false
   },
@@ -133,7 +133,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Modular habitat for hamsters and gerbils",
     dateUpdated: new Date('2024-02-20'),
-    orderImageUrls: ["https://picsum.photos/id/189/300/200"],
+    imageUrls: ["https://picsum.photos/id/189/300/200"],
     discount: 0.05,
     isFeatured: false
   },
@@ -145,7 +145,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Clumping silica gel litter, 4-pack",
     dateUpdated: new Date('2024-02-22'),
-    orderImageUrls: ["https://picsum.photos/id/145/300/200"],
+    imageUrls: ["https://picsum.photos/id/145/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -157,7 +157,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Complete obedience training package",
     dateUpdated: new Date('2024-02-25'),
-    orderImageUrls: ["https://picsum.photos/id/201/300/200"],
+    imageUrls: ["https://picsum.photos/id/201/300/200"],
     discount: 0.3,
     isFeatured: true
   },
@@ -169,7 +169,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "100W ceramic heat emitter",
     dateUpdated: new Date('2024-03-01'),
-    orderImageUrls: ["https://picsum.photos/id/102/300/200"],
+    imageUrls: ["https://picsum.photos/id/102/300/200"],
     discount: 0.15,
     isFeatured: false
   },
@@ -181,7 +181,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Variety pack for tropical fish",
     dateUpdated: new Date('2024-03-02'),
-    orderImageUrls: ["https://picsum.photos/id/103/300/200"],
+    imageUrls: ["https://picsum.photos/id/103/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -193,7 +193,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Professional grooming tools for dogs and cats",
     dateUpdated: new Date('2024-03-07'),
-    orderImageUrls: ["https://picsum.photos/id/203/300/200"],
+    imageUrls: ["https://picsum.photos/id/203/300/200"],
     discount: 0.2,
     isFeatured: false
   },
@@ -205,7 +205,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Programmable pet feeder with portion control",
     dateUpdated: new Date('2024-03-08'),
-    orderImageUrls: ["https://picsum.photos/id/218/300/200"],
+    imageUrls: ["https://picsum.photos/id/218/300/200"],
     discount: 0.1,
     isFeatured: true
   },
@@ -217,7 +217,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Memory foam bed for large breeds",
     dateUpdated: new Date('2024-03-12'),
-    orderImageUrls: ["https://picsum.photos/id/202/300/200"],
+    imageUrls: ["https://picsum.photos/id/202/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -229,7 +229,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Stainless steel circulating water fountain",
     dateUpdated: new Date('2024-03-17'),
-    orderImageUrls: ["https://picsum.photos/id/221/300/200"],
+    imageUrls: ["https://picsum.photos/id/221/300/200"],
     discount: 0.35,
     isFeatured: false
   },
@@ -241,7 +241,7 @@ export const browseOrderItems: Order[] =
     status: 'cancelled',
     description: "Assorted toys for parrots and large birds",
     dateUpdated: new Date('2024-03-19'),
-    orderImageUrls: ["https://picsum.photos/id/107/300/200"],
+    imageUrls: ["https://picsum.photos/id/107/300/200"],
     discount: 0.25,
     isFeatured: false
   },
@@ -253,7 +253,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Airline approved pet carrier backpack",
     dateUpdated: new Date('2024-03-20'),
-    orderImageUrls: ["https://picsum.photos/id/222/300/200"],
+    imageUrls: ["https://picsum.photos/id/222/300/200"],
     discount: 0.15,
     isFeatured: true
   },
@@ -265,7 +265,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Retractable leash with harness",
     dateUpdated: new Date('2024-03-24'),
-    orderImageUrls: ["https://picsum.photos/id/1024/300/200"],
+    imageUrls: ["https://picsum.photos/id/1024/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -277,7 +277,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "32-inch sisal scratching post with toys",
     dateUpdated: new Date('2024-03-25'),
-    orderImageUrls: ["https://picsum.photos/id/225/300/200"],
+    imageUrls: ["https://picsum.photos/id/225/300/200"],
     discount: 0.1,
     isFeatured: false
   },
@@ -289,7 +289,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Natural looking aquarium decorations",
     dateUpdated: new Date('2024-03-30'),
-    orderImageUrls: ["https://picsum.photos/id/104/300/200"],
+    imageUrls: ["https://picsum.photos/id/104/300/200"],
     discount: 0.4,
     isFeatured: false
   },
@@ -301,7 +301,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Comprehensive pet emergency kit",
     dateUpdated: new Date('2024-04-01'),
-    orderImageUrls: ["https://picsum.photos/id/231/300/200"],
+    imageUrls: ["https://picsum.photos/id/231/300/200"],
     discount: 0.2,
     isFeatured: true
   },
@@ -313,7 +313,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "GPS tracking training collar",
     dateUpdated: new Date('2024-04-03'),
-    orderImageUrls: ["https://picsum.photos/id/1025/300/200"],
+    imageUrls: ["https://picsum.photos/id/1025/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -325,7 +325,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Suction cup window bed for cats",
     dateUpdated: new Date('2024-04-07'),
-    orderImageUrls: ["https://picsum.photos/id/230/300/200"],
+    imageUrls: ["https://picsum.photos/id/230/300/200"],
     discount: 0.3,
     isFeatured: false
   },
@@ -337,7 +337,7 @@ export const browseOrderItems: Order[] =
     status: 'cancelled',
     description: "Silent spinner exercise wheel",
     dateUpdated: new Date('2024-04-09'),
-    orderImageUrls: ["https://picsum.photos/id/191/300/200"],
+    imageUrls: ["https://picsum.photos/id/191/300/200"],
     discount: 0.15,
     isFeatured: false
   },
@@ -349,7 +349,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "All-terrain pet stroller for dogs and cats",
     dateUpdated: new Date('2024-04-10'),
-    orderImageUrls: ["https://picsum.photos/id/1026/300/200"],
+    imageUrls: ["https://picsum.photos/id/1026/300/200"],
     discount: 0.25,
     isFeatured: true
   },
@@ -361,7 +361,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Self-cleaning automatic litter box",
     dateUpdated: new Date('2024-04-12'),
-    orderImageUrls: ["https://picsum.photos/id/234/300/200"],
+    imageUrls: ["https://picsum.photos/id/234/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -373,7 +373,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Buoyancy vest for water activities",
     dateUpdated: new Date('2024-04-17'),
-    orderImageUrls: ["https://picsum.photos/id/1027/300/200"],
+    imageUrls: ["https://picsum.photos/id/1027/300/200"],
     discount: 0.1,
     isFeatured: false
   },
@@ -385,7 +385,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Multi-level feeding and watering station",
     dateUpdated: new Date('2024-04-20'),
-    orderImageUrls: ["https://picsum.photos/id/109/300/200"],
+    imageUrls: ["https://picsum.photos/id/109/300/200"],
     discount: 0.35,
     isFeatured: false
   },
@@ -397,7 +397,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "WiFi pet camera with treat dispenser",
     dateUpdated: new Date('2024-04-22'),
-    orderImageUrls: ["https://picsum.photos/id/1028/300/200"],
+    imageUrls: ["https://picsum.photos/id/1028/300/200"],
     discount: 0.2,
     isFeatured: true
   },
@@ -409,7 +409,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Toothbrush and toothpaste for cats",
     dateUpdated: new Date('2024-04-25'),
-    orderImageUrls: ["https://picsum.photos/id/235/300/200"],
+    imageUrls: ["https://picsum.photos/id/235/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -421,7 +421,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Interactive treat puzzle games",
     dateUpdated: new Date('2024-04-30'),
-    orderImageUrls: ["https://picsum.photos/id/1029/300/200"],
+    imageUrls: ["https://picsum.photos/id/1029/300/200"],
     discount: 0.15,
     isFeatured: false
   },
@@ -433,7 +433,7 @@ export const browseOrderItems: Order[] =
     status: 'cancelled',
     description: "Complete desert habitat setup",
     dateUpdated: new Date('2024-05-02'),
-    orderImageUrls: ["https://picsum.photos/id/98/300/200"],
+    imageUrls: ["https://picsum.photos/id/98/300/200"],
     discount: 0.4,
     isFeatured: false
   },
@@ -445,7 +445,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Thermostat-controlled heating pad",
     dateUpdated: new Date('2024-05-03'),
-    orderImageUrls: ["https://picsum.photos/id/192/300/200"],
+    imageUrls: ["https://picsum.photos/id/192/300/200"],
     discount: 0.25,
     isFeatured: true
   },
@@ -457,7 +457,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "All-weather protective dog boots",
     dateUpdated: new Date('2024-05-05'),
-    orderImageUrls: ["https://picsum.photos/id/1030/300/200"],
+    imageUrls: ["https://picsum.photos/id/1030/300/200"],
     discount: 0.1,
     isFeatured: false
   },
@@ -469,7 +469,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Pheromone diffuser for anxious cats",
     dateUpdated: new Date('2024-05-10'),
-    orderImageUrls: ["https://picsum.photos/id/236/300/200"],
+    imageUrls: ["https://picsum.photos/id/236/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -481,7 +481,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Canister filter for large aquariums",
     dateUpdated: new Date('2024-05-14'),
-    orderImageUrls: ["https://picsum.photos/id/105/300/200"],
+    imageUrls: ["https://picsum.photos/id/105/300/200"],
     discount: 0.3,
     isFeatured: false
   },
@@ -493,7 +493,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Collapsible silicone travel bowls",
     dateUpdated: new Date('2024-05-15'),
-    orderImageUrls: ["https://picsum.photos/id/1031/300/200"],
+    imageUrls: ["https://picsum.photos/id/1031/300/200"],
     discount: 0.15,
     isFeatured: false
   },
@@ -505,7 +505,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Waterproof reflective raincoat",
     dateUpdated: new Date('2024-05-18'),
-    orderImageUrls: ["https://picsum.photos/id/1032/300/200"],
+    imageUrls: ["https://picsum.photos/id/1032/300/200"],
     discount: 0.2,
     isFeatured: false
   },
@@ -517,7 +517,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Assorted natural cat treats",
     dateUpdated: new Date('2024-05-22'),
-    orderImageUrls: ["https://picsum.photos/id/237/300/200"],
+    imageUrls: ["https://picsum.photos/id/237/300/200"],
     discount: 0.35,
     isFeatured: true
   },
@@ -529,7 +529,7 @@ export const browseOrderItems: Order[] =
     status: 'cancelled',
     description: "Breathable cage cover for night time",
     dateUpdated: new Date('2024-05-23'),
-    orderImageUrls: ["https://picsum.photos/id/110/300/200"],
+    imageUrls: ["https://picsum.photos/id/110/300/200"],
     discount: 0.1,
     isFeatured: false
   },
@@ -541,7 +541,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Digital pet weight scale",
     dateUpdated: new Date('2024-05-25'),
-    orderImageUrls: ["https://picsum.photos/id/1033/300/200"],
+    imageUrls: ["https://picsum.photos/id/1033/300/200"],
     discount: 0.25,
     isFeatured: false
   },
@@ -553,7 +553,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Self-cooling gel mat for hot weather",
     dateUpdated: new Date('2024-05-28'),
-    orderImageUrls: ["https://picsum.photos/id/1034/300/200"],
+    imageUrls: ["https://picsum.photos/id/1034/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -565,7 +565,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Stainless steel anti-spill bowl",
     dateUpdated: new Date('2024-06-01'),
-    orderImageUrls: ["https://picsum.photos/id/238/300/200"],
+    imageUrls: ["https://picsum.photos/id/238/300/200"],
     discount: 0.4,
     isFeatured: false
   },
@@ -577,7 +577,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Real-time location tracking collar",
     dateUpdated: new Date('2024-06-02'),
-    orderImageUrls: ["https://picsum.photos/id/1035/300/200"],
+    imageUrls: ["https://picsum.photos/id/1035/300/200"],
     discount: 0.15,
     isFeatured: true
   },
@@ -589,7 +589,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Submersible adjustable aquarium heater",
     dateUpdated: new Date('2024-06-05'),
-    orderImageUrls: ["https://picsum.photos/id/106/300/200"],
+    imageUrls: ["https://picsum.photos/id/106/300/200"],
     discount: 0.2,
     isFeatured: false
   },
@@ -601,7 +601,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Waterproof car seat protector",
     dateUpdated: new Date('2024-06-10'),
-    orderImageUrls: ["https://picsum.photos/id/1036/300/200"],
+    imageUrls: ["https://picsum.photos/id/1036/300/200"],
     discount: 0.3,
     isFeatured: false
   },
@@ -613,7 +613,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Assorted organic catnip toys",
     dateUpdated: new Date('2024-06-14'),
-    orderImageUrls: ["https://picsum.photos/id/239/300/200"],
+    imageUrls: ["https://picsum.photos/id/239/300/200"],
     discount: 0.1,
     isFeatured: false
   },
@@ -625,7 +625,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Modular playpen for small pets",
     dateUpdated: new Date('2024-06-15'),
-    orderImageUrls: ["https://picsum.photos/id/193/300/200"],
+    imageUrls: ["https://picsum.photos/id/193/300/200"],
     discount: 0.35,
     isFeatured: true
   },
@@ -637,7 +637,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Professional pet nail trimming set",
     dateUpdated: new Date('2024-06-18'),
-    orderImageUrls: ["https://picsum.photos/id/1037/300/200"],
+    imageUrls: ["https://picsum.photos/id/1037/300/200"],
     discount: 0.0,
     isFeatured: false
   },
@@ -649,7 +649,7 @@ export const browseOrderItems: Order[] =
     status: 'cancelled',
     description: "Inflatable swimming pool for dogs",
     dateUpdated: new Date('2024-06-21'),
-    orderImageUrls: ["https://picsum.photos/id/1038/300/200"],
+    imageUrls: ["https://picsum.photos/id/1038/300/200"],
     discount: 0.25,
     isFeatured: false
   },
@@ -661,7 +661,7 @@ export const browseOrderItems: Order[] =
     status: 'fresh',
     description: "Free-standing play stand for birds",
     dateUpdated: new Date('2024-06-22'),
-    orderImageUrls: ["https://picsum.photos/id/111/300/200"],
+    imageUrls: ["https://picsum.photos/id/111/300/200"],
     discount: 0.2,
     isFeatured: false
   },
@@ -673,7 +673,7 @@ export const browseOrderItems: Order[] =
     status: 'completed',
     description: "Enzymatic cleaner for pet accidents",
     dateUpdated: new Date('2024-06-27'),
-    orderImageUrls: ["https://picsum.photos/id/1039/300/200"],
+    imageUrls: ["https://picsum.photos/id/1039/300/200"],
     discount: 0.15,
     isFeatured: false
   },
@@ -685,7 +685,7 @@ export const browseOrderItems: Order[] =
     status: 'pending',
     description: "Suction cup window hammock for cats",
     dateUpdated: new Date('2024-06-28'),
-    orderImageUrls: ["https://picsum.photos/id/240/300/200"],
+    imageUrls: ["https://picsum.photos/id/240/300/200"],
     discount: 0.4,
     isFeatured: true
   }
