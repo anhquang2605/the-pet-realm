@@ -8,7 +8,7 @@ export interface Order{
     status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
     description: string; // Optional field for additional details
     dateUpdated: Date; // Optional field for tracking updates
-    orderImageUrls: string[]; // Array of image URLs associated with the order
+    imageUrls: string[]; // Array of image URLs associated with the order
     discount: number; // Optional field for discount percentage
     isFeatured: boolean;
 }
@@ -20,7 +20,7 @@ export interface RawOrder{
     status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
     description: string; // Optional field for additional details
     dateUpdated: string; // Optional field for tracking updates
-    orderImageUrls: string[]; // Array of image URLs associated with the order
+    imageUrls: string[]; // Array of image URLs associated with the order
     discount: number; // Optional field for discount percentage
     isFeatured: boolean;
 }
