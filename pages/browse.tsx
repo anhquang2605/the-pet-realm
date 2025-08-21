@@ -39,6 +39,7 @@ const Browse: React.FC<BrowseProps> = ({
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
     useEffect(()=>{
         //setOrderItems(convertToOrders(orders));
+        console.log('Orders:', orders);
     }, [orders]);
     return (
         <div className={style['browse']}>
