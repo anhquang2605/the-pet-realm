@@ -38,14 +38,13 @@ const Browse: React.FC<BrowseProps> = ({
 }) => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
     useEffect(()=>{
-        //setOrderItems(convertToOrders(orders));
-        console.log('Orders:', orders);
+        setOrderItems(convertToOrders(orders));
     }, [orders]);
     return (
         <div className={style['browse']}>
            <OrderFilter />
            <OrderSorter />
-          {/*  <OrderViewer orders={orderItems} /> */}
+           <OrderViewer orders={orderItems} />
         </div>
     );
 };
