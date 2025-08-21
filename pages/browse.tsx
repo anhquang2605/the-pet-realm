@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use, useEffect } from 'react';
 import style from './page-styles/browse.module.css';
 import { browseOrderItems } from '../local_data/mock-order-data';
 import { Order, RawOrder } from '../types/order';
@@ -31,8 +31,10 @@ export async function getStaticProps() {
 const Browse: React.FC<BrowseProps> = ({
     orders
 }) => {
-    const [orderItems, setOrderItems] = React.useState<RawOrder[]>(orders);
-
+    const [orderItems, setOrderItems] = React.useState<Order[]>([]);
+    useEffect(()=>{
+        setOrderItems(convertToOrders(orders));
+    }, [orders]);
     return (
         <div className={style['browse']}>
             
