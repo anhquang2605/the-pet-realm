@@ -3,6 +3,9 @@ import style from './page-styles/browse.module.css';
 import { browseOrderItems } from '../local_data/mock-order-data';
 import { Order, RawOrder } from '../types/order';
 import PetCard from '../components/universals/pet-card/pet-card';
+import OrderFilter from '../components/sections/browse-components/order-fitler/order-filter';
+import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
+import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
 interface BrowseProps {
     orders: RawOrder[]
 }
@@ -39,17 +42,9 @@ const Browse: React.FC<BrowseProps> = ({
     }, [orders]);
     return (
         <div className={style['browse']}>
-            {
-                orderItems.length > 0 ? 
-                (
-                    orderItems.map((order: Order, index: number) => (
-                        <PetCard key={index} name={order.name} price={order.price} imageUrl={order.imageUrls[0]} description={order.description} discount={order.discount} />
-                    )
-                )) : 
-                (
-                    <p>Loading...</p>
-                )
-            }
+           <OrderFilter />
+           <OrderSorter />
+           <OrderViewer orders={orderItems} />
         </div>
     );
 };
