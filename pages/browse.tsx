@@ -28,12 +28,23 @@ export async function getStaticProps() {
     return { props,
     };
 }
-const Browse: React.FC<BrowseProps> = ({}) => {
+const Browse: React.FC<BrowseProps> = ({
+    orders
+}) => {
+    const [orderItems, setOrderItems] = React.useState<RawOrder[]>(orders);
+
     return (
         <div className={style['browse']}>
-            Browse
+            
         </div>
     );
 };
 
+const convertToOrders = (rawOrders: RawOrder[]): Order[] => {
+    return rawOrders.map((rawOrder) => ({
+        ...rawOrder,
+        dateCreated: new Date(rawOrder.dateCreated),
+        dateUpdated: new Date(rawOrder.dateUpdated),
+    }));    
+}
 export default Browse;
