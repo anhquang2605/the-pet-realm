@@ -1,8 +1,7 @@
-import React, { use, useEffect } from 'react';
+import React, {useEffect } from 'react';
 import style from './page-styles/browse.module.css';
 import { browseOrderItems } from '../local_data/mock-order-data';
 import { Order, RawOrder } from '../types/order';
-import PetCard from '../components/universals/pet-card/pet-card';
 import OrderFilter from '../components/sections/browse-components/order-fitler/order-filter';
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
@@ -23,7 +22,6 @@ export async function getStaticProps() {
     if (browseData) {
        const rawOrders: RawOrder[] = browseData.map((order: Order) => ({
             ...order,
-            id: order.id.toString(),
             dateCreated: order.dateCreated.toISOString(), // Convert Date to ISO string
             dateUpdated: order.dateUpdated.toISOString(), // Convert Date to ISO string
         }));
