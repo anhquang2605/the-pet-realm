@@ -1,5 +1,4 @@
 import React, {useEffect } from 'react';
-import style from './page-styles/browse.module.css';
 /* import { browseOrderItems } from '../local_data/mock-order-data'; */
 import { Order, RawOrder } from '../types/order';
 import OrderFilter from '../components/sections/browse-components/order-fitler/order-filter';
@@ -31,15 +30,15 @@ export async function getStaticProps() {
     return { props,
     };
 }
-const Browse: React.FC<BrowseProps> = ({
+const Shop: React.FC<BrowseProps> = ({
     orders
 }) => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
     useEffect(()=>{
-        setOrderItems(convertToOrders(orders));
+        //setOrderItems(convertToOrders(orders));
     }, [orders]);
     return (
-        <div className={style['browse']}>
+        <div className={""}>
            <OrderFilter />
            <OrderSorter />
            <OrderViewer orders={orderItems} />
@@ -54,4 +53,4 @@ const convertToOrders = (rawOrders: RawOrder[]): Order[] => {
         dateUpdated: new Date(rawOrder.dateUpdated),
     }));    
 }
-export default Browse;
+export default Shop;
