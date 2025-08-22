@@ -16,7 +16,6 @@ const Test: React.FC<TestProps> = ({ data }) => {
   return (
     <div>
       <h1>Test Page</h1>
-      <p>Data: {JSON.stringify(data)}</p>
     </div>
   );
 };
