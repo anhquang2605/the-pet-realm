@@ -1,6 +1,6 @@
 import React, {useEffect } from 'react';
 import style from './page-styles/browse.module.css';
-import { browseOrderItems } from '../local_data/mock-order-data';
+/* import { browseOrderItems } from '../local_data/mock-order-data'; */
 import { Order, RawOrder } from '../types/order';
 import OrderFilter from '../components/sections/browse-components/order-fitler/order-filter';
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
@@ -10,7 +10,7 @@ interface BrowseProps {
 }
 const fetchBrowseData = async () => {
     // Simulate fetching data for the browse page
-    const data =  browseOrderItems; // This would be replaced with an actual API call
+    const data: Order[] =  []; //browseOrderItems; // This would be replaced with an actual API call
     return data;
 }
 export async function getStaticProps() {
