@@ -1,6 +1,8 @@
-import React, {useEffect } from 'react';
-/* import { browseOrderItems } from '../local_data/mock-order-data'; */
+import React, { use, useEffect } from 'react';
+import style from './page-styles/browse.module.css';
+import { browseOrderItems } from '../local_data/mock-order-data';
 import { Order, RawOrder } from '../types/order';
+import PetCard from '../components/universals/pet-card/pet-card';
 import OrderFilter from '../components/sections/browse-components/order-fitler/order-filter';
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
@@ -9,7 +11,7 @@ interface BrowseProps {
 }
 const fetchBrowseData = async () => {
     // Simulate fetching data for the browse page
-    const data: Order[] =  []; //browseOrderItems; // This would be replaced with an actual API call
+    const data =  browseOrderItems; // This would be replaced with an actual API call
     return data;
 }
 export async function getStaticProps() {
@@ -21,6 +23,7 @@ export async function getStaticProps() {
     if (browseData) {
        const rawOrders: RawOrder[] = browseData.map((order: Order) => ({
             ...order,
+            id: order.id.toString(),
             dateCreated: order.dateCreated.toISOString(), // Convert Date to ISO string
             dateUpdated: order.dateUpdated.toISOString(), // Convert Date to ISO string
         }));
@@ -30,15 +33,15 @@ export async function getStaticProps() {
     return { props,
     };
 }
-const Shop: React.FC<BrowseProps> = ({
+const Browse: React.FC<BrowseProps> = ({
     orders
 }) => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
     useEffect(()=>{
-        //setOrderItems(convertToOrders(orders));
+        setOrderItems(convertToOrders(orders));
     }, [orders]);
     return (
-        <div className={""}>
+        <div className={style['browse']}>
            <OrderFilter />
            <OrderSorter />
            <OrderViewer orders={orderItems} />
@@ -53,4 +56,4 @@ const convertToOrders = (rawOrders: RawOrder[]): Order[] => {
         dateUpdated: new Date(rawOrder.dateUpdated),
     }));    
 }
-export default Shop;
+export default Browse;
