@@ -5,9 +5,8 @@
     gap: 32px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
     .order-viewer{
-        flex-direction: column;
         justify-content: space-between;
     }
     
