@@ -13,7 +13,9 @@ interface OrderFilterProps {
 const OrderFilter: React.FC<OrderFilterProps> = ({}) => {
     return (
         <section className={style['order-filter']}>
-           
+            <h2>Filter Orders</h2>
+            {/* Filter UI elements go here */}
+            
         </section>
     );
 };
