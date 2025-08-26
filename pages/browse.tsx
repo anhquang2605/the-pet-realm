@@ -49,7 +49,7 @@ const Browse: React.FC<BrowseProps> = ({
     }, [orders]);
     return (
         <div className={style['browse']}>
-           <OrderFilter />
+           <OrderFilter setFilter={setFilter} />
            <OrderSorter />
            <OrderViewer orders={orderItems} />
         </div>
