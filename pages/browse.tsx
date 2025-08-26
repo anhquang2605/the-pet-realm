@@ -38,6 +38,12 @@ const Browse: React.FC<BrowseProps> = ({
     orders
 }) => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
+    const [filter, setFilter] = React.useState<OrderFilterI>({
+        priceRange: [0, Infinity],
+        isDiscounted: false,
+        isOnHold: false,
+        isAvailable: true,
+    });
     useEffect(()=>{
         setOrderItems(convertToOrders(orders));
     }, [orders]);
