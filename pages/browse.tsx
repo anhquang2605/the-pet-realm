@@ -63,4 +63,13 @@ const convertToOrders = (rawOrders: RawOrder[]): Order[] => {
         dateUpdated: new Date(rawOrder.dateUpdated),
     }));    
 }
+const applyFilters = (orders: Order[], filter: OrderFilterI) => {
+    return orders.filter(order => {
+        const withinPriceRange = order.price >= filter.priceRange[0] && order.price <= filter.priceRange[1];
+        const matchesDiscount = filter.isDiscounted ? order.discount > 0 : true;
+        const matchesOnHold = filter.isOnHold ? order.status === 'pending' : true;
+        const matchesAvailability = filter.isAvailable ? order.status === 'fresh' : true;
+        return withinPriceRange && matchesDiscount && matchesOnHold && matchesAvailability;
+    });
+}
 export default Browse;
