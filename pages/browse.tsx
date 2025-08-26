@@ -47,6 +47,9 @@ const Browse: React.FC<BrowseProps> = ({
     useEffect(()=>{
         setOrderItems(convertToOrders(orders));
     }, [orders]);
+    useEffect(() => {
+        setOrderItems(applyFilters(orderItems, filter));
+    }, [filter]);
     return (
         <div className={style['browse']}>
            <OrderFilter setFilter={setFilter} />
