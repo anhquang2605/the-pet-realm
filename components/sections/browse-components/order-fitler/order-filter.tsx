@@ -10,10 +10,22 @@ interface OrderFilterProps {
     setFilter: React.Dispatch<React.SetStateAction<OrderFilterI>>;
     priceRange: [number, number];
 }
+interface CheckBoxes {
+    isDiscounted: boolean;
+    isOnHold: boolean;
+    isAvailable: boolean;
+}
 
 const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
     const minPrice = priceRange[0];
     const maxPrice = priceRange[1];
+    const [checkBoxes, setCheckBoxes] = React.useState<CheckBoxes>(
+        {
+            isDiscounted: false,
+            isOnHold: false,
+            isAvailable: false
+        }
+    );
     const onPriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
     }
