@@ -14,6 +14,12 @@ interface OrderFilterProps {
 const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
     const minPrice = priceRange[0];
     const maxPrice = priceRange[1];
+    const onPriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    }
+    const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        
+    }
     return (
         <section className={style['order-filter']}>
             <h2>Filter Orders</h2>
@@ -25,7 +31,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
                 </label>
                 <span className={`${style['price-range-values']}`}>
                     <span className={`${style['min-price']}`}>{minPrice}</span >
-
+                    <input type="range" min={minPrice} max={maxPrice} value={minPrice}  />
                     <span className={`${style['max-price']}`}>{maxPrice}</span>
                 </span>
                
