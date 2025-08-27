@@ -11,11 +11,18 @@ interface OrderFilterProps {
 }
 
 const OrderFilter: React.FC<OrderFilterProps> = ({}) => {
-    
+
     return (
         <section className={style['order-filter']}>
             <h2>Filter Orders</h2>
             {/* Filter UI elements go here */}
+            <div className={`${style['price-range']}`}>
+                <label>
+                    Price Range:
+                    <input type="range" min="0" max="1000" step="10" />
+                </label>
+                <span>$0 - $1000</span>
+            </div>
             <div className={`${style['checkbox-group']}`}>
                 <label>
                     <input type="checkbox" />
