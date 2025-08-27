@@ -12,9 +12,8 @@ interface OrderFilterProps {
 }
 
 const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
-    const [
-    minPrice = 0, maxPrice = 1000
-    ] = priceRange;
+    const minPrice = priceRange[0];
+    const maxPrice = priceRange[1];
     return (
         <section className={style['order-filter']}>
             <h2>Filter Orders</h2>
@@ -25,9 +24,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
                     
                 </label>
                 <span className={`${style['price-range-values']}`}>
-                    <span className={`${style['min-price']}`}></span >
+                    <span className={`${style['min-price']}`}>{minPrice}</span >
 
-                    <span className={`${style['max-price']}`}></span>
+                    <span className={`${style['max-price']}`}>{maxPrice}</span>
                 </span>
                
 
