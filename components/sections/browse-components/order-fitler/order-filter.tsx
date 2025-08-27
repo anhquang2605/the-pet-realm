@@ -7,7 +7,8 @@ export interface OrderFilterI {
     isAvailable: boolean;
 }
 interface OrderFilterProps {
-    setFilter: React.Dispatch<React.SetStateAction<OrderFilterI>>; 
+    setFilter: React.Dispatch<React.SetStateAction<OrderFilterI>>;
+    priceRange: [number, number];
 }
 
 const OrderFilter: React.FC<OrderFilterProps> = ({}) => {
