@@ -45,7 +45,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
                 </label>
                 <span className={`${style['price-range-values']}`}>
                     <span className={`${style['min-price']}`}>{minPrice}</span >
-                    <input type="range" min={minPrice} max={maxPrice} value={priceRangeValues[0]}  onChange={onPriceRangeChange}/>
+                   
                     <span className={`${style['max-price']}`}>{maxPrice}</span>
                 </span>
                
