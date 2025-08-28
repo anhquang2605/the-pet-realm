@@ -18,7 +18,7 @@ interface CheckBoxes {
     isAvailable: boolean;
 }
 
-const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
+const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     const minPrice = priceRange[0];
     const maxPrice = priceRange[1];
     const [priceRangeValues, setPriceRangeValues] = React.useState<[number, number]>(priceRange);
@@ -31,7 +31,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
     );
     const onPriceRangeChange = ( event: InputEvent ) => {
         setPriceRangeValues([event[0], event[1]]);
-    }
+    
     }
     const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         
