@@ -1,5 +1,7 @@
 import React from 'react';
 import style from './order-filter.module.css';
+import RangeSlider from '../../../universals/forms/ranges-slider/ranges-slider';
+
 export interface OrderFilterI {
     priceRange: [number, number];
     isDiscounted: boolean;
@@ -43,11 +45,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
                     Price Range:
                     
                 </label>
-                <span className={`${style['price-range-values']}`}>
-                    <span className={`${style['min-price']}`}>{minPrice}</span >
-                   
-                    <span className={`${style['max-price']}`}>{maxPrice}</span>
-                </span>
+                <RangeSlider min={minPrice} max={maxPrice} step={1} onChange={setPriceRangeValues} />
                
 
             </div>

@@ -89,3 +89,5 @@ const RangeSlider:React.FC<RangeSliderProps> = ({ min = 0, max = 100, step = 1, 
     </div>
   );
 }
+
+export default RangeSlider;
