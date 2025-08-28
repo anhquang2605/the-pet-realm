@@ -17,7 +17,7 @@ const RangeSlider:React.FC<RangeSliderProps> = ({ min = 0, max = 100, step = 1, 
     if (newRange[0] <= newRange[1]) {
         
       setRange(newRange);
-      onChange?.(newRange);
+      onChange?.(newRange as [number, number]);
     }
   };
 
