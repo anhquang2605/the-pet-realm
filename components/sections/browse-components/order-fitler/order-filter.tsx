@@ -29,9 +29,10 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
             isAvailable: false
         }
     );
-    const onPriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = Number(e.target.value);
-        setPriceRangeValues([minPrice, value]);
+    const onPriceRangeChange = (e: InputEvent) => {
+        const target = e.target as HTMLInputElement;
+        const values = target.value.split(',').map(Number) as [number, number];
+        setPriceRangeValues(values);
     }
     const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         
@@ -45,7 +46,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
                     Price Range:
                     
                 </label>
-                <RangeSlider min={minPrice} max={maxPrice} step={1} value={priceRangeValues} />
+                <RangeSlider min={minPrice} max={maxPrice} step={1} value={priceRangeValues} onInput={
+                    onPriceRangeChange
+                } />
                
 
             </div>
