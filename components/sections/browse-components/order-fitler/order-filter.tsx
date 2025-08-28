@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { use } from 'react';
 import style from './order-filter.module.css';
-import RangeSlider from 'react-range-slider-input';
+import RangeSlider, { InputEvent } from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 export interface OrderFilterI {
     priceRange: [number, number];
@@ -29,10 +29,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange}) => {
             isAvailable: false
         }
     );
-    const onPriceRangeChange = (e: InputEvent) => {
-        const target = e.target as HTMLInputElement;
-        const values = target.value.split(',').map(Number) as [number, number];
-        setPriceRangeValues(values);
+    const onPriceRangeChange = ( event: InputEvent ) => {
+        setPriceRangeValues([event[0], event[1]]);
+    }
     }
     const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         
