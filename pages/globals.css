@@ -32,7 +32,7 @@ h1, h2, h3 {
 
 /* customed range-slider */
 #order-filter .range-slider .range-slider__thumb{
-    background: purple;
+    background: green;
     padding: 2px;
     display: flex;
     align-items: center;
