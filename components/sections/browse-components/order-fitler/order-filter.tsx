@@ -44,6 +44,10 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         theLowerNod.textContent = values[0].toString();
         theUpperNod.textContent = values[1].toString();
     }
+    const setStyleForNods = () => {
+        const theNods = document.querySelectorAll(`.${style['order-filter']} .range-slider__thumb`);
+       
+    }
     return (
         <section className={style['order-filter']}>
             <h2>Filter Orders</h2>
