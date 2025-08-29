@@ -31,15 +31,17 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     );
     const onPriceRangeChange = ( event: InputEvent ) => {
         setPriceRangeValues([event[0], event[1]]);
-        changeLowerNodValue(event[0]);
+        changeNodValues(event);
     }
     const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         
     }
-    const changeLowerNodValue = (value: number) => {
+    const changeNodValues = (values: number[]) => {
         const theNods = document.querySelectorAll(`${style['order-filter']} .range-slider__thumb`);
-        const theNod = theNods[0] as HTMLElement;
-        theNod.textContent = value.toString();
+        const theLowerNod = theNods[0] as HTMLElement;
+        const theUpperNod = theNods[1] as HTMLElement;
+        theLowerNod.textContent = values[0].toString();
+        theUpperNod.textContent = values[1].toString();
     }
     return (
         <section className={style['order-filter']}>
