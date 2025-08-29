@@ -36,6 +36,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         
     }
+
     return (
         <section className={style['order-filter']}>
             <h2>Filter Orders</h2>
@@ -46,7 +47,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                 </label>
                 <RangeSlider min={minPrice} max={maxPrice} step={1} value={priceRangeValues} onInput={
                     onPriceRangeChange
-                } />
+                } ariaLabel={[priceRangeValues[0].toString(), priceRangeValues[1].toString()]} />
                
 
             </div>
