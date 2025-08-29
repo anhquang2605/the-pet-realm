@@ -36,6 +36,14 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     const onDiscountedChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
         const newValue = event.target.checked;
         setCheckBoxes((prev) => ({...prev, isDiscounted: newValue}));
+    }
+    const onHoldChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
+        const newValue = event.target.checked;
+        setCheckBoxes((prev) => ({...prev, isOnHold: newValue}));
+    }
+    const onAvailableChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
+        const newValue = event.target.checked;
+        setCheckBoxes((prev) => ({...prev, isAvailable: newValue}));
     }    
     const changeNodValues = (values: number[]) => {
         const theNods = document.querySelectorAll(`.${style['order-filter']} .range-slider__thumb`);
@@ -45,6 +53,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         theLowerNod.textContent = values[0].toString();
         theUpperNod.textContent = values[1].toString();
     }
+
     return (
         <section id="order-filter" className={style['order-filter']}>
             <h2>Filter Orders</h2>
