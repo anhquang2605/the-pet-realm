@@ -60,7 +60,7 @@ const Browse: React.FC<BrowseProps> = ({
         setOrderItems(applyFilters(orderItems, filter));
     }, [filter]);
     return (
-        <div className={style['browse']}>
+        <div id="browse-page" className={style['browse']}>
            <OrderFilter setFilter={setFilter} priceRange={priceRange} />
            <OrderSorter />
            <OrderViewer orders={orderItems} />
