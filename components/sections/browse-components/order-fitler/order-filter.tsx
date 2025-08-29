@@ -33,9 +33,10 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         setPriceRangeValues([event[0], event[1]]);
         changeNodValues(event);
     }
-    const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        
-    }
+    const onDiscountedChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
+        const newCheckBoxes = {...checkBoxes, isDiscounted: event.target.checked};
+        setCheckBoxes(newCheckBoxes);
+    }    
     const changeNodValues = (values: number[]) => {
         const theNods = document.querySelectorAll(`.${style['order-filter']} .range-slider__thumb`);
         if(theNods.length < 2) return;
