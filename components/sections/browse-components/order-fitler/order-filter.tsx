@@ -37,7 +37,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         
     }
     const changeLowerNodValue = (value: number) => {
-        const theNods = document.getElementsByClassName('range-slider__thumb');
+        const theNods = document.querySelectorAll(`${style['order-filter']} .range-slider__thumb`);
         const theNod = theNods[0] as HTMLElement;
         theNod.textContent = value.toString();
     }
