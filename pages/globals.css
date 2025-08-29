@@ -29,3 +29,8 @@ h1, h2, h3 {
 .main-bg{
   background-color: var(--main-bg);
 }
+
+/* customed range-slider */
+#order-filter .range-slider .range-slider__thumb{
+    background: purple;
+}

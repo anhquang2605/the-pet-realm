@@ -7,7 +7,7 @@ import OrderFilter from '../components/sections/browse-components/order-fitler/o
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
 import { OrderFilterI } from '../components/sections/browse-components/order-fitler/order-filter';
-import '../pages/page-styles/browse-customed-slider.css';
+
 interface BrowseProps {
     orders: RawOrder[];
     priceRange?: [number, number];
