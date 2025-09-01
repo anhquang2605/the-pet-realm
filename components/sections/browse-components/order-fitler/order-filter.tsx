@@ -31,7 +31,6 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     );
     const onPriceRangeChange = ( event: InputEvent ) => {
         setPriceRangeValues([event[0], event[1]]);
-        changeNodValues(event);
     }
     const onDiscountedChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
         const newValue = event.target.checked;
@@ -45,14 +44,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         const newValue = event.target.checked;
         setCheckBoxes((prev) => ({...prev, isAvailable: newValue}));
     }    
-    const changeNodValues = (values: number[]) => {
-        const theNods = document.querySelectorAll(`.${style['order-filter']} .range-slider__thumb`);
-        if(theNods.length < 2) return;
-        const theLowerNod = theNods[0] as HTMLElement;
-        const theUpperNod = theNods[1] as HTMLElement;
-        theLowerNod.textContent = values[0].toString();
-        theUpperNod.textContent = values[1].toString();
-    }
+
 
     return (
         <section id="order-filter" className={style['order-filter']}>
@@ -61,6 +53,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
             <div className={`${style['price-range']}`}>
                 <label>
                     Price Range:
+                    <span> ${priceRangeValues[0]} - ${priceRangeValues[1]}</span>
                 </label>
                 <RangeSlider min={minPrice} max={maxPrice} step={1} value={priceRangeValues} onInput={
                     onPriceRangeChange
