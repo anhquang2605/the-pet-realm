@@ -2,7 +2,6 @@ import React, { use, useEffect } from 'react';
 import style from './page-styles/browse.module.css';
 import { browseOrderItems } from '../local_data/mock-order-data';
 import { Order, RawOrder } from '../types/order';
-import PetCard from '../components/universals/pet-card/pet-card';
 import OrderFilter from '../components/sections/browse-components/order-fitler/order-filter';
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
