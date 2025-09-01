@@ -44,7 +44,12 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         const newValue = event.target.checked;
         setCheckBoxes((prev) => ({...prev, isAvailable: newValue}));
     }    
-
+    const applyFilters = () => {
+        setFilter({
+            priceRange: priceRangeValues,
+            ...checkBoxes
+        });
+    }
 
     return (
         <section id="order-filter" className={style['order-filter']}>
@@ -75,6 +80,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                     Available
                 </label>
             </div>
+            <button onClick={applyFilters}>Apply Filters</button>
         </section>
     );
 };
