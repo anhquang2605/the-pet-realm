@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import style from './order-filter.module.css';
 import RangeSlider, { InputEvent } from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
+import ActionButton from '../../../universals/buttons/action-button/action-button';
 export interface OrderFilterI {
     priceRange: [number, number];
     isDiscounted: boolean;
@@ -80,7 +81,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                     Available
                 </label>
             </div>
-            <button onClick={applyFilters}>Apply Filters</button>
+            <ActionButton type="add" title="Apply Filters" onClick={applyFilters} />
         </section>
     );
 };
