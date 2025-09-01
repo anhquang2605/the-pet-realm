@@ -51,17 +51,16 @@ const Browse: React.FC<BrowseProps> = ({
         priceRange: [0, Infinity],
         isDiscounted: false,
         isOnHold: false,
-        isAvailable: true,
+        isAvailable: false,
     });
-    useEffect(()=>{
+    useEffect(()=>{  
         setOrderItems(convertToOrders(orders));
     }, [orders]);
     useEffect(() => {
-        setOrderItems(applyFilters(orderItems, filter));
+        if(orderItems.length > 0){
+             setOrderItems(applyFilters(orderItems, filter));
+        }
     }, [filter]);
-    useEffect(() => {
-        console.log(orderItems);
-    }, [orderItems]);
     return (
         <div id="browse-page" className={style['browse']}>
            <OrderFilter setFilter={setFilter} priceRange={priceRange} />
@@ -84,7 +83,6 @@ const applyFilters = (orders: Order[], filter: OrderFilterI) => {
         const matchesDiscount = filter.isDiscounted ? order.discount > 0 : true;
         const matchesOnHold = filter.isOnHold ? order.status === 'pending' : true;
         const matchesAvailability = filter.isAvailable ? order.status === 'fresh' : true;
-        console.log(`Order: ${order.name}, Price: ${order.price}, Within Price Range: ${withinPriceRange}, Matches Discount: ${matchesDiscount}, Matches On Hold: ${matchesOnHold}, Matches Availability: ${matchesAvailability}`);
         return withinPriceRange && matchesDiscount && matchesOnHold && matchesAvailability;
     });
 }
