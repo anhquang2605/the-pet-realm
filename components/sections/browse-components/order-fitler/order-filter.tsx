@@ -81,7 +81,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                     Available
                 </label>
             </div>
-            <ActionButton type="add" title="Apply Filters" onClick={applyFilters} />
+            <ActionButton type="link" color="green" title="Apply Filters" onClick={applyFilters} />
         </section>
     );
 };

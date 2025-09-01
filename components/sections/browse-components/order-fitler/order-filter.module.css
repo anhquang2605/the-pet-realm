@@ -1,3 +1,17 @@
 .order-filter{
-    
+    padding: var(--half-spacing);
+    gap: var(--quarter-spacing);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: calc(var(--spacing) * 2);
+    background:  rgb(53, 71, 105); 
+    color: white;
+}
+
+@media screen and (min-width: 768px) {
+    .order-filter{
+        width: 25%;
+        padding-top: var(--half-spacing);
+    }
 }
