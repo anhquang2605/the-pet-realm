@@ -37,10 +37,14 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
+    border: 2px solid white;
   }
 
-#order-filter .range-slider .range-slider__thumb:hover{
-    background: lightgreen;
+#order-filter .range-slider .range-slider__thumb:hover, #order-filter .range-slider .range-slider__thumb:active{
+    background: rgb(3, 184, 3);
 
+}
+
+#order-filter .range-slider .range-slider__range{
+    background: mediumspringgreen;
 }
