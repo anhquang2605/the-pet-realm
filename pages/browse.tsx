@@ -84,6 +84,7 @@ const applyFilters = (orders: Order[], filter: OrderFilterI) => {
         const matchesDiscount = filter.isDiscounted ? order.discount > 0 : true;
         const matchesOnHold = filter.isOnHold ? order.status === 'pending' : true;
         const matchesAvailability = filter.isAvailable ? order.status === 'fresh' : true;
+        console.log(`Order: ${order.name}, Price: ${order.price}, Within Price Range: ${withinPriceRange}, Matches Discount: ${matchesDiscount}, Matches On Hold: ${matchesOnHold}, Matches Availability: ${matchesAvailability}`);
         return withinPriceRange && matchesDiscount && matchesOnHold && matchesAvailability;
     });
 }
