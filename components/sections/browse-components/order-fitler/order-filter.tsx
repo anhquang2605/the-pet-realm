@@ -71,16 +71,16 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
             <div className={`${style['checkbox-group']}`}>
                 
                 <fieldset className={style['checkbox-item']}>
-                    <input type="checkbox" onChange={onDiscountedChange} />
-                    <label>Discounted</label>
+                    <input id="browse__discounted" type="checkbox" onChange={onDiscountedChange} />
+                    <label htmlFor="browse-discounted">Discounted</label>
                 </fieldset>
                 <fieldset className={style['checkbox-item']}>
-                    <input type="checkbox" onChange={onHoldChange} />
-                    <label>On Hold</label>
+                    <input id="browse__on-hold" type="checkbox" onChange={onHoldChange} />
+                    <label htmlFor="browse__on-hold">On Hold</label>
                 </fieldset>
                 <fieldset className={style['checkbox-item']}>
-                    <input type="checkbox" onChange={onAvailableChange} />
-                    <label>Available</label>
+                    <input id="browse__available" type="checkbox" onChange={onAvailableChange} />
+                    <label htmlFor="browse__available">Available</label>
                 </fieldset>
             </div>
             <ActionButton type="link" color="green" title="Apply Filters" onClick={applyFilters} />
