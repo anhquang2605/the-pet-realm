@@ -46,10 +46,11 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         setCheckBoxes((prev) => ({...prev, isAvailable: newValue}));
     }    
     const applyFilters = () => {
-        setFilter({
+        const newFilter: OrderFilterI = {
             priceRange: priceRangeValues,
             ...checkBoxes
-        });
+        }
+        setFilter(newFilter);
     }
 
     return (
