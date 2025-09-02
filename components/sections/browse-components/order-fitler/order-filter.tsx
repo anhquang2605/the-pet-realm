@@ -57,7 +57,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         <section id="order-filter" className={style['order-filter']}>
             <h2>Filter Orders</h2>
             {/* Filter UI elements go here */}
-            <div className={`${style['price-range']}`}>
+            <fieldset className={`${style['price-range']}`}>
                 <span>
                     Price Range:
                     <span> ${priceRangeValues[0]} - ${priceRangeValues[1]}</span>
@@ -67,21 +67,21 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                 } ariaLabel={[priceRangeValues[0].toString(), priceRangeValues[1].toString()]} />
                
 
-            </div>
+            </fieldset>
             <div className={`${style['checkbox-group']}`}>
                 
-                <span className={style['checkbox-item']}>
+                <fieldset className={style['checkbox-item']}>
                     <input type="checkbox" onChange={onDiscountedChange} />
                     <label>Discounted</label>
-                </span>
-                <span className={style['checkbox-item']}>
+                </fieldset>
+                <fieldset className={style['checkbox-item']}>
                     <input type="checkbox" onChange={onHoldChange} />
                     <label>On Hold</label>
-                </span>
-                <span className={style['checkbox-item']}>
+                </fieldset>
+                <fieldset className={style['checkbox-item']}>
                     <input type="checkbox" onChange={onAvailableChange} />
                     <label>Available</label>
-                </span>
+                </fieldset>
             </div>
             <ActionButton type="link" color="green" title="Apply Filters" onClick={applyFilters} />
         </section>
