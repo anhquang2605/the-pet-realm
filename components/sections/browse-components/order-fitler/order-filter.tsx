@@ -57,10 +57,10 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
             <h2>Filter Orders</h2>
             {/* Filter UI elements go here */}
             <div className={`${style['price-range']}`}>
-                <label>
+                <span>
                     Price Range:
                     <span> ${priceRangeValues[0]} - ${priceRangeValues[1]}</span>
-                </label>
+                </span>
                 <RangeSlider min={minPrice} max={maxPrice} step={1} value={priceRangeValues} onInput={
                     onPriceRangeChange
                 } ariaLabel={[priceRangeValues[0].toString(), priceRangeValues[1].toString()]} />
@@ -68,18 +68,19 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
 
             </div>
             <div className={`${style['checkbox-group']}`}>
-                <label>
+                
+                <span>
                     <input type="checkbox" onChange={onDiscountedChange} />
-                    Discounted
-                </label>
-                <label>
+                    <label>Discounted</label>
+                </span>
+                <span>
                     <input type="checkbox" onChange={onHoldChange} />
-                    On Hold
-                </label>
-                <label>
+                    <label>On Hold</label>
+                </span>
+                <span>
                     <input type="checkbox" onChange={onAvailableChange} />
-                    Available
-                </label>
+                    <label>Available</label>
+                </span>
             </div>
             <ActionButton type="link" color="green" title="Apply Filters" onClick={applyFilters} />
         </section>
