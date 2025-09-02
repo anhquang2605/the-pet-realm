@@ -58,32 +58,32 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
             <h2>Filter Orders</h2>
             {/* Filter UI elements go here */}
             <fieldset className={`${style['price-range']}`}>
-                <span>
-                    Price Range:
-                    <span> ${priceRangeValues[0]} - ${priceRangeValues[1]}</span>
-                </span>
+                <legend>Price Range</legend>
+                
+                <span> ${priceRangeValues[0]} - ${priceRangeValues[1]}</span>
+                
                 <RangeSlider min={minPrice} max={maxPrice} step={1} value={priceRangeValues} onInput={
                     onPriceRangeChange
                 } ariaLabel={[priceRangeValues[0].toString(), priceRangeValues[1].toString()]} />
                
 
             </fieldset>
-            <div className={`${style['checkbox-group']}`}>
-                
-                <fieldset className={style['checkbox-item']}>
+            <fieldset className={`${style['checkbox-group']}`}>
+                <legend>Options</legend>
+                <div className={style['checkbox-item']}>
                     <input id="browse__discounted" type="checkbox" onChange={onDiscountedChange} />
-                    <label htmlFor="browse-discounted">Discounted</label>
-                </fieldset>
-                <fieldset className={style['checkbox-item']}>
+                    <label htmlFor="browse__discounted">Discounted</label>
+                </div>
+                <div className={style['checkbox-item']}>
                     <input id="browse__on-hold" type="checkbox" onChange={onHoldChange} />
                     <label htmlFor="browse__on-hold">On Hold</label>
-                </fieldset>
-                <fieldset className={style['checkbox-item']}>
+                </div>
+                <div className={style['checkbox-item']}>
                     <input id="browse__available" type="checkbox" onChange={onAvailableChange} />
                     <label htmlFor="browse__available">Available</label>
-                </fieldset>
-            </div>
-            <ActionButton type="link" color="green" title="Apply Filters" onClick={applyFilters} />
+                </div>
+            </fieldset>
+            <ActionButton type="link" color="deepskyblue" title="Apply Filters" onClick={applyFilters} />
         </section>
     );
 };
