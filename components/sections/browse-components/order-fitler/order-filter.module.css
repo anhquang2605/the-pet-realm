@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 100%;
     padding-top: calc(var(--spacing) * 2);
-    background:  rgb(53, 71, 105); 
+    background:  var(--third-bg);
     color: white;
 }
 
