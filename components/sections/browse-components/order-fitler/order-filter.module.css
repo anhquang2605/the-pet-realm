@@ -13,6 +13,14 @@
     flex-direction: column;
     gap: var(--half-spacing);
 }
+.checkbox-item{
+    display: flex;
+    align-items: center;
+    gap: var(--quarter-spacing);
+}
+.checkbox-item label{
+    margin-left: 4px;
+}
 @media screen and (min-width: 768px) {
     .order-filter{
         width: 25%;

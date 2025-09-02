@@ -69,15 +69,15 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
             </div>
             <div className={`${style['checkbox-group']}`}>
                 
-                <span>
+                <span className={style['checkbox-item']}>
                     <input type="checkbox" onChange={onDiscountedChange} />
                     <label>Discounted</label>
                 </span>
-                <span>
+                <span className={style['checkbox-item']}>
                     <input type="checkbox" onChange={onHoldChange} />
                     <label>On Hold</label>
                 </span>
-                <span>
+                <span className={style['checkbox-item']}>
                     <input type="checkbox" onChange={onAvailableChange} />
                     <label>Available</label>
                 </span>
