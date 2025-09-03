@@ -18,6 +18,9 @@
     justify-content: center;
     align-items: center;
 }
+.navigation-item__icon {
+    margin-right: 8px;
+}
 .navigation-item:last-child {
     border-bottom: var(--border);
 }

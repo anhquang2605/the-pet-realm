@@ -29,10 +29,10 @@ const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
             <ul className={style['navigation-list']}>
                 {NAVIGATION_ITEMS.map((item: NavigationItem, index: number) => (
                     <li key={index} className={style['navigation-item']} onClick={() => handleOnClick(item.href)}>
-                        <span className={style['navigation-icon']}>
+                        <span className={style['navigation-item__icon']}>
                             {item.icon}
                         </span>
-                         <span className={style['navigation-title']}>
+                         <span className={style['navigation-item__title']}>
                             {item.title}
                         </span>
                     </li>
