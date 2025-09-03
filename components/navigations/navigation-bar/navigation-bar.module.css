@@ -14,6 +14,9 @@
     width: 100%;
     border-top: var(--border);
     padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .navigation-item:last-child {
     border-bottom: var(--border);
