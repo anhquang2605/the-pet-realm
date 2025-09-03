@@ -7,6 +7,14 @@
     padding-top: calc(var(--spacing) * 2);
     background:  var(--main-bg);
     color: white;
+
+}
+.order-filter__title{
+   display: flex;
+    align-items: center;
+}
+.order-filter__text{
+    margin-left: 4px;
 }
 .price-range, .checkbox-group{
     display: flex;
@@ -21,6 +29,7 @@
 .checkbox-item label{
     margin-left: 4px;
 }
+
 @media screen and (min-width: 768px) {
     .order-filter{
         width: 25%;

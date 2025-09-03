@@ -14,6 +14,7 @@
   --mobile-checkpoint: 768px;
   --tablet-checkpoint: 1024px;
   --modification-color: deepskyblue;
+  --border-line-color: lightgray;
   }
 
 
@@ -51,8 +52,3 @@ h1, h2, h3 {
     background: mediumspringgreen;
 }
 
-.order-filter__title{
-   display: flex;
-    align-items: center;
-    justify-content: center;
-}
