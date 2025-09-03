@@ -56,7 +56,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
 
     return (
         <section id="order-filter" className={style['order-filter']}>
-            <h2 className={style['order-filter__title']}><BsFilter /> <span className="order-filter__text">Filter</span></h2>
+            <h3 className={style['order-filter__title']}><BsFilter /> <span className="order-filter__text">Filter</span></h3>
             {/* Filter UI elements go here */}
             <fieldset className={`${style['price-range']}`}>
                 <legend>Price Range</legend>
