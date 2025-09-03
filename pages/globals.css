@@ -50,3 +50,9 @@ h1, h2, h3 {
 #order-filter .range-slider .range-slider__range{
     background: mediumspringgreen;
 }
+
+.order-filter__title{
+   display: flex;
+    align-items: center;
+    justify-content: center;
+}
