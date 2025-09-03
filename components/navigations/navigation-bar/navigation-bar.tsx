@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './navigation-bar.module.css';
-import { BsHouse } from 'react-icons/bs';
+import { BsCart, BsHouse, BsPersonVcard } from 'react-icons/bs';
 
 interface NavigationBarProps {
 
@@ -12,8 +12,8 @@ interface NavigationItem {
 }
 const NAVIGATION_ITEMS = [
     { title: 'Home', href: '/', icon: <BsHouse/> },
-    { title: 'Browse Shop', href: '/browse', icon: null },
-    { title: 'Contact', href: '/contact', icon: null },
+    { title: 'Browse Shop', href: '/browse', icon: <BsCart/> },
+    { title: 'Contact', href: '/contact', icon: <BsPersonVcard/> },
 
 ]
 
