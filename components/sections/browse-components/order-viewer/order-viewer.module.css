@@ -3,11 +3,19 @@
     flex-wrap: wrap;
    justify-content: center;
     gap: 32px;
+    padding: var(--half-spacing);
+    width: 100%;
 }
 
 @media screen and (min-width: 768px) {
     .order-viewer{
         justify-content: space-between;
+        width: 75%;
     }
     
+}
+@media screen and (min-width: 1024px) {
+    .order-viewer{
+        width: 80%;
+    }
 }

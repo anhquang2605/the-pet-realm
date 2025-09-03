@@ -7,7 +7,6 @@
     padding-top: calc(var(--spacing) * 2);
     background:  var(--main-bg);
     color: white;
-
 }
 .order-filter__title{
    display: flex;
@@ -34,5 +33,11 @@
     .order-filter{
         width: 25%;
         padding-top: var(--half-spacing);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .order-filter{
+        width: 20%;
     }
 }
