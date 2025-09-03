@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './navigation-bar.module.css';
+import { BsHouse } from 'react-icons/bs';
 
 interface NavigationBarProps {
 
@@ -7,11 +8,12 @@ interface NavigationBarProps {
 interface NavigationItem {
     title: string;
     href: string;
+    icon: React.ReactNode;
 }
 const NAVIGATION_ITEMS = [
-    { title: 'Home', href: '/' },
-    { title: 'Browse Shop', href: '/browse' },
-    { title: 'Contact', href: '/contact' },
+    { title: 'Home', href: '/', icon: <BsHouse/> },
+    { title: 'Browse Shop', href: '/browse', icon: null },
+    { title: 'Contact', href: '/contact', icon: null },
 
 ]
 

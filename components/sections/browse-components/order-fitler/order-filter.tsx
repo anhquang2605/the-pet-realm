@@ -1,8 +1,9 @@
-import React, { use } from 'react';
+import React from 'react';
 import style from './order-filter.module.css';
 import RangeSlider, { InputEvent } from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 import ActionButton from '../../../universals/buttons/action-button/action-button';
+import { BsFilter } from "react-icons/bs";
 export interface OrderFilterI {
     priceRange: [number, number];
     isDiscounted: boolean;
@@ -55,7 +56,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
 
     return (
         <section id="order-filter" className={style['order-filter']}>
-            <h2>Filter Orders</h2>
+            <h2><BsFilter /> Filter</h2>
             {/* Filter UI elements go here */}
             <fieldset className={`${style['price-range']}`}>
                 <legend>Price Range</legend>
