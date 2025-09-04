@@ -58,9 +58,12 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         filterSection.classList.toggle(style['order-filter--active']);
     }
     return (
+        <>
+        <button className={style['filter-button--mobile']} onClick={revealMobileFilter}><BsFilter /> Filter </button>
+        
         <section id="order-filter" className={style['order-filter']}>
             <h3 className={style['order-filter__title']}><BsFilter /> <span className={style["order-filter__text"]}>Filter</span></h3>
-            <button  />
+            
             {/* Filter UI elements go here */}
             <fieldset className={`${style['price-range']}`}>
                 <legend>Price Range</legend>
@@ -90,6 +93,8 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
             </fieldset>
             <ActionButton type="link" color="deepskyblue" title="Apply Filters" onClick={applyFilters} />
         </section>
+        </>
+        
     );
 };
 
