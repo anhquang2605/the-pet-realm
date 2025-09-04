@@ -8,7 +8,7 @@
     background:  var(--main-bg);
     color: white;
     position: fixed;
-    top: 0;
+    top: -100%;
     left: 0;
     z-index: 20;
     height: 100vh;
@@ -32,6 +32,10 @@
 }
 .checkbox-item label{
     margin-left: 4px;
+}
+.order-filter--active{
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {

@@ -53,10 +53,14 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         }
         setFilter(newFilter);
     }
-
+    const revealMobileFilter = () => {
+        const filterSection = document.getElementsByClassName(style['order-filter'])[0];
+        filterSection.classList.toggle(style['order-filter--active']);
+    }
     return (
         <section id="order-filter" className={style['order-filter']}>
             <h3 className={style['order-filter__title']}><BsFilter /> <span className={style["order-filter__text"]}>Filter</span></h3>
+            <button  />
             {/* Filter UI elements go here */}
             <fieldset className={`${style['price-range']}`}>
                 <legend>Price Range</legend>
