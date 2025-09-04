@@ -7,6 +7,10 @@
     padding-top: calc(var(--spacing) * 2);
     background:  var(--main-bg);
     color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
 }
 .order-filter__title{
    display: flex;
@@ -33,6 +37,7 @@
     .order-filter{
         width: 25%;
         padding-top: var(--half-spacing);
+        position: relative;
     }
 }
 
