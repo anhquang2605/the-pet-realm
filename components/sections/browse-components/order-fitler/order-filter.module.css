@@ -11,6 +11,7 @@
     top: 0;
     left: 0;
     z-index: 20;
+    height: 100vh;
 }
 .order-filter__title{
    display: flex;
@@ -38,6 +39,7 @@
         width: 25%;
         padding-top: var(--half-spacing);
         position: relative;
+        height: auto;
     }
 }
 
