@@ -93,10 +93,12 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
             </fieldset>
             <ActionButton type="link" color="deepskyblue" title="Apply Filters" onClick={applyFilters} />
         </section>
-        <button className={style['filter-button--mobile']} onClick={revealMobileFilter}>
-            <BsFilter /> 
-            <span className={style["fitler-button__text"]}>Filter</span> 
-        </button>
+        <div className={style['filter-button-container']}>
+            <button className={style['filter-button--mobile']} onClick={revealMobileFilter}>
+                <BsFilter /> 
+                <span className={style["fitler-button__text"]}>Filter</span> 
+            </button>
+        </div>
         </>
         
     );
