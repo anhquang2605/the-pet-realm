@@ -41,6 +41,11 @@
     border-radius: 5px;
     padding: 4px;
     width: fit-content;
+    margin-right: auto;
+    align-items: flex-end;
+}
+.filter-button__text{
+    
 }
 @media screen and (min-width: 768px) {
     .order-filter{
