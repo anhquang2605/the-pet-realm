@@ -37,6 +37,9 @@
     transform: translateY(0);
     transition: transform 0.3s ease-in-out;
 }
+.filter-button-container{
+    
+}
 .filter-button--mobile{
     border-radius: 5px;
     padding: 4px;
@@ -45,7 +48,7 @@
     align-items: flex-end;
 }
 .filter-button__text{
-    
+
 }
 @media screen and (min-width: 768px) {
     .order-filter{
@@ -54,7 +57,7 @@
         position: relative;
         height: auto;
     }
-    .filter-button--mobile{
+    .filter-button-container{
         display: none;
     }
 }
