@@ -7,11 +7,6 @@
     padding-top: calc(var(--spacing) * 2);
     background:  var(--main-bg);
     color: white;
-    position: fixed;
-    top: -100%;
-    left: 0;
-    z-index: 20;
-    height: 100vh;
 }
 .order-filter__title{
    display: flex;
@@ -37,16 +32,18 @@
     transform: translateY(0);
     transition: transform 0.3s ease-in-out;
 }
+.filter-button--mobile{
+    border-radius: 5px;
+    padding: 4px;
+    width: fit-content;
 
+}
 @media screen and (min-width: 768px) {
     .order-filter{
         width: 25%;
         padding-top: var(--half-spacing);
         position: relative;
         height: auto;
-    }
-    .filter-button--mobile{
-        display: none;
     }
 }
 
