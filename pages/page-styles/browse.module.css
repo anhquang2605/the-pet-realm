@@ -4,9 +4,19 @@
     border-bottom: 1px solid var(--border-line-color);
     flex-direction: column;
 }
-
+.browse-main{
+    display: flex;
+    flex-direction: column;
+    gap: var(--half-spacing);
+    padding: var(--half-spacing);
+    flex: 1;
+}
 @media screen and (min-width: 767px) {
     .browse{
         flex-direction: row;
+    }
+    .browse-main{
+        width: 75%;
+        padding: var(--spacing);
     }
 }
