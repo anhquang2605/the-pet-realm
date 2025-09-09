@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './order-sorter.module.css';
 import DropDownList from '../../../universals/drop-down-list/drop-down-list';
-import { TbSortAscendingShapes, TbSortDescendingShapes } from "react-icons/tb";
+import { PiSortDescendingLight, PiSortAscendingLight  } from "react-icons/pi";
 interface OrderSorterProps {
 
 }
@@ -23,7 +23,7 @@ const OrderSorter: React.FC<OrderSorterProps> = ({}) => {
                 className={`${style['order-sorter__button']} ${isAscending ? style['order-sorter__button--ascending'] : style['order-sorter__button--descending']}`} 
                 onClick={() => setIsAscending((prev) => !prev)}
             >
-                {isAscending ? <TbSortAscendingShapes /> : <TbSortDescendingShapes />} 
+                {isAscending ? <PiSortAscendingLight /> : <PiSortDescendingLight />} 
             </button>
         </div>
     );
