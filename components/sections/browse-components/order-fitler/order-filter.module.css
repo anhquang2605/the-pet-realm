@@ -60,6 +60,8 @@
         padding-top: var(--half-spacing);
         position: relative;
         height: auto;
+        top: unset;
+        left: unset;
     }
     .filter-button-container{
         display: none;
