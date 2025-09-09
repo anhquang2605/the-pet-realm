@@ -13,13 +13,11 @@ const sortingOptions = [
 const OrderSorter: React.FC<OrderSorterProps> = ({}) => {
     return (
         <div className={style['order-sorter']}>
-            {
-                <DropDownList 
-                    items={sortingOptions} 
-                    actions={sortingOptions.map((option) => () => {})} 
-                    placeholder="Sort By"
-                />
-            }
+            <DropDownList 
+                items={sortingOptions} 
+                actions={sortingOptions.map((option) => () => {})} 
+                placeholder="Sort By"
+            />
         </div>
     );
 };
