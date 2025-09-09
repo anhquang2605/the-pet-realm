@@ -64,8 +64,11 @@ const Browse: React.FC<BrowseProps> = ({
     return (
         <div id="browse-page" className={style['browse']}>
            <OrderFilter setFilter={setFilter} priceRange={priceRange} />
-           <OrderSorter />
-           <OrderViewer orders={orderItems} />
+           <section className={style['browse-main']}>
+                <OrderSorter />
+                <OrderViewer orders={orderItems} />
+           </section>
+           
         </div>
     );
 };
