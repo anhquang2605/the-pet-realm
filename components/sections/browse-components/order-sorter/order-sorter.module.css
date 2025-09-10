@@ -7,3 +7,10 @@ flex: 1;
 /* make this component take up the remaining space pushing the other components to the new row */
 
 }
+
+@media  screen and (min-width: 768px) {
+    .order-sorter{
+        justify-content: flex-end;
+    }
+    
+}
