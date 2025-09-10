@@ -3,7 +3,6 @@
     flex-wrap: wrap;
    justify-content: center;
     gap: 32px;
-    padding: var(--half-spacing);
     width: 100%;
 }
 

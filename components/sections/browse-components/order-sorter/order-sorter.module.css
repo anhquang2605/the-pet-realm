@@ -5,6 +5,5 @@ gap: var(--quarter-spacing);
 width: 100%;
 flex: 1; 
 /* make this component take up the remaining space pushing the other components to the new row */
-order: 1;
 
 }
