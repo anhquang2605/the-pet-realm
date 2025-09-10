@@ -12,6 +12,14 @@
 @media screen and (min-width: 767px) {
     .browse{
         flex-direction: row;
+    }
+    .browse-main{
         width: 75%;
+        
+    }
+}
+@media screen and (min-width: 1024px) {
+    .browse-main{
+        width: 80%;
     }
 }
