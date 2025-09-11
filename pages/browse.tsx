@@ -47,12 +47,16 @@ const Browse: React.FC<BrowseProps> = ({
     priceRange = [0, 1000],
 }) => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
+    
     const [filter, setFilter] = React.useState<OrderFilterI>({
         priceRange: [0, Infinity],
         isDiscounted: false,
         isOnHold: false,
         isAvailable: false,
     });
+    //Sorter states
+    const [isAscending, setIsAscending] = React.useState(true);
+    const [sortBy, setSortBy] = React.useState<string>("Date Added");
     useEffect(()=>{  
         setOrderItems(convertToOrders(orders));
     }, [orders]);
@@ -65,7 +69,10 @@ const Browse: React.FC<BrowseProps> = ({
         <div id="browse-page" className={style['browse']}>
            <OrderFilter setFilter={setFilter} priceRange={priceRange} />
            <section className={style['browse-main']}>
-                <OrderSorter />
+                <OrderSorter
+                    setSortBy={setSortBy}
+                    setIsAscending={setIsAscending}
+                />
                 <OrderViewer orders={orderItems} />
            </section>
            
