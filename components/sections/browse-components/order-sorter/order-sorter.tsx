@@ -24,6 +24,7 @@ const OrderSorter: React.FC<OrderSorterProps> = ({
                 items={sortingOptions} 
                 actions={sortingOptions.map((option) => () => {})} 
                 placeholder="Sort By"
+                setSelectedItem={setSortBy}
             />
             <button 
                 className={`${style['order-sorter__button']} ${isAscending ? style['order-sorter__button--ascending'] : style['order-sorter__button--descending']}`} 
