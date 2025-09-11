@@ -8,7 +8,7 @@ type DropDownListProps = {
   setSelectedItem?: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder = "Select an option" }) => {
+const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder = "Select an option", setSelectedItem }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<string>(placeholder);
 
@@ -18,6 +18,10 @@ const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder
     setSelected(items[index]);
     setIsOpen(false);
     actions[index]?.(); // Trigger the action
+
+    if (setSelectedItem) {
+      setSelectedItem(items[index]);
+    }
   };
 
   return (
