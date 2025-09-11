@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import styles from "./drop-down-list.module.css";
 
 type DropDownListProps = {
-  items: string[];
+  items: OptionItem[];
   actions: (() => void)[];
   placeholder?: string;
   setSelectedItem?: React.Dispatch<React.SetStateAction<string>>;
 };
-
+export interface OptionItem{
+    title: string;
+    value: string;
+}
 const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder = "Select an option", setSelectedItem }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<string>(placeholder);
@@ -15,12 +18,12 @@ const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   const handleSelect = (index: number) => {
-    setSelected(items[index]);
+    setSelected(items[index].value);
     setIsOpen(false);
     actions[index]?.(); // Trigger the action
 
     if (setSelectedItem) {
-      setSelectedItem(items[index]);
+      setSelectedItem(items[index].value);
     }
   };
 
@@ -38,7 +41,7 @@ const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder
             className={styles.dropdownItem}
             onClick={() => handleSelect(idx)}
           >
-            {item}
+            {item.title}
           </li>
         ))}
       </ul>
