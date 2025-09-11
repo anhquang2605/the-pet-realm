@@ -5,6 +5,7 @@ type DropDownListProps = {
   items: string[];
   actions: (() => void)[];
   placeholder?: string;
+  setSelectedItem?: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder = "Select an option" }) => {
