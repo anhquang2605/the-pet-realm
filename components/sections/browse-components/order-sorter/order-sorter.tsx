@@ -3,7 +3,8 @@ import style from './order-sorter.module.css';
 import DropDownList from '../../../universals/drop-down-list/drop-down-list';
 import { PiSortDescendingLight, PiSortAscendingLight  } from "react-icons/pi";
 interface OrderSorterProps {
-
+    setSortBy?: React.Dispatch<React.SetStateAction<string>>;
+    setIsAscending?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const sortingOptions = [
     "Price",
