@@ -56,7 +56,7 @@ const Browse: React.FC<BrowseProps> = ({
     });
     //Sorter states
     const [isAscending, setIsAscending] = React.useState(true);
-    const [sortBy, setSortBy] = React.useState<string>("Date Added");
+    const [sortBy, setSortBy] = React.useState<string>("Date");
     useEffect(()=>{  
         setOrderItems(convertToOrders(orders));
     }, [orders]);

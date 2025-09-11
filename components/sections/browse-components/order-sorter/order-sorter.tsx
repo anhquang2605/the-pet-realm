@@ -8,10 +8,15 @@ interface OrderSorterProps {
     isAscending?: boolean;
 
 }
-const sortingOptions = [
-    "Price",
-    "Name",
-    "Date Added",
+
+const sortingOptions: OrderFilterI[] = [
+    {
+        title: "Date Added",
+        value: "Date"
+    },{
+        title: "Price",
+        value: "Price"
+    }
 ]
 const OrderSorter: React.FC<OrderSorterProps> = ({
     setSortBy,
