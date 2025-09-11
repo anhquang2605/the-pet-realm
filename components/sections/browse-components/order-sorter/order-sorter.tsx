@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import style from './order-sorter.module.css';
-import DropDownList from '../../../universals/drop-down-list/drop-down-list';
+import DropDownList, { OptionItem } from '../../../universals/drop-down-list/drop-down-list';
 import { PiSortDescendingLight, PiSortAscendingLight  } from "react-icons/pi";
 interface OrderSorterProps {
     setSortBy: React.Dispatch<React.SetStateAction<string>>;
@@ -9,7 +9,7 @@ interface OrderSorterProps {
 
 }
 
-const sortingOptions: OrderFilterI[] = [
+const sortingOptions: OptionItem[] = [
     {
         title: "Date Added",
         value: "Date"
