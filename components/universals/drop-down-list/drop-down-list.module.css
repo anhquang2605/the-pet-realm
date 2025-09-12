@@ -64,9 +64,11 @@
 }
 
 .dark {
-  background-color: var(--third-bg);
+  background: var(--third-bg);
+  color: white;
 }
 
 .dark:hover {
-  background-color: var(--secondary-bg);
+  background: var(--secondary-bg);
+  color: white;
 }
