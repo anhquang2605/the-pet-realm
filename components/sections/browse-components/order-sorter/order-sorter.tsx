@@ -36,7 +36,7 @@ const OrderSorter: React.FC<OrderSorterProps> = ({
                 setSelectedItem={setSortBy}
             />
             <button 
-                className={`${style['order-sorter__button']} ${isAscending ? style['order-sorter__button--ascending'] : style['order-sorter__button--descending']}`} 
+                className={`${style['order-sorter__asc_button']} ${isAscending ? style['order-sorter__button--ascending'] : style['order-sorter__button--descending']}`} 
                 onClick={() => setIsAscending((prev) => !prev)}
             >
                 {isAscending ? <PiSortAscendingLight /> : <PiSortDescendingLight />} 
