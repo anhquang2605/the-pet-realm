@@ -88,6 +88,7 @@ const Browse: React.FC<BrowseProps> = ({
                 <OrderSorter
                     setSortBy={setSortBy}
                     setIsAscending={setIsAscending}
+                    isAscending={isAscending}
                 />
                 <OrderViewer orders={orderItems} />
            </section>
