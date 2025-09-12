@@ -12,10 +12,14 @@ interface OrderSorterProps {
 const sortingOptions: OptionItem[] = [
     {
         title: "Date Added",
-        value: "Date"
+        value: "date"
     },{
         title: "Price",
-        value: "Price"
+        value: "price"
+    },
+    {
+        title: "Name",
+        value: "name"
     }
 ]
 const OrderSorter: React.FC<OrderSorterProps> = ({

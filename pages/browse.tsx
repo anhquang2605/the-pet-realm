@@ -66,8 +66,21 @@ const Browse: React.FC<BrowseProps> = ({
         }
     }, [filter]);
     useEffect(()=>{
-        
-    })
+        if(orderItems.length > 0){
+            const sortedOrders = [...orderItems].sort((a, b) => {
+                let comparison = 0;
+                if (sortBy === "date") {
+                    comparison = a.dateCreated.getTime() - b.dateCreated.getTime();
+                } else if (sortBy === "price") {
+                    comparison = a.price - b.price;
+                } else if (sortBy === "name") {
+                    comparison = a.name.localeCompare(b.name);
+                }
+                return isAscending ? comparison : -comparison;
+            });
+            setOrderItems(sortedOrders);
+        }
+    }, [isAscending, sortBy]);
     return (
         <div id="browse-page" className={style['browse']}>
            <OrderFilter setFilter={setFilter} priceRange={priceRange} />
