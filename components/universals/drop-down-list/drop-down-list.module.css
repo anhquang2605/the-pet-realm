@@ -75,3 +75,7 @@
   background: var(--secondary-bg);
   color: white;
 }
+
+.dark button:hover .arrow{
+  background: var(--secondary-bg);
+}
