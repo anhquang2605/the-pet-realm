@@ -63,12 +63,12 @@
   background-color: #f0f0f0;
 }
 
-.dark {
+.dark button {
   background: var(--third-bg);
   color: white;
 }
 
-.dark:hover {
+.dark button:hover {
   background: var(--secondary-bg);
   color: white;
 }
