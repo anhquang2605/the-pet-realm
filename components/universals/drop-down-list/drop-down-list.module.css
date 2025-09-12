@@ -62,3 +62,11 @@
 .dropdownItem:hover {
   background-color: #f0f0f0;
 }
+
+.dark {
+  background-color: var(--third-bg);
+}
+
+.dark:hover {
+  background-color: var(--secondary-bg);
+}

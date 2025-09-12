@@ -6,12 +6,13 @@ type DropDownListProps = {
   actions: (() => void)[];
   placeholder?: string;
   setSelectedItem?: React.Dispatch<React.SetStateAction<string>>;
+  darkMode?: boolean
 };
 export interface OptionItem{
     title: string;
     value: string;
 }
-const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder = "Select an option", setSelectedItem }) => {
+const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder = "Select an option", setSelectedItem, darkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<string>(placeholder);
 
@@ -28,7 +29,7 @@ const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder
   };
 
   return (
-    <div className={styles.dropdown}>
+    <div className={styles.dropdown + (darkMode ? ` ${styles.dark}` : "")}>
       <button className={styles.dropdownToggle} onClick={toggleDropdown}>
         {selected}
         <span className={`${styles.arrow} ${isOpen ? styles.open : ""}`} />
