@@ -63,7 +63,7 @@
   background-color: #f0f0f0;
 }
 
-.dark button, .dark .arrow {
+.dark button, .dark .arrow, .dark .dropdownMenu {
   background: var(--third-bg);
   color: white;
 }
@@ -73,7 +73,10 @@
 }
 .dark button:hover {
   background: var(--secondary-bg);
-  color: white;
+}
+
+.dark .dropdownItem:hover{
+  background: var(--secondary-bg);
 }
 
 .dark button:hover .arrow{

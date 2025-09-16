@@ -4,7 +4,7 @@ import styles from "./drop-down-list.module.css";
 type DropDownListProps = {
   items: OptionItem[];
   actions: (() => void)[];
-  placeholder?: string;
+  placeholder?: string ;
   setSelectedItem?: React.Dispatch<React.SetStateAction<string>>;
   darkMode?: boolean
 };
@@ -19,7 +19,7 @@ const DropDownList: React.FC<DropDownListProps> = ({ items, actions, placeholder
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   const handleSelect = (index: number) => {
-    setSelected(items[index].value);
+    setSelected(items[index].title);
     setIsOpen(false);
     actions[index]?.(); // Trigger the action
 
