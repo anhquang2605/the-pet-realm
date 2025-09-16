@@ -57,7 +57,20 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         const filterSection = document.getElementsByClassName(style['order-filter'])[0];
         filterSection.classList.toggle(style['order-filter--active']);
     }
-    
+    const handleRadioChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
+        const value = event.target.value;
+        switch(value){
+            case "all":
+                setCheckBoxes((prev) => ({...prev, isOnHold: false, isAvailable: false}));
+                break;
+            case "on-hold":
+                setCheckBoxes((prev) => ({...prev, isOnHold: true, isAvailable: false}));
+                break;
+            case "available":
+                setCheckBoxes((prev) => ({...prev, isOnHold: false, isAvailable: true}));
+                break;
+        }   
+    }
     return (
         <>
         
@@ -86,16 +99,14 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                 <div className={style['availability-options']}>
                     <span>Availability:</span>
                     <input type="radio" id="all" name="availability" value="all" defaultChecked onChange={() => setCheckBoxes((prev) => ({...prev, isOnHold: false, isAvailable: false}))}/>
+                    <label htmlFor="all">All</label>
+                    <input type="radio" id="on-hold" name="availability" value="on-hold" onChange={handleRadioChange} />
+                    <label htmlFor="on-hold">On Hold</label>
+                    <input type="radio" id="available" name="availability" value="available" onChange={handleRadioChange} />
+                    <label htmlFor="available">Available</label>
 
                 </div>
-                <div className={style['checkbox-item']}>
-                    <input id="browse__on-hold" type="checkbox" onChange={onHoldChange} />
-                    <label htmlFor="browse__on-hold">On Hold</label>
-                </div>
-                <div className={style['checkbox-item']}>
-                    <input id="browse__available" type="checkbox" onChange={onAvailableChange} />
-                    <label htmlFor="browse__available">Available</label>
-                </div>
+               
             </fieldset>
             <ActionButton type="link" color="deepskyblue" title="Apply Filters" onClick={applyFilters} />
         </section>
