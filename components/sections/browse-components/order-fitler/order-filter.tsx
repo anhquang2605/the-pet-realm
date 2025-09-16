@@ -57,6 +57,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         const filterSection = document.getElementsByClassName(style['order-filter'])[0];
         filterSection.classList.toggle(style['order-filter--active']);
     }
+    
     return (
         <>
         
@@ -81,6 +82,11 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                 <div className={style['checkbox-item']}>
                     <input id="browse__discounted" type="checkbox" onChange={onDiscountedChange} />
                     <label htmlFor="browse__discounted">Discounted</label>
+                </div>
+                <div className={style['availability-options']}>
+                    <span>Availability:</span>
+                    <input type="radio" id="all" name="availability" value="all" defaultChecked onChange={() => setCheckBoxes((prev) => ({...prev, isOnHold: false, isAvailable: false}))}/>
+
                 </div>
                 <div className={style['checkbox-item']}>
                     <input id="browse__on-hold" type="checkbox" onChange={onHoldChange} />
