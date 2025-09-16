@@ -97,13 +97,16 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                     <label htmlFor="browse__discounted">Discounted</label>
                 </div>
                 <div className={style['availability-options']}>
-                    <span>Availability:</span>
-                    <input type="radio" id="all" name="availability" value="all" defaultChecked onChange={() => setCheckBoxes((prev) => ({...prev, isOnHold: false, isAvailable: false}))}/>
-                    <label htmlFor="all">All</label>
-                    <input type="radio" id="on-hold" name="availability" value="on-hold" onChange={handleRadioChange} />
-                    <label htmlFor="on-hold">On Hold</label>
-                    <input type="radio" id="available" name="availability" value="available" onChange={handleRadioChange} />
-                    <label htmlFor="available">Available</label>
+                    <label htmlFor="availability">Availability:</label>
+                    <fieldset id="availability" className={style['radio-group']}>
+                        <input type="radio" id="all" name="availability" value="all" defaultChecked onChange={() => setCheckBoxes((prev) => ({...prev, isOnHold: false, isAvailable: false}))}/>
+                        <label htmlFor="all">All</label>
+                        <input type="radio" id="on-hold" name="availability" value="on-hold" onChange={handleRadioChange} />
+                        <label htmlFor="on-hold">On Hold</label>
+                        <input type="radio" id="available" name="availability" value="available" onChange={handleRadioChange} />
+                        <label htmlFor="available">Available</label>
+                    </fieldset>
+                    
                 </div>
                
             </fieldset>

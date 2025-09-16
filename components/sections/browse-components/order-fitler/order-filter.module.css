@@ -37,6 +37,28 @@
     transform: translateY(0);
     transition: transform 0.3s ease-in-out;
 }
+.availability-options{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--quarter-spacing);
+    width: 100%;
+}
+.availability-options span{
+    min-width: 100%;
+}
+.radio-group{
+    display: flex;
+    align-items: center;
+}
+.radio-group label{
+    margin-left: 4px;
+     margin-right: 20px;
+}
+.radio-gropu input{
+    cursor: pointer;
+   
+}
 .filter-button-container{
     display: flex;
     justify-content: flex-end;
