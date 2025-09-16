@@ -28,20 +28,20 @@
     flex-direction: column;
     color: white;
 }
-.discount{
-    color: orangered;
-}
-.original-price{
-    text-decoration: line-through;
-}
 .pet-price{
-    background-color: gold;
     padding: 4px;
     border-radius: 4px;
     font-weight: bold;
     width: max-content;
-    color: gray;
 }
+.discount{
+    color: orangered;
+    background-color: gold;
+}
+.original-price{
+    text-decoration: line-through;
+}
+
 
 .pet-name{
     font-weight: semibold;
