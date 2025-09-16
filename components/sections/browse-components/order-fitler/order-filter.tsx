@@ -104,7 +104,6 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                     <label htmlFor="on-hold">On Hold</label>
                     <input type="radio" id="available" name="availability" value="available" onChange={handleRadioChange} />
                     <label htmlFor="available">Available</label>
-
                 </div>
                
             </fieldset>
