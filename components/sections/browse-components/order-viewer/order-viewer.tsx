@@ -2,7 +2,7 @@ import React from 'react';
 import style from './order-viewer.module.css';
 import { Order } from '../../../../types/order';
 import PetCard from '../../../universals/pet-card/pet-card';
-
+import Image from 'next/image';
 interface OrderViewerProps {
     orders: Order[]
 }
@@ -18,7 +18,10 @@ const OrderViewer: React.FC<OrderViewerProps> = ({orders}) => {
                                 )
                             )) : 
                             (
-                                <p>Loading...</p>
+                                <section>
+                                    <h2>No orders found</h2>
+                                    <Image src="/assest/images/dogpet.webp" alt="No orders found" width={300} height={300} />
+                                </section>
                             )
                         }
         </div>
