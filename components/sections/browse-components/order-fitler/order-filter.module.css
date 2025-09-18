@@ -34,7 +34,7 @@
     margin-left: 4px;
 }
 .order-filter--active{
-    transform: translateY(0);
+    transform: translateY(100%);
     transition: transform 0.3s ease-in-out;
 }
 .availability-options{
