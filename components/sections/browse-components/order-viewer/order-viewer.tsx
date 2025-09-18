@@ -20,7 +20,7 @@ const OrderViewer: React.FC<OrderViewerProps> = ({orders}) => {
                             (
                                 <section>
                                     <h2>No orders found</h2>
-                                    <Image src="/assest/images/dogpet.webp" alt="No orders found" width={300} height={300} />
+                                    <Image src="/asset/images/dogpet.webp" alt="No orders found" width={250} height={250} />
                                 </section>
                             )
                         }
