@@ -18,8 +18,8 @@ const OrderViewer: React.FC<OrderViewerProps> = ({orders}) => {
                                 )
                             )) : 
                             (
-                                <section>
-                                    <h2>No orders found</h2>
+                                <section className={style['order-viewer__no-orders']}>
+                                    <p className={style['order-viewer__no-orders__text']}>No orders found</p>
                                     <Image src="/asset/images/dogpet.webp" alt="No orders found" width={250} height={250} />
                                 </section>
                             )
