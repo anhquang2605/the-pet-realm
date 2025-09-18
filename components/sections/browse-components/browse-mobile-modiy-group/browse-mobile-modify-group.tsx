@@ -2,7 +2,7 @@ import React from 'react';
 import style from './browse-mobile-modify-group.module.css';
 
 interface BrowseMobileModifyGroupProps {
-
+    
 }
 
 const BrowseMobileModifyGroup: React.FC<BrowseMobileModifyGroupProps> = ({}) => {
