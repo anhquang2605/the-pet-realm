@@ -76,6 +76,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         
         
         <section id="order-filter" className={style['order-filter']}>
+            <button className={style['order-filter__toggle']} onClick={revealMobileFilter}>
+                X
+            </button>
             <h3 className={style['order-filter__title']}><BsFilter /> <span className={style["order-filter__text"]}>Filter</span></h3>
             
             {/* Filter UI elements go here */}
