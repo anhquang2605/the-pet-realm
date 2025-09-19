@@ -20,6 +20,10 @@ interface CheckBoxes {
     isAvailable: boolean;
 }
 
+interface useOrderFilterContext {
+    revealMobileFilter: () => void;
+}
+
 const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     const minPrice = priceRange[0];
     const maxPrice = priceRange[1];

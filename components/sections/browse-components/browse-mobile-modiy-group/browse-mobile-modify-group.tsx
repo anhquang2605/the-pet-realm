@@ -8,7 +8,7 @@ interface BrowseMobileModifyGroupProps {
 const BrowseMobileModifyGroup: React.FC<BrowseMobileModifyGroupProps> = ({}) => {
     return (
         <div className={style['browse-mobile-modify-group']}>
-            BrowseMobileModifyGroup
+           
         </div>
     );
 };
