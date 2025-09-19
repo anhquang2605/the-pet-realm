@@ -13,7 +13,7 @@ interface FilterContextProviderProps {
 
 const FilterContext = React.createContext<useOrderFilterContext>({} as useOrderFilterContext);
 
-const FilterContextProvider: React.FC<FilterContextProviderProps> = ({children, setFilter, priceRange}) => {
+const FilterContextProvider: React.FC<FilterContextProviderProps> = ({children}) => {
     const revealMobileFilter = () => {
         const filterSection = document.getElementsByClassName(style['order-filter'])[0];
         filterSection.classList.toggle(style['order-filter--active']);
@@ -24,3 +24,5 @@ const FilterContextProvider: React.FC<FilterContextProviderProps> = ({children, 
         </FilterContext.Provider>
     );
 }
+
+export default FilterContextProvider;
