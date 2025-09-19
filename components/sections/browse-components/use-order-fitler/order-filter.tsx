@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { use, useContext } from 'react';
 import style from './order-filter.module.css';
 import RangeSlider, { InputEvent } from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 import ActionButton from '../../../universals/buttons/action-button/action-button';
 import { BsFilter } from "react-icons/bs";
+import { FilterContext } from './use-order-filter';
 export interface OrderFilterI {
     priceRange: [number, number];
     isDiscounted: boolean;
@@ -55,10 +56,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         }
         setFilter(newFilter);
     }
-    const revealMobileFilter = () => {
-        const filterSection = document.getElementsByClassName(style['order-filter'])[0];
-        filterSection.classList.toggle(style['order-filter--active']);
-    }
+    const {revealMobileFilter} = useContext(FilterContext);
     const handleRadioChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
         const value = event.target.value;
         switch(value){
