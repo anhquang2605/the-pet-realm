@@ -128,4 +128,12 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     );
 };
 
+export const MobileFilterRevealButton = ({revealMobileFilter}: useOrderFilterContext) => {
+    return (
+        <button className={style['filter-button--mobile']} onClick={revealMobileFilter}>
+            <BsFilter />
+            <span className={style["fitler-button__text"]}>Filter</span>
+        </button>
+    );
+};
 export default OrderFilter;
