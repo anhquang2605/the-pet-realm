@@ -85,7 +85,7 @@
         top: unset;
         left: unset;
     }
-    .filter-button-mobile{
+    .filter-button--mobile{
         display: none;
     }
 }

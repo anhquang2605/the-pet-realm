@@ -10,6 +10,18 @@
     gap: var(--half-spacing);
     padding: var(--half-spacing);
 }
+.browse-main__modification-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.browse__title{
+    padding: var(--half-spacing);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
 @media screen and (min-width: 767px) {
     .browse{
         flex-direction: row;

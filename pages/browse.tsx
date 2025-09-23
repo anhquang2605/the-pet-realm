@@ -83,6 +83,7 @@ const Browse: React.FC<BrowseProps> = ({
     }, [isAscending, sortBy]);
     return (
         <div id="browse-page" className={style['browse']}>
+            <h2 className={style['browse__title']}>Browse Orders</h2>
            <OrderFilter setFilter={setFilter} priceRange={priceRange} />
            <section className={style['browse-main']}>
                 <div className={style['browse-main__modification-group']}>
