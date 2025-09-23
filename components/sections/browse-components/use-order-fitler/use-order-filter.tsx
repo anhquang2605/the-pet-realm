@@ -6,8 +6,6 @@ interface useOrderFilterContext {
 }
 
 interface FilterContextProviderProps {
-    setFilter: React.Dispatch<React.SetStateAction<OrderFilterI>>;
-    priceRange: [number, number];
     children: React.ReactNode;
 }
 
