@@ -74,9 +74,6 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     return (
         <>
             <section id="order-filter" className={style['order-filter']}>
-                <button className={style['order-filter__toggle']} onClick={revealMobileFilter}>
-                    
-                </button>
                 <h3 className={style['order-filter__title']}><BsFilter /> <span className={style["order-filter__text"]}>Filter</span></h3>
                 
                 {/* Filter UI elements go here */}
@@ -118,7 +115,8 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     );
 };
 
-export const MobileFilterRevealButton = ({revealMobileFilter}: {revealMobileFilter: () => void}) => {
+export const MobileFilterRevealButton = () => {
+    const {revealMobileFilter} = useContext(FilterContext);
     return (
         <button className={style['filter-button--mobile']} onClick={revealMobileFilter}>
             <BsFilter />
