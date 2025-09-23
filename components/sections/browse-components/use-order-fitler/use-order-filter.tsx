@@ -13,7 +13,7 @@ interface FilterContextProviderProps {
 
 export const FilterContext = React.createContext<useOrderFilterContext>({} as useOrderFilterContext);
 
-const FilterContextProvider: React.FC<FilterContextProviderProps> = ({children}) => {
+export const FilterContextProvider: React.FC<FilterContextProviderProps> = ({children}) => {
     const revealMobileFilter = () => {
         const filterSection = document.getElementsByClassName(style['order-filter'])[0];
         filterSection.classList.toggle(style['order-filter--active']);
@@ -25,4 +25,9 @@ const FilterContextProvider: React.FC<FilterContextProviderProps> = ({children})
     );
 }
 
-export default FilterContextProvider;
+export const useViewFilterContext = () => {
+    if (!React.useContext(FilterContext)) {
+        throw new Error('useViewFilterContext must be used within a FilterContextProvider');
+    }
+    return React.useContext(FilterContext);
+}
