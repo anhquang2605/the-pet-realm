@@ -40,15 +40,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     const onDiscountedChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
         const newValue = event.target.checked;
         setCheckBoxes((prev) => ({...prev, isDiscounted: newValue}));
-    }
-    const onHoldChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
-        const newValue = event.target.checked;
-        setCheckBoxes((prev) => ({...prev, isOnHold: newValue}));
-    }
-    const onAvailableChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
-        const newValue = event.target.checked;
-        setCheckBoxes((prev) => ({...prev, isAvailable: newValue}));
-    }    
+    }   
     const applyFilters = () => {
         const newFilter: OrderFilterI = {
             priceRange: priceRangeValues,
@@ -56,7 +48,6 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         }
         setFilter(newFilter);
     }
-    const {revealMobileFilter} = useContext(FilterContext);
     const handleRadioChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
         const value = event.target.value;
         switch(value){
