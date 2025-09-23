@@ -30,6 +30,9 @@
         width: 75%;
         padding: var(--half-spacing);
     }
+    .browse__title{
+        display:none;
+    }
 }
 @media screen and (min-width: 1024px) {
     .browse-main{
