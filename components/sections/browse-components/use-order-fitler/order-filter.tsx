@@ -3,7 +3,7 @@ import style from './order-filter.module.css';
 import RangeSlider, { InputEvent } from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 import ActionButton from '../../../universals/buttons/action-button/action-button';
-import { MdOutlineFilterAlt } from "react-icons/md";
+import { TbFilter } from "react-icons/tb";
 import { FilterContext } from './use-order-filter';
 export interface OrderFilterI {
     priceRange: [number, number];
@@ -66,7 +66,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         <>
             <section id="order-filter" className={style['order-filter']}>
                 <h3 className={style['order-filter__title']}> 
-                    <MdOutlineFilterAlt size={24} />
+                    <TbFilter size={24} />
                     <span className={style["order-filter__text"]}>Filter</span></h3>
                 
                 {/* Filter UI elements go here */}
@@ -112,7 +112,7 @@ export const MobileFilterRevealButton = () => {
     const {revealMobileFilter} = useContext(FilterContext);
     return (
         <button className={style['filter-button--mobile'] + " icon-button"} onClick={revealMobileFilter} aria-label="Reveal Filters" title="Reveal Filters">
-           <MdOutlineFilterAlt />
+           <TbFilter />
         </button>
     );
 };
