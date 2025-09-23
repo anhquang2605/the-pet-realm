@@ -53,3 +53,13 @@ h1, h2, h3 {
     background: mediumspringgreen;
 }
 
+/* Buttons */
+.icon-button{
+      cursor: pointer;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: 2rem;
+    background: var(--third-bg);
+    border: 1px solid var(--border-line-color);
+    color: white;
+}

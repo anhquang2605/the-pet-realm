@@ -118,7 +118,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
 export const MobileFilterRevealButton = () => {
     const {revealMobileFilter} = useContext(FilterContext);
     return (
-        <button className={style['filter-button--mobile']} onClick={revealMobileFilter} aria-label="Reveal Filters" title="Reveal Filters">
+        <button className={style['filter-button--mobile'] + " icon-button"} onClick={revealMobileFilter} aria-label="Reveal Filters" title="Reveal Filters">
             <BsFilter />
         </button>
     );
