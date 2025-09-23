@@ -12,7 +12,7 @@ interface NavigationItem {
 }
 const NAVIGATION_ITEMS = [
     { title: 'Home', href: '/', icon: <BsHouse/> },
-    { title: 'Browse Shop', href: '/browse', icon: <BsCart/> },
+    { title: 'Shop', href: '/browse', icon: <BsCart/> },
     { title: 'Contact', href: '/contact', icon: <BsPersonVcard/> },
 
 ]
