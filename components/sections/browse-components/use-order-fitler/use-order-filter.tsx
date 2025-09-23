@@ -11,7 +11,7 @@ interface FilterContextProviderProps {
     children: React.ReactNode;
 }
 
-const FilterContext = React.createContext<useOrderFilterContext>({} as useOrderFilterContext);
+export const FilterContext = React.createContext<useOrderFilterContext>({} as useOrderFilterContext);
 
 const FilterContextProvider: React.FC<FilterContextProviderProps> = ({children}) => {
     const revealMobileFilter = () => {
