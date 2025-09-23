@@ -15,6 +15,7 @@ export const FilterContextProvider: React.FC<FilterContextProviderProps> = ({chi
     const revealMobileFilter = () => {
         const filterSection = document.getElementsByClassName(style['order-filter'])[0];
         filterSection.classList.toggle(style['order-filter--active']);
+        console.log('Revealing mobile filter');
     }
     return (
         <FilterContext.Provider value={{revealMobileFilter}}>
@@ -23,7 +24,7 @@ export const FilterContextProvider: React.FC<FilterContextProviderProps> = ({chi
     );
 }
 
-export const useViewFilterContext = () => {
+export const useFilterContext = () => {
     if (!React.useContext(FilterContext)) {
         throw new Error('useViewFilterContext must be used within a FilterContextProvider');
     }

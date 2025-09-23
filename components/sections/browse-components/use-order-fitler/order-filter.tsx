@@ -4,7 +4,7 @@ import RangeSlider, { InputEvent } from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 import ActionButton from '../../../universals/buttons/action-button/action-button';
 import { TbFilter } from "react-icons/tb";
-import { FilterContext } from './use-order-filter';
+import { FilterContext, useFilterContext } from './use-order-filter';
 export interface OrderFilterI {
     priceRange: [number, number];
     isDiscounted: boolean;
@@ -109,7 +109,8 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
 };
 
 export const MobileFilterRevealButton = () => {
-    const {revealMobileFilter} = useContext(FilterContext);
+    const {revealMobileFilter} = useFilterContext();
+    
     return (
         <button className={style['filter-button--mobile'] + " icon-button"} onClick={revealMobileFilter} aria-label="Reveal Filters" title="Reveal Filters">
            <TbFilter />
