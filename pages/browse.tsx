@@ -2,7 +2,7 @@ import React, { use, useEffect } from 'react';
 import style from './page-styles/browse.module.css';
 import { browseOrderItems } from '../local_data/mock-order-data';
 import { Order, RawOrder } from '../types/order';
-import OrderFilter from '../components/sections/browse-components/use-order-fitler/order-filter';
+import OrderFilter, { MobileFilterRevealButton } from '../components/sections/browse-components/use-order-fitler/order-filter';
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
 import { OrderFilterI } from '../components/sections/browse-components/use-order-fitler/order-filter';
@@ -85,11 +85,15 @@ const Browse: React.FC<BrowseProps> = ({
         <div id="browse-page" className={style['browse']}>
            <OrderFilter setFilter={setFilter} priceRange={priceRange} />
            <section className={style['browse-main']}>
-                <OrderSorter
+                <div className={style['browse-main__modification-group']}>
+                    <MobileFilterRevealButton />
+                    <OrderSorter
                     setSortBy={setSortBy}
                     setIsAscending={setIsAscending}
                     isAscending={isAscending}
-                />
+                    />
+                </div>
+                
                 <OrderViewer orders={orderItems} />
            </section>
            
