@@ -91,6 +91,7 @@
     flex-direction: row;
     border: 1px solid var(--border-line-color);
     border-left: 1px solid var(--main-bg);
+    border-top: none;
 }
 .hide-filter-button--mobile{
     position: absolute;
