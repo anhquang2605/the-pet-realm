@@ -80,7 +80,8 @@
 .order-filter__toggle{
     position: absolute;
     top: 0px;
-    right: -100%;
+    right: 0px;
+    transform: translateX(100%);
     background: var(--main-bg);
     border-radius: 0px 10px 10px 0px;
     padding: var(--quarter-spacing);
@@ -88,6 +89,8 @@
     align-items: center;
     cursor: pointer;
     flex-direction: row;
+    border: 1px solid var(--border-line-color);
+    border-left: 1px solid var(--main-bg);
 }
 .hide-filter-button--mobile{
     position: absolute;
@@ -106,6 +109,7 @@
         height: auto;
         top: unset;
         left: unset;
+        border-right: 1px solid var(--border-line-color);
     }
     .filter-button--mobile{
         display: none;
