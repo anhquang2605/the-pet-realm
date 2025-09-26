@@ -51,6 +51,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
             ...checkBoxes
         }
         setFilter(newFilter);
+        if(window.innerWidth < 768){
+            toggleRevealFilter();
+        }
     }
     const handleCloseButtonClick = () => {
         toggleRevealFilter();
@@ -75,7 +78,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                 <h3 className={style['order-filter__title']}> 
                     <TbFilter size={24} />
                     <span className={style["order-filter__text"]}>Filter</span></h3>
-                <button className={style['hide-filter-button--mobile'] + " icon-button"} onClick={handleCloseButtonClick} >
+                <button className={style['hide-filter-button--mobile']} onClick={handleCloseButtonClick} >
                         <IoCloseCircle size={48} />
                 </button>
                 {/* Filter UI elements go here */}

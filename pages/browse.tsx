@@ -47,7 +47,7 @@ const Browse: React.FC<BrowseProps> = ({
     priceRange = [0, 1000],
 }) => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
-    
+    const [filteredOrders, setFilteredOrders] = React.useState<Order[]>([]);
     const [filter, setFilter] = React.useState<OrderFilterI>({
         priceRange: [0, Infinity],
         isDiscounted: false,
@@ -57,17 +57,20 @@ const Browse: React.FC<BrowseProps> = ({
     //Sorter states
     const [isAscending, setIsAscending] = React.useState(true);
     const [sortBy, setSortBy] = React.useState<string>("Date");
-    useEffect(()=>{  
-        setOrderItems(convertToOrders(orders));
+    useEffect(()=>{ 
+        const convertedOrders = convertToOrders(orders);
+        setOrderItems(convertedOrders);
+        setFilteredOrders(convertedOrders);
     }, [orders]);
     useEffect(() => {
         if(orderItems.length > 0){
-             setOrderItems(applyFilters(orderItems, filter));
+            const filtered = applyFilters(orderItems, filter);
+            setFilteredOrders(filtered);
         }
     }, [filter]);
     useEffect(()=>{
-        if(orderItems.length > 0){
-            const sortedOrders = [...orderItems].sort((a, b) => {
+        if(filteredOrders.length > 0){
+            const sortedOrders = [...filteredOrders].sort((a, b) => {
                 let comparison = 0;
                 if (sortBy === "date") {
                     comparison = a.dateCreated.getTime() - b.dateCreated.getTime();
@@ -78,7 +81,7 @@ const Browse: React.FC<BrowseProps> = ({
                 }
                 return isAscending ? comparison : -comparison;
             });
-            setOrderItems(sortedOrders);
+            setFilteredOrders(sortedOrders);
         }
     }, [isAscending, sortBy]);
     return (
@@ -95,7 +98,7 @@ const Browse: React.FC<BrowseProps> = ({
                     />
                 </div>
                 
-                <OrderViewer orders={orderItems} />
+                <OrderViewer orders={filteredOrders} />
            </section>
            
         </div>
