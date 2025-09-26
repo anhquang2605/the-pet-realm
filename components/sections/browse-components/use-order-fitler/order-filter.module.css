@@ -105,6 +105,12 @@
     transform: translateX(-100%);
 
 }
+.hide-filter .order-filter__toggle{
+    background-color: var(--third-bg)
+}
+.hide-filter .hide-filter__toggle:hover{
+    background-color: var(--third-bg)
+}
 .order-filter__form{
     gap: var(--quarter-spacing);
     display: flex;
