@@ -68,7 +68,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                 <h3 className={style['order-filter__title']}> 
                     <TbFilter size={24} />
                     <span className={style["order-filter__text"]}>Filter</span></h3>
-                
+                <button className={style['hide-filter-button--mobile'] + " icon-button"} >
+
+                </button>
                 {/* Filter UI elements go here */}
                 <fieldset className={`${style['price-range']}`}>
                     <legend>Price Range</legend>
@@ -109,7 +111,6 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
 };
 
 export const MobileFilterRevealButton = () => {
-    const {revealMobileFilter} = useFilterContext();
     const handleOnClick = () => {
         const filterSection = document.getElementsByClassName(style['order-filter'])[0];
         filterSection.classList.toggle(style['order-filter--active']);
