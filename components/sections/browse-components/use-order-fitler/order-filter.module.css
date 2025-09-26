@@ -109,7 +109,7 @@
     background-color: var(--third-bg)
 }
 .hide-filter .hide-filter__toggle:hover{
-    background-color: var(--third-bg)
+    background-color: var(--secondary-bg)
 }
 .order-filter__form{
     gap: var(--quarter-spacing);
