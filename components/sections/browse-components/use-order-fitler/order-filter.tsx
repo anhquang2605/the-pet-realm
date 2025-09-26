@@ -72,49 +72,52 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                 break;
         }   
     }
+    const handleToggleFilter = () => {
+        const filterSection = document.getElementsByClassName(style['order-filter'])[0];
+        filterSection.classList.toggle(style['hide-filter']);
+    }
     return (
         <>
             <section id="order-filter" className={style['order-filter']}>
-                <h3 className={style['order-filter__toggle']}> 
+                <h3 className={style['order-filter__toggle']} onClick={handleToggleFilter}> 
                     <TbFilter size={24} />
                     <span className={style["order-filter__text"]}>Filter</span>
                 </h3>
                 <button className={style['hide-filter-button--mobile']} onClick={handleCloseButtonClick} >
                         <IoCloseCircle size={48} />
                 </button>
-                {/* Filter UI elements go here */}
-                <fieldset className={`${style['price-range']}`}>
-                    <legend>Price Range</legend>
-                    
-                    <span> ${priceRangeValues[0]} - ${priceRangeValues[1]}</span>
-                    
-                    <RangeSlider min={minPrice} max={maxPrice} step={1} value={priceRangeValues} onInput={
-                        onPriceRangeChange
-                    } ariaLabel={[priceRangeValues[0].toString(), priceRangeValues[1].toString()]} />
-                
-
-                </fieldset>
-                <fieldset className={`${style['checkbox-group']}`}>
-                    <legend>Options</legend>
-                    <div className={style['checkbox-item']}>
-                        <input id="browse__discounted" type="checkbox" onChange={onDiscountedChange} />
-                        <label htmlFor="browse__discounted">Discounted</label>
-                    </div>
-                    <div className={style['availability-options']}>
-                        <label htmlFor="availability">Availability:</label>
-                        <fieldset id="availability" className={style['radio-group']}>
-                            <input type="radio" id="all" name="availability" value="all" defaultChecked onChange={() => setCheckBoxes((prev) => ({...prev, isOnHold: false, isAvailable: false}))}/>
-                            <label htmlFor="all">All</label>
-                            <input type="radio" id="on-hold" name="availability" value="on-hold" onChange={handleRadioChange} />
-                            <label htmlFor="on-hold">On Hold</label>
-                            <input type="radio" id="available" name="availability" value="available" onChange={handleRadioChange} />
-                            <label htmlFor="available">Available</label>
-                        </fieldset>
+                <section className={style['order-filter__form']}>
+                    {/* Filter UI elements go here */}
+                    <fieldset className={`${style['price-range']}`}>
+                        <legend>Price Range</legend>
                         
-                    </div>
-                
-                </fieldset>
-                <ActionButton type="link" color="deepskyblue" title="Apply Filters" onClick={applyFilters} />
+                        <span> ${priceRangeValues[0]} - ${priceRangeValues[1]}</span>
+                        
+                        <RangeSlider min={minPrice} max={maxPrice} step={1} value={priceRangeValues} onInput={
+                            onPriceRangeChange
+                        } ariaLabel={[priceRangeValues[0].toString(), priceRangeValues[1].toString()]} />
+                    </fieldset>
+                    <fieldset className={`${style['checkbox-group']}`}>
+                        <legend>Options</legend>
+                        <div className={style['checkbox-item']}>
+                            <input id="browse__discounted" type="checkbox" onChange={onDiscountedChange} />
+                            <label htmlFor="browse__discounted">Discounted</label>
+                        </div>
+                        <div className={style['availability-options']}>
+                            <label htmlFor="availability">Availability:</label>
+                            <fieldset id="availability" className={style['radio-group']}>
+                                <input type="radio" id="all" name="availability" value="all" defaultChecked onChange={() => setCheckBoxes((prev) => ({...prev, isOnHold: false, isAvailable: false}))}/>
+                                <label htmlFor="all">All</label>
+                                <input type="radio" id="on-hold" name="availability" value="on-hold" onChange={handleRadioChange} />
+                                <label htmlFor="on-hold">On Hold</label>
+                                <input type="radio" id="available" name="availability" value="available" onChange={handleRadioChange} />
+                                <label htmlFor="available">Available</label>
+                            </fieldset>
+                            
+                        </div>
+                    </fieldset>
+                    <ActionButton type="link" color="deepskyblue" title="Apply Filters" onClick={applyFilters} />
+                </section>
             </section>
         </>
         

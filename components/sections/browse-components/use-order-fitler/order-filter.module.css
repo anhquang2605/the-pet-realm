@@ -1,8 +1,6 @@
 .order-filter{
     padding: var(--half-spacing);
-    gap: var(--quarter-spacing);
-    display: flex;
-    flex-direction: column;
+    
     width: 100%;
     padding-top: calc(var(--spacing) * 2);
     background:  var(--main-bg);
@@ -79,7 +77,7 @@
 }
 .order-filter__toggle{
     position: absolute;
-    top: 0px;
+    top: var(--quarter-spacing);
     right: 0px;
     transform: translateX(100%);
     background: var(--main-bg);
@@ -91,7 +89,7 @@
     flex-direction: row;
     border: 1px solid var(--border-line-color);
     border-left: 1px solid var(--main-bg);
-    border-top: none;
+    display: none;
 }
 .hide-filter-button--mobile{
     position: absolute;
@@ -102,6 +100,18 @@
     z-index: 25;
     cursor: pointer;
 }
+.hide-filter{
+    width: 0!important;
+    transform: translateX(-100%);
+
+}
+.order-filter__form{
+    gap: var(--quarter-spacing);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
 @media screen and (min-width: 768px) {
     .order-filter{
         width: 25%;
@@ -111,6 +121,9 @@
         top: unset;
         left: unset;
         border-right: 1px solid var(--border-line-color);
+    }
+    .order-filter__toggle{
+        display: flex;
     }
     .filter-button--mobile{
         display: none;
