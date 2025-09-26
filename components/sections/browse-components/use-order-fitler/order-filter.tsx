@@ -5,6 +5,7 @@ import 'react-range-slider-input/dist/style.css';
 import ActionButton from '../../../universals/buttons/action-button/action-button';
 import { TbFilter } from "react-icons/tb";
 import { FilterContext, useFilterContext } from './use-order-filter';
+import { IoCloseCircle } from 'react-icons/io5';
 export interface OrderFilterI {
     priceRange: [number, number];
     isDiscounted: boolean;
@@ -69,7 +70,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                     <TbFilter size={24} />
                     <span className={style["order-filter__text"]}>Filter</span></h3>
                 <button className={style['hide-filter-button--mobile'] + " icon-button"} >
-
+                        <IoCloseCircle size={48} />
                 </button>
                 {/* Filter UI elements go here */}
                 <fieldset className={`${style['price-range']}`}>
