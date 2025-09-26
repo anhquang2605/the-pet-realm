@@ -1,6 +1,5 @@
 .order-filter{
-    padding: var(--half-spacing);
-    
+    padding: var(--half-spacing);    
     width: 100%;
     padding-top: calc(var(--spacing) * 2);
     background:  var(--main-bg);
@@ -10,6 +9,7 @@
     left: 0;
     z-index: 20;
     height: 100vh;
+    transition: transform 0.3s ease-in-out;
 }
 .order-filter__title{
    display: flex;
