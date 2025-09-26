@@ -22,7 +22,10 @@ interface CheckBoxes {
     isAvailable: boolean;
 }
 
-
+const toggleRevealFilter = () => {
+    const filterSection = document.getElementsByClassName(style['order-filter'])[0];
+    filterSection.classList.toggle(style['order-filter--active']);
+}
 
 const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     const minPrice = priceRange[0];
@@ -49,6 +52,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         }
         setFilter(newFilter);
     }
+    const handleCloseButtonClick = () => {
+        toggleRevealFilter();
+    }
     const handleRadioChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
         const value = event.target.value;
         switch(value){
@@ -69,7 +75,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
                 <h3 className={style['order-filter__title']}> 
                     <TbFilter size={24} />
                     <span className={style["order-filter__text"]}>Filter</span></h3>
-                <button className={style['hide-filter-button--mobile'] + " icon-button"} >
+                <button className={style['hide-filter-button--mobile'] + " icon-button"} onClick={handleCloseButtonClick} >
                         <IoCloseCircle size={48} />
                 </button>
                 {/* Filter UI elements go here */}
@@ -113,9 +119,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
 
 export const MobileFilterRevealButton = () => {
     const handleOnClick = () => {
-        const filterSection = document.getElementsByClassName(style['order-filter'])[0];
-        filterSection.classList.toggle(style['order-filter--active']);
-        
+        toggleRevealFilter();
     }
     return (
         <button className={style['filter-button--mobile'] + " icon-button"} onClick={handleOnClick} aria-label="Reveal Filters" title="Reveal Filters">
