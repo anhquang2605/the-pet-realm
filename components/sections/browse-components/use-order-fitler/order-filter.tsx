@@ -75,9 +75,10 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
     return (
         <>
             <section id="order-filter" className={style['order-filter']}>
-                <h3 className={style['order-filter__title']}> 
+                <h3 className={style['order-filter__toggle']}> 
                     <TbFilter size={24} />
-                    <span className={style["order-filter__text"]}>Filter</span></h3>
+                    <span className={style["order-filter__text"]}>Filter</span>
+                </h3>
                 <button className={style['hide-filter-button--mobile']} onClick={handleCloseButtonClick} >
                         <IoCloseCircle size={48} />
                 </button>

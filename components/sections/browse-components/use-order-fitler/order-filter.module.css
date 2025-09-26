@@ -77,6 +77,18 @@
 .filter-button__text{
 
 }
+.order-filter__toggle{
+    position: absolute;
+    top: 0px;
+    right: -100%;
+    background: var(--main-bg);
+    border-radius: 0px 10px 10px 0px;
+    padding: var(--quarter-spacing);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: row;
+}
 .hide-filter-button--mobile{
     position: absolute;
     top: 16px;
