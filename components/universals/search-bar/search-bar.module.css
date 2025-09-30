@@ -9,14 +9,15 @@
 }
 .search-bar-placeholder{
     display: none;
+    width: max-content;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .search-bar-placeholder{
     cursor: pointer;
 }
-.search-bar--active{
-    display: block;
-    opacity: 1;
-}
+
 @media screen and (min-width: 768px){
     .search-bar-input{
         display: none;
@@ -29,4 +30,8 @@
         transition: all 0.3s ease-in-out;
     }
     
+}
+.search-bar--active{
+    display: block;
+    opacity: 1;
 }
