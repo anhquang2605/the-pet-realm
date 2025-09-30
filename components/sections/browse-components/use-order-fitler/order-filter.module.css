@@ -9,7 +9,7 @@
     left: 0;
     z-index: 20;
     height: 100vh;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 .order-filter__title{
    display: flex;
@@ -103,7 +103,6 @@
 .hide-filter{
     width: 0!important;
     transform: translateX(-100%);
-
 }
 .hide-filter .order-filter__toggle{
     background-color: var(--third-bg)
@@ -111,12 +110,16 @@
 .hide-filter .hide-filter__toggle:hover{
     background-color: var(--secondary-bg)
 }
+
 .order-filter__form{
     gap: var(--quarter-spacing);
     display: flex;
     flex-direction: column;
     width: 100%;
     overflow: hidden;
+}
+.hide-filter .order-filter__form{
+    opacity: 0;
 }
 @media screen and (min-width: 768px) {
     .order-filter{
