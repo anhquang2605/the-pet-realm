@@ -4,3 +4,29 @@
     flex-direction: row;
     width: max-content;
 }
+.search-bar-input{
+    
+}
+.search-bar-placeholder{
+    display: none;
+}
+.search-bar-placeholder{
+    cursor: pointer;
+}
+.search-bar--active{
+    display: block;
+    opacity: 1;
+}
+@media screen and (min-width: 768px){
+    .search-bar-input{
+        display: none;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+    }
+    .search-bar-placeholder{
+        display: block;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+    }
+    
+}
