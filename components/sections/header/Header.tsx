@@ -4,6 +4,7 @@ import NavigationBar from '../../navigations/navigation-bar/navigation-bar';
 import HomeIcon from './home-icon/home-icon';
 import { IoMenu } from "react-icons/io5";
 import { IoCloseCircle } from "react-icons/io5";
+import SearchBar from '../../universals/search-bar/search-bar';
 interface HeaderProps {
 
 }
@@ -21,6 +22,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                 <IoMenu size={30} />
             </button>
             <header className={style['header'] + ' main-bg'}>
+                
                 <span className={style['mobile-top-group']}>
                     <HomeIcon />
                      <button className={style['exit-menu-button']} onClick={handleMobileMenuClick}>
@@ -28,6 +30,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                     </button>
                     
                 </span>
+                <SearchBar />
                 <NavigationBar />
             </header>
         </>
