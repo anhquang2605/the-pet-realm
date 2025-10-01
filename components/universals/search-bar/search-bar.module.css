@@ -12,9 +12,6 @@
 .search-bar-placeholder{
     display: none;
     width: max-content;
-    position: absolute;
-    top: 0;
-    left: 0;
     flex: 1;
 }
 .search-bar-placeholder{
