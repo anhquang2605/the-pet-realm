@@ -8,9 +8,10 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const toggleSearchBar = () => {
         const searchBarPlaceholder = document.getElementsByClassName(style['search-bar-placeholder'])[0];
-        const searchBarInput = document.getElementsByClassName(style['search-bar-input'])[0];
+        const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
         searchBarPlaceholder.classList.toggle(style['search-bar--active']);
         searchBarInput.classList.toggle(style['search-bar--active']);
+        searchBarInput.focus();
     }
     return (
         <div className={style['search-bar']}>
