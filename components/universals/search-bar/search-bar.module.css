@@ -11,6 +11,7 @@
     border-radius: 16px;
     overflow: hidden;
     padding-right: var(--side-padding);
+    color: lightgray;
 }
 .search-bar-input{
     flex: 1;

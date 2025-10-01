@@ -13,13 +13,17 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
         searchBarInput.classList.toggle(style['search-bar--active']);
         searchBarInput.focus();
     }
+    const onSearchClick = () => {
+        const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
+        const value = searchBarInput.getAttribute('value');
+    }
     return (
         <div className={style['search-bar']}>
            <span onClick={
                 toggleSearchBar
             } className={style['search-bar-placeholder'] + " " + style['search-bar--active'] + " " + style['search-bar-shared']} >Find your pet!</span>
            <input className={style['search-bar-input'] + " " + style['search-bar-shared']} type="text" />
-           <button className={style['search-bar-button']}>
+           <button onAbort={onSearchClick} className={style['search-bar-button']}>
                 <IoSearch />
            </button>
            
