@@ -20,7 +20,7 @@
 }
 .search-bar-shared{
     padding: 4px;
-    border-radius: 8px;
+    border-radius: 16px;
     transition: opacity  0.3s ease-in-out;
 }
 @media screen and (min-width: 768px){
