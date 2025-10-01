@@ -13,6 +13,7 @@
     display: none;
     width: max-content;
     flex: 1;
+    background: var(--secondary-bg);
 }
 .search-bar-placeholder{
     cursor: pointer;
