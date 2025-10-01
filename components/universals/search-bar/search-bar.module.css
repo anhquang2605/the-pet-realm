@@ -5,6 +5,8 @@
     width: max-content;
     position: relative;
     width: 100%;
+    background: var(--secondary-bg);
+    border-radius: 16px;
 }
 .search-bar-input{
     flex: 1;   
@@ -19,8 +21,6 @@
     cursor: pointer;
 }
 .search-bar-shared{
-    padding: 4px;
-    border-radius: 16px;
     transition: opacity  0.3s ease-in-out;
 }
 @media screen and (min-width: 768px){
