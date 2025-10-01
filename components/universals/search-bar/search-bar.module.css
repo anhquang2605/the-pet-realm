@@ -23,10 +23,9 @@
     width: max-content;
     flex: 1;
     background: var(--secondary-bg);
+    cursor: text;
 }
-.search-bar-placeholder{
-    cursor: pointer;
-}
+
 .search-bar-shared{
     padding: var(--vertical-padding) var(--side-padding);
     transition: opacity  0.3s ease-in-out;
