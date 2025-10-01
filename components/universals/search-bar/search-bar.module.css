@@ -1,4 +1,6 @@
 .search-bar{
+    --vertical-padding: 8px;
+    --side-padding: 16px;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -8,6 +10,7 @@
     background: var(--secondary-bg);
     border-radius: 16px;
     overflow: hidden;
+    padding-right: var(--side-padding);
 }
 .search-bar-input{
     flex: 1;
@@ -25,7 +28,7 @@
     cursor: pointer;
 }
 .search-bar-shared{
-    padding: 8px 16px;
+    padding: var(--vertical-padding) var(--side-padding);
     transition: opacity  0.3s ease-in-out;
 }
 @media screen and (min-width: 768px){
