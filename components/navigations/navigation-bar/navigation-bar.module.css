@@ -31,7 +31,7 @@
 @media screen and (min-width: 768px) {
     .navigation-list {
         flex-direction: row;
-        gap: 48px;
+        gap: 16px;
         font-size: 1rem;
     }
     .navigation-item{
