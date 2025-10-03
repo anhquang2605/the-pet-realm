@@ -7,6 +7,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {
     case "GET":
       // Get a order
+      
       res.status(200).json({ id, name: `Order ${id}` });
       break;
 
