@@ -55,5 +55,8 @@
     opacity: 0;
     
     }
+    .search-bar-button:hover{
+        color: black;
+    }
 }
    
