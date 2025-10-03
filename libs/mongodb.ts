@@ -2,7 +2,7 @@ import { MongoClient, Db, ServerApiVersion } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
 const options = {};
-
+const DB = process.env.MONGO_DB;
 let client: MongoClient;
 let clientPromise;
 
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
   clientPromise = global._mongoClientPromise;
 } else {
   // In production mode, create a new connection
-  client = new MongoClient(uri, options);
+  client = new MongoClient(uri || '', options);
   clientPromise = client.connect();
 }
 
