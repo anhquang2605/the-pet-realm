@@ -40,11 +40,16 @@
         opacity: 0;
     }
     .search-bar-placeholder{
-        display: none;
+        display: block;
         opacity: 0;
         
     }
-    .search-ready .search-bar-input, .search-ready .search-bar-placeholder{
+    .search-ready .search-bar-input{
+        display: none;
+        opacity: 0;
+    }
+    
+    .search-ready .search-bar-placeholder{
     display: block;
     opacity: 1;
     
