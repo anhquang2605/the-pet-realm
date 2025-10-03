@@ -26,7 +26,9 @@
     background: var(--secondary-bg);
     cursor: text;
 }
-
+.search-ready{
+    background: var(--third-bg);
+}
 .search-bar-shared{
     padding: var(--vertical-padding) var(--side-padding);
     transition: opacity  0.3s ease-in-out;
@@ -44,7 +46,7 @@
     }
     
 }
-.search-bar--active{
+    .search-ready .search-bar-input, .search-ready .search-bar-placeholder{
     display: block;
     opacity: 1;
     
