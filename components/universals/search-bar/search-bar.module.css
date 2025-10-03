@@ -44,10 +44,10 @@
         opacity: 0;
         
     }
-    
-}
     .search-ready .search-bar-input, .search-ready .search-bar-placeholder{
     display: block;
     opacity: 1;
     
+    }
 }
+   
