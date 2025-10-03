@@ -12,6 +12,7 @@
     overflow: hidden;
     padding-right: var(--side-padding);
     color: lightgray;
+    transition: background-color 0.3s ease-in-out;
 }
 .search-bar-input{
     flex: 1;
@@ -41,17 +42,17 @@
     }
     .search-bar-placeholder{
         display: block;
-        opacity: 0;
+        opacity: 1;
         
     }
     .search-ready .search-bar-input{
-        display: none;
-        opacity: 0;
+        display: block;
+        opacity: 1;
     }
     
     .search-ready .search-bar-placeholder{
-    display: block;
-    opacity: 1;
+    display: none;
+    opacity: 0;
     
     }
 }
