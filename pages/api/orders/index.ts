@@ -6,19 +6,19 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   switch (req.method) {
     case "GET":
-      // Get a user
-      res.status(200).json({ id, name: `User ${id}` });
+      // Get a order
+      res.status(200).json({ id, name: `Order ${id}` });
       break;
 
     case "PUT":
-      // Update a user
+      // Update a order
       const updateData = req.body;
-      res.status(200).json({ message: `User ${id} updated`, data: updateData });
+      res.status(200).json({ message: `Order ${id} updated`, data: updateData });
       break;
 
     case "DELETE":
-      // Delete a user
-      res.status(200).json({ message: `User ${id} deleted` });
+      // Delete a order
+      res.status(200).json({ message: `Order ${id} deleted` });
       break;
 
     default:
