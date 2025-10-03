@@ -7,7 +7,7 @@
     width: max-content;
     position: relative;
     width: 100%;
-    background: var(--secondary-bg);
+    background-color: var(--secondary-bg);
     border-radius: 16px;
     overflow: hidden;
     padding-right: var(--side-padding);
@@ -27,7 +27,7 @@
     cursor: text;
 }
 .search-ready{
-    background: var(--third-bg);
+    background-color: var(--third-bg);
 }
 .search-bar-shared{
     padding: var(--vertical-padding) var(--side-padding);
