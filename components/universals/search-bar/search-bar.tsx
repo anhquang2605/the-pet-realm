@@ -4,7 +4,9 @@ import { IoSearch } from "react-icons/io5";
 interface SearchBarProps {
 
 }
+const searchPet = (value:string | null) => {
 
+}
 const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const toggleSearchBar = () => {
         const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
@@ -15,6 +17,9 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const onSearchClick = () => {
         const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
         const value = searchBarInput.getAttribute('value');
+        if(value !== null && value !== ''){
+            searchPet(value);
+        }
     }
     return (
         <div className={style['search-bar']}>
