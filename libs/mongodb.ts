@@ -13,11 +13,10 @@ if (!process.env.MONGODB_URI) {
 if (process.env.NODE_ENV === 'development') {
   // In development mode, use a global variable so the connection
   // is preserved across module reloads
-  if (!global._mongoClientPromise) {
+  if (!clientPromise) {
     client = new MongoClient(uri || '', options);
-    global._mongoClientPromise = client.connect();
+    clientPromise = client.connect();
   }
-  clientPromise = global._mongoClientPromise;
 } else {
   // In production mode, create a new connection
   client = new MongoClient(uri || '', options);
