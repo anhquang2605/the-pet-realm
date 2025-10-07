@@ -18,7 +18,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if(!order) return res.status(404).json({ message: "Order not found" });
         return res.status(200).json(order);
       } else if(ids && Array.isArray(ids)){
-       
+       const filteredOrders = ordersCollection.find((order: Order) => ids.includes(order.id as string));
+        if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
         return res.status(200).json(filteredOrders);
       } else if (name && typeof name === "string"){
         
