@@ -1,13 +1,25 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { Order } from "../../../types/order";
 
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { id } = req.query;
+  const { id, name, ids } = req.query;
 
   switch (req.method) {
     case "GET":
       // Get a order
-      
+      const orders:Order[] = [
+
+      ];
+      if(id && typeof id === "string"){
+        const order = orders.find(order => order.id === id);
+        if(!order) return res.status(404).json({ message: "Order not found" });
+        return res.status(200).json(order);
+      } if(ids && Array.isArray(ids)){
+        const filteredOrders = orders.filter(order => ids.includes(order.id.toString()));
+        return res.status(200).json(filteredOrders);
+  
+      }
       res.status(200).json({ id, name: `Order ${id}` });
       break;
 
