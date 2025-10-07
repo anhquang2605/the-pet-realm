@@ -1,3 +1,4 @@
+import { Collection } from "mongodb";
 import { Order } from "../types/order";
 import { connectDB } from "./mongodb";
 
@@ -8,7 +9,7 @@ export async function getCollectionFromDB(db: string){
             console.log("No database connected");
             return null;
         } 
-        const collection = database.collection(db);
+        const collection: Collection = database.collection(db);
         return collection;
     }
     catch(e){

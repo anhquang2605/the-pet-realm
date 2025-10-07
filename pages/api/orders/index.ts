@@ -3,9 +3,10 @@ import { Order } from "../../../types/order";
 import { getCollectionFromDB } from "../../../libs/db-interactions";
 
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id, name, ids } = req.query;
-  const ordersCollection = getCollectionFromDB("orders");
+  const ordersCollection = await getCollectionFromDB("orders");
+  if(!ordersCollection) return res.status(500).json({ message: "Database connection error" });
   switch (req.method) {
     case "GET":
       // Get a order
@@ -13,7 +14,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
       ];
       if(id && typeof id === "string"){
-        const order = ordersCollection?.find
+        const order = ordersCollection.find((order: Order) => order.id === id);
         if(!order) return res.status(404).json({ message: "Order not found" });
         return res.status(200).json(order);
       } else if(ids && Array.isArray(ids)){
