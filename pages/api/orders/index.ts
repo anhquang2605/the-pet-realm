@@ -15,14 +15,14 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         const order = orders.find(order => order.id === id);
         if(!order) return res.status(404).json({ message: "Order not found" });
         return res.status(200).json(order);
-      } if(ids && Array.isArray(ids)){
+      } else if(ids && Array.isArray(ids)){
         const filteredOrders = orders.filter(order => ids.includes(order.id.toString()));
         return res.status(200).json(filteredOrders);
-  
+      } else if (name && typeof name === "string"){
+        const filteredOrders = orders.filter(order => order.name === name);
+        return res.status(200).json(filteredOrders);
       }
-      res.status(200).json({ id, name: `Order ${id}` });
-      break;
-
+        break;
     case "PUT":
       // Update a order
       const updateData = req.body;
