@@ -4,7 +4,7 @@ import { connectDB } from './../../../libs/mongodb';
 import Admin from './../../../models/Admin';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  await connectDB();
+  let con = await connectDB();
   try {
      const existing = await Admin.find({ email: 'admin@shop.com' });
       if (existing) return res.status(200).json({ message: 'Admin already exists' });
