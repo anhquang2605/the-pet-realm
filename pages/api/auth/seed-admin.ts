@@ -1,11 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from 'bcryptjs';
-import { connectDB } from './../../../libs/mongodb';
+import { connectDB } from './../../../libs/mongoose';
 import Admin from './../../../models/Admin';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   let con = await connectDB();
-  console.log(await mongoose.connection.db.listCollections().toArray());
   try {
      const existing = await Admin.find({ email: 'admin@shop.com' });
       if (existing) return res.status(200).json({ message: 'Admin already exists' });
