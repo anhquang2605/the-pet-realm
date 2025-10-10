@@ -22,6 +22,7 @@ let cached: MongooseCache  = global.mongooseCache || { conn: null, promise: null
 export async function connectDB() {
   if (cached.conn) return cached.conn;
   if (cached.promise) {
+    console.log(MONGODB_URI);
     const conn = await mongoose.connect(MONGODB_URI, { bufferCommands: false }).then((mongoose) => mongoose);
     console.log(conn);
 /*     cached.promise = mongoose.connect(MONGODB_URI, {
