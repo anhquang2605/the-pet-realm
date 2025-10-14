@@ -17,8 +17,8 @@ export default function AdminPage() {
       router.push(loginPage);
       return;
     }
-
-    try {
+    console.log('Token found:', token);
+/*     try {
       const decoded = jwt.verify(token, JWT_SECRET) as any;
       if (decoded.role === 'admin') {
         setIsAuthorized(true);
@@ -27,7 +27,7 @@ export default function AdminPage() {
       }
     } catch (err) {
       router.push(loginPage  );
-    }
+    } */
   }, [router]);
 
   if (!isAuthorized) return null;
