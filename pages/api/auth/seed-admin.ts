@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   let con = await connectDB();
   try {
      const existing = await Admin.find({ email: 'admin@shop.com' });
-      if (existing) return res.status(200).json({ message: 'Admin already exists' });
+      if (existing.length !== 0) return res.status(200).json({ message: 'Admin already exists' });
   } catch (error) {
       console.log(error);
    
