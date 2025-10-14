@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     return (
         <>
 
-            {!pathname.includes('admin') && <Header />}
+            {!pathname.includes('admin') && !pathname.includes('authentication') && <Header />}
              {children}
         </>
            
