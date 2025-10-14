@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './layout.module.css';
 import Header from '../header/Header';
 
@@ -7,8 +7,12 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
+    const [pathname, setPathname] = React.useState('');
     //get pathname
-    const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+    useEffect(()=>{
+        setPathname(window.location.pathname);
+    }, [])
+   
     return (
         <>
 
