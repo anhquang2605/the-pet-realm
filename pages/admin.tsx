@@ -21,7 +21,7 @@ export default function AdminPage() {
 
     try {
       const decoded = jwt.verify(token, JWT_SECRET) as any;
-      if (decoded && decoded.role === 'admin') {
+      if (decoded === secret) {
         setIsAuthorized(true);
       } else {
         router.push(loginPage);
