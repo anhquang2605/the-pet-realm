@@ -25,6 +25,7 @@ export default function LoginPage() {
     const data = await res.json();
     if (res.ok) {
       const token = data.token;   
+      //issue jwt token, save to local storage
       const secret = jwt.sign(token, JWT_SECRET);
       // save token to localStorage
       localStorage.setItem('admin_secret', jwt.sign(token,  secret));
