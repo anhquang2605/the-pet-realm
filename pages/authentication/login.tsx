@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import styles from '../page-styles/login.module.css'
 import jwt from 'jsonwebtoken';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 export default function LoginPage() {
@@ -42,18 +43,18 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-100">
+    <div className={"flex h-screen items-center justify-center backdrop-blur-lg" + " " + styles.login}>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-lg rounded-2xl p-8 w-80"
+        className=" "
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">
+        <h2 className="">
           Admin Login
         </h2>
         <input
           type="email"
           placeholder="Email"
-          className="w-full mb-4 p-2 border border-gray-300 rounded-lg"
+          className=""
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -61,22 +62,22 @@ export default function LoginPage() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full mb-4 p-2 border border-gray-300 rounded-lg"
+          className=""
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all"
+          className=""
         >
           Sign In
         </button>
 
         {showPopup && (
           <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
-            <div className="bg-white px-6 py-4 rounded-xl shadow-md">
-              <p className="text-gray-700">{popupMessage}</p>
+            <div className="px-6 py-4 rounded-xl shadow-md">
+              <p className="">{popupMessage}</p>
             </div>
           </div>
         )}
