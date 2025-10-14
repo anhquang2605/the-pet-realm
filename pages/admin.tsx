@@ -3,15 +3,18 @@ import { useRouter } from 'next/router';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
-
+const loginPage = '/authentication/login';
 export default function AdminPage() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('admin_token');
+    const token = localStorage.getItem('admin_token')
     if (!token) {
-      router.push('/login');
+      setTimeout(() => {
+        router.push(loginPage); 
+      } , 2000);
+      router.push(loginPage);
       return;
     }
 
@@ -20,10 +23,10 @@ export default function AdminPage() {
       if (decoded.role === 'admin') {
         setIsAuthorized(true);
       } else {
-        router.push('/login');
+        router.push(loginPage);
       }
     } catch (err) {
-      router.push('/login');
+      router.push(loginPage  );
     }
   }, [router]);
 
