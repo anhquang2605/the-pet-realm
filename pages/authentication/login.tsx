@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../page-styles/login.module.css'
 import jwt from 'jsonwebtoken';
+import ActionButton from '../../components/universals/buttons/action-button/action-button';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -9,7 +10,9 @@ export default function LoginPage() {
   const [popupMessage, setPopupMessage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
-
+  const updateCountdown = (seconds: number) => {
+    setPopupMessage(`Redirecting in ${seconds} seconds...`);
+  }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -20,7 +23,6 @@ export default function LoginPage() {
     });
 
     const data = await res.json();
-
     if (res.ok) {
       const token = data.token;   
       const secret = jwt.sign(token, JWT_SECRET);
@@ -34,7 +36,16 @@ export default function LoginPage() {
       setTimeout(() => {
         setShowPopup(false);
         router.push('/admin');
-      }, 1500);
+      }, 3000);
+      let countdown = 3;
+      const countdownInterval = setInterval(() => {
+        countdown -= 1;
+        if (countdown > 0) {
+          updateCountdown(countdown);
+        } else {
+          clearInterval(countdownInterval);
+        }
+      }, 1000);
     } else {
       setPopupMessage(data.message || 'Login failed');
       setShowPopup(true);
@@ -78,6 +89,7 @@ export default function LoginPage() {
           <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
             <div className="px-6 py-4 rounded-xl shadow-md">
               <p className="">{popupMessage}</p>
+              <ActionButton type="main" href="/admin" title="Take me now!" />
             </div>
           </div>
         )}
