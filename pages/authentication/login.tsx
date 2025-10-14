@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-
+import jwt from 'jsonwebtoken';
+const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,8 +21,9 @@ export default function LoginPage() {
     const data = await res.json();
 
     if (res.ok) {
+      const token = data.token;   
       // save token to localStorage
-      localStorage.setItem('admin_token', data.token);
+      localStorage.setItem('admin_token', jwt.sign(token,  JWT_SECRET));
 
       setPopupMessage('Admin login successful!');
       setShowPopup(true);
