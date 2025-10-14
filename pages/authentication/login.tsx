@@ -54,7 +54,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={"flex h-screen items-center justify-center backdrop-blur-lg" + " " + styles.login}>
+    <div className={"flex h-screen items-center justify-center  backdrop-blur-lg" + " " + styles.login}>
       <form
         onSubmit={handleSubmit}
         className=" "
@@ -78,7 +78,7 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <ActionButton type="main" title="Login" isSubmit={true}  />
+        <ActionButton color={"deepskyblue"} type="main" title="Login" isSubmit={true}  />
 
         {showPopup && (
           <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
