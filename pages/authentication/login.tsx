@@ -78,11 +78,7 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <ActionButton type="main" title="Login" isSubmit={true} onClick={
-          ()=>{
-            
-          }
-        } />
+        <ActionButton type="main" title="Login" isSubmit={true}  />
 
         {showPopup && (
           <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
