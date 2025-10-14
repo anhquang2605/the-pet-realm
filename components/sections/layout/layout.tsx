@@ -7,9 +7,12 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
+    //get pathname
+    const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
     return (
         <>
-            <Header />
+
+            {!pathname.includes('admin') && <Header />}
              {children}
         </>
            
