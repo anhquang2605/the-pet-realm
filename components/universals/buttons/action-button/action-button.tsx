@@ -8,7 +8,8 @@ interface ActionButtonProps {
     onClick?: () => void;
     type: 'main' | 'link' | 'add' | 'remove';
     color?: string; // Optional color prop for custom styling
-    extraStyle?: React.CSSProperties; // Optional style prop for additional styles
+    extraStyle?: React.CSSProperties; // Optional style prop for additional styles;
+    isSubmit?: boolean; // Optional prop to determine if the button is a submit button
 }
 
 const ActionButton: React.FC<ActionButtonProps> = ({
@@ -17,7 +18,8 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     onClick,
     type = "",
     color= "",
-    extraStyle = {}
+    extraStyle = {},
+    isSubmit = false
 }) => {
     const styleType = type !== "main" ? `${style['action-type']} ${style[type]}` : '';
     const addedStyle = {
@@ -34,7 +36,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         }
     }
     return (
-        <button onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center" + " " + styleType} style={addedStyle}>
+        <button type={isSubmit ? 'submit' : 'button'} onClick={handleClick} className={style['action-button'] + " " + "flex items-center justify-center" + " " + styleType} style={addedStyle}>
            {title}
         </button>
     );
