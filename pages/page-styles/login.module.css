@@ -3,13 +3,26 @@
     background-size: cover;
 }
 .login form{
-    background-color: var(--main-bg);
     padding: var(--spacing);
     border-radius: 12px;
     color: lightgray;
     display: flex;
     flex-direction: column;
-    gap: var(--quarter-spacing);
+    gap: var(--half-spacing);
     font-size: 1.2rem;
-    
+    width: 80%;
+}
+.login form input
+{
+    padding: var(--quarter-spacing);
+    border-radius: 8px;
+    border: 1px solid var(--border-line-color);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem; 
+}
+@media screen and (min-width: 768px) {
+    .login form{
+        width: 45%;
+    }
 }

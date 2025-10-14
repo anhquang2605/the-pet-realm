@@ -54,10 +54,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={"flex h-screen items-center justify-center  backdrop-blur-lg" + " " + styles.login}>
+    <div className={"flex h-screen items-center justify-center " + " " + styles.login}>
       <form
         onSubmit={handleSubmit}
-        className=" "
+        className={
+          "bg-gray-700/50  backdrop-blur-lg"
+        }
       >
         <h2 className="">
           Admin Login
