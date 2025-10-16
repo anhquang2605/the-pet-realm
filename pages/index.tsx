@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import { mockBanners } from '../local_data/mock-banner-data';
-import { mockOrderItems } from '../local_data/mock-order-data';
+/* import { mockOrderItems } from '../local_data/mock-order-data'; */
 import BannerCarousel from '../components/universals/banner-carousel/banner-carousel';
 import MainBanner from '../components/universals/main-banner/main-banner';
 import { FeatureItems } from '../types/order';
@@ -18,7 +18,7 @@ export async function getStaticProps(
         title: 'The Pet Realm',
         description: 'This is a sample application built with Next.js.',
         sections: [],
-        featuredItems: mockOrderItems
+        featuredItems: [] //mockOrderItems
       };
    /*  const PATH: string = 'sections';
     const options: any = {};
