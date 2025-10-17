@@ -7,8 +7,8 @@ const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [popupMessage, setPopupMessage] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('Redirecting...');
+  const [showPopup, setShowPopup] = useState(true);
   const router = useRouter();
   const updateCountdown = (seconds: number) => {
     setPopupMessage(`Redirecting in ${seconds} seconds...`);
@@ -81,7 +81,7 @@ export default function LoginPage() {
         <ActionButton color={"deepskyblue"} type="main" title="Login" isSubmit={true}  />
 
         {showPopup && (
-          <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
+          <div className="fixed bg-gray-600 flex items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-lg shadow-lg width-300 ">
             <div className="px-6 py-4 rounded-xl shadow-md">
               <p className="">{popupMessage}</p>
               <ActionButton type="main" href="/admin" title="Take me now!" />
