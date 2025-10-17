@@ -81,7 +81,7 @@ export default function LoginPage() {
         <ActionButton color={"deepskyblue"} type="main" title="Login" isSubmit={true}  />
 
         {showPopup && (
-          <div className="fixed bg-gray-600/50 flex items-center justify-center w-screen h-screen  p-4 rounded-lg shadow-lg top-0 left-0">
+          <div className="fixed bg-gray-600/50 flex r w-screen h-screen  p-4 rounded-lg top-0 left-0">
             <div className="px-6 py-4 rounded-xl shadow-md">
               <p className="">{popupMessage}</p>
               <ActionButton type="main" href="/admin" title="Take me now!" />
