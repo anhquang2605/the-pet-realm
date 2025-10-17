@@ -25,11 +25,7 @@ export default function LoginPage() {
     const data = await res.json();
     if (res.ok) {
       const token = data.token;
-      console.log(token, JWT_SECRET)
-      //issue jwt token, save to local storage
-      const secret = jwt.sign(token, JWT_SECRET);
       // save token to localStorage
-      localStorage.setItem('admin_secret', jwt.sign(token,  secret));
       localStorage.setItem('admin_token', token);
       setPopupMessage('Admin login successful!');
       setShowPopup(true);
