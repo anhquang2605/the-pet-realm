@@ -52,7 +52,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={"flex items-center justify-center " + " " + styles.login}>
+    <div className={"flex items-center justify-center " + styles.login}>
       <form
         onSubmit={handleSubmit}
         className={
@@ -80,15 +80,16 @@ export default function LoginPage() {
         />
         <ActionButton color={"deepskyblue"} type="main" title="Login" isSubmit={true}  />
 
-        {showPopup && (
-          <div className={"bg-gray-600/50 flex w-screen h-screen  p-4 rounded-lg  justify-center items-center " + " " + styles.popup}>
+        
+      </form>
+      {showPopup && (
+          <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center " + " " + styles.popup}>
             <div className="px-6 py-4 rounded-xl shadow-md">
               <p className="">{popupMessage}</p>
               <ActionButton type="main" href="/admin" title="Take me now!" />
             </div>
           </div>
         )}
-      </form>
     </div>
   );
 }
