@@ -24,8 +24,9 @@
     width: 100vw;
     height: 100vh;
 }
-.popup-message{
+.popupMessage{
     font-weight: semi-bold;
+    font-size: 1.5rem;
     margin-bottom: var(--half-spacing);
 }
 .login form input

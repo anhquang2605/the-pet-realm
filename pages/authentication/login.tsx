@@ -83,9 +83,9 @@ export default function LoginPage() {
         
       </form>
       {showPopup && (
-          <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center " + " " + styles.popup}>
-            <div className="bg-gray-500 text-slate-100 px-6 py-4 rounded-xl shadow-md">
-              <p className="">{popupMessage}</p>
+          <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center backdrop-blur-md" + " " + styles.popup}>
+            <div className="bg-gray-800 text-slate-100 px-6 py-4 rounded-xl shadow-md">
+              <p className={styles.popupMessage}>{popupMessage}</p>
               <ActionButton type="main" color="tomato" href="/admin" title="Take me now!" />
             </div>
           </div>
