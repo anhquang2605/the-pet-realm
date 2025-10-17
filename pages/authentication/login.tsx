@@ -86,7 +86,7 @@ export default function LoginPage() {
           <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center " + " " + styles.popup}>
             <div className="bg-gray-500 text-slate-100 px-6 py-4 rounded-xl shadow-md">
               <p className="">{popupMessage}</p>
-              <ActionButton type="main" href="/admin" title="Take me now!" />
+              <ActionButton type="main" color="tomato" href="/admin" title="Take me now!" />
             </div>
           </div>
         )}
