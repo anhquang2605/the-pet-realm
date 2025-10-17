@@ -1,5 +1,5 @@
 import { FeatureItems, Order } from "../types/order";
-//import { ObjectId } from 'mongodb'; // If using MongoDB
+import { ObjectId } from 'mongodb'; // If using MongoDB
  export const mockOrderItems: FeatureItems[] = [
       {
     id: "pet-001",
@@ -85,7 +85,7 @@ const randomizedIDs  = () => {
 export const browseOrderItems: Order[] = 
 [
   {
-    id: randomizedIDs(), // or "order-0001"
+    id: new ObjectId(), // or "order-0001"
     name: "Premium Dog Food Order",
     price: 89.99,
     dateCreated: new Date('2024-01-15'),
@@ -97,7 +97,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Tree Condo",
     price: 156.50,
     dateCreated: new Date('2024-02-03'),
@@ -109,7 +109,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Aquarium Starter Kit",
     price: 220.00,
     dateCreated: new Date('2024-02-10'),
@@ -121,7 +121,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Bird Cage Deluxe",
     price: 189.75,
     dateCreated: new Date('2024-02-12'),
@@ -133,7 +133,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Small Animal Habitat",
     price: 75.25,
     dateCreated: new Date('2024-02-18'),
@@ -145,7 +145,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Premium Cat Litter",
     price: 45.99,
     dateCreated: new Date('2024-02-22'),
@@ -157,7 +157,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Training Kit",
     price: 134.50,
     dateCreated: new Date('2024-02-25'),
@@ -169,7 +169,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Reptile Heating Lamp",
     price: 32.99,
     dateCreated: new Date('2024-02-28'),
@@ -181,7 +181,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Premium Fish Food",
     price: 28.75,
     dateCreated: new Date('2024-03-02'),
@@ -193,7 +193,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Grooming Kit",
     price: 89.99,
     dateCreated: new Date('2024-03-05'),
@@ -205,7 +205,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Automatic Feeder",
     price: 67.50,
     dateCreated: new Date('2024-03-08'),
@@ -217,7 +217,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Orthopedic Dog Bed",
     price: 145.00,
     dateCreated: new Date('2024-03-12'),
@@ -229,7 +229,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Water Fountain",
     price: 42.25,
     dateCreated: new Date('2024-03-15'),
@@ -241,7 +241,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Bird Toys Bundle",
     price: 38.99,
     dateCreated: new Date('2024-03-18'),
@@ -253,7 +253,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Carrier Backpack",
     price: 79.95,
     dateCreated: new Date('2024-03-20'),
@@ -265,7 +265,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Leash Set",
     price: 55.00,
     dateCreated: new Date('2024-03-22'),
@@ -277,7 +277,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Scratching Post",
     price: 64.75,
     dateCreated: new Date('2024-03-25'),
@@ -289,7 +289,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Aquarium Decor Set",
     price: 87.30,
     dateCreated: new Date('2024-03-28'),
@@ -301,7 +301,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet First Aid Kit",
     price: 49.99,
     dateCreated: new Date('2024-04-01'),
@@ -313,7 +313,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Training Collar",
     price: 125.00,
     dateCreated: new Date('2024-04-03'),
@@ -325,7 +325,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Window Perch",
     price: 39.95,
     dateCreated: new Date('2024-04-05'),
@@ -337,7 +337,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Small Animal Wheel",
     price: 28.50,
     dateCreated: new Date('2024-04-08'),
@@ -349,7 +349,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Stroller",
     price: 189.00,
     dateCreated: new Date('2024-04-10'),
@@ -361,7 +361,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Automatic Litter Box",
     price: 299.99,
     dateCreated: new Date('2024-04-12'),
@@ -373,7 +373,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Life Jacket",
     price: 45.75,
     dateCreated: new Date('2024-04-15'),
@@ -385,7 +385,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Bird Feeding Station",
     price: 67.25,
     dateCreated: new Date('2024-04-18'),
@@ -397,7 +397,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Camera",
     price: 159.00,
     dateCreated: new Date('2024-04-22'),
@@ -409,7 +409,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Dental Care Kit",
     price: 34.99,
     dateCreated: new Date('2024-04-25'),
@@ -421,7 +421,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Puzzle Toys",
     price: 52.50,
     dateCreated: new Date('2024-04-28'),
@@ -433,7 +433,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Reptile Habitat Kit",
     price: 178.95,
     dateCreated: new Date('2024-05-01'),
@@ -445,7 +445,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Heating Pad",
     price: 42.00,
     dateCreated: new Date('2024-05-03'),
@@ -457,7 +457,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Boots Set",
     price: 38.75,
     dateCreated: new Date('2024-05-05'),
@@ -469,7 +469,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Calming Diffuser",
     price: 29.99,
     dateCreated: new Date('2024-05-08'),
@@ -481,7 +481,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Aquarium Filter System",
     price: 135.50,
     dateCreated: new Date('2024-05-12'),
@@ -493,7 +493,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Travel Bowl",
     price: 22.95,
     dateCreated: new Date('2024-05-15'),
@@ -505,7 +505,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Raincoat",
     price: 47.25,
     dateCreated: new Date('2024-05-18'),
@@ -517,7 +517,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Treat Variety Pack",
     price: 31.99,
     dateCreated: new Date('2024-05-20'),
@@ -529,7 +529,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Bird Cage Cover",
     price: 28.50,
     dateCreated: new Date('2024-05-22'),
@@ -541,7 +541,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Scale",
     price: 89.00,
     dateCreated: new Date('2024-05-25'),
@@ -553,7 +553,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Cooling Mat",
     price: 36.75,
     dateCreated: new Date('2024-05-28'),
@@ -565,7 +565,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Water Bowl",
     price: 24.99,
     dateCreated: new Date('2024-05-30'),
@@ -577,7 +577,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet GPS Tracker",
     price: 199.99,
     dateCreated: new Date('2024-06-02'),
@@ -589,7 +589,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Aquarium Heater",
     price: 54.50,
     dateCreated: new Date('2024-06-05'),
@@ -601,7 +601,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Seat Cover",
     price: 78.25,
     dateCreated: new Date('2024-06-08'),
@@ -613,7 +613,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Catnip Toys Bundle",
     price: 33.99,
     dateCreated: new Date('2024-06-12'),
@@ -625,7 +625,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Small Animal Playpen",
     price: 45.00,
     dateCreated: new Date('2024-06-15'),
@@ -637,7 +637,7 @@ export const browseOrderItems: Order[] =
     isFeatured: true
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Nail Clippers",
     price: 19.95,
     dateCreated: new Date('2024-06-18'),
@@ -649,7 +649,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Dog Pool",
     price: 67.50,
     dateCreated: new Date('2024-06-20'),
@@ -661,7 +661,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Bird Perch Stand",
     price: 89.99,
     dateCreated: new Date('2024-06-22'),
@@ -673,7 +673,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Pet Stain Remover",
     price: 27.75,
     dateCreated: new Date('2024-06-25'),
@@ -685,7 +685,7 @@ export const browseOrderItems: Order[] =
     isFeatured: false
   },
   {
-    id: randomizedIDs(),
+    id: new ObjectId(),
     name: "Cat Window Hammock",
     price: 42.50,
     dateCreated: new Date('2024-06-28'),
