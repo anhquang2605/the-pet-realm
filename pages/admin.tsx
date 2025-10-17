@@ -10,7 +10,6 @@ export default function AdminPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('admin_token')
-    const secret = localStorage.getItem('admin_secret')
     if (!token) {
       setTimeout(() => {
         router.push(loginPage); 
@@ -21,7 +20,7 @@ export default function AdminPage() {
 
     try {
       const decoded = jwt.verify(token, JWT_SECRET) as any;
-      if (decoded === secret) {
+      if (decoded.role === "admin") {
         setIsAuthorized(true);
       } else {
         router.push(loginPage);
