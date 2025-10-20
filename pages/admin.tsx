@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import jwt from 'jsonwebtoken';
+
 
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
@@ -17,8 +17,7 @@ export default function AdminPage() {
       return;
     }
     
-    const decoded = jwt.verify(token, JWT_SECRET) as any;
-    console.log("decoded: ", decoded);
+   
     /* if (decoded.role === "admin") {
       setIsAuthorized(true);
     } else {
