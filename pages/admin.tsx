@@ -9,8 +9,8 @@ export default function AdminPage() {
   const router = useRouter();
   const checkAdminAuthorization = async () => {
     const token = localStorage.getItem('admin_token')
-    console.log("Admin token:", token);
-/*     if (!token) {
+    
+    if (!token) {
       setTimeout(() => {
         router.push(loginPage); 
       } , 2000);
@@ -20,14 +20,15 @@ export default function AdminPage() {
 
     try {
       const decoded = jwt.verify(token, JWT_SECRET) as any;
-      if (decoded.role === "admin") {
+      console.log(decoded);
+      /* if (decoded.role === "admin") {
         setIsAuthorized(true);
       } else {
         router.push(loginPage);
-      }
+      } */
     } catch (err) {
-      router.push(loginPage  );
-    } */
+      //router.push(loginPage  );
+    }
   }
   useEffect(() => {
     checkAdminAuthorization();
