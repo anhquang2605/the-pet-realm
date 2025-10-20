@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../page-styles/login.module.css'
-import jwt from 'jsonwebtoken';
 import ActionButton from '../../components/universals/buttons/action-button/action-button';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 export default function LoginPage() {
