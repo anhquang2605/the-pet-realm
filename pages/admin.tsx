@@ -7,9 +7,9 @@ const loginPage = '/authentication/login';
 export default function AdminPage() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
+  const checkAdminAuthorization = async () => {
     const token = localStorage.getItem('admin_token')
+    console.log("Admin token:", token);
     if (!token) {
       setTimeout(() => {
         router.push(loginPage); 
@@ -28,6 +28,9 @@ export default function AdminPage() {
     } catch (err) {
       router.push(loginPage  );
     }
+  }
+  useEffect(() => {
+    checkAdminAuthorization();
   }, [router]);
 
   if (!isAuthorized) return null;

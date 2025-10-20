@@ -8,7 +8,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [popupMessage, setPopupMessage] = useState('Redirecting...');
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
   const updateCountdown = (seconds: number) => {
     setPopupMessage(`Redirecting in ${seconds} seconds...`);
