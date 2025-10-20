@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
 export default function AdminPage() {
-  const [isAuthorized, setIsAuthorized] = useState(false);
   const router = useRouter();
   const checkAdminAuthorization = async () => {
     const token = localStorage.getItem('admin_token')
@@ -17,24 +16,22 @@ export default function AdminPage() {
       router.push(loginPage);
       return;
     }
-
-    try {
-      const decoded = jwt.verify(token, JWT_SECRET) as any;
-      console.log(decoded);
-      /* if (decoded.role === "admin") {
-        setIsAuthorized(true);
-      } else {
-        router.push(loginPage);
-      } */
-    } catch (err) {
-      //router.push(loginPage  );
-    }
+    
+    const decoded = jwt.verify(token, JWT_SECRET) as any;
+    console.log("decoded: ", decoded);
+    /* if (decoded.role === "admin") {
+      setIsAuthorized(true);
+    } else {
+      router.push(loginPage);
+    } */
+  
+    //router.push(loginPage  );
+    
   }
   useEffect(() => {
     checkAdminAuthorization();
-  }, [router]);
+  }, []);
 
-  if (!isAuthorized) return null;
 
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-green-100">
