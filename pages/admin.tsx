@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-
+import { jwtVerify } from 'jose';
 
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
 export default function AdminPage() {
   const router = useRouter();
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const checkAdminAuthorization = async () => {
     const token = localStorage.getItem('admin_token')
     
@@ -17,7 +18,19 @@ export default function AdminPage() {
       return;
     }
     
-   
+   try{
+    const { payload } = await jwtVerify(
+      token,
+      new TextEncoder().encode(JWT_SECRET)
+    );
+    if (payload.role === "admin") {
+      setIsAuthorized(true);
+    } else {
+      router.push(loginPage);
+    }
+   } catch (error) {
+    router.push(loginPage);
+   }
     /* if (decoded.role === "admin") {
       setIsAuthorized(true);
     } else {
