@@ -10,7 +10,7 @@ export default function AdminPage() {
   const checkAdminAuthorization = async () => {
     const token = localStorage.getItem('admin_token')
     console.log("Admin token:", token);
-    if (!token) {
+/*     if (!token) {
       setTimeout(() => {
         router.push(loginPage); 
       } , 2000);
@@ -27,7 +27,7 @@ export default function AdminPage() {
       }
     } catch (err) {
       router.push(loginPage  );
-    }
+    } */
   }
   useEffect(() => {
     checkAdminAuthorization();
