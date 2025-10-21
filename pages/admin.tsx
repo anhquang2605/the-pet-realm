@@ -7,6 +7,7 @@ const loginPage = '/authentication/login';
 export default function AdminPage() {
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [authorizationMessage, setAuthorizatiorMessage] = useState('Checking Authorization...');
   const checkAdminAuthorization = async () => {
     const token = localStorage.getItem('admin_token')
     
@@ -40,11 +41,25 @@ export default function AdminPage() {
     //router.push(loginPage  );
     
   }
+  const authorizationTimeout = () => {
+    setTimeout(() => {
+      if (!isAuthorized) {
+        setAuthorizatiorMessage('Authorization timed out. Redirecting to login page...');
+        router.push(loginPage); 
+      }
+    }, 3000);
+  }
   useEffect(() => {
     checkAdminAuthorization();
   }, []);
 
-
+  if (!isAuthorized) {
+    return (
+      <div className="h-screen flex flex-col items-center justify-center bg-yellow-100">
+        <h1 className="text-2xl font-bold text-yellow-700">{authorizationMessage}</h1>
+      </div>
+    );
+  }
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-green-100">
       <h1 className="text-3xl font-bold text-green-700">Welcome, Admin!</h1>
