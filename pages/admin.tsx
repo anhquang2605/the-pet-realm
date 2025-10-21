@@ -8,9 +8,9 @@ import ActionButton from '../components/universals/buttons/action-button/action-
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
 const ADMIN_ACTIONS = [
-  { title: 'Browse Orders', description: 'View and manage all orders in the system.', link: '/browse/admin' },
-  {title: 'Create new Order', description: 'Create a new order on behalf of a user.', link: '/orders/create' },
-  { title: 'View Mailbox', description: 'View and manage all emails in the system.', link: '/mailbox' },
+  { title: 'Browse Orders', description: 'View and manage all orders in the system.', link: '/browse/admin', color: 'chocolate' },
+  {title: 'Create new Order', description: 'Create a new order on behalf of a user.', link: '/orders/create', color: 'green' },
+  { title: 'View Mailbox', description: 'View and manage all emails in the system.', link: '/mailbox', color : 'deepskyblue' },
 
 ]
 export default function AdminPage() {
@@ -76,7 +76,7 @@ export default function AdminPage() {
         {
           ADMIN_ACTIONS.map((action, index) => (
             <ActionCard key={index} title={action.title} description={action.description}>
-              <ActionButton type="main" title={action.title} onClick={() => router.push(action.link)} />     
+              <ActionButton color={action.color} type="main" title={action.title} onClick={() => router.push(action.link)} />     
             </ActionCard>
           ))
         }
