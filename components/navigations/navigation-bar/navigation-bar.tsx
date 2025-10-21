@@ -17,6 +17,11 @@ const NAVIGATION_ITEMS = [
 
 ]
 
+const ADMIN_NAVIGATION_ITEMS = [
+    { title: 'Dashboard', href: '/admin', icon: <BsHouse/> },
+    { title: 'Orders', href: '/browse/admin', icon: <BsCart/> },
+]
+
 const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
     const handleOnClick = (href: string) => {
         const $window  = window as any;

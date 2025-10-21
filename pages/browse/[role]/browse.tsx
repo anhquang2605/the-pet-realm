@@ -1,15 +1,19 @@
 import React, { use, useEffect } from 'react';
 import style from './page-styles/browse.module.css';
-import { browseOrderItems } from '../local_data/mock-order-data';
-import { Order, RawOrder } from '../types/order';
-import OrderFilter, { MobileFilterRevealButton } from '../components/sections/browse-components/use-order-fitler/order-filter';
-import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
-import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
-import { OrderFilterI } from '../components/sections/browse-components/use-order-fitler/order-filter';
+import { browseOrderItems } from '../../../local_data/mock-order-data';
+import { Order, RawOrder } from '../../../types/order';
+import OrderFilter, { MobileFilterRevealButton } from '../../../components/sections/browse-components/use-order-fitler/order-filter';
+import OrderSorter from '../../../components/sections/browse-components/order-sorter/order-sorter';
+import OrderViewer from '../../../components/sections/browse-components/order-viewer/order-viewer';
+import { OrderFilterI } from '../../../components/sections/browse-components/use-order-fitler/order-filter';
+import { UserRole } from '../../../libs/role-config';
 
 interface BrowseProps {
     orders: RawOrder[];
     priceRange?: [number, number];
+    params:{
+        role: UserRole
+    }
 }
 const fetchBrowseData = async () => {
     // Simulate fetching data for the browse page
@@ -20,10 +24,11 @@ const fetchPriceRange = async () => {
     // Simulate fetching price range data
     return [0, 1000]; // Example price range
 }
-export async function getStaticProps() {
+export async function getStaticProps(params: { role: UserRole }) {
     const props: BrowseProps = {
         orders: [], // Initialize with an empty array or fetch actual data
         priceRange: [0, 1000], // Default price range
+        params: params
     };
     // Fetch data for the browse page
     const browseData = await fetchBrowseData()
@@ -45,6 +50,7 @@ export async function getStaticProps() {
 const Browse: React.FC<BrowseProps> = ({
     orders,
     priceRange = [0, 1000],
+    params
 }) => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
     const [filteredOrders, setFilteredOrders] = React.useState<Order[]>([]);
@@ -57,6 +63,8 @@ const Browse: React.FC<BrowseProps> = ({
     //Sorter states
     const [isAscending, setIsAscending] = React.useState(true);
     const [sortBy, setSortBy] = React.useState<string>("Date");
+    //user Roles
+    const role = params.role;
     useEffect(()=>{ 
         const convertedOrders = convertToOrders(orders);
         setOrderItems(convertedOrders);
