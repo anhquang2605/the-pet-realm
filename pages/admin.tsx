@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { jwtVerify } from 'jose';
+import styles from './page-styles/admin.module.css';
 
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
@@ -61,9 +62,11 @@ export default function AdminPage() {
     );
   }
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-green-100">
+    <div className={"h-screen flex flex-col items-center justify-center bg-green-100" + styles['admin']}>
       <h1 className="text-3xl font-bold text-green-700">Welcome, Admin!</h1>
-      
+      <div className={styles['admin__dashboard']}>
+
+      </div>
     </div>
   );
 }
