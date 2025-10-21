@@ -65,7 +65,7 @@ export default function AdminPage() {
     <div className={"h-screen flex flex-col items-center justify-center bg-green-100" + styles['admin']}>
       <h1 className="text-3xl font-bold text-green-700">Welcome, Admin!</h1>
       <div className={styles['admin__dashboard']}>
-
+        
       </div>
     </div>
   );
