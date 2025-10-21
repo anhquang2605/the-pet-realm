@@ -48,7 +48,7 @@ export default function AdminPage() {
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-green-100">
       <h1 className="text-3xl font-bold text-green-700">Welcome, Admin!</h1>
-      <p className="mt-2 text-gray-700">You have successfully signed in.</p>
+      
     </div>
   );
 }
