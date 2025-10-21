@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './order-form.module.css';
-
+import { Order } from '../../../../types/order';
 interface OrderFormProps {
 
 }
