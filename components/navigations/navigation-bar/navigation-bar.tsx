@@ -21,8 +21,8 @@ const NAVIGATION_ITEMS = [
 
 const ADMIN_NAVIGATION_ITEMS = [
     { title: 'Dashboard', href: '/admin', icon: <TbChartInfographic/> },
-    { title: 'Search Orders', href: '/browse/admin', icon: <LuPackageSearch/> },
-    { title: 'Mailbox', href: '/mailbox', icon: <LuMail/> },
+    /* { title: 'Search Orders', href: '/browse/admin', icon: <LuPackageSearch/> },
+    { title: 'Mailbox', href: '/mailbox', icon: <LuMail/> }, */
     { title: 'Account', href: '/admin/account', icon: <BsPersonVcard/> },
 ]
 
