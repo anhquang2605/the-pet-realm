@@ -3,7 +3,7 @@ import style from './navigation-bar.module.css';
 import { BsCart, BsHouse, BsPersonVcard } from 'react-icons/bs';
 
 interface NavigationBarProps {
-
+    role?: 'admin' | 'user';
 }
 interface NavigationItem {
     title: string;
@@ -22,7 +22,9 @@ const ADMIN_NAVIGATION_ITEMS = [
     { title: 'Orders', href: '/browse/admin', icon: <BsCart/> },
 ]
 
-const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
+const NavigationBar: React.FC<NavigationBarProps> = ({
+    role = 'user'
+}) => {
     const handleOnClick = (href: string) => {
         const $window  = window as any;
         if($window){
