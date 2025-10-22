@@ -25,16 +25,18 @@ const ADMIN_NAVIGATION_ITEMS = [
 const NavigationBar: React.FC<NavigationBarProps> = ({
     role = 'user'
 }) => {
+    const navigationItems = role === 'admin' ? ADMIN_NAVIGATION_ITEMS : NAVIGATION_ITEMS;
     const handleOnClick = (href: string) => {
         const $window  = window as any;
         if($window){
             $window.location.href = href;
         }
     }
+    
     return (
         <nav className={`${style['navigation-bar']}`} >
             <ul className={style['navigation-list']}>
-                {NAVIGATION_ITEMS.map((item: NavigationItem, index: number) => (
+                {navigationItems.map((item: NavigationItem, index: number) => (
                     <li key={index} className={style['navigation-item']} onClick={() => handleOnClick(item.href)}>
                         <span className={style['navigation-item__icon']}>
                             {item.icon}
