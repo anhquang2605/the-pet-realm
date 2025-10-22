@@ -2,5 +2,9 @@
 
 }
 .admin__dashboard{
-
+    display: flex;
+    flex-direction: row;
+    margin-top: var(--spacing);
+    gap: var(--haft-spacing);
+    padding: var(--quarter-spacing);
 }
