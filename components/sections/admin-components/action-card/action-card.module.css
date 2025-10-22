@@ -1,3 +1,15 @@
 .action-card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: var(--spacing);
+    gap: var(--quarter-spacing);
+    color: white;
+}
+.action-card h5{
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
     
 }
