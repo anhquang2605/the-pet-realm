@@ -3,6 +3,7 @@ import style from './navigation-bar.module.css';
 import { BsCart, BsHouse, BsPersonVcard } from 'react-icons/bs';
 import { TbChartInfographic } from "react-icons/tb";
 import { LuPackageSearch, LuMail } from "react-icons/lu";
+import ActionButton from '../../universals/buttons/action-button/action-button';
 interface NavigationBarProps {
     role?: 'admin' | 'user';
 }
@@ -49,7 +50,13 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                         </span>
                     </li>
                 ))}
+              
             </ul>
+              {
+                    role === 'admin' &&
+                    <ActionButton title="Logout" onClick={() => handleOnClick('/authentication/logout')} color={'red'} type={'link'} />
+                    
+            }
         </nav>
     );
 };
