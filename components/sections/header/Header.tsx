@@ -6,10 +6,12 @@ import { IoMenu } from "react-icons/io5";
 import { IoCloseCircle } from "react-icons/io5";
 import SearchBar from '../../universals/search-bar/search-bar';
 interface HeaderProps {
-
+    isAuthenticated?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({}) => {
+const Header: React.FC<HeaderProps> = ({
+    isAuthenticated = false
+}) => {
     const handleMobileMenuClick = () => {
         const $header = document.querySelector(`.${style['header']}`);
         if ($header) {
@@ -31,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                     
                 </span>
                 <SearchBar />
-                <NavigationBar />
+                <NavigationBar role={isAuthenticated ? 'admin' : 'user'} />
             </header>
         </>
 
