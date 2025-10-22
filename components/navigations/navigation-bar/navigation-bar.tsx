@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './navigation-bar.module.css';
 import { BsCart, BsHouse, BsPersonVcard } from 'react-icons/bs';
-
+import { TbChartInfographic } from "react-icons/tb";
+import { LuPackageSearch, LuMail } from "react-icons/lu";
 interface NavigationBarProps {
     role?: 'admin' | 'user';
 }
@@ -18,8 +19,10 @@ const NAVIGATION_ITEMS = [
 ]
 
 const ADMIN_NAVIGATION_ITEMS = [
-    { title: 'Dashboard', href: '/admin', icon: <BsHouse/> },
-    { title: 'Orders', href: '/browse/admin', icon: <BsCart/> },
+    { title: 'Dashboard', href: '/admin', icon: <TbChartInfographic/> },
+    { title: 'Search Orders', href: '/browse/admin', icon: <LuPackageSearch/> },
+    { title: 'Mailbox', href: '/mailbox', icon: <LuMail/> },
+    { title: 'Account', href: '/admin/account', icon: <BsPersonVcard/> },
 ]
 
 const NavigationBar: React.FC<NavigationBarProps> = ({
