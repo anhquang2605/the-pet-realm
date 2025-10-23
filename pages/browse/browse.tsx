@@ -1,12 +1,12 @@
 import React, { use, useEffect } from 'react';
 import style from './page-styles/browse.module.css';
-import { browseOrderItems } from '../../../local_data/mock-order-data';
-import { Order, RawOrder } from '../../../types/order';
-import OrderFilter, { MobileFilterRevealButton } from '../../../components/sections/browse-components/use-order-fitler/order-filter';
-import OrderSorter from '../../../components/sections/browse-components/order-sorter/order-sorter';
-import OrderViewer from '../../../components/sections/browse-components/order-viewer/order-viewer';
-import { OrderFilterI } from '../../../components/sections/browse-components/use-order-fitler/order-filter';
-import { UserRole } from '../../../libs/role-config';
+import { browseOrderItems } from '../../local_data/mock-order-data';
+import { Order, RawOrder } from '../../types/order';
+import OrderFilter, { MobileFilterRevealButton } from '../../components/sections/browse-components/use-order-fitler/order-filter';
+import OrderSorter from '../../components/sections/browse-components/order-sorter/order-sorter';
+import OrderViewer from '../../components/sections/browse-components/order-viewer/order-viewer';
+import { OrderFilterI } from '../../components/sections/browse-components/use-order-fitler/order-filter';
+import { UserRole } from '../../libs/role-config';
 
 interface BrowseProps {
     orders: RawOrder[];
