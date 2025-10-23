@@ -11,9 +11,6 @@ import { UserRole } from '../../../libs/role-config';
 interface BrowseProps {
     orders: RawOrder[];
     priceRange?: [number, number];
-    params:{
-        role: UserRole
-    }
 }
 const fetchBrowseData = async () => {
     // Simulate fetching data for the browse page
@@ -28,7 +25,6 @@ export async function getStaticProps(params: { role: UserRole }) {
     const props: BrowseProps = {
         orders: [], // Initialize with an empty array or fetch actual data
         priceRange: [0, 1000], // Default price range
-        params: params
     };
     // Fetch data for the browse page
     const browseData = await fetchBrowseData()
@@ -50,7 +46,6 @@ export async function getStaticProps(params: { role: UserRole }) {
 const Browse: React.FC<BrowseProps> = ({
     orders,
     priceRange = [0, 1000],
-    params
 }) => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
     const [filteredOrders, setFilteredOrders] = React.useState<Order[]>([]);
@@ -64,7 +59,6 @@ const Browse: React.FC<BrowseProps> = ({
     const [isAscending, setIsAscending] = React.useState(true);
     const [sortBy, setSortBy] = React.useState<string>("Date");
     //user Roles
-    const role = params.role;
     useEffect(()=>{ 
         const convertedOrders = convertToOrders(orders);
         setOrderItems(convertedOrders);
