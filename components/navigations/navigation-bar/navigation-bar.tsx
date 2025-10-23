@@ -50,13 +50,16 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                         </span>
                     </li>
                 ))}
-              
-            </ul>
-              {
+                 {
                     role === 'admin' &&
-                    <ActionButton title="Logout" onClick={() => handleOnClick('/authentication/logout')} color={'red'} type={'link'} />
-                    
-            }
+                    <li className={style['navigation-item']}>
+                        <ActionButton title="Logout" onClick={() => handleOnClick('/authentication/logout')} color={'red'} type={'link'} />
+                    </li>
+                }
+                
+
+            </ul>
+             
         </nav>
     );
 };
