@@ -6,8 +6,7 @@ import OrderFilter, { MobileFilterRevealButton } from '../components/sections/br
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
 import { OrderFilterI } from '../components/sections/browse-components/use-order-fitler/order-filter';
-import { UserRole } from '../libs/role-config';
-import { jwtVerify } from 'jose';
+import { checkAdminRole } from '../libs/admin-check';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 interface BrowseProps {
     orders: RawOrder[];
@@ -59,25 +58,24 @@ const Browse: React.FC<BrowseProps> = ({
     //Sorter states
     const [isAscending, setIsAscending] = React.useState(true);
     const [sortBy, setSortBy] = React.useState<string>("Date");
-    const  checkUserRole = async ()=> {
-        const token = localStorage.getItem('admin_token');
-        if (!token) {
-            return 'user';
-        }
-        try {
-            const {payload}  = await jwtVerify(token, new TextEncoder().encode(JWT_SECRET));
-            if (payload.role === 'admin') {
-                return 'admin';
-            }
-        } catch (error) {
-            return 'user';
-        }
-    }
+    //admin check state
+    const [isAdmin, setIsAdmin] = React.useState(false);
     //user Roles
     useEffect(()=>{ 
         const convertedOrders = convertToOrders(orders);
         setOrderItems(convertedOrders);
         setFilteredOrders(convertedOrders);
+        setIsAdmin( (prev) => {
+           let isAdmin = prev;
+            checkAdminRole(JWT_SECRET).then(
+                (role) => {
+                    isAdmin = role === 'admin'; 
+                }
+           );
+            return isAdmin;
+        }
+            
+        )
     }, [orders]);
     useEffect(() => {
         if(orderItems.length > 0){
