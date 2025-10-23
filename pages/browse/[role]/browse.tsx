@@ -21,7 +21,7 @@ const fetchPriceRange = async () => {
     // Simulate fetching price range data
     return [0, 1000]; // Example price range
 }
-export async function getStaticProps(params: { role: UserRole }) {
+export async function getStaticProps() {
     const props: BrowseProps = {
         orders: [], // Initialize with an empty array or fetch actual data
         priceRange: [0, 1000], // Default price range
