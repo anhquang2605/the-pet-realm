@@ -53,7 +53,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                  {
                     role === 'admin' &&
                     <li className={style['navigation-item']}>
-                        <ActionButton title="Logout" onClick={() => handleOnClick('/authentication/logout')} color={'red'} type={'link'} />
+                        <ActionButton title="Logout" onClick={() => handleOnClick('/authentication/logout')} color={'tomato'} type={'link'} />
                     </li>
                 }
                 
