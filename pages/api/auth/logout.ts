@@ -10,16 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   await connectDB();
 
-  const { email, password } = req.body;
-  if (!email || !password) return res.status(400).json({ message: 'Missing fields' });
+  const { email } = req.body;
+    //
 
-  const admin = await Admin.findOne({ email });
-  if (!admin) return res.status(401).json({ message: 'Invalid credentials' });
-
-  const valid = await bcrypt.compare(password, admin.password);
-  if (!valid) return res.status(401).json({ message: 'Invalid credentials' });
-
- // const token = jwt.sign({ id: admin._id, role: 'admin' }, JWT_SECRET, { expiresIn: '1h' });
- const token = await new SignJWT({ email: admin.email, role: 'admin' }).setProtectedHeader({ alg: 'HS256' }).setIssuedAt().setExpirationTime('3h').sign(new TextEncoder().encode(JWT_SECRET)); 
- res.status(200).json({ message: 'Login successful', token });
 }
