@@ -7,9 +7,9 @@ interface LogoutPageProps {
 
 const LogoutPage: React.FC<LogoutPageProps> = ({}) => {
     return (
-        <div className={style['logout-page']}>
+        <section className={style['logout-page']}>
             LogoutPage
-        </div>
+        </section>
     );
 };
 
