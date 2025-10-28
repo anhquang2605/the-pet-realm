@@ -7,7 +7,7 @@ import { jwtVerify } from 'jose';
 interface LogoutPageProps {
     
 }
-
+const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
     const [message, setMessage] = React.useState('Logging out...');
     const performLogout = async () => {
@@ -16,8 +16,7 @@ const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
             setMessage('No active session found.');
             return;
         }
-        const {payload} = await jwtVerify(token, new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey'));
-        console.log(payload);
+        const {payload} = await jwtVerify(token, new TextEncoder().encode(JWT_SECRET));
         if (!payload) {
             setMessage('Invalid session token.');
             return;
