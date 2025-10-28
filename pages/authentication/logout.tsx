@@ -17,6 +17,7 @@ const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
             return;
         }
         const {payload} = await jwtVerify(token, new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey'));
+        console.log(payload);
         if (!payload) {
             setMessage('Invalid session token.');
             return;
