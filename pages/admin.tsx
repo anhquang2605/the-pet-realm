@@ -40,7 +40,6 @@ export default function AdminPage() {
       router.push(loginPage);
     } */
    } catch (error) {
-    console.log(error);
     //router.push(loginPage);
    }
     /* if (decoded.role === "admin") {
