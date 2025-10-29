@@ -31,7 +31,10 @@ export default function AdminPage() {
    try{
     const { payload } = await jwtVerify(
       token,
-      new TextEncoder().encode(JWT_SECRET)
+      new TextEncoder().encode(JWT_SECRET),
+      {
+        algorithms: ['HS256'],   // ✅ REQUIRED for jose
+      }
     );
   
     /* if (payload.role === "admin") {
