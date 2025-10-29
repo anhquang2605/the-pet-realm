@@ -33,11 +33,11 @@ export default function AdminPage() {
       token,
       new TextEncoder().encode(JWT_SECRET)
     );
-    if (payload.role === "admin") {
+    /* if (payload.role === "admin") {
       setIsAuthorized(true);
     } else {
       router.push(loginPage);
-    }
+    } */
    } catch (error) {
     router.push(loginPage);
    }
