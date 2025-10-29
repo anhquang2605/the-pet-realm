@@ -50,10 +50,10 @@ const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
                  <Image src="/asset/images/racoon.webp" alt="Racoon pet image from grow a garden game" width={150} height={150} />
                 <h2 className="text-white text-2xl mt-1  text-center">
                     {message}
-                    <ActionButton type="main" color="green" title="Take me home" onClick={
-                        handleBack
-                    } />
                 </h2>
+                <ActionButton type="main" color="green" title="Take me home" 
+                onClick={
+                        handleBack} />
             </div>
         </section>
     );

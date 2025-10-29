@@ -6,6 +6,7 @@
     padding: var(--spacing);
     gap: var(--quarter-spacing);
     color: white;
+    background-color: var(--main-bg);
 }
 .action-card h5{
     margin: 0;
