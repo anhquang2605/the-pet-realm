@@ -114,7 +114,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full  border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full"
                     placeholder="Enter order name"
                 />
                 </div>
@@ -133,7 +133,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     required
                     min="0"
                     step="0.01"
-                    className="w-full  border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className=""
                     placeholder="0.00"
                 />
                 </div>
@@ -152,7 +152,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     min="0"
                     max="100"
                     step="0.01"
-                    className="w-full  border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className=""
                     placeholder="0"
                 />
                 </div>
@@ -168,7 +168,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     value={formData.description}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full  border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className=""
                     placeholder="Enter order description"
                 />
                 </div>
