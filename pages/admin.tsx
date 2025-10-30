@@ -36,13 +36,15 @@ export default function AdminPage() {
         algorithms: ['HS256'],   // ✅ REQUIRED for jose
       }
     );
-    if (payload.role === "admin") {
+   /*  if (payload.role === "admin") {
       setIsAuthorized(true);
     } else {
       router.push(loginPage);
-    } 
+    }  */
    } catch (error) {
-    router.push(loginPage);
+    console.log(error);
+    
+    //router.push(loginPage);
    }
     /* if (decoded.role === "admin") {
       setIsAuthorized(true);
