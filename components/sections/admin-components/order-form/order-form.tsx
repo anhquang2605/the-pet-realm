@@ -4,7 +4,7 @@ import { Order } from '../../../../types/order';
 import axios from 'axios';
 interface OrderFormProps {
   onSubmit: (orderData: Omit<Order, 'id' | 'dateCreated' | 'dateUpdated'>) => void;
-  isLoading?: boolean;
+  status: 'idle' | 'submitting' | 'success' | 'error';
 }
 interface OrderFormData{
     name: string;
@@ -15,7 +15,7 @@ interface OrderFormData{
 }
 const OrderForm: React.FC<OrderFormProps> = ({
     onSubmit,
-    isLoading = false,
+    status
 }) => {
     // State for form data
     const [formData, setFormData] = useState<OrderFormData>({
@@ -273,10 +273,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </button>
                 <button
                     type="submit"
-                    disabled={isLoading || isUploading || !formData.name || formData.price <= 0}
+                    disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
                     className="px-6 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed"
                 >
-                    {isLoading ? 'Creating...' : 'Create Order'}
+                    {status}
                 </button>
                 </div>
             </form>
