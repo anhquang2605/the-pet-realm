@@ -1,5 +1,7 @@
 import React, { useState, FormEvent } from "react";
 import { GetStaticProps, NextPage } from "next";
+import OrderForm, { OrderFormData } from "../../components/sections/admin-components/order-form/order-form";
+
 
 // /d:/Front end projects/the-pet-realm/pages/orders/create.tsx
 
@@ -15,8 +17,8 @@ type Props = {
 const CreateOrderPage: NextPage<Props> = ({}) => {
     const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-    async function handleSubmit(e: FormEvent) {
-        e.preventDefault();
+    async function handleSubmit(e: OrderFormData) {
+        
         
 
         try {
@@ -24,6 +26,7 @@ const CreateOrderPage: NextPage<Props> = ({}) => {
             const res = await fetch("/api/orders", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(e),
             });
 
             if (!res.ok) throw new Error("Failed to create order");
@@ -38,7 +41,7 @@ const CreateOrderPage: NextPage<Props> = ({}) => {
     return (
         <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
             <h1>Create Order</h1>
-
+            <OrderForm onSubmit={handleSubmit} status={formStatus} setStatus={setFormStatus} />
           
         </main>
     );

@@ -5,6 +5,7 @@ import axios from 'axios';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
   status: 'idle' | 'submitting' | 'success' | 'error';
+  setStatus: (status: 'idle' | 'submitting' | 'success' | 'error') => void;
 }
 export interface OrderFormData{
     name: string;
