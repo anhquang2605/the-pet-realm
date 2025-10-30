@@ -39,7 +39,7 @@ const CreateOrderPage: NextPage<Props> = ({}) => {
     }
 
     return (
-        <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
+        <main className={styles['create-order']}>
             <h1>Create Order</h1>
             <OrderForm onSubmit={handleSubmit} status={formStatus} setStatus={setFormStatus} />
           
