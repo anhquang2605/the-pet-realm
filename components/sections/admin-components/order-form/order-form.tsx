@@ -3,10 +3,10 @@ import style from './order-form.module.css';
 import { Order } from '../../../../types/order';
 import axios from 'axios';
 interface OrderFormProps {
-  onSubmit: (orderData: Omit<Order, 'id' | 'dateCreated' | 'dateUpdated'>) => void;
+  onSubmit: (orderData: OrderFormData) => void;
   status: 'idle' | 'submitting' | 'success' | 'error';
 }
-interface OrderFormData{
+export interface OrderFormData{
     name: string;
     price: number;
     description: string;
