@@ -39,10 +39,11 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     }   
     //get pathname
     useEffect(()=>{
-        setPathname(window.location.pathname);       
+        setPathname(window.location.pathname);  
+        checkAndHandleExpired();     
     }, [])
     useEffect(()=>{
-        if (isAuthenticated && sessionExpired) {
+        if (isAuthenticated && sessionExpired && !pathname.includes('authentication')) {
             localStorage.removeItem('admin_token');
         }
     }, [isAuthenticated])
