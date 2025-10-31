@@ -10,24 +10,42 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({children}) => {
     const [pathname, setPathname] = React.useState('');
     const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+    const [sessionExpired, setSessionExpired] = React.useState(false);
     const checkIfAuthenticated = () => {
         // Logic to check if user is authenticated
         const token = localStorage.getItem('admin_token');
         return !!token;
     }
-    const checkIfExpired = async () => {
+    const checkAndHandleExpired = async () => {
         // Logic to check if token is expired
         const token = localStorage.getItem('admin_token');
-        const {payload} = await jwtVerify(
+       
+        try{
+            const {payload} = await jwtVerify(
             token || '',
             new TextEncoder().encode(process.env.NEXT_PUBLICJWT_SECRET || 'supersecretkey'),
-        )
+            )
+            if(payload.role === 'admin'){
+                setIsAuthenticated(true);
+            }
+
+        }
+        catch(error){
+            if (error instanceof Error && error.name === 'JWTExpired') {
+                setIsAuthenticated(true);
+                setSessionExpired(true);
+            }
+        }
     }   
     //get pathname
     useEffect(()=>{
-        setPathname(window.location.pathname);
-        setIsAuthenticated(checkIfAuthenticated());
+        setPathname(window.location.pathname);       
     }, [])
+    useEffect(()=>{
+        if (isAuthenticated && sessionExpired) {
+            localStorage.removeItem('admin_token');
+        }
+    }, [isAuthenticated])
    
     return (
         <>
