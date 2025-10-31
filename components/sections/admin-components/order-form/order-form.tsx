@@ -104,7 +104,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <form onSubmit={handleSubmit} className=" flex flex-col">
                 {/* Name Field */}
                 <div>
-                <label htmlFor="name" className="block text-sm font-medium  mb-2">
+                <label htmlFor="name" className="block text-sm font-medium  ">
                     Order Name *
                 </label>
                 <input
@@ -121,7 +121,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 {/* Price Field */}
                 <div>
-                <label htmlFor="price" className="block text-sm font-medium  mb-2">
+                <label htmlFor="price" className="block text-sm font-medium  ">
                     Price ($) *
                 </label>
                 <input
@@ -140,7 +140,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 {/* Discount Field */}
                 <div>
-                <label htmlFor="discount" className="block text-sm font-medium  mb-2">
+                <label htmlFor="discount" className="block text-sm font-medium  ">
                     Discount (%)
                 </label>
                 <input
@@ -159,7 +159,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 {/* Description Field */}
                 <div>
-                <label htmlFor="description" className="block text-sm font-medium  mb-2">
+                <label htmlFor="description" className="block text-sm font-medium  ">
                     Description
                 </label>
                 <textarea
@@ -175,10 +175,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 {/* Image Upload */}
                 <div>
-                <label className="block text-sm font-medium  mb-2">
+                <label className="block text-sm font-medium  ">
                     Upload Images
                 </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <div className="border-2 border-dashed border-gray-300 rounded-lg text-center">
                     <input
                     type="file"
                     multiple
@@ -206,7 +206,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 {/* Uploaded Images Preview */}
                 {uploadedImages.length > 0 && (
                     <div className="mt-4">
-                    <h4 className="text-sm font-medium  mb-2">Uploaded Images:</h4>
+                    <h4 className="text-sm font-medium  ">Uploaded Images:</h4>
                     <div className="grid grid-cols-3 gap-4">
                         {uploadedImages.map((url, index) => (
                         <div key={index} className="relative group">
