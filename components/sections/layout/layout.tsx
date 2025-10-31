@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import style from './layout.module.css';
 import Header from '../header/Header';
 import { jwtVerify } from 'jose';
+import path from 'path';
 
 interface LayoutProps {
     children: React.ReactNode
@@ -41,6 +42,15 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     useEffect(()=>{
         setPathname(window.location.pathname);  
         checkAndHandleExpired();     
+        if(pathname.includes('admin')){
+            const authStatus = checkIfAuthenticated();
+            if(authStatus){
+                setIsAuthenticated(true);
+            } else {
+                //redirect to login page, print out message that the user is not authenticated and authorized
+            }
+
+        }
     }, [])
     useEffect(()=>{
         if (isAuthenticated && sessionExpired && !pathname.includes('authentication')) {
