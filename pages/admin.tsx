@@ -30,18 +30,18 @@ export default function AdminPage() {
     }
     
    try{
-    const { payload } = await jwtVerify(
-      token,
-      new TextEncoder().encode(JWT_SECRET),
-      {
-        algorithms: ['HS256'],   // ✅ REQUIRED for jose
+      const { payload } = await jwtVerify(
+        token,
+        new TextEncoder().encode(JWT_SECRET),
+        {
+          algorithms: ['HS256'],   // ✅ REQUIRED for jose
+        }
+      );
+      if (payload.role === "admin") {
+        setIsAuthorized(true);
+      } else {
+        router.push(loginPage);
       }
-    );
-   /*  if (payload.role === "admin") {
-      setIsAuthorized(true);
-    } else {
-      router.push(loginPage);
-    }  */
    } catch (error) {
      if (error instanceof Error && error.name === 'JWTExpired') {
       setAuthorizatiorMessage('Session expired. Redirecting to logout page...');

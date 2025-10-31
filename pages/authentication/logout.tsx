@@ -39,7 +39,7 @@ const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
                 setMessage(data.message || 'Logout failed. Please try again.');
             }
         } catch (error) {
-            
+            console.log('Logout error:', error);
         }
         
     };
