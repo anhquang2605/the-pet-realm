@@ -9,9 +9,9 @@ const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
 const logoutPage = '/authentication/logout';
 const ADMIN_ACTIONS = [
-  { title: 'Browse Orders', description: 'View and manage all orders in the system.', link: '/browse/admin', color: 'chocolate' },
-  {title: 'Create new Order', description: 'Create a new order on behalf of a user.', link: '/orders/create', color: 'green' },
-  { title: 'View Mailbox', description: 'View and manage all emails in the system.', link: '/mailbox', color : 'deepskyblue' },
+  { title: 'Browse Orders', description: 'View and manage all orders in the system.', link: '/browse', color: 'chocolate' },
+  {title: 'Create new Order', description: 'Create a new order on behalf of a user.', link: '/admin/orders/create', color: 'green' },
+  { title: 'View Mailbox', description: 'View and manage all emails in the system.', link: '/admin/mailbox', color : 'deepskyblue' },
 
 ]
 export default function AdminPage() {
