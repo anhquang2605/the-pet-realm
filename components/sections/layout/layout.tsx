@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import style from './layout.module.css';
 import Header from '../header/Header';
+import { jwtVerify } from 'jose';
 
 interface LayoutProps {
     children: React.ReactNode
@@ -14,6 +15,14 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
         const token = localStorage.getItem('admin_token');
         return !!token;
     }
+    const checkIfExpired = async () => {
+        // Logic to check if token is expired
+        const token = localStorage.getItem('admin_token');
+        const {payload} = await jwtVerify(
+            token || '',
+            new TextEncoder().encode(process.env.NEXT_PUBLICJWT_SECRET || 'supersecretkey'),
+        )
+    }   
     //get pathname
     useEffect(()=>{
         setPathname(window.location.pathname);
