@@ -7,6 +7,7 @@ import ActionButton from '../components/universals/buttons/action-button/action-
 
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
+const logoutPage = '/authentication/logout';
 const ADMIN_ACTIONS = [
   { title: 'Browse Orders', description: 'View and manage all orders in the system.', link: '/browse/admin', color: 'chocolate' },
   {title: 'Create new Order', description: 'Create a new order on behalf of a user.', link: '/orders/create', color: 'green' },
@@ -42,7 +43,11 @@ export default function AdminPage() {
       router.push(loginPage);
     }  */
    } catch (error) {
-    console.log(error);
+     if (error instanceof Error && error.name === 'JWTExpired') {
+      setAuthorizatiorMessage('Session expired. Redirecting to logout page...');
+      sessionExpiryTimeout();
+      return;
+    }
     
     //router.push(loginPage);
    }
@@ -62,6 +67,12 @@ export default function AdminPage() {
         router.push(loginPage); 
       }
     }, 3000);
+  }
+  const sessionExpiryTimeout = () => {
+    setTimeout(() => {
+      setAuthorizatiorMessage('Session expired. Redirecting to logout page...');
+      router.push(logoutPage); 
+    }, 2000); // 15 minutes
   }
   useEffect(() => {
     checkAdminAuthorization();
