@@ -98,8 +98,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
     };
 
     return (
-        <div className={style['order-form'] + ' ' + "mx-auto bg-white rounded-lg shadow-md flex flex-col"}>
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">Create New Order</h2>
+        <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
+            <h2 className="text-2xl font-bold mb-6 text-slate-200">Create New Order</h2>
             {/* Form */}
             <form onSubmit={handleSubmit} className=" flex flex-col">
                 {/* Name Field */}
