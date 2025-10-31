@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { jwtVerify } from 'jose';
 import styles from './page-styles/admin.module.css';
-import ActionCard from '../components/sections/admin-components/action-card/action-card';
-import ActionButton from '../components/universals/buttons/action-button/action-button';
+import ActionCard from '../../components/sections/admin-components/action-card/action-card';
+import ActionButton from '../../components/universals/buttons/action-button/action-button';
 
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
