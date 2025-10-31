@@ -16,27 +16,32 @@ const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
             setMessage('No active session found.');
             return;
         }
-        const {payload} = await jwtVerify(token, new TextEncoder().encode(JWT_SECRET));
-        if (!payload) {
-            setMessage('Invalid session token.');
-            return;
-        }
+        try{
+            const {payload} = await jwtVerify(token, new TextEncoder().encode(JWT_SECRET));
+            if (!payload) {
+                setMessage('Invalid session token.');
+                return;
+            }
 
-        const res = await fetch('/api/auth/logout', {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: payload.email }), 
-        });
-        const data = await res.json();
-        if (res.ok) {
-            localStorage.removeItem('admin_token');
-            setMessage('Logout successful. Redirecting to home page...');
-            setTimeout(() => {
-                window.location.href = '/';
-            }, 3000);
-        } else {
-            setMessage(data.message || 'Logout failed. Please try again.');
+            const res = await fetch('/api/auth/logout', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: payload.email }), 
+            });
+            const data = await res.json();
+            if (res.ok) {
+                localStorage.removeItem('admin_token');
+                setMessage('Logout successful. Redirecting to home page...');
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 3000);
+            } else {
+                setMessage(data.message || 'Logout failed. Please try again.');
+            }
+        } catch (error) {
+            
         }
+        
     };
     const handleBack = () => {
         window.location.href = '/';
