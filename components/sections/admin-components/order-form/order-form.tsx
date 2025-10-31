@@ -104,7 +104,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <form onSubmit={handleSubmit} className=" flex flex-col">
                 {/* Name Field */}
                 <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium  mb-2">
                     Order Name *
                 </label>
                 <input
@@ -121,7 +121,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 {/* Price Field */}
                 <div>
-                <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="price" className="block text-sm font-medium  mb-2">
                     Price ($) *
                 </label>
                 <input
@@ -140,7 +140,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 {/* Discount Field */}
                 <div>
-                <label htmlFor="discount" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="discount" className="block text-sm font-medium  mb-2">
                     Discount (%)
                 </label>
                 <input
@@ -159,7 +159,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 {/* Description Field */}
                 <div>
-                <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="description" className="block text-sm font-medium  mb-2">
                     Description
                 </label>
                 <textarea
@@ -175,7 +175,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 {/* Image Upload */}
                 <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium  mb-2">
                     Upload Images
                 </label>
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
@@ -206,7 +206,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 {/* Uploaded Images Preview */}
                 {uploadedImages.length > 0 && (
                     <div className="mt-4">
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Uploaded Images:</h4>
+                    <h4 className="text-sm font-medium  mb-2">Uploaded Images:</h4>
                     <div className="grid grid-cols-3 gap-4">
                         {uploadedImages.map((url, index) => (
                         <div key={index} className="relative group">
@@ -239,7 +239,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     onChange={handleCheckboxChange}
                     className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="isFeatured" className="ml-2 block text-sm text-gray-700">
+                <label htmlFor="isFeatured" className="ml-2 block text-sm ">
                     Feature this order
                 </label>
                 </div>
@@ -268,7 +268,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     });
                     setUploadedImages([]);
                     }}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
+                    className="px-4 py-2 text-sm font-medium  bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
                 >
                     Reset
                 </button>
