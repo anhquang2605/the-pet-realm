@@ -30,15 +30,17 @@ const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
             });
             const data = await res.json();
             if (res.ok) {
-                localStorage.removeItem('admin_token');
                 setMessage('Logout successful. Redirecting to home page...');
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 3000);
+               handleRemoveStorage();
             } else {
                 setMessage(data.message || 'Logout failed. Please try again.');
             }
         } catch (error) {
+            if(error instanceof Error && error.name === 'JWTExpired') {
+                setMessage('Session expired. Redirecting to home page...');
+                handleRemoveStorage();
+                return;
+            }
             console.log('Logout error:', error);
         }
         
@@ -46,6 +48,12 @@ const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
     const handleBack = () => {
         window.location.href = '/';
     };
+    const handleRemoveStorage = () => {
+        localStorage.removeItem('admin_token');
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 3000);
+    }
     useEffect(() => {
         performLogout();
     },[])
