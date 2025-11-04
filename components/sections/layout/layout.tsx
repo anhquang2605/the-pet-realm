@@ -54,6 +54,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     useEffect(()=>{
         if (isAuthenticated && sessionExpired && !pathname.includes('authentication')) {
             localStorage.removeItem('admin_token');
+            setIsAuthenticated(false);
         }
     }, [isAuthenticated])
    
