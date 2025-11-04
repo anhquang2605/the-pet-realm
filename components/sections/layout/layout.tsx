@@ -50,6 +50,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
            checkAdminAuthorization();
 
         }
+        console.log(isAuthenticated, sessionExpired);
     }, [])
     useEffect(()=>{
         if (isAuthenticated && sessionExpired && !pathname.includes('authentication')) {
