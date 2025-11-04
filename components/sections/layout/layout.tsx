@@ -38,17 +38,20 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
             }
         }
     }   
+    const checkAdminAuthorization = async () => {
+        const authStatus = checkIfAuthenticated();
+        if(authStatus){
+            setIsAuthenticated(true);
+        } else {
+            //redirect to login page, print out message that the user is not authenticated and authorized
+        }
+    }
     //get pathname
     useEffect(()=>{
         setPathname(window.location.pathname);  
         checkAndHandleExpired();     
         if(pathname.includes('admin')){
-            const authStatus = checkIfAuthenticated();
-            if(authStatus){
-                setIsAuthenticated(true);
-            } else {
-                //redirect to login page, print out message that the user is not authenticated and authorized
-            }
+           
 
         }
     }, [])
