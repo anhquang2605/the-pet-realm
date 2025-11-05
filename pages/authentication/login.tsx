@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../page-styles/login.module.css'
 import ActionButton from '../../components/universals/buttons/action-button/action-button';
+import Image from 'next/image';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -88,7 +89,8 @@ export default function LoginPage() {
           <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center backdrop-blur-md" + " " + styles.popup}>
             {
               loginStatus === 'loading' && <span>
-                
+                <Image src="/asset/images/processing.gif" width={50} height={50} alt="loading
+                "/>
               </span>
             }
             <div className="bg-gray-800 text-slate-100 px-6 py-4 rounded-xl shadow-md">
