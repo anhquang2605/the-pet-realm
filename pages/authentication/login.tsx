@@ -14,7 +14,7 @@ export default function LoginPage() {
   }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setShowPopup(true);
     const res = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,7 +27,7 @@ export default function LoginPage() {
       // save token to localStorage
       localStorage.setItem('admin_token', token);
       setPopupMessage('Admin login successful!');
-      setShowPopup(true);
+      
 
       // Redirect after a short delay
       setTimeout(() => {
@@ -44,7 +44,7 @@ export default function LoginPage() {
         }
       }, 1000);
     } else {
-      setPopupMessage(data.message || 'Login failed');
+      setPopupMessage('Login failed, please try again.');
       setShowPopup(true);
       setTimeout(() => setShowPopup(false), 2000);
     }
