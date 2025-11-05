@@ -44,7 +44,7 @@ export default function AdminPage() {
       }
    } catch (error) {
      if (error instanceof Error && error.name === 'JWTExpired') {
-      setAuthorizatiorMessage('Session expired. Redirecting to logout page...');
+      setAuthorizatiorMessage('Session expired. Redirecting to login page...');
       sessionExpiryTimeout();
       return;
     }
@@ -71,7 +71,7 @@ export default function AdminPage() {
   const sessionExpiryTimeout = () => {
     setTimeout(() => {
       setAuthorizatiorMessage('Session expired. Redirecting to logout page...');
-      router.push(logoutPage); 
+      router.push(loginPage); 
     }, 2000); // 15 minutes
   }
   useEffect(() => {
