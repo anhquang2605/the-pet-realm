@@ -8,6 +8,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [popupMessage, setPopupMessage] = useState('Working on it...');
   const [showPopup, setShowPopup] = useState(false);
+  const [loginStatus, setLoginStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const router = useRouter();
   const updateCountdown = (seconds: number) => {
     setPopupMessage(`Redirecting in ${seconds} seconds...`);
@@ -15,6 +16,7 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setShowPopup(true);
+    setLoginStatus('loading');
     const res = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,7 +29,7 @@ export default function LoginPage() {
       // save token to localStorage
       localStorage.setItem('admin_token', token);
       setPopupMessage('Admin login successful!');
-      
+      setLoginStatus('success');
 
       // Redirect after a short delay
       setTimeout(() => {
@@ -45,6 +47,7 @@ export default function LoginPage() {
       }, 1000);
     } else {
       setPopupMessage('Login failed, please try again.');
+      setLoginStatus('error');
       setShowPopup(true);
       setTimeout(() => setShowPopup(false), 2000);
     }
@@ -83,6 +86,11 @@ export default function LoginPage() {
       </form>
       {showPopup && (
           <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center backdrop-blur-md" + " " + styles.popup}>
+            {
+              loginStatus === 'loading' && <span>
+                
+              </span>
+            }
             <div className="bg-gray-800 text-slate-100 px-6 py-4 rounded-xl shadow-md">
               <p className={styles.popupMessage}>{popupMessage}</p>
               <ActionButton type="main" color="tomato" href="/admin" title="Take me now!" />
