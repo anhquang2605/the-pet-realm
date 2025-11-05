@@ -8,7 +8,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [popupMessage, setPopupMessage] = useState('Working on it...');
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
   const [loginStatus, setLoginStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('loading');
   const router = useRouter();
   const updateCountdown = (seconds: number) => {
@@ -87,13 +87,14 @@ export default function LoginPage() {
       </form>
       {showPopup && (
           <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center backdrop-blur-md" + " " + styles.popup}>
-            {
+           
+            <div className="bg-gray-800 text-slate-100 px-6 py-4 rounded-xl shadow-md flex flex-col items-center">
+               {
               loginStatus === 'loading' && <span>
-                <Image src="/asset/images/processing.gif" width={50} height={50} alt="loading
+                <Image src="/asset/images/processing.gif" width={100} height={100} alt="loading
                 "/>
               </span>
-            }
-            <div className="bg-gray-800 text-slate-100 px-6 py-4 rounded-xl shadow-md">
+              }
               <p className={styles.popupMessage}>{popupMessage}</p>
               <ActionButton type="main" color="tomato" href="/admin" title="Take me now!" />
             </div>
