@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [popupMessage, setPopupMessage] = useState('Working on it...');
   const [showPopup, setShowPopup] = useState(false);
-  const [loginStatus, setLoginStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [loginStatus, setLoginStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('loading');
   const router = useRouter();
   const updateCountdown = (seconds: number) => {
     setPopupMessage(`Redirecting in ${seconds} seconds...`);
