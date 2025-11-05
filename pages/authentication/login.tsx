@@ -6,7 +6,7 @@ const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [popupMessage, setPopupMessage] = useState('Redirecting...');
+  const [popupMessage, setPopupMessage] = useState('Working on it...');
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
   const updateCountdown = (seconds: number) => {
