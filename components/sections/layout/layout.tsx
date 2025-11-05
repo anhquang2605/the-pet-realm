@@ -15,7 +15,6 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     const checkIfAuthenticated = () => {
         // Logic to check if user is authenticated
         const token = localStorage.getItem('admin_token');
-        console.log(token);
         return !!token;
     }
     const checkAndHandleExpired = async () => {
