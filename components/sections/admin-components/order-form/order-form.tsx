@@ -120,7 +120,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Price Field */}
-                <div>
+                <div className={style['full']}>
                 <label htmlFor="price" className="block text-sm font-medium  ">
                     Price ($) *
                 </label>
@@ -139,7 +139,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Discount Field */}
-                <div>
+                <div className={style['half']}>
                 <label htmlFor="discount" className="block text-sm font-medium  ">
                     Discount (%)
                 </label>
@@ -230,7 +230,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Featured Toggle */}
-                <div className="flex items-center">
+                <div className={style['half']}>
                 <input
                     type="checkbox"
                     id="isFeatured"

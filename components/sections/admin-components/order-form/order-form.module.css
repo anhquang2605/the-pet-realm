@@ -3,8 +3,19 @@
     padding: var(--spacing);
     border: 1px solid gray;
     margin-top: var(--spacing);
+    display: flex;
+
 }
 .order-form label{
     color: white;
     font-weight: semi-bold;
+}
+.order-form input{
+
+}
+.order-form .full{
+    width: 100%;
+}
+.order-form .half{
+    width: 48%;
 }
