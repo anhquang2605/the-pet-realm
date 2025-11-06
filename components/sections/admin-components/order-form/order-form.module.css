@@ -16,13 +16,13 @@
     align-content: flex-start;
 }
 .order-form input{
-
+    flex: 1;
 }
 .order-form .full, .order-form .half, .order-form .third{
     display: flex;
-    flex-direction: column;
     width: 100%;
 }
+
 @media screen and (min-width: 640px) {
     .order-form .half{
         width: 50%;

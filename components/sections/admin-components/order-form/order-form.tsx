@@ -166,7 +166,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     onChange={handleCheckboxChange}
                     className=" text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 />
-                <label htmlFor="isFeatured" className="block text-sm ">
+                <label htmlFor="isFeatured" className=" text-sm ">
                     Feature this order
                 </label>
                 </div>
