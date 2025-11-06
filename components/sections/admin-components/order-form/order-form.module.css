@@ -18,20 +18,17 @@
 .order-form input{
 
 }
-.order-form .full, .order-form .half{
+.order-form .full, .order-form .half, .order-form .third{
     display: flex;
     flex-direction: column;
-}
-.order-form .full{
     width: 100%;
 }
-.order-form .half{
-    width: 100%;
-}
-
 @media screen and (min-width: 640px) {
     .order-form .half{
         width: 50%;
+    }
+    .order-form .third{
+        width: 33.33%;
     }
     .order-form form{
        

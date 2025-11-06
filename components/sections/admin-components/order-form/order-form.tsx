@@ -156,9 +156,22 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     placeholder="0"
                 />
                 </div>
-
+                {/* Featured Toggle */}
+                <div className={style['half']}>
+                <input
+                    type="checkbox"
+                    id="isFeatured"
+                    name="isFeatured"
+                    checked={formData.isFeatured}
+                    onChange={handleCheckboxChange}
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                />
+                <label htmlFor="isFeatured" className="ml-2 block text-sm ">
+                    Feature this order
+                </label>
+                </div>
                 {/* Description Field */}
-                <div>
+                <div className={style['full']}>
                 <label htmlFor="description" className="block text-sm font-medium  ">
                     Description
                 </label>
@@ -174,38 +187,38 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Image Upload */}
-                <div>
-                <label className="block text-sm font-medium  ">
-                    Upload Images
-                </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg text-center">
-                    <input
-                    type="file"
-                    multiple
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    disabled={isUploading}
-                    className="hidden"
-                    id="image-upload"
-                    />
-                    <label
-                    htmlFor="image-upload"
-                    className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md ${
-                        isUploading
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700 text-white'
-                    }`}
-                    >
-                    {isUploading ? 'Uploading...' : 'Choose Images'}
+                <div className={style['full']}>
+                    <label className="block text-sm font-medium  ">
+                        Upload Images
                     </label>
-                    <p className="mt-2 text-sm text-gray-500">
-                    Upload multiple images at once
-                    </p>
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg text-center">
+                        <input
+                        type="file"
+                        multiple
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        disabled={isUploading}
+                        className="hidden"
+                        id="image-upload"
+                        />
+                        <label
+                        htmlFor="image-upload"
+                        className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md ${
+                            isUploading
+                            ? 'bg-gray-400 cursor-not-allowed'
+                            : 'bg-blue-600 hover:bg-blue-700 text-white'
+                        }`}
+                        >
+                        {isUploading ? 'Uploading...' : 'Choose Images'}
+                        </label>
+                        <p className="mt-2 text-sm text-gray-500">
+                        Upload multiple images at once
+                        </p>
                 </div>
 
                 {/* Uploaded Images Preview */}
                 {uploadedImages.length > 0 && (
-                    <div className="mt-4">
+                    <div className={"mt-4 " + style['full']}>
                     <h4 className="text-sm font-medium  ">Uploaded Images:</h4>
                     <div className="grid grid-cols-3 gap-4">
                         {uploadedImages.map((url, index) => (
@@ -229,20 +242,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 )}
                 </div>
 
-                {/* Featured Toggle */}
-                <div className={style['half']}>
-                <input
-                    type="checkbox"
-                    id="isFeatured"
-                    name="isFeatured"
-                    checked={formData.isFeatured}
-                    onChange={handleCheckboxChange}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label htmlFor="isFeatured" className="ml-2 block text-sm ">
-                    Feature this order
-                </label>
-                </div>
+                
 
                 {/* Status Display (Read-only) */}
                 <div className="p-3 bg-gray-50 rounded-md">
