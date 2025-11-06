@@ -14,14 +14,15 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    gap: var(--quarter-spacing);
 }
-.order-form label, .order-form input{
+.order-form label, .order-form input, .order-form select, .order-form textarea{
     padding: var(--quarter-spacing);
 }
 .order-form label{
     width: 150px;
 }
-.order-form input{
+.order-form input, .order-form select, .order-form textarea{
     flex: 1;
     border: 1px solid gray;
     border-radius: 4px;
