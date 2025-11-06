@@ -10,6 +10,10 @@
     color: white;
     font-weight: semi-bold;
 }
+.order-form form{
+    display: flex;
+    flex-wrap: wrap;
+}
 .order-form input{
 
 }
