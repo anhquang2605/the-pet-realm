@@ -1,3 +1,10 @@
 .order-form{
     background-color: var(--secondary-bg);
+    padding: var(--spacing);
+    border: 1px solid gray;
+    margin-top: var(--spacing);
+}
+.order-form label{
+    color: white;
+    font-weight: semi-bold;
 }
