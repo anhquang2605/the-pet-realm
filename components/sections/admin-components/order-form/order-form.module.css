@@ -17,5 +17,14 @@
     width: 100%;
 }
 .order-form .half{
-    width: 48%;
+    width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+    .order-form .half{
+        width: 48%;
+    }
+    .order-form form{
+       
+    }
 }

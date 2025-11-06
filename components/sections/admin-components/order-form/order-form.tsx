@@ -99,11 +99,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
-            <h2 className="text-2xl font-bold mb-6 text-slate-200">Create New Order</h2>
+            <h2 className="text-2xl font-bold mb-1 text-slate-200">Create New Order</h2>
             {/* Form */}
             <form onSubmit={handleSubmit} className=" flex flex-col">
                 {/* Name Field */}
-                <div>
+                <div className={style['full']}>
                 <label htmlFor="name" className="block text-sm font-medium  ">
                     Order Name *
                 </label>
@@ -120,7 +120,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Price Field */}
-                <div className={style['full']}>
+                <div className={style['half']}>
                 <label htmlFor="price" className="block text-sm font-medium  ">
                     Price ($) *
                 </label>
