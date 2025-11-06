@@ -18,9 +18,15 @@
 .order-form label, .order-form input{
     padding: var(--quarter-spacing);
 }
+.order-form label{
+    width: 150px;
+}
 .order-form input{
     flex: 1;
+    border: 1px solid gray;
+    border-radius: 4px;
 }
+
 .order-form .full, .order-form .half, .order-form .third{
     display: flex;
     width: 100%;
