@@ -190,7 +190,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     />
                     <label
                     htmlFor="image-upload"
-                    className={`cursor-pointer inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md ${
+                    className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md ${
                         isUploading
                         ? 'bg-gray-400 cursor-not-allowed'
                         : 'bg-blue-600 hover:bg-blue-700 text-white'

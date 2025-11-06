@@ -17,6 +17,10 @@
 .order-form input{
 
 }
+.order-form .full, .order-form .half{
+    display: flex;
+    flex-direction: column;
+}
 .order-form .full{
     width: 100%;
 }
