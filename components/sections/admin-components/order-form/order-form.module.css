@@ -15,6 +15,9 @@
     flex-wrap: wrap;
     align-content: flex-start;
 }
+.order-form label, .order-form input{
+    padding: var(--quarter-spacing);
+}
 .order-form input{
     flex: 1;
 }
