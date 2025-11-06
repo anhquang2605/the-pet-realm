@@ -1,5 +1,5 @@
-import React, { useState, FormEvent } from "react";
-import { GetStaticProps, NextPage } from "next";
+import React, { useState } from "react";
+import { NextPage } from "next";
 import OrderForm, { OrderFormData } from "../../../components/sections/admin-components/order-form/order-form";
 import styles from "./../../page-styles/order-create.module.css"
 
