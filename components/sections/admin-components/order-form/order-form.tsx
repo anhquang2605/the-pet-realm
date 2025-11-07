@@ -158,17 +158,18 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
                 {/* Featured Toggle */}
                 <div className={style['half'] + " flex-row"}>
+                <label htmlFor="isFeatured" className=" text-sm ">
+                    Feature this order
+                </label>
                 <input
                     type="checkbox"
                     id="isFeatured"
                     name="isFeatured"
                     checked={formData.isFeatured}
                     onChange={handleCheckboxChange}
-                    className=" text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    className=" text-blue-600 focus:ring-blue-500 border-gray-300 rounded flex-none"
                 />
-                <label htmlFor="isFeatured" className=" text-sm ">
-                    Feature this order
-                </label>
+
                 </div>
                 {/* Description Field */}
                 <div className={style['full']}>

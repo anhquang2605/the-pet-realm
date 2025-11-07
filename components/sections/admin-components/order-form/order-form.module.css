@@ -27,6 +27,10 @@
     border: 1px solid gray;
     border-radius: 4px;
 }
+.order-form .input[type="checkbox"]{
+    width: auto;
+    flex: none;
+}
 
 .order-form .full, .order-form .half, .order-form .third{
     display: flex;
