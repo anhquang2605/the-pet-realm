@@ -1,6 +1,5 @@
-import React,{ useState, useEffect, useContext, createContext, useCallback, useMemo } from 'react';
+import React,{ useState, useContext, createContext, useCallback, useMemo } from 'react';
 import Modal from './Modal';
-import { set } from 'lodash';
 /**
  * This is a context provider for the modal component
  * First we need to wrap the app with this provider
