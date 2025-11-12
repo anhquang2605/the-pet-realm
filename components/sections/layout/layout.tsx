@@ -19,14 +19,20 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     }
     const checkAndHandleExpired = async () => {
         // Logic to check if token is expired
-        const token = localStorage.getItem('admin_token');
-       
+        const token = localStorage.getItem('admin_token');  
+        if(!token) 
+        {
+            setIsAuthenticated(false);
+            return;
+        }
+        
         try{
             const {payload} = await jwtVerify(
             token || '',
             new TextEncoder().encode(process.env.NEXT_PUBLICJWT_SECRET || 'supersecretkey'),
             )
             if(payload.role === 'admin'){
+                console.log('Token is valid');
                 setIsAuthenticated(true);
             }
 
