@@ -47,7 +47,13 @@
     .order-form .third{
         width: 33.33%;
     }
-    .order-form form{
-       
+    .order-form{
+       width: 80%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .order-form{
+       width: 60%;
     }
 }
