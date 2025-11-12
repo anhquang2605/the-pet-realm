@@ -1,5 +1,5 @@
 .order-form{
-    background-color: var(--secondary-bg);
+    background-color: var(--main-bg);
     padding: var(--spacing);
     border: 1px solid gray;
     margin-top: var(--spacing);
