@@ -18,6 +18,7 @@
 }
 .order-form label, .order-form input, .order-form select, .order-form textarea{
     padding: var(--quarter-spacing);
+    background-color: var(--secondary-bg);
 }
 .order-form label{
     width: 150px;
