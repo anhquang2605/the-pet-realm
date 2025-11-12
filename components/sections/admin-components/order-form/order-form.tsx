@@ -99,7 +99,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
-            <h2 className="text-2xl font-bold mb-1 text-slate-200">Create New Order</h2>
+            <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
             {/* Form */}
             <form onSubmit={handleSubmit} className=" flex">
                 {/* Name Field */}
@@ -269,7 +269,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     });
                     setUploadedImages([]);
                     }}
-                    className="px-4 py-2 text-sm font-medium  bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
+                    className="text-sm font-medium  bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
                 >
                     Reset
                 </button>
