@@ -246,13 +246,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 
 
                 {/* Status Display (Read-only) */}
-                <div className="p-3 bg-gray-50 rounded-md">
-                <p className="text-sm text-gray-600">
-                    Status: <span className="font-medium text-green-600">Fresh</span>
-                </p>
-                <p className="text-xs text-gray-500 mt-1">
-                    Status is automatically set to "fresh" for new orders
-                </p>
+                <div className={style['full'] + " " + style['input-wannabe'] + " bg-gray-50 rounded-md"}>
+                    <p className="text-sm text-gray-600">
+                        Status: <span className="font-medium text-green-600">Fresh</span>
+                    </p>
+                    <p className="text-xs text-gray-500">
+                        Status is automatically set to "fresh" for new orders
+                    </p>
                 </div>
 
                 {/* Submit Button */}

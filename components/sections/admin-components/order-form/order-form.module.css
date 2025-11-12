@@ -20,6 +20,11 @@
     padding: var(--quarter-spacing);
    
 }
+.input-wannabe{
+    display: flex;
+    flex-direction: column;
+    padding: var(--quarter-spacing);
+}
 .order-form label{
     width: 150px;
 }
