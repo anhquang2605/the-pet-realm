@@ -173,18 +173,18 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
                 {/* Description Field */}
                 <div className={style['full']}>
-                <label htmlFor="description" className="block text-sm font-medium  ">
-                    Description
-                </label>
-                <textarea
-                    id="description"
-                    name="description"
-                    value={formData.description}
-                    onChange={handleChange}
-                    rows={4}
-                    className=""
-                    placeholder="Enter order description"
-                />
+                    <label htmlFor="description" className="block text-sm font-medium  ">
+                        Description
+                    </label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        rows={4}
+                        className=""
+                        placeholder="Enter order description"
+                    />
                 </div>
 
                 {/* Image Upload */}
@@ -192,7 +192,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     <label className="block text-sm font-medium  ">
                         Upload Images
                     </label>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg text-center">
+                    <div className={"border-2 border-dashed border-gray-300 rounded-lg text-center " + style['input-wannabe']}>
                         <input
                         type="file"
                         multiple
