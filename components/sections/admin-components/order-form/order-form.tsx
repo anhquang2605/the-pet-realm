@@ -260,7 +260,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                      <button
                         type="submit"
                         disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
-                        className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed"
+                        className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed px-2"
                     >
                         {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
                     </button>
