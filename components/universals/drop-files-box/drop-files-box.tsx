@@ -23,7 +23,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
     return (
-        <div className={style['drop-files-box'] + " " + customeClassName}>
+        <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
             type="file"
             multiple
@@ -33,6 +33,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             className="hidden"
             id="image-upload"
             />
+            <input {...getInputProps()} />
             <label
             htmlFor="image-upload"
             className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md ${
