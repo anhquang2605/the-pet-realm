@@ -246,17 +246,24 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 
 
                 {/* Status Display (Read-only) */}
-                <div className={style['full'] + " " + style['input-wannabe'] + " bg-gray-50 rounded-md bg-gray-600"}>
-                    <p className="text-sm text-gray-600">
-                        Status: <span className="font-medium text-green-600">Fresh</span>
+                <div className={style['full'] + " " + style['input-wannabe'] + " bg-gray-50 rounded-md py-2!important bg-gray-600 flex flex-col justify-center"}>
+                    <p className="text-sm text-gray-300 text-center">
+                        Status: <span className="font-bold text-green-600">Fresh</span>
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-400 text-center">
                         Status is automatically set to "fresh" for new orders
                     </p>
                 </div>
 
                 {/* Submit Button */}
                 <div className="flex justify-end gap-1 mt-0.5 font-bold">
+                     <button
+                        type="submit"
+                        disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
+                        className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed"
+                    >
+                        {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
+                    </button>
                     <button
                         type="button"
                         onClick={() => {
@@ -269,17 +276,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         });
                         setUploadedImages([]);
                         }}
-                        className="text-sm font-medium   bg-red-500 hover:bg-gray-200 rounded-md transition-colors"
+                        className="text-sm font-medium text-white  bg-red-500 hover:bg-red-400 rounded-md transition-colors"
                     >
                         Reset
                     </button>
-                    <button
-                        type="submit"
-                        disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
-                        className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed"
-                    >
-                        {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
-                    </button>
+                   
                 </div>
             </form>
         </div>
