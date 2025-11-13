@@ -7,17 +7,19 @@ interface DropFilesBoxProps {
     isUploading?: boolean;
     uploadedImages?: string[];
     handleImageUpload?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    customeClassName?: string;
 }
 
 const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     removeImage = () => {},
     isUploading = false,
     uploadedImages = [],
-    handleImageUpload = () => {}
+    handleImageUpload = () => {},
+    customeClassName = '',
 }) => {
     return (
-        <div className={style['drop-files-box']}>
-            <div className={"border-2 border-dashed border-gray-300 rounded-lg text-center flex-1 " + style['input-wannabe']}>
+        <div className={style['drop-files-box'] + " " + customeClassName}>
+            <div >
                     <input
                     type="file"
                     multiple
