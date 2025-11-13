@@ -246,7 +246,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 
 
                 {/* Status Display (Read-only) */}
-                <div className={style['full'] + " " + style['input-wannabe'] + " bg-gray-50 rounded-md"}>
+                <div className={style['full'] + " " + style['input-wannabe'] + " bg-gray-50 rounded-md bg-gray-600"}>
                     <p className="text-sm text-gray-600">
                         Status: <span className="font-medium text-green-600">Fresh</span>
                     </p>
