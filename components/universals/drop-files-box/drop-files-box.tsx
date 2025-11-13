@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import style from './drop-files-box.module.css';
-import { useDropzone } from 'react-dropzone';
+import { FileRejection, useDropzone } from 'react-dropzone';
 
 interface DropFilesBoxProps {
     removeImage?: (index: number) => void;
@@ -17,32 +17,35 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     handleImageUpload = () => {},
     customeClassName = '',
 }) => {
+    const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
+
+    }, []);
+    
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
     return (
         <div className={style['drop-files-box'] + " " + customeClassName}>
-            <div >
-                    <input
-                    type="file"
-                    multiple
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    disabled={isUploading}
-                    className="hidden"
-                    id="image-upload"
-                    />
-                    <label
-                    htmlFor="image-upload"
-                    className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md ${
-                        isUploading
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700 text-white'
-                    }`}
-                    >
-                    {isUploading ? 'Uploading...' : 'Choose Images'}
-                    </label>
-                    <p className="mt-2 text-sm text-gray-500">
-                    Upload multiple images at once
-                    </p>
-            </div>
+            <input
+            type="file"
+            multiple
+            accept="image/*"
+            onChange={handleImageUpload}
+            disabled={isUploading}
+            className="hidden"
+            id="image-upload"
+            />
+            <label
+            htmlFor="image-upload"
+            className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md ${
+                isUploading
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-blue-600 hover:bg-blue-700 text-white'
+            }`}
+            >
+            {isUploading ? 'Uploading...' : 'Choose Images'}
+            </label>
+            <p className="mt-2 text-sm text-gray-500">
+            Upload multiple images at once
+            </p>
 
             {/* Uploaded Images Preview */}
             {uploadedImages.length > 0 && (
