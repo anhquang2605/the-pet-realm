@@ -192,7 +192,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     <label className="block text-sm font-medium  ">
                         Upload Images
                     </label>
-                    <div className={"border-2 border-dashed border-gray-300 rounded-lg text-center " + style['input-wannabe']}>
+                    <div className={"border-2 border-dashed border-gray-300 rounded-lg text-center flex-1 " + style['input-wannabe']}>
                         <input
                         type="file"
                         multiple
