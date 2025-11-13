@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import style from './order-form.module.css';
 import { Order } from '../../../../types/order';
 import axios from 'axios';
@@ -63,6 +63,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
         event.target.value = '';
         }
     };
+
+    const onImagesDrop = useCallback((acceptedFiles: File[]) => {
+        acceptedFiles.forEach(async (file) => {
+        const url = await uploadToImgBB(file);
+        setUploadedImages(prev => [...prev, url]);
+        });
+    }, []);
 
     const removeImage = (index: number) => {
         setUploadedImages(prev => prev.filter((_, i) => i !== index));
