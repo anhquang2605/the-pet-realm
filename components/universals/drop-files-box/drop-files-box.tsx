@@ -17,8 +17,10 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     handleImageUpload = () => {},
     customeClassName = '',
 }) => {
+    const [status, setStatus] = React.useState<'idle' | 'uploading' | 'error' >('idle');
+    const [message, setMessage] = React.useState('');
     const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
-
+        console.log('Accepted files:', acceptedFiles);
     }, []);
     
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
