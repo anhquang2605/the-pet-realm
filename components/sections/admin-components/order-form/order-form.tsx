@@ -269,7 +269,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         });
                         setUploadedImages([]);
                         }}
-                        className="text-sm font-medium  bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
+                        className="text-sm font-medium   bg-red-500 hover:bg-gray-200 rounded-md transition-colors"
                     >
                         Reset
                     </button>

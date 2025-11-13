@@ -531,6 +531,9 @@
   .text-green-700 {
     color: var(--color-green-700);
   }
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
   .text-slate-100 {
     color: var(--color-slate-100);
   }
