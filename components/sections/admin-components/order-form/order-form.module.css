@@ -6,6 +6,9 @@
     display: flex;
 
 }
+.order-form button{
+    padding: var(--quarter-spacing);
+}
 .order-form label{
     color: white;
     font-weight: semi-bold;
