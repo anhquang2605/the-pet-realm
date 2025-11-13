@@ -256,7 +256,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Submit Button */}
-                <div className="flex justify-end space-x-4">
+                <div className="flex justify-end ">
                 <button
                     type="button"
                     onClick={() => {
