@@ -256,30 +256,30 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Submit Button */}
-                <div className="flex justify-end ">
-                <button
-                    type="button"
-                    onClick={() => {
-                    setFormData({
-                        name: '',
-                        price: 0,
-                        description: '',
-                        discount: 0,
-                        isFeatured: true,
-                    });
-                    setUploadedImages([]);
-                    }}
-                    className="text-sm font-medium  bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
-                >
-                    Reset
-                </button>
-                <button
-                    type="submit"
-                    disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
-                    className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed"
-                >
-                    {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
-                </button>
+                <div className="flex justify-end gap-1 mt-0.5 font-bold">
+                    <button
+                        type="button"
+                        onClick={() => {
+                        setFormData({
+                            name: '',
+                            price: 0,
+                            description: '',
+                            discount: 0,
+                            isFeatured: true,
+                        });
+                        setUploadedImages([]);
+                        }}
+                        className="text-sm font-medium  bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
+                    >
+                        Reset
+                    </button>
+                    <button
+                        type="submit"
+                        disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
+                        className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed"
+                    >
+                        {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
+                    </button>
                 </div>
             </form>
         </div>

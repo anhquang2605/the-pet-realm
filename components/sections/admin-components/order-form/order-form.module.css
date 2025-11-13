@@ -8,6 +8,7 @@
 }
 .order-form button{
     padding: var(--quarter-spacing);
+    min-width: 100px;
 }
 .order-form label{
     color: white;
