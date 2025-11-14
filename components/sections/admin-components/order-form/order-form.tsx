@@ -3,6 +3,7 @@ import style from './order-form.module.css';
 import { Order } from '../../../../types/order';
 import axios from 'axios';
 import DropFilesBox from '../../../universals/drop-files-box/drop-files-box';
+import { set } from 'mongoose';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
   status: 'idle' | 'submitting' | 'success' | 'error';
@@ -15,6 +16,7 @@ export interface OrderFormData{
     discount: number;
     isFeatured: boolean;
 }
+const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
 const OrderForm: React.FC<OrderFormProps> = ({
     onSubmit,
     status
@@ -35,20 +37,30 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const uploadToImgBB = async (file: File): Promise<string> => {
         const formData = new FormData();
         formData.append('image', file);
-        
+        console.log("Uploading file to ImgBB:", file);
+        return "null";
         // Using ImgBB API (you need to get a free API key from https://api.imgbb.com/)
-        const response = await axios.post(
+/*         const response = await axios.post(
         `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMG_BB_API_KEY}`,
         formData
         );
-        
-        return response.data.data.url;
+         */
+        //return response.data.data.url;
     };
-
+    const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
+        for (let i = 0; i < file.length; i++) {
+        if (!allowedTypes.includes(file[i].type)) {
+            return false;
+        }
+        }
+        return true;
+    }
     const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event.target.files;
         if (!files) return;
-
+        if (!isFilesTypeValid(Array.from(files), ALLOWED_TYPES)) {
+            setIsUploading(false);
+        }
         setIsUploading(true);
         
         try {
@@ -56,7 +68,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         const urls = await Promise.all(uploadPromises);
         setUploadedImages(prev => [...prev, ...urls]);
         } catch (error) {
-        console.error('Error uploading images:', error);
+
         alert('Error uploading images. Please try again.');
         } finally {
         setIsUploading(false);
