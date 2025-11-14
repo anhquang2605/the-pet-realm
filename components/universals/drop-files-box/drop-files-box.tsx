@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import style from './drop-files-box.module.css';
 import { FileRejection, useDropzone } from 'react-dropzone';
+import { StatusType } from '../../../types/status';
 
 interface DropFilesBoxProps {
     removeFile?: (index: number) => void;
@@ -9,6 +10,8 @@ interface DropFilesBoxProps {
     customeClassName?: string;
     allowedFormats?: string[]
     uploadingFiles?: File[];
+    message?: string;
+    status?: StatusType;
 }
   export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
         for (let i = 0; i < file.length; i++) {
@@ -26,10 +29,10 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     uploadingFiles = [],
     removeFile = () => {},
 }) => {
-    const [status, setStatus] = React.useState<'idle' | 'uploading' | 'error' >('idle');
+    const [status, setStatus] = React.useState<StatusType>('idle');
     const [message, setMessage] = React.useState('');
     const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
-        console.log('Accepted files:', acceptedFiles);
+        const  areFilesValid = isFilesTypeValid(acceptedFiles, allowedFormats);
     }, []);
     const fileTypes = allowedFormats.length > 0 ? allowedFormats.map(format => `.${format}`).join(',') : undefined;
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})

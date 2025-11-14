@@ -1,0 +1,1 @@
+export type StatusType = 'idle' | 'uploading' | 'error' | 'success';
