@@ -31,7 +31,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
     });
     const [uploadedImages, setUploadedImages] = useState<string[]>([]);
     const [isUploading, setIsUploading] = useState(false);
-
+    const [message, setMessage] = useState('');
+    const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
     // Handlers and logic for form submission, image upload, etc. would go here
     // Free image hosting service - using ImgBB (free tier available)
     const uploadToImgBB = async (file: File): Promise<string> => {
@@ -53,6 +54,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
         if (!files) return;
         if (!isFilesTypeValid(Array.from(files), ALLOWED_TYPES)) {
             setIsUploading(false);
+            setMessage('Invalid file type. Only JPEG, PNG, and GIF files are allowed.');
+            setFormStatus('error');
+            return;
         }
         setIsUploading(true);
         
