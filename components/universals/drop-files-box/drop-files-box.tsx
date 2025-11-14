@@ -10,7 +10,14 @@ interface DropFilesBoxProps {
     customeClassName?: string;
     allowedFormats?: string[]
 }
-
+  export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
+        for (let i = 0; i < file.length; i++) {
+        if (!allowedTypes.includes(file[i].type)) {
+            return false;
+        }
+        }
+        return true;
+    }
 const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     removeImage = () => {},
     isUploading = false,

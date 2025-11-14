@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import style from './order-form.module.css';
 import { Order } from '../../../../types/order';
 import axios from 'axios';
-import DropFilesBox from '../../../universals/drop-files-box/drop-files-box';
+import DropFilesBox, { isFilesTypeValid } from '../../../universals/drop-files-box/drop-files-box';
 import { set } from 'mongoose';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
@@ -47,14 +47,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
          */
         //return response.data.data.url;
     };
-    const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
-        for (let i = 0; i < file.length; i++) {
-        if (!allowedTypes.includes(file[i].type)) {
-            return false;
-        }
-        }
-        return true;
-    }
+
     const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event.target.files;
         if (!files) return;
