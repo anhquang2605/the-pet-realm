@@ -200,7 +200,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     <label className="block text-sm font-medium  ">
                         Upload Images
                     </label>
-                    <DropFilesBox uploadedImages={uploadedImages} handleImageUpload={handleImageUpload} isUploading={isUploading} removeImage={removeImage} customeClassName={"border-2 border-dashed border-gray-300 rounded-lg text-center flex-1 " + style['input-wannabe']} />
+                    <DropFilesBox allowedFormats={['image/jpeg', 'image/png', 'image/gif']} uploadedImages={uploadedImages} handleImageUpload={handleImageUpload} isUploading={isUploading} removeImage={removeImage} customeClassName={"border-2 border-dashed border-gray-300 rounded-lg text-center flex-1 " + style['input-wannabe']} />
                 
                 </div>
 

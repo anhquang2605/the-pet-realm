@@ -8,6 +8,7 @@ interface DropFilesBoxProps {
     uploadedImages?: string[];
     handleImageUpload?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     customeClassName?: string;
+    allowedFormats?: string[]
 }
 
 const DropFilesBox: React.FC<DropFilesBoxProps> = ({
@@ -16,26 +17,27 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     uploadedImages = [],
     handleImageUpload = () => {},
     customeClassName = '',
+    allowedFormats = ['']
 }) => {
     const [status, setStatus] = React.useState<'idle' | 'uploading' | 'error' >('idle');
     const [message, setMessage] = React.useState('');
     const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
         console.log('Accepted files:', acceptedFiles);
     }, []);
-    
+    const fileTypes = allowedFormats.length > 0 ? allowedFormats.map(format => `.${format}`).join(',') : undefined;
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
     return (
         <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
             type="file"
             multiple
-            accept="image/*"
+            accept={fileTypes}
             onChange={handleImageUpload}
             disabled={isUploading}
             className="hidden"
             id="image-upload"
+            {...getInputProps()}
             />
-            <input {...getInputProps()} />
             <label
             htmlFor="image-upload"
             className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md ${
@@ -47,7 +49,9 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             {isUploading ? 'Uploading...' : 'Choose Images'}
             </label>
             <p className="mt-2 text-sm text-gray-500">
-            Upload multiple images at once
+            {isDragActive
+                ? 'Drop the files here...'
+                : 'Drag and drop files here, or click to select files'}
             </p>
 
             {/* Uploaded Images Preview */}
