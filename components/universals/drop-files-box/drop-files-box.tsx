@@ -3,12 +3,12 @@ import style from './drop-files-box.module.css';
 import { FileRejection, useDropzone } from 'react-dropzone';
 
 interface DropFilesBoxProps {
-    removeImage?: (index: number) => void;
+    removeFile?: (index: number) => void;
     isUploading?: boolean;
-    uploadedImages?: string[];
     handleImageUpload?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     customeClassName?: string;
     allowedFormats?: string[]
+    uploadedFiles?: string[];
 }
   export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
         for (let i = 0; i < file.length; i++) {
@@ -19,12 +19,12 @@ interface DropFilesBoxProps {
         return true;
     }
 const DropFilesBox: React.FC<DropFilesBoxProps> = ({
-    removeImage = () => {},
     isUploading = false,
-    uploadedImages = [],
     handleImageUpload = () => {},
     customeClassName = '',
-    allowedFormats = ['']
+    allowedFormats = [''],
+    uploadedFiles = [],
+    removeFile = () => {},
 }) => {
     const [status, setStatus] = React.useState<'idle' | 'uploading' | 'error' >('idle');
     const [message, setMessage] = React.useState('');
@@ -62,11 +62,11 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             </p>
 
             {/* Uploaded Images Preview */}
-            {uploadedImages.length > 0 && (
+            {uploadedFiles.length > 0 && (
             <div className={"mt-4 " + style['full']}>
                 <h4 className="text-sm font-medium  ">Uploaded Images:</h4>
                 <div className="grid grid-cols-3 gap-4">
-                    {uploadedImages.map((url, index) => (
+                    {uploadedFiles.map((url, index) => (
                     <div key={index} className="relative group">
                         <img
                         src={url}
@@ -75,7 +75,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
                         />
                         <button
                         type="button"
-                        onClick={() => removeImage(index)}
+                        onClick={() => removeFile(index)}
                         className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                         >
                         ×
