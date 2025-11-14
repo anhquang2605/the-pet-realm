@@ -8,7 +8,7 @@ interface DropFilesBoxProps {
     handleImageUpload?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     customeClassName?: string;
     allowedFormats?: string[]
-    uploadedFiles?: string[];
+    uploadingFiles?: File[];
 }
   export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
         for (let i = 0; i < file.length; i++) {
@@ -23,7 +23,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     handleImageUpload = () => {},
     customeClassName = '',
     allowedFormats = [''],
-    uploadedFiles = [],
+    uploadingFiles = [],
     removeFile = () => {},
 }) => {
     const [status, setStatus] = React.useState<'idle' | 'uploading' | 'error' >('idle');
@@ -62,11 +62,11 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             </p>
 
             {/* Uploaded Images Preview */}
-            {uploadedFiles.length > 0 && (
+            {uploadingFiles.length > 0 && (
             <div className={"mt-4 " + style['full']}>
                 <h4 className="text-sm font-medium  ">Uploaded Images:</h4>
                 <div className="grid grid-cols-3 gap-4">
-                    {uploadedFiles.map((url, index) => (
+                    {uploadingFiles.map((url, index) => (
                     <div key={index} className="relative group">
                         <img
                         src={url}

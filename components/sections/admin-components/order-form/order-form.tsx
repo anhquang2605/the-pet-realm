@@ -30,6 +30,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         isFeatured: true,
     });
     const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+    const [stagingImages, setStagingImages] = useState<File[]>([]);
     const [isUploading, setIsUploading] = useState(false);
     const [message, setMessage] = useState('');
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -209,7 +210,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     <label className="block text-sm font-medium  ">
                         Upload Images
                     </label>
-                    <DropFilesBox allowedFormats={['image/jpeg', 'image/png', 'image/gif']} handleImageUpload={handleImageUpload} isUploading={isUploading} removeFile={removeImage} customeClassName={"border-2 border-dashed border-gray-300 rounded-lg text-center flex-1 " + style['input-wannabe']} />
+                    <DropFilesBox allowedFormats={['image/jpeg', 'image/png', 'image/gif']} handleImageUpload={handleImageUpload} isUploading={isUploading} removeFile={removeImage} uploadingFiles={
+                        stagingImages
+                    } customeClassName={"border-2 border-dashed border-gray-300 rounded-lg text-center flex-1 " + style['input-wannabe']} />
                 
                 </div>
 
