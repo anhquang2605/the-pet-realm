@@ -4,6 +4,7 @@ import { Order } from '../../../../types/order';
 import axios from 'axios';
 import DropFilesBox, { isFilesTypeValid } from '../../../universals/drop-files-box/drop-files-box';
 import { set } from 'mongoose';
+import { StatusType } from '../../../../types/status';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
   status: 'idle' | 'submitting' | 'success' | 'error';
@@ -33,7 +34,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [stagingImages, setStagingImages] = useState<File[]>([]);
     const [isUploading, setIsUploading] = useState(false);
     const [message, setMessage] = useState('');
-    const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [formStatus, setFormStatus] = useState<StatusType>('idle');
     // Handlers and logic for form submission, image upload, etc. would go here
     // Free image hosting service - using ImgBB (free tier available)
     const uploadToImgBB = async (file: File): Promise<string> => {
