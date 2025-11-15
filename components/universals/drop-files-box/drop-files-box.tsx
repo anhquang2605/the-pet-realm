@@ -4,14 +4,9 @@ import { FileRejection, useDropzone } from 'react-dropzone';
 import { StatusType } from '../../../types/status';
 
 interface DropFilesBoxProps {
-    removeFile?: (index: number) => void;
-    isUploading?: boolean;
-    handleImageUpload?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    customeClassName?: string;
-    allowedFormats?: string[]
+   allowedFormats?: string[];
+   customeClassName?: string;
     uploadingFiles?: File[];
-    message?: string;
-    status?: StatusType;
 }
   export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
         for (let i = 0; i < file.length; i++) {
@@ -22,12 +17,10 @@ interface DropFilesBoxProps {
         return true;
     }
 const DropFilesBox: React.FC<DropFilesBoxProps> = ({
-    isUploading = false,
-    handleImageUpload = () => {},
-    customeClassName = '',
+
     allowedFormats = [''],
     uploadingFiles = [],
-    removeFile = () => {},
+    customeClassName = '',
 }) => {
     const [status, setStatus] = React.useState<StatusType>('idle');
     const [message, setMessage] = React.useState('');
@@ -36,6 +29,10 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     }, []);
     const fileTypes = allowedFormats.length > 0 ? allowedFormats.map(format => `.${format}`).join(',') : undefined;
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+    //Files handlers
+    
+
     return (
         <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
