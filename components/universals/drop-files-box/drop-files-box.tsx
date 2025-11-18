@@ -8,7 +8,7 @@ interface DropFilesBoxProps {
     customeClassName?: string;
     uploadingFiles?: File[];
     setFileUploadingStatus?: (status: StatusType) => void;
-
+    removeFile?: (index: number) => void;
 }
 export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
     for (let i = 0; i < file.length; i++) {
@@ -22,6 +22,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     allowedFormats = [''],
     uploadingFiles = [],
     customeClassName = '',
+    removeFile = () => {},
 }) => {
     const [status, setStatus] = React.useState<StatusType>('idle');
     const [message, setMessage] = React.useState('');
