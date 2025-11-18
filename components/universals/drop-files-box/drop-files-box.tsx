@@ -47,7 +47,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
                 setStatus('error');
                 setMessage('Invalid file type. Only JPEG, PNG, and GIF files are allowed.');
             }
-
+            setUploadingFiles(filesArray);
         }
     };
 
