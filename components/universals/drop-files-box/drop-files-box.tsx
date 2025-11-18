@@ -8,6 +8,7 @@ interface DropFilesBoxProps {
     customeClassName?: string;
     uploadingFiles?: File[];
     setFileUploadingStatus?: (status: StatusType) => void;
+
 }
 export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
     for (let i = 0; i < file.length; i++) {
@@ -18,7 +19,6 @@ export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean 
     return true;
 }
 const DropFilesBox: React.FC<DropFilesBoxProps> = ({
-
     allowedFormats = [''],
     uploadingFiles = [],
     customeClassName = '',
@@ -29,9 +29,13 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         const  areFilesValid = isFilesTypeValid(acceptedFiles, allowedFormats);
     }, []);
     const fileTypes = allowedFormats.length > 0 ? allowedFormats.map(format => `.${format}`).join(',') : undefined;
+    
+        //Files handlers
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+    const handlefileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 
-    //Files handlers
+    };
+
     
 
     return (
@@ -40,21 +44,15 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             type="file"
             multiple
             accept={fileTypes}
-            onChange={handleImageUpload}
-            disabled={isUploading}
+            onChange={handlefileInputChange}
             className="hidden"
             id="image-upload"
             {...getInputProps()}
             />
             <label
             htmlFor="image-upload"
-            className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md ${
-                isUploading
-                ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-blue-600 hover:bg-blue-700 text-white'
-            }`}
+            className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md `}
             >
-            {isUploading ? 'Uploading...' : 'Choose Images'}
             </label>
             <p className="mt-2 text-sm text-gray-500">
             {isDragActive
