@@ -9,6 +9,7 @@ interface DropFilesBoxProps {
     uploadingFiles?: File[];
     setFileUploadingStatus?: (status: StatusType) => void;
     removeFile?: (index: number) => void;
+    setUploadingFiles?: (files: File[]) => void;
 }
 export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
     for (let i = 0; i < file.length; i++) {
@@ -21,6 +22,7 @@ export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean 
 const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     allowedFormats = [''],
     uploadingFiles = [],
+    setUploadingFiles = () => {},
     customeClassName = '',
     removeFile = () => {},
 }) => {
@@ -34,10 +36,20 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         //Files handlers
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
     const handlefileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const files = event.target.files;
+        if (files) {
+            const filesArray = Array.from(files);
+            const areFilesValid = isFilesTypeValid(filesArray, allowedFormats);
+            if (areFilesValid) {
+                setStatus('success');
+                setMessage('Files uploaded successfully.');
+            } else {
+                setStatus('error');
+                setMessage('Invalid file type. Only JPEG, PNG, and GIF files are allowed.');
+            }
 
+        }
     };
-
-    
 
     return (
         <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
