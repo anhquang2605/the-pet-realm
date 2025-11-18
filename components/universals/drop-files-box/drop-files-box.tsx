@@ -6,7 +6,10 @@ import { StatusType } from '../../../types/status';
 interface DropFilesBoxProps {
    allowedFormats?: string[];
    customeClassName?: string;
-    uploadingFiles?: File[];
+   uploadingFiles?: File[];
+   setFileUploadingStatus?: (status: StatusType) => void;
+    setFileUploadingMessage?: (message: string) => void;
+  
 }
   export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
         for (let i = 0; i < file.length; i++) {
