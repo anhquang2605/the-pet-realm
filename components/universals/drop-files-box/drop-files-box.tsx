@@ -4,21 +4,19 @@ import { FileRejection, useDropzone } from 'react-dropzone';
 import { StatusType } from '../../../types/status';
 
 interface DropFilesBoxProps {
-   allowedFormats?: string[];
-   customeClassName?: string;
-   uploadingFiles?: File[];
-   setFileUploadingStatus?: (status: StatusType) => void;
-    setFileUploadingMessage?: (message: string) => void;
-  
+    allowedFormats?: string[];
+    customeClassName?: string;
+    uploadingFiles?: File[];
+    setFileUploadingStatus?: (status: StatusType) => void;
 }
-  export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
-        for (let i = 0; i < file.length; i++) {
+export const isFilesTypeValid = (file: File[], allowedTypes: string[]): boolean => {
+    for (let i = 0; i < file.length; i++) {
         if (!allowedTypes.includes(file[i].type)) {
             return false;
         }
-        }
-        return true;
     }
+    return true;
+}
 const DropFilesBox: React.FC<DropFilesBoxProps> = ({
 
     allowedFormats = [''],

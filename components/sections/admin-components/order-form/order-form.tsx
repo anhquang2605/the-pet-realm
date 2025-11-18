@@ -36,7 +36,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [message, setMessage] = useState('');
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
     const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
-    const [fileUploadMessage, setFileUploadMessage] = useState('');
+   
     // Handlers and logic for form submission, image upload, etc. would go here
     // Free image hosting service - using ImgBB (free tier available)
     const uploadToImgBB = async (file: File): Promise<string> => {
