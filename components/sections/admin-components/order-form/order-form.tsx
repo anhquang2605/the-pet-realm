@@ -35,6 +35,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [isUploading, setIsUploading] = useState(false);
     const [message, setMessage] = useState('');
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
+    const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
+    const [fileUploadMessage, setFileUploadMessage] = useState('');
     // Handlers and logic for form submission, image upload, etc. would go here
     // Free image hosting service - using ImgBB (free tier available)
     const uploadToImgBB = async (file: File): Promise<string> => {
@@ -211,7 +213,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     <label className="block text-sm font-medium  ">
                         Upload Images
                     </label>
-                    <DropFilesBox allowedFormats={['image/jpeg', 'image/png', 'image/gif']} handleImageUpload={handleImageUpload} isUploading={isUploading} removeFile={removeImage} uploadingFiles={
+                    <DropFilesBox allowedFormats={['image/jpeg', 'image/png', 'image/gif']}   uploadingFiles={
                         stagingImages
                     } customeClassName={"border-2 border-dashed border-gray-300 rounded-lg text-center flex-1 " + style['input-wannabe']} />
                 
