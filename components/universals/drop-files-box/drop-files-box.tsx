@@ -25,6 +25,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     setUploadingFiles = () => {},
     customeClassName = '',
     removeFile = () => {},
+    setFileUploadingStatus = () => {},
 }) => {
     const [status, setStatus] = React.useState<StatusType>('idle');
     const [message, setMessage] = React.useState('');
@@ -50,7 +51,11 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             setUploadingFiles(filesArray);
         }
     };
-
+    //error handlers
+    const statusSetter = (status: StatusType) =>{
+        setStatus(status);
+        setFileUploadingStatus(status);
+    }
     return (
         <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
