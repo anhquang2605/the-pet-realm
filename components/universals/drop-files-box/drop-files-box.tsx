@@ -31,6 +31,13 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     const [message, setMessage] = React.useState('');
     const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
         const  areFilesValid = isFilesTypeValid(acceptedFiles, allowedFormats);
+        if (areFilesValid) {
+            statusSetter('success');
+            setUploadingFiles(acceptedFiles);   
+        } else {
+            statusSetter('error');
+            setMessage('Invalid file type. Only JPEG, PNG, and GIF files are allowed.');
+        }
     }, []);
     const fileTypes = allowedFormats.length > 0 ? allowedFormats.map(format => `.${format}`).join(',') : undefined;
     
