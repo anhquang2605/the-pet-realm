@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import style from './drop-files-box.module.css';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import { StatusType } from '../../../types/status';
+import ActionButton from '../buttons/action-button/action-button';
 
 interface DropFilesBoxProps {
     allowedFormats?: string[];
@@ -98,13 +99,14 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
                         alt={`Uploaded ${index + 1}`}
                         className="w-full h-24 object-cover rounded-lg"
                         />
-                        <button
-                        type="button"
+                        <ActionButton 
+                        title='Remove'
                         onClick={() => removeFile(index)}
-                        className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                        >
-                        ×
-                        </button>
+                        classNames={"absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"}
+                        type='remove'
+                       />
+                       
+                       
                     </div>
                     ))}
                 </div>
