@@ -78,6 +78,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             htmlFor="image-upload"
             className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md `}
             >
+                Select from computer
             </label>
             <p className="mt-2 text-sm text-gray-500">
             {isDragActive
