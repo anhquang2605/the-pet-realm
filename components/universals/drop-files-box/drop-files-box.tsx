@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import style from './drop-files-box.module.css';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import { StatusType } from '../../../types/status';
@@ -64,6 +64,26 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         setStatus(status);
         setFileUploadingStatus(status);
     }
+    //file preview handlers
+    const generatePreviewImages = (files: File[]) => {
+        const imagesElements: HTMLElement[] = [];
+        files.forEach((file) => {
+            if(!file) return;
+            const imageUrl = URL.createObjectURL(file);
+            const imgElement: HTMLElement = 
+                <img
+                    src={imageUrl}
+                    alt={file.name}
+                    className="w-full h-24 object-cover rounded-lg"
+                />
+            
+            imagesElements.push(imgElement);
+        });
+        return imagesElements;
+    }
+    useEffect(() => {
+
+    }, [uploadingFiles])
     return (
         <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
