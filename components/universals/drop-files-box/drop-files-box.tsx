@@ -48,7 +48,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         const files = event.target.files;
         if (files) {
             const filesArray = Array.from(files);
-            console.log(filesArray);
+            console.log('Selected files:', filesArray);
             const areFilesValid = isFilesTypeValid(filesArray, allowedFormats);
             if (areFilesValid) {
                 statusSetter('success');
