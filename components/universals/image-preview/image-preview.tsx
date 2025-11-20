@@ -6,6 +6,7 @@ interface ImagePreviewProps {
     imageSrc?: string;
     altText?: string;
     classNames?: string;
+    id?: string;
 }
 
 const ImagePreview: React.FC<ImagePreviewProps> = ({
@@ -13,6 +14,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({
     imageSrc = '',
     altText = 'Image Preview',
     classNames = '',
+    id = '',
 }) => {
     return (
         <div className={style['image-preview'] + " " + classNames}>
