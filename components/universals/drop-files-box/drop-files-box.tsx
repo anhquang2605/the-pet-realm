@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { JSX, ReactHTMLElement, useCallback, useEffect } from 'react';
 import style from './drop-files-box.module.css';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import { StatusType } from '../../../types/status';
@@ -66,11 +66,11 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     }
     //file preview handlers
     const generatePreviewImages = (files: File[]) => {
-        const imagesElements: HTMLElement[] = [];
+        const imagesElements: JSX.Element[] = [];
         files.forEach((file) => {
             if(!file) return;
             const imageUrl = URL.createObjectURL(file);
-            const imgElement: HTMLElement = 
+            const imgElement: JSX.Element = 
                 <img
                     src={imageUrl}
                     alt={file.name}
@@ -81,9 +81,6 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         });
         return imagesElements;
     }
-    useEffect(() => {
-
-    }, [uploadingFiles])
     return (
         <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
@@ -112,23 +109,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             <div className={"mt-4 " + style['full']}>
                 <h4 className="text-sm font-medium  ">Uploaded Images:</h4>
                 <div className="grid grid-cols-3 gap-4">
-                    {uploadingFiles.map((url, index) => (
-                    <div key={index} className="relative group">
-                        <img
-                        src={url}
-                        alt={`Uploaded ${index + 1}`}
-                        className="w-full h-24 object-cover rounded-lg"
-                        />
-                        <ActionButton 
-                        title='Remove'
-                        onClick={() => removeFile(index)}
-                        classNames={"absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"}
-                        type='remove'
-                       />
-                       
-                       
-                    </div>
-                    ))}
+                    {generatePreviewImages(uploadingFiles)}
                 </div>
             </div>
             )}
