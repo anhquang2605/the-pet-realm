@@ -77,7 +77,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             />
             <label
             htmlFor="image-upload"
-            className={`cursor-pointer inline-flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md `}
+            className={`cursor-pointer flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md bg-sky-600 text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500`}
             >
                 Select from computer
             </label>
