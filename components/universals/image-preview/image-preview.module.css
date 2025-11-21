@@ -13,7 +13,7 @@
     position: absolute;
     top: 4px;
     right: 4px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     color: white;
     border: none;
     border-radius: 50%;
@@ -22,4 +22,6 @@
     cursor: pointer;
     font-size: 16px;
     text-align: center;
+    padding: 0!important;
+    min-width: auto!important;
 }

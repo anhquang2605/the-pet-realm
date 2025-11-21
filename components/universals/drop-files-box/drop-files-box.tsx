@@ -85,12 +85,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     return (
         <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
-            type="file"
-            multiple
-            accept={fileTypes}
-            onChange={handlefileInputChange}
-            className="hidden"
-            id="image-upload"
+     
             {...getInputProps()}
             />
             <label
