@@ -94,21 +94,26 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             >
                 Select from computer
             </label>
-            <p className="mt-2 text-sm text-gray-500">
-            {isDragActive
-                ? 'Drop the files here...'
-                : 'Drag and drop files here, or click to select files'}
-            </p>
+
+            
 
             {/* Uploaded Images Preview */}
-            {uploadingFiles.length > 0 && (
-            <div className={"mt-4 " + style['full']}>
+            {uploadingFiles.length > 0 ? (
+            <div className={style['drop-files-box__preview-section']}>
                 <h4 className="text-sm font-medium  ">Uploaded Images:</h4>
                 <div className="grid grid-cols-3 gap-4">
                     {generatePreviewImages(uploadingFiles)}
                 </div>
             </div>
-            )}
+            )
+            :
+            <p className="mt-2 text-sm text-gray-500">
+            {isDragActive
+                ? 'Drop the files here...'
+                : 'Drag and drop files here, or click to select files'}
+            </p>
+            
+            }
         </div>
     );
 };
