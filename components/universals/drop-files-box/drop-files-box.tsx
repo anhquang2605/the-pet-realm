@@ -68,13 +68,14 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
     //file preview handlers
     const generatePreviewImages = (files: File[]) => {
         const imagesElements: JSX.Element[] = [];
-        files.forEach((file) => {
+        files.forEach((file, index) => {
             if(!file) return;
             const imageUrl = URL.createObjectURL(file);
             const imgElement: JSX.Element = 
                 <ImagePreview
                     imageSrc={imageUrl}
                     altText={file.name}
+                    onRemove={() => removeFile(index)}
                 />
                             
             imagesElements.push(imgElement);
