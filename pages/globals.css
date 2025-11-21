@@ -15,6 +15,9 @@
   --tablet-checkpoint: 1024px;
   --modification-color: deepskyblue;
   --border-line-color: lightgray;
+  --success-color: #22c55e;
+  --error-color: tomato;
+  --loading-color: deepskyblue;
   }
 
 

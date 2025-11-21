@@ -4,3 +4,17 @@
 .drop-files-box__preview-section{
     margin-top: var(--quarter-spacing);
 }
+.status-message{
+    margin-top: var(--quarter-spacing);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+.status-message--success{
+    color: var(--success-color);
+}
+.status-message--error{
+    color: var(--error-color);
+}
+.status-message--loading{
+    color: var(--loading-color);
+}

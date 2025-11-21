@@ -99,7 +99,11 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
                 }
             </label>
 
-            
+            <p className={style['status-message'] + " "  + (
+                style[`status-message--${status}`]
+            ) }>
+
+            </p>
 
             {/* Uploaded Images Preview */}
             {uploadingFiles.length > 0 ? (
