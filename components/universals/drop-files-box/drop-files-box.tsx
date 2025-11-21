@@ -104,7 +104,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             {/* Uploaded Images Preview */}
             {uploadingFiles.length > 0 ? (
             <div className={style['drop-files-box__preview-section']}>
-                <div className="grid grid-cols-3 gap-1">
+                <div className="grid grid-cols-3 gap-0.5">
                     {generatePreviewImages(uploadingFiles)}
                 </div>
             </div>
