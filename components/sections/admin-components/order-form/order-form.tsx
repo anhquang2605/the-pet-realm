@@ -219,7 +219,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         setUploadingFiles={
                             setStagingImages
                         }
-                    customeClassName={"border-2 border-dashed border-gray-300 rounded-lg text-center flex-1 " + style['input-wannabe']} />
+                    customeClassName={"border-2 border-dashed border-gray-500 rounded-lg text-center flex-1 " + style['input-wannabe']} />
                 
                 </div>
 
