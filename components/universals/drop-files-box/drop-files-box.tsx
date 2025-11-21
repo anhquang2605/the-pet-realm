@@ -57,7 +57,9 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
                 statusSetter('error');
                 setMessage('Invalid file type. Only JPEG, PNG, and GIF files are allowed.');
             }
-            setUploadingFiles(filesArray);
+            setUploadingFiles(
+                filesArray
+            );
         }
     };
     //error handlers
@@ -90,9 +92,11 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             />
             <label
             htmlFor="image-upload"
-            className={`cursor-pointer flex items-center px-2 py-1 border border-transparent text-sm font-medium rounded-md bg-sky-600 text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500`}
+            className={`cursor-pointer flex items-center justify-center border border-transparent text-sm font-medium rounded-md bg-sky-600 text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 text-center`}
             >
-                Select from computer
+                {
+                    uploadingFiles.length > 0 ? 'Change Files' : 'Upload Files'
+                }
             </label>
 
             
