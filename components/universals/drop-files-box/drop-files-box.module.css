@@ -1,3 +1,9 @@
 .drop-files-box{
     
 }
+.drop-files-box__preview-section{
+    margin-top: var(--spacing);
+    padding: var(--half-spacing);
+    border: 1px solid darkgray;
+    border-radius: 8px;
+}
