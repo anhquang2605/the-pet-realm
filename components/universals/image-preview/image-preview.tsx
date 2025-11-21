@@ -18,7 +18,10 @@ const ImagePreview: React.FC<ImagePreviewProps> = ({
 }) => {
     return (
         <div className={style['image-preview'] + " " + classNames}>
-            ImagePreview
+            <img src={imageSrc} alt={altText} id={id} className={style['image-preview__img']} />
+            <button className={style['image-preview__remove-button']} onClick={onRemove}>
+                &times;
+            </button>
         </div>
     );
 };
