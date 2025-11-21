@@ -3,6 +3,7 @@ import style from './drop-files-box.module.css';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import { StatusType } from '../../../types/status';
 import ActionButton from '../buttons/action-button/action-button';
+import ImagePreview from '../image-preview/image-preview';
 
 interface DropFilesBoxProps {
     allowedFormats?: string[];
@@ -71,12 +72,11 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             if(!file) return;
             const imageUrl = URL.createObjectURL(file);
             const imgElement: JSX.Element = 
-                <img
-                    src={imageUrl}
-                    alt={file.name}
-                    className="w-full h-24 object-cover rounded-lg"
+                <ImagePreview
+                    imageSrc={imageUrl}
+                    altText={file.name}
                 />
-            
+                            
             imagesElements.push(imgElement);
         });
         return imagesElements;
