@@ -84,6 +84,12 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         });
         return imagesElements;
     }
+    useEffect(() => {
+        if (uploadingFiles.length === 0) {
+            statusSetter('idle');
+            setMessage('');
+        }
+    }, [uploadingFiles]);
     return (
         <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
