@@ -49,7 +49,6 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         const files = event.target.files;
         if (files) {
             const filesArray = Array.from(files);
-            console.log('Selected files:', filesArray);
             const areFilesValid = isFilesTypeValid(filesArray, allowedFormats);
             if (areFilesValid) {
                 statusSetter('success');
@@ -102,7 +101,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             <p className={style['status-message'] + " "  + (
                 style[`status-message--${status}`]
             ) }>
-
+                {message}
             </p>
 
             {/* Uploaded Images Preview */}
