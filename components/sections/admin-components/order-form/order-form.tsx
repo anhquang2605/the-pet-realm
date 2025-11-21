@@ -118,6 +118,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }));
     };
 
+    const removeFile = (index: number) => {
+        setStagingImages(prev => prev.filter((_, i) => i !== index));
+    }
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
@@ -219,7 +222,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         setUploadingFiles={
                             setStagingImages
                         }
-                    customeClassName={"border-2 border-dashed border-gray-500 rounded-lg text-center flex-1 " + style['input-wannabe']} />
+                    customeClassName={"border-2 border-dashed border-gray-500 rounded-lg text-center flex-1 " + style['input-wannabe']} 
+                    removeFile={removeFile}
+                    />
                 
                 </div>
 
