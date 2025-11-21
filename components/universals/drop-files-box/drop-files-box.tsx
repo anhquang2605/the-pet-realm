@@ -35,6 +35,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         const  areFilesValid = isFilesTypeValid(acceptedFiles, allowedFormats);
         if (areFilesValid) {
             statusSetter('success');
+            setMessage('Files uploaded successfully.');
             setUploadingFiles(acceptedFiles);   
         } else {
             statusSetter('error');
