@@ -66,7 +66,7 @@
        width: 80%;
     }
     .order-form label{
-    width: 150px;
+        width: 100px;
     }
     .order-form .full, .order-form .half, .order-form .third{
         flex-direction: row;
@@ -76,5 +76,8 @@
 @media screen and (min-width: 1024px) {
     .order-form{
        width: 60%;
+    }
+    .order-form label{
+        width: 150px;
     }
 }
