@@ -33,7 +33,8 @@
     align-items: center;
 }
 .order-form label{
-    width: 150px;
+    width: 100%
+
 }
 .order-form input, .order-form select, .order-form textarea{
     flex: 1;
@@ -51,7 +52,7 @@
 .order-form .full, .order-form .half, .order-form .third{
     display: flex;
     width: 100%;
-        align-items: center;
+    flex-direction: column;
 }
 
 @media screen and (min-width: 640px) {
@@ -64,6 +65,12 @@
     .order-form{
        width: 80%;
     }
+    .order-form label{
+    width: 150px;
+    }
+    .order-form .full, .order-form .half, .order-form .third{
+        flex-direction: row;
+        }
 }
 
 @media screen and (min-width: 1024px) {
