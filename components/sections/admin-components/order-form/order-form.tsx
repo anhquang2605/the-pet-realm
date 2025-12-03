@@ -1,9 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import style from './order-form.module.css';
-import { Order } from '../../../../types/order';
-import axios from 'axios';
-import DropFilesBox, { isFilesTypeValid } from '../../../universals/drop-files-box/drop-files-box';
-import { set } from 'mongoose';
+import DropFilesBox from '../../../universals/drop-files-box/drop-files-box';
 import { StatusType } from '../../../../types/status';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
