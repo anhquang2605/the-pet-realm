@@ -78,17 +78,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }
     };
 
-    const onImagesDrop = useCallback((acceptedFiles: File[]) => {
-        acceptedFiles.forEach(async (file) => {
-        const url = await uploadToImgBB(file);
-        setUploadedImages(prev => [...prev, url]);
-        });
-    }, []);
-
-    const removeImage = (index: number) => {
-        setUploadedImages(prev => prev.filter((_, i) => i !== index));
-    };
-
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         
