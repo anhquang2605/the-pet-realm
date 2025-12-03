@@ -99,7 +99,6 @@ export default function LoginPage() {
               </span>
               }
               <p className={styles.popupMessage}>{popupMessage}</p>
-              <ActionButton type="main" color="tomato" href="/admin" title="Take me now!" />
             </div>
           </div>
         )}
