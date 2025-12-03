@@ -53,15 +53,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
         //return response.data.data.url;
     };
 
-    const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = event.target.files;
-        if (!files) return;
-        if (!isFilesTypeValid(Array.from(files), ALLOWED_TYPES)) {
-            setIsUploading(false);
-            setMessage('Invalid file type. Only JPEG, PNG, and GIF files are allowed.');
-            setFormStatus('error');
-            return;
-        }
+    const handleImageUpload = async (files: File[]) => {
+        
         setIsUploading(true);
         
         try {
@@ -74,7 +67,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         } finally {
         setIsUploading(false);
         // Clear the file input
-        event.target.value = '';
+        
         }
     };
 
