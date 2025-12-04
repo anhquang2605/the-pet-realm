@@ -41,7 +41,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const uploadToImgBB = async (file: File): Promise<string> => {
         const formData = new FormData();
         formData.append('image', file);
-        console.log("Uploading file to ImgBB:", file);
         // Using ImgBB API (you need to get a free API key from https://api.imgbb.com/)
         const response = await axios.post(
         `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMG_BB_API_KEY}`,
