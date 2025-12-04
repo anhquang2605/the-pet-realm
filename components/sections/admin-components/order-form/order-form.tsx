@@ -3,6 +3,7 @@ import style from './order-form.module.css';
 import DropFilesBox from '../../../universals/drop-files-box/drop-files-box';
 import { StatusType } from '../../../../types/status';
 import axios from 'axios';
+import { set } from 'mongoose';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
   status: 'idle' | 'submitting' | 'success' | 'error';
@@ -58,8 +59,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
         const urls = await Promise.all(uploadPromises);
         setUploadedImages(prev => [...prev, ...urls]);
         } catch (error) {
-
-        alert('Error uploading images. Please try again.');
+            setFormStatus('error');
+            setMessage('Error uploading images');
+            return false;
+            alert('Error uploading images. Please try again.');
         } finally {
         setIsUploading(false);
         // Clear the file input
@@ -69,7 +72,12 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        
+        const filesToUpload = stagingImages;
+        if (filesToUpload.length > 0) {
+            handleImageUpload(filesToUpload).then(() => {
+                setStagingImages([]);
+            });
+        }
         const orderData = {
         ...formData,
         status: 'fresh' as const,
