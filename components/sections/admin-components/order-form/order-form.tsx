@@ -54,6 +54,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             const uploadPromises = Array.from(files).map(file => uploadToImgBB(file));
             const urls = await Promise.all(uploadPromises);
             setUploadedImages(prev => [...prev, ...urls]);
+            return true;
         } catch (error) {
             setFormStatus('error');
             setMessage('Error uploading images');
