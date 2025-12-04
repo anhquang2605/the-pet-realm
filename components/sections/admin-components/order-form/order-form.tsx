@@ -62,7 +62,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
             setFormStatus('error');
             setMessage('Error uploading images');
             return false;
-            alert('Error uploading images. Please try again.');
         } finally {
         setIsUploading(false);
         // Clear the file input
