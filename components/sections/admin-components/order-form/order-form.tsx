@@ -65,13 +65,15 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async(e: React.FormEvent) => {
         e.preventDefault();
         const filesToUpload = stagingImages;
+        let status = false;
         if (filesToUpload.length > 0) {
-            handleImageUpload(filesToUpload).then(() => {
-                setStagingImages([]);
-            });
+            status = await handleImageUpload(filesToUpload);
+        }
+        if (filesToUpload.length > 0 && !status) {
+            return;
         }
         const orderData = {
         ...formData,
