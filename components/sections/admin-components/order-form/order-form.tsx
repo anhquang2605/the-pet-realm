@@ -55,17 +55,17 @@ const OrderForm: React.FC<OrderFormProps> = ({
         setIsUploading(true);
         
         try {
-        const uploadPromises = Array.from(files).map(file => uploadToImgBB(file));
-        const urls = await Promise.all(uploadPromises);
-        setUploadedImages(prev => [...prev, ...urls]);
+            const uploadPromises = Array.from(files).map(file => uploadToImgBB(file));
+            const urls = await Promise.all(uploadPromises);
+            setUploadedImages(prev => [...prev, ...urls]);
         } catch (error) {
             setFormStatus('error');
             setMessage('Error uploading images');
             return false;
         } finally {
-        setIsUploading(false);
-        // Clear the file input
-        
+            setIsUploading(false);
+            // Clear the file input
+            
         }
     };
 
