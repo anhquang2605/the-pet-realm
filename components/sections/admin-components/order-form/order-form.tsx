@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import style from './order-form.module.css';
 import DropFilesBox from '../../../universals/drop-files-box/drop-files-box';
 import { StatusType } from '../../../../types/status';
+import axios from 'axios';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
   status: 'idle' | 'submitting' | 'success' | 'error';
@@ -40,14 +41,12 @@ const OrderForm: React.FC<OrderFormProps> = ({
         const formData = new FormData();
         formData.append('image', file);
         console.log("Uploading file to ImgBB:", file);
-        return "null";
         // Using ImgBB API (you need to get a free API key from https://api.imgbb.com/)
-/*         const response = await axios.post(
+        const response = await axios.post(
         `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMG_BB_API_KEY}`,
         formData
-        );
-         */
-        //return response.data.data.url;
+        ); 
+        return response.data.data.url;
     };
 
     const handleImageUpload = async (files: File[]) => {
