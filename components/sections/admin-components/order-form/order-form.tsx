@@ -3,7 +3,6 @@ import style from './order-form.module.css';
 import DropFilesBox from '../../../universals/drop-files-box/drop-files-box';
 import { StatusType } from '../../../../types/status';
 import axios from 'axios';
-import { set } from 'mongoose';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
   status: 'idle' | 'submitting' | 'success' | 'error';
