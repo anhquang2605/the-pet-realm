@@ -72,7 +72,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         if (filesToUpload.length > 0) {
             status = await handleImageUpload(filesToUpload);
         }
-        if (filesToUpload.length > 0 && !status) {
+        if (filesToUpload.length > 0 || !status) {
             return;
         }
         const orderData = {
