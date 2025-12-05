@@ -89,7 +89,7 @@ export default function LoginPage() {
 
     </div>
           {showPopup && (
-          <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center backdrop-blur-md" + " " + styles.popup}>
+          <div className={"bg-gray-600/50 flex p-4 rounded-lg  justify-center items-center backdrop-blur-md z-50" + " " + styles.popup}>
            
             <div className="bg-gray-800 text-slate-100 px-6 py-4 rounded-xl shadow-md flex flex-col items-center">
                {
