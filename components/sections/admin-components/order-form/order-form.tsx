@@ -16,6 +16,7 @@ export interface OrderFormData{
     isFeatured: boolean;
 }
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
+const IMG_EXPIRATION_TIME = 10 ; //in seconds
 const OrderForm: React.FC<OrderFormProps> = ({
     onSubmit,
     status
@@ -42,7 +43,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         formData.append('image', file);
         // Using ImgBB API (you need to get a free API key from https://api.imgbb.com/)
         const response = await axios.post(
-        `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMG_BB_API_KEY}`,
+        `https://api.imgbb.com/1/upload?expiration=${IMG_EXPIRATION_TIME}&key=${process.env.NEXT_PUBLIC_IMG_BB_API_KEY}`,
         formData
         ); 
         return response.data.data.url;
