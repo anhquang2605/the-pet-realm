@@ -54,6 +54,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             const uploadPromises = Array.from(files).map(file => uploadToImgBB(file));
             const urls = await Promise.all(uploadPromises);
             setUploadedImages(prev => [...prev, ...urls]);
+            console.log('Uploaded image URLs:', urls);
             return true;
         } catch (error) {
             setFormStatus('error');
@@ -71,11 +72,12 @@ const OrderForm: React.FC<OrderFormProps> = ({
         let status = false;
         if (filesToUpload.length > 0) {
             status = await handleImageUpload(filesToUpload);
+            
         }
         if (filesToUpload.length > 0 || !status) {
             return;
         }
-        
+
         /* const orderData = {
         ...formData,
         status: 'fresh' as const,
