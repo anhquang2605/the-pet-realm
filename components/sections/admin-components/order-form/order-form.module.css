@@ -75,10 +75,10 @@
 
 @media screen and (min-width: 1024px) {
     .order-form{
-       width: 60%;
+       width: 70%;
     }
     .order-form label{
-        width: 150px;
+        width: 105px;
     }
     .order-form .half{
         width: 49%
