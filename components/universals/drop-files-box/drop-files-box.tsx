@@ -75,6 +75,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             const imageUrl = URL.createObjectURL(file);
             const imgElement: JSX.Element = 
                 <ImagePreview
+                    key={imageUrl}
                     imageSrc={imageUrl}
                     altText={file.name}
                     onRemove={() => removeFile(index)}
