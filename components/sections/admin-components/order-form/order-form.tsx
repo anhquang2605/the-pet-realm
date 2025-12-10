@@ -107,9 +107,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
     const removeFile = (index: number) => {
         setStagingImages((prev) => { 
-            let curItem = [...prev];
-            curItem.filter((_, i) => i !== index)
-            return curItem;
+            let curItems = [...prev];
+            curItems.filter((_, i) => i !== index)
+            console.log(curItems);
+            return curItems;
         });
     }
     return (
@@ -203,7 +204,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Image Upload */}
-                <div className={style['full']}>
+                <div className={style['full']} onClick={(e: React.MouseEvent)=>{
+                    e.preventDefault();
+                    e.stopPropagation();
+                }}>
                     <label className="block text-sm font-medium  ">
                         Upload Images
                     </label>
