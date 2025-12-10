@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import style from './layout.module.css';
 import Header from '../header/Header';
 import { jwtVerify } from 'jose';
+import { usePathname } from 'next/navigation'
 import path from 'path';
 
 interface LayoutProps {
@@ -12,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     const [pathname, setPathname] = React.useState('');
     const [isAuthenticated, setIsAuthenticated] = React.useState(false);
     const [sessionExpired, setSessionExpired] = React.useState(false);
-    const [path, setPath] = React.useState("");
+    const pathnameHook = usePathname();
     const checkIfAuthenticated = () => {
         // Logic to check if user is authenticated
         const token = localStorage.getItem('admin_token');
@@ -53,7 +54,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     useEffect(()=>{
         setPathname(window.location.pathname);  
         checkAndHandleExpired();    
-        
+        console.log('Pathname:', pathname);
         if(pathname.includes('admin')){
            checkAdminAuthorization();
 
