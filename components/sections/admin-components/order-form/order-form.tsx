@@ -106,7 +106,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
     };
 
     const removeFile = (index: number) => {
-        setStagingImages(prev => prev.filter((_, i) => i !== index));
+        setStagingImages((prev) => { 
+            let curItem = [...prev];
+            curItem.filter((_, i) => i !== index)
+            return curItem;
+        });
     }
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
