@@ -10,7 +10,6 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
-    const [pathname, setPathname] = React.useState('');
     const [isAuthenticated, setIsAuthenticated] = React.useState(false);
     const [sessionExpired, setSessionExpired] = React.useState(false);
     const pathnameHook = usePathname();
@@ -51,17 +50,15 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
         setIsAuthenticated(authStatus);
     }
     //get pathname
-    useEffect(()=>{
-        setPathname(window.location.pathname);  
+    useEffect(()=>{ 
         checkAndHandleExpired();    
-        console.log('Pathname:', pathname);
-        if(pathname.includes('admin')){
+        if(pathnameHook.includes('admin')){
            checkAdminAuthorization();
 
         }
-    }, [pathname])
+    }, [pathnameHook])
     useEffect(()=>{
-        if (isAuthenticated && sessionExpired && !pathname.includes('authentication')) {
+        if (isAuthenticated && sessionExpired && !pathnameHook.includes('authentication')) {
             localStorage.removeItem('admin_token');
             setIsAuthenticated(false);
         }
@@ -70,7 +67,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     return (
         <>
 
-            {(!pathname.includes('authentication') && !sessionExpired) && <Header isAuthenticated={isAuthenticated} />}
+            {(!pathnameHook.includes('authentication') && !sessionExpired) && <Header isAuthenticated={isAuthenticated} />}
              {children}
         </>
            
