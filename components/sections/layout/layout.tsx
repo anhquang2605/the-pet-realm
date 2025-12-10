@@ -53,6 +53,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     useEffect(()=>{
         setPathname(window.location.pathname);  
         checkAndHandleExpired();    
+        
         if(pathname.includes('admin')){
            checkAdminAuthorization();
 
