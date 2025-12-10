@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     const [pathname, setPathname] = React.useState('');
     const [isAuthenticated, setIsAuthenticated] = React.useState(false);
     const [sessionExpired, setSessionExpired] = React.useState(false);
-    const [isAuthenticationPath, setIsAuthenticationPath] = React.useState(false);
+    const [path, setPath] = React.useState("");
     const checkIfAuthenticated = () => {
         // Logic to check if user is authenticated
         const token = localStorage.getItem('admin_token');
