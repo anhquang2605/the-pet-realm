@@ -67,7 +67,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     return (
         <>
 
-            {!pathname.includes('authentication') && <Header isAuthenticated={isAuthenticated} />}
+            {(!pathname.includes('authentication') && !sessionExpired) && <Header isAuthenticated={isAuthenticated} />}
              {children}
         </>
            
