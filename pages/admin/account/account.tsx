@@ -24,6 +24,9 @@ const getAccount = async (email: string) => {
     const account: AdminAccount = await response.json();
     return account;
 }
+const checkAdminAuthorization = async (email: string) => {
+    
+}
 const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
     const [accountData, setAccountData] = useState<AdminAccount | null>(null);
     useEffect(() => {
