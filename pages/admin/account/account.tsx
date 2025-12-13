@@ -18,7 +18,9 @@ const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
         },
     };
 };
-
+const getAccount = async (email: string) => {
+    
+}
 const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
     const [accountData, setAccountData] = useState<AdminAccount | null>(null);
     useEffect(() => {
