@@ -19,7 +19,10 @@ const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
     };
 };
 const getAccount = async (email: string) => {
-    
+    const params = new URLSearchParams({ email });
+    const response = await fetch(`/api/admin/info?${params.toString()}`);
+    const account: AdminAccount = await response.json();
+    return account;
 }
 const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
     const [accountData, setAccountData] = useState<AdminAccount | null>(null);
