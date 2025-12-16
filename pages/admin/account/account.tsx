@@ -2,7 +2,7 @@
 import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import { AdminAccount } from '../../../types/admin';
-
+import  styles  from  '../../page-styles/admin-account.module.css'
 interface AccountPageProps {
     account: AdminAccount;
 }
