@@ -34,7 +34,17 @@ const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
     }, [account]);  // Update accountData when account prop changes
     return (
        <section className={styles.account}>
-
+        <h1>Admin Account</h1>
+        {/* with account data, allow user to view it and edit the details */}
+        {accountData ? (
+            <div>
+                <p><strong>Name:</strong> {accountData.name}</p>
+                <p><strong>Email:</strong> {accountData.email}</p>
+                {/* Add more fields as necessary */}
+            </div>
+        ) : (
+            <p>Loading account data...</p>
+        )}
        </section>
     );
 };
