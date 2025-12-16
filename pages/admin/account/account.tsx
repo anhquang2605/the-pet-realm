@@ -33,7 +33,8 @@ const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
         setAccountData(account);
     }, [account]);  // Update accountData when account prop changes
     return (
-        <div>
-        </div>
+       <section>
+        
+       </section>
     );
 };
