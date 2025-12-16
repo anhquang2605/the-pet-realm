@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import { AdminAccount } from '../../../types/admin';
 import  styles  from  '../../page-styles/admin-account.module.css'
+import ActionButton from '../../../components/universals/buttons/action-button/action-button';
 interface AccountPageProps {
     account: AdminAccount;
 }
@@ -41,6 +42,9 @@ const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
                 <p><strong>Name:</strong> {accountData.name}</p>
                 <p><strong>Email:</strong> {accountData.email}</p>
                 {/* Add more fields as necessary */}
+                <ActionButton type={
+                    'link'
+                } title="Reset Password" onClick={() => {/* Handle edit action */}} />
             </div>
         ) : (
             <p>Loading account data...</p>
