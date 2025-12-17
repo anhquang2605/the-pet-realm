@@ -6,7 +6,7 @@ interface ActionButtonProps {
     href?: string
     title: string;
     onClick?: () => void;
-    type: 'main' | 'link' | 'add' | 'remove';
+    type: 'main' | 'link' | 'add' | 'remove' | 'edit' | 'reset' | 'submit';
     color?: string; // Optional color prop for custom styling
     extraStyle?: React.CSSProperties; // Optional style prop for additional styles;
     isSubmit?: boolean; // Optional prop to determine if the button is a submit button
