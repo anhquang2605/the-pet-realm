@@ -11,7 +11,7 @@ const RevealBox: React.FC<RevealBoxProps> = ({children , hasCustomeRevealButton 
     return (
         <>
 
-            <div className={style['reveal-box']}>
+            <div className={style['reveal-box'] + " " + (isRevealed ? style['active'] : '')}>
                 {
                     children
                 }
