@@ -1,3 +1,12 @@
 .reveal-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+    background-color: #f0f0f0;
+    transition: height 0.5s ease-in-out;
     
+}
+.reveal-box.active {
+    height: auto; /* Adjust the height as needed */
 }
