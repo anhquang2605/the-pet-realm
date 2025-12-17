@@ -43,7 +43,7 @@ const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
                 <p><strong>Email:</strong> {accountData.email}</p>
                 {/* Add more fields as necessary */}
                 <ActionButton type={
-                    'link'
+                    'edit'
                 } title="Reset Password" onClick={() => {/* Handle edit action */}} />
             </div>
         ) : (
