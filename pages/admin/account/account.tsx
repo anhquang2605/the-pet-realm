@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { AdminAccount } from '../../../types/admin';
 import  styles  from  '../../page-styles/admin-account.module.css'
 import ActionButton from '../../../components/universals/buttons/action-button/action-button';
+import RevealBox from '../../../components/universals/reveal-box/reveal-box';
 interface AccountPageProps {
     account: AdminAccount;
 }
@@ -41,10 +42,14 @@ const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
             <div>
                 <p><strong>Name:</strong> {accountData.name}</p>
                 <p><strong>Email:</strong> {accountData.email}</p>
-                {/* Add more fields as necessary */}
-                <ActionButton type={
-                    'edit'
-                } title="Reset Password" onClick={() => {/* Handle edit action */}} />
+                <RevealBox buttonStateTitles={[
+                    'Reset Password',
+                    'Confirm Reset'
+                ]}>
+                    
+                </RevealBox>
+ 
+
             </div>
         ) : (
             <p>Loading account data...</p>

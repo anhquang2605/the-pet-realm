@@ -2,7 +2,7 @@ import React from 'react';
 import style from './reveal-box.module.css';
 
 interface RevealBoxProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     hasCustomeRevealButton?: boolean;
     customRevealSetter?: (isRevealed: boolean) => void;
     buttonStateTitles:[string, string]; // [show, hide]
