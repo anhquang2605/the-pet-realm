@@ -47,17 +47,7 @@ export default function AdminPage() {
       sessionExpiryTimeout();
       return;
     }
-    
-    //router.push(loginPage);
    }
-    /* if (decoded.role === "admin") {
-      setIsAuthorized(true);
-    } else {
-      router.push(loginPage);
-    } */
-  
-    //router.push(loginPage  );
-    
   }
   const authorizationTimeout = () => {
     setTimeout(() => {
