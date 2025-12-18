@@ -29,7 +29,7 @@ const getAccount = async (email: string) => {
 const checkAdminAuthorization = async (email: string) => {
     
 }
-const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
+export default function AccountPage({ account }: AccountPageProps) {
     const [accountData, setAccountData] = useState<AdminAccount | null>(null);
     useEffect(() => {
         setAccountData(account);
