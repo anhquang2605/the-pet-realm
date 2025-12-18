@@ -46,7 +46,11 @@ const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
                     'Reset Password',
                     'Confirm Reset'
                 ]}>
-                    
+                    {/* Create a form to reset the password */}
+                    <form>
+                        <input type="password" placeholder="New Password" />
+                        <input type="password" placeholder="Confirm New Password" />
+                    </form>
                 </RevealBox>
  
 
