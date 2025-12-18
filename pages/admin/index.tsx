@@ -7,7 +7,6 @@ import ActionButton from '../../components/universals/buttons/action-button/acti
 
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const loginPage = '/authentication/login';
-const logoutPage = '/authentication/logout';
 const ADMIN_ACTIONS = [
   { title: 'Browse Orders', description: 'View and manage all orders in the system.', link: '/browse', color: 'chocolate' },
   {title: 'Create new Order', description: 'Create a new order on behalf of a user.', link: '/admin/orders/create', color: 'green' },
