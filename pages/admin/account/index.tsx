@@ -61,3 +61,4 @@ const AccountPage: React.FC<AccountPageProps> = ({ account }) => {
        </section>
     );
 };
+
