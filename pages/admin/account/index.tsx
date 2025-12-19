@@ -11,8 +11,7 @@ interface AccountPageProps {
 
 const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
     // Simulate an API call to fetch the account data
-    const response = await fetch('https://api.example.com/account');
-    const account: AdminAccount = await response.json();
+    const account: AdminAccount = await getAccount('admin@shop.com');
 
     return {
         props: {
