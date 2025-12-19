@@ -33,7 +33,6 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
             new TextEncoder().encode(process.env.NEXT_PUBLICJWT_SECRET || 'supersecretkey'),
             )
             if(payload.role === 'admin'){
-                console.log('Token is valid');
                 setIsAuthenticated(true);
             }
 
