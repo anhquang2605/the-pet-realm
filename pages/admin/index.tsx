@@ -49,14 +49,7 @@ export default function AdminPage() {
     }
    }
   }
-  const authorizationTimeout = () => {
-    setTimeout(() => {
-      if (!isAuthorized) {
-        setAuthorizatiorMessage('Authorization timed out. Redirecting to login page...');
-        router.push(loginPage); 
-      }
-    }, 3000);
-  }
+
   const sessionExpiryTimeout = () => {
     setTimeout(() => {
       setAuthorizatiorMessage('Session expired. Redirecting to logout page...');
