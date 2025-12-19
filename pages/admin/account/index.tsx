@@ -10,7 +10,7 @@ interface AccountPageProps {
 }
 
 export const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
-    
+    checkAdminAuthorization('admin@shop.com');
     // Simulate an API call to fetch the account data
     const account: AdminAccount = await getAccount('admin@shop.com');
 
@@ -23,12 +23,18 @@ export const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
 const getAccount = async (email: string) => {
     const params = new URLSearchParams();
     params.append('email', email);
-    const response = await fetch(`/api/admin-account?${params}`);
+    const response = await fetch(`/api/admin/info?${params}`);
     const account: AdminAccount = await response.json();
     return account;
 }
 const checkAdminAuthorization = async (email: string) => {
-    
+    const token = localStorage.getItem('token');
+    if (!token) {
+        // Redirect to login page if no token is found
+        window.location.href = '/login';
+    } else {
+        
+    }
 }
 export default function AccountPage({ account }: AccountPageProps) {
     const [accountData, setAccountData] = useState<AdminAccount | null>(null);
