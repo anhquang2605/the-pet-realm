@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import { AdminAccount } from '../../../types/admin';
 import  styles  from  '../../page-styles/admin-account.module.css'
-import ActionButton from '../../../components/universals/buttons/action-button/action-button';
+import { useRouter } from 'next/router';
 import RevealBox from '../../../components/universals/reveal-box/reveal-box';
 interface AccountPageProps {
     account: AdminAccount;
@@ -21,6 +21,7 @@ export const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
     };
 };
 const getAccount = async (email: string) => {
+   
     const params = new URLSearchParams();
     params.append('email', email);
     const response = await fetch(`/api/admin/info?${params}`);
@@ -31,12 +32,13 @@ const checkAdminAuthorization = async (email: string) => {
     const token = localStorage.getItem('token');
     if (!token) {
         // Redirect to login page if no token is found
-        window.location.href = '/login';
+        window.location.href = '/authentication/login';
     } else {
-        
+
     }
 }
 export default function AccountPage({ account }: AccountPageProps) {
+     const router  = useRouter();
     const [accountData, setAccountData] = useState<AdminAccount | null>(null);
     useEffect(() => {
         setAccountData(account);
