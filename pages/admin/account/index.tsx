@@ -8,12 +8,10 @@ import RevealBox from '../../../components/universals/reveal-box/reveal-box';
 interface AccountPageProps {
     account: AdminAccount;
 }
-
+const URL = process.env.URL;
 export const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
-    checkAdminAuthorization('admin@shop.com');
     // Simulate an API call to fetch the account data
     const account: AdminAccount = await getAccount('admin@shop.com');
-
     return {
         props: {
             account,
@@ -24,18 +22,9 @@ const getAccount = async (email: string) => {
    
     const params = new URLSearchParams();
     params.append('email', email);
-    const response = await fetch(`/api/admin/info?${params}`);
+    const response = await fetch(`${URL}/api/admin/info?${params}`);
     const account: AdminAccount = await response.json();
     return account;
-}
-const checkAdminAuthorization = async (email: string) => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        // Redirect to login page if no token is found
-        window.location.href = '/authentication/login';
-    } else {
-
-    }
 }
 export default function AccountPage({ account }: AccountPageProps) {
      const router  = useRouter();
