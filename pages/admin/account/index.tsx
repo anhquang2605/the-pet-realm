@@ -9,7 +9,7 @@ interface AccountPageProps {
     account: AdminAccount;
 }
 
-const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
+export const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
     // Simulate an API call to fetch the account data
     const account: AdminAccount = await getAccount('admin@shop.com');
 
