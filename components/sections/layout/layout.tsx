@@ -4,10 +4,11 @@ import Header from '../header/Header';
 import { jwtVerify } from 'jose';
 import { usePathname } from 'next/navigation'
 import path from 'path';
-
+import OpenAI from 'openai';
 interface LayoutProps {
     children: React.ReactNode
 }
+const OPENAI_API_KEY = process.env.NEXT_PUBLIC_OPENAI_API_KEY || '';
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = React.useState(false);
