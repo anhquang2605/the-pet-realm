@@ -8,9 +8,20 @@ interface ChatbotProps {
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const [messages, setMessages] = useState([]);
+    const handleMessageSending = async (message: string) => {
+        const response = await sendMessageToOpenAI(message);
+        console.log('OpenAI response:', response);
+    }
     useEffect(() => {
 
     },[])
+    useEffect(() => {
+        if(messages.length > 0){
+            const lastMessage = messages[messages.length - 1];
+            //send last message to OpenAI
+            handleMessageSending(lastMessage);
+        }
+    }, [messages])
     return (
         <section className={style['chatbot']}>
             Chatbot
