@@ -9,12 +9,13 @@ interface ChatbotProps {
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const [messages, setMessages] = useState([]);
     useEffect(() => {
-        
+
     },[])
     return (
-        <div className={style['chatbot']}>
+        <section className={style['chatbot']}>
             Chatbot
-        </div>
+            
+        </section>
     );
 };
 const sendMessageToOpenAI = async (message: string) => {
