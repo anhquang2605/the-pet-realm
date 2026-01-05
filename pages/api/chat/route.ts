@@ -1,9 +1,13 @@
+import { NextApiRequest } from 'next';
 import {openai} from '../../../libs/openai';
 import { NextResponse } from 'next/server'; 
-export async function POST(request: Request) {
-    const { messages } = await request.json();
+export default async function POST(request: NextApiRequest) {
+    if (request.method !== 'POST') {
+        return new Response('Method Not Allowed', { status: 405 });
+    }
+    const { messages } = await request.body;
     const response = await openai.chat.completions.create({
-        model: 'gpt-4',
+        model: 'gpt-3.5-turbo',
         messages: messages,
         stream: true,
     });

@@ -4,6 +4,7 @@ import Header from '../header/Header';
 import { jwtVerify } from 'jose';
 import { usePathname } from 'next/navigation'
 import path from 'path';
+import Chatbot from '../../openai/chatbot/chatbot';
 interface LayoutProps {
     children: React.ReactNode
 }
@@ -65,7 +66,10 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     return (
         <>
 
-            {!pathnameHook.includes('authentication') && !sessionExpired  && <Header isAuthenticated={isAuthenticated} />}
+            {!pathnameHook.includes('authentication') && !sessionExpired  && 
+            <Header isAuthenticated={isAuthenticated} />
+            }
+            <Chatbot />
              {children}
         </>
            

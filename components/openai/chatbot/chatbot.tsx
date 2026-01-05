@@ -2,12 +2,13 @@ import React, { use } from 'react';
 import style from './chatbot.module.css';
 import { insertToPostAPI } from '../../../libs/api-interactions';
 import { useState, useEffect } from 'react';
+import Chatbox from './chatbox/chatbox';
 interface ChatbotProps {
 
 }
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState<string[]>([]);
     const handleMessageSending = async (message: string) => {
         const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response);
@@ -25,12 +26,15 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     return (
         <section className={style['chatbot']}>
             Chatbot
-            
+            <Chatbox
+                setMessages={setMessages}
+                messages={messages}
+            />
         </section>
     );
 };
 const sendMessageToOpenAI = async (message: string) => {
-    const path = '/chat';
+    const path = '/chat/route';
     const reponse = insertToPostAPI(path, {message});
     return reponse;
 }
