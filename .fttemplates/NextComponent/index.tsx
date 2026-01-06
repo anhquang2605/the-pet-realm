@@ -1,20 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import style from './__name__.module.css';
+import style from './[FTName | paramcase].module.css';
 
-interface __pascalCase__Props {
+interface [FTName | pascalcase]Props {
 
 }
 
-const __pascalCase__: React.FC<__pascalCase__Props> = ({}) => {
+const [FTName | pascalcase]: React.FC<[FTName | pascalcase]Props> = ({}) => {
     useEffect(() => {
 
     }, []);
 
     return (
-        <div className={style['__name__']}>
-            __pascalCase__Icon
+        <div className={style['[FTName | paramcase]']}>
+            [FTName | pascalcase]Icon
         </div>
     );
 };
 
-export default __pascalCase__;
+export default [FTName | pascalcase];
