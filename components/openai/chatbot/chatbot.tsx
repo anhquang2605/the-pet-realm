@@ -24,13 +24,17 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         }
     }, [messages])
     return (
-        <section className={style['chatbot']}>
-            Chatbot
-            <Chatbox
-                setMessages={setMessages}
-                messages={messages}
-            />
-        </section>
+        <>
+            
+            <section className={style['chatbot']}>
+                Chatbot
+                <Chatbox
+                    setMessages={setMessages}
+                    messages={messages}
+                />
+            </section>
+        </>
+
     );
 };
 const sendMessageToOpenAI = async (message: string) => {
