@@ -2,18 +2,20 @@ import React, {useState, useEffect} from 'react';
 import style from './chat-toggle-icon.module.css';
 
 interface ChatToggleIconProps {
-
+    onClick?: () => void;
 }
 
-const ChatToggleIcon: React.FC<ChatToggleIconProps> = ({}) => {
+const ChatToggleIcon: React.FC<ChatToggleIconProps> = ({
+    onClick = () => {},
+}) => {
     useEffect(() => {
 
     }, []);
 
     return (
-        <div className={style['chat-toggle-icon']}>
+        <button className={style['chat-toggle-icon']} onClick={onClick}>
             ChatToggleIcon
-        </div>
+        </button>
     );
 };
 
