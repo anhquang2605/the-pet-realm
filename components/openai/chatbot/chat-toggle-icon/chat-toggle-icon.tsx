@@ -19,7 +19,7 @@ const ChatToggleIcon: React.FC<ChatToggleIconProps> = ({
     }, []);
 
     return (
-        <button className={style['chat-toggle-icon'] + (isOpen ? ' is-open' : '')} onClick={onClick}>
+        <button className={style['chat-toggle-icon'] + (isOpen ? ' is-open' : '')} onClick={toggleButtonState}>
             <RiChatAiFill />
         </button>
     );
