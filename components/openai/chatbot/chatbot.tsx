@@ -19,7 +19,8 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
 
     },[])
     useEffect(() => {
-        if(messages.length > 0){
+        if(messages.length > 0 && messages[messages.length - 1] !== '') {
+            console.log(messages);
             const lastMessage = messages[messages.length - 1];
             //send last message to OpenAI
             handleMessageSending(lastMessage);
