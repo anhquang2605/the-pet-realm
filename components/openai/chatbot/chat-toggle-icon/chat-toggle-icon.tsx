@@ -8,6 +8,12 @@ interface ChatToggleIconProps {
 const ChatToggleIcon: React.FC<ChatToggleIconProps> = ({
     onClick = () => {},
 }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleButtonState = () => {
+        // Logic to toggle chat visibility
+        setIsOpen(prev => !prev);
+        onClick();
+    }
     useEffect(() => {
 
     }, []);
