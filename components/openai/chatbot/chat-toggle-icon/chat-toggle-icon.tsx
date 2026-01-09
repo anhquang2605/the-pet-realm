@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import style from './chat-toggle-icon.module.css';
-
+import { RiChatAiFill } from "react-icons/ri";
 interface ChatToggleIconProps {
     onClick?: () => void;
 }
@@ -20,7 +20,7 @@ const ChatToggleIcon: React.FC<ChatToggleIconProps> = ({
 
     return (
         <button className={style['chat-toggle-icon'] + (isOpen ? ' is-open' : '')} onClick={onClick}>
-            ChatToggleIcon
+            <RiChatAiFill />
         </button>
     );
 };
