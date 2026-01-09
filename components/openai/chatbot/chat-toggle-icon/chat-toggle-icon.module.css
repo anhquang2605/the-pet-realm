@@ -11,6 +11,5 @@
     cursor: pointer;
 }
 .is-open {
-    background: var(--1st-color); 
-    color: var(--2nd-color);
+    display:none;
 }
