@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Chatbox from './chatbox/chatbox';
 import { Chat } from 'openai/resources';
 import ChatToggleIcon from './chat-toggle-icon/chat-toggle-icon';
+import CloseChatButton from './close-chat-button';
 interface ChatbotProps {
 
 }
@@ -32,18 +33,22 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     }, [messages])
     return (
         <>
-            <section className={style['chatbot'] + (isChatOpen ? ` ${style['is-chat-open']}` : '')}>
+            <section className={style['chatbot']}>
+                  {
+                    /* <CloseChatButton /> */
+                    isChatOpen && 
+                    <CloseChatButton onClick={() => toggleChatbox()} />
+                }
                 <ChatToggleIcon
-                    onClick={() => {
-                        toggleChatbox();
-                        // Logic to open/close chatbox
-                    }}
+                    
+                    onClick={() => toggleChatbox()}
                 />
                 <Chatbox
                     setMessages={setMessages}
                     messages={messages}
                     isOpen={isChatOpen}
                 />
+              
             </section>
         </>
 
