@@ -6,11 +6,14 @@ interface ChatboxProps {
     setMessages?: React.Dispatch<React.SetStateAction<string[]>>;
     messages?: string[];
     reponses?: string[];
+    isOpen?: boolean;
 }
 
 const Chatbox: React.FC<ChatboxProps> = ({
     setMessages,
     messages,
+    reponses,
+    isOpen,
 }) => {
     const [inputMessage, setInputMessage] = useState('');
     useEffect(() => {
@@ -23,7 +26,7 @@ const Chatbox: React.FC<ChatboxProps> = ({
         setMessages && setMessages(prev => [...prev!, inputMessage]);
     }, [inputMessage]);
     return (
-        <div className={style['chatbox']}>
+        <div className={style['chatbox'] + (isOpen ? ` ${style['is-open']}` : '')}>
             <h2>Chatbox</h2>
             <Textbox
                 setInputMessage ={setInputMessage}

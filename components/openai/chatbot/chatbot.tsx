@@ -11,9 +11,13 @@ interface ChatbotProps {
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const [messages, setMessages] = useState<string[]>([]);
+    const [isChatOpen, setIsChatOpen] = useState(false);
     const handleMessageSending = async (message: string) => {
         const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response);
+    }
+    const toggleChatbox = () => {
+        setIsChatOpen(prev => !prev);
     }
     useEffect(() => {
 
@@ -28,15 +32,17 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     }, [messages])
     return (
         <>
-            <section className={style['chatbot']}>
+            <section className={style['chatbot'] + (isChatOpen ? ` ${style['is-chat-open']}` : '')}>
                 <ChatToggleIcon
                     onClick={() => {
+                        toggleChatbox();
                         // Logic to open/close chatbox
                     }}
                 />
                 <Chatbox
                     setMessages={setMessages}
                     messages={messages}
+                    isOpen={isChatOpen}
                 />
             </section>
         </>
