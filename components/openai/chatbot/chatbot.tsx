@@ -3,6 +3,8 @@ import style from './chatbot.module.css';
 import { insertToPostAPI } from '../../../libs/api-interactions';
 import { useState, useEffect } from 'react';
 import Chatbox from './chatbox/chatbox';
+import { Chat } from 'openai/resources';
+import ChatToggleIcon from './chat-toggle-icon/chat-toggle-icon';
 interface ChatbotProps {
 
 }
@@ -25,9 +27,12 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     }, [messages])
     return (
         <>
-            
             <section className={style['chatbot']}>
-                Chatbot
+                <ChatToggleIcon
+                    onClick={() => {
+                        // Logic to open/close chatbox
+                    }}
+                />
                 <Chatbox
                     setMessages={setMessages}
                     messages={messages}
