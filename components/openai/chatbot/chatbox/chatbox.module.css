@@ -5,6 +5,8 @@
     padding: var(--quarter-spacing);
     width: 100%;
     flex-direction: column;
+    gap: var(--half-spacing);
+    height: 100vh;
 }
 .is-open{
     display: flex;
@@ -13,5 +15,6 @@
  @media screen and (min-width: 768px) {
     .chatbox{
         width: 350px;
+        height: 50vh;
     }
  }
