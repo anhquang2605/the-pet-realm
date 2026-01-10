@@ -4,6 +4,7 @@
     color: lightgray;
     padding: var(--quarter-spacing);
     width: 100%;
+    flex-direction: column;
 }
 .is-open{
     display: flex;
