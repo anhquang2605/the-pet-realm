@@ -40,7 +40,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                     <CloseChatButton onClick={() => toggleChatbox()} />
                 }
                 <ChatToggleIcon
-                    
+                    isOpen={isChatOpen}
                     onClick={() => toggleChatbox()}
                 />
                 <Chatbox

@@ -1,6 +1,16 @@
 .chatbox{
     display: none;
+    background-color: var(--main-bg);
+    color: lightgray;
+    padding: var(--quarter-spacing);
+    width: 100%;
 }
 .is-open{
-    display: block;
-}
+    display: flex;
+ }
+
+ @media screen and (min-width: 768px) {
+    .chatbox{
+        width: 350px;
+    }
+ }
