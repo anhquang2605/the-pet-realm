@@ -2,16 +2,17 @@ import React, {useState, useEffect} from 'react';
 import style from './chat-toggle-icon.module.css';
 import { RiChatAiFill } from "react-icons/ri";
 interface ChatToggleIconProps {
+    isOpen?: boolean;
     onClick?: () => void;
 }
 
 const ChatToggleIcon: React.FC<ChatToggleIconProps> = ({
-    onClick = () => {},
+    isOpen = false,
+    onClick = () => {}
 }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    
     const toggleButtonState = () => {
         // Logic to toggle chat visibility
-        setIsOpen(prev => !prev);
         onClick();
     }
     useEffect(() => {
