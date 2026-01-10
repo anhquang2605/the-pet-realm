@@ -7,7 +7,7 @@ export default async function POST(request: NextApiRequest) {
     }
     const { messages } = await request.body;
     const response = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-5',
         messages: messages,
         stream: true,
     });
