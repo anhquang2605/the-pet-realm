@@ -4,11 +4,13 @@ import { RiChatAiFill } from "react-icons/ri";
 interface ChatToggleIconProps {
     isOpen?: boolean;
     onClick?: () => void;
+    isReplied?: boolean;
 }
 
 const ChatToggleIcon: React.FC<ChatToggleIconProps> = ({
     isOpen = false,
     onClick = () => {}
+    , isReplied = false
 }) => {
     
     const toggleButtonState = () => {
@@ -22,6 +24,7 @@ const ChatToggleIcon: React.FC<ChatToggleIconProps> = ({
     return (
         <button className={style['chat-toggle-icon'] + (isOpen ? ` ${style['is-open']}` : '')} onClick={toggleButtonState}>
             <RiChatAiFill />
+            {isReplied? <span className={style['notification-dot']}></span> : null}
         </button>
     );
 };
