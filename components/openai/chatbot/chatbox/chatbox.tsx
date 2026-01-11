@@ -1,6 +1,7 @@
 import React, {useState, useEffect, use} from 'react';
 import style from './chatbox.module.css';
 import Textbox from './textbox/textbox';
+import MessageArea from './message-area';
 
 interface ChatboxProps {
     setMessages?: React.Dispatch<React.SetStateAction<string[]>>;
@@ -28,6 +29,7 @@ const Chatbox: React.FC<ChatboxProps> = ({
     return (
         <div className={style['chatbox'] + (isOpen ? ` ${style['is-open']}` : '')}>
             <h2>Chatbox</h2>
+            <MessageArea />
             <Textbox
                 setInputMessage ={setInputMessage}
                 inputMessage={inputMessage}

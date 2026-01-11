@@ -22,6 +22,7 @@ export default async function POST(request: NextApiRequest) {
         }
     });
             const encoder = new TextEncoder();
+    
     return NextResponse.json(response);
 }
 
