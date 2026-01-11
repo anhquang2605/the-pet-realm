@@ -2,9 +2,14 @@
     display: flex;
     gap: 8px;
     padding: 8px;
+ 
 }
 .text-input{
-
+    flex: 1;
+    padding: 8px;
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--border-line-color);
+       background-color: var(--secondary-bg);
 }
 .send-button{
 
