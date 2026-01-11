@@ -18,6 +18,8 @@
   --success-color: #22c55e;
   --error-color: tomato;
   --loading-color: deepskyblue;
+  --border-radius: 8px;
+  --border-radius-small: 4px;
   }
 
 
