@@ -1,3 +1,11 @@
 .textbox{
-    
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+}
+.text-input{
+
+}
+.send-button{
+
 }

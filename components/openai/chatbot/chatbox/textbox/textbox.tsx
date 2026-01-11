@@ -21,8 +21,8 @@ const Textbox: React.FC<TextboxProps> = ({setInputMessage, inputMessage}) => {
     }
     return (
         <section className={style['textbox']}>
-            <textarea placeholder="Type your message here..." value={message} onChange={handleMessage} />
-            <button
+            <textarea className={style['text-input']} placeholder="Type your message here..." value={message} onChange={handleMessage} />
+            <button className={style['send-button']}
             onClick={handleSend}>Send</button>
         </section>
     );
