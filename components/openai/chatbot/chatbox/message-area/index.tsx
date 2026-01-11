@@ -12,7 +12,7 @@ const MessageArea: React.FC<MessageAreaProps> = ({}) => {
 
     return (
         <div className={style['message-area']}>
-            MessageAreaIcon
+            
         </div>
     );
 };

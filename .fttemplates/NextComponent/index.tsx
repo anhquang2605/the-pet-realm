@@ -12,7 +12,7 @@ const [FTName | pascalcase]: React.FC<[FTName | pascalcase]Props> = ({}) => {
 
     return (
         <div className={style['[FTName | paramcase]']}>
-            [FTName | pascalcase]Icon
+            [FTName | pascalcase]
         </div>
     );
 };
