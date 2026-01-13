@@ -6,9 +6,7 @@ import Chatbox from './chatbox/chatbox';
 import { Chat } from 'openai/resources';
 import ChatToggleIcon from './chat-toggle-icon/chat-toggle-icon';
 import CloseChatButton from './close-chat-button';
-interface ChatbotProps {
-
-}
+type ChatbotProps = Record<string, never>; // No props for now, this define that the component doesn't accept any props
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const [messages, setMessages] = useState<string[]>([]);

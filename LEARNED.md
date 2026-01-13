@@ -1,2 +1,3 @@
 1. {} in typescript means that it is any value that is not null. try not to use them to define an empty object
 2. to define empty prop type: type LogoutPageProps = Record<string, never>;
+3. Record<key,value> way to define type or interface with key has specific type and value specify type. Ex: type Map = Record<string, string>;  type ErrorMessage = Record<number, string> const errors: ErrorMessage = { 404: "not found", 500: "Server Error"}

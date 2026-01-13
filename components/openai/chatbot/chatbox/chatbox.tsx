@@ -1,4 +1,4 @@
-import React, {useState, useEffect, use} from 'react';
+import React, {useState, useEffect} from 'react';
 import style from './chatbox.module.css';
 import Textbox from './textbox/textbox';
 import MessageArea from './message-area';

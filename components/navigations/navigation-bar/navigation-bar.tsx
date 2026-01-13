@@ -31,7 +31,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
 }) => {
     const navigationItems = role === 'admin' ? ADMIN_NAVIGATION_ITEMS : NAVIGATION_ITEMS;
     const handleOnClick = (href: string) => {
-        const $window  = window as any;
+        const $window: Window  = window;
         if($window){
             $window.location.href = href;
         }
