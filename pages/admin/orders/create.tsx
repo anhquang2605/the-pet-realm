@@ -8,10 +8,7 @@ import { Order } from "../../../types/order";
 
 
 
-type Props = {
-    products: Order[];
-};
-
+type Props = Record<string, never>;
 
 const CreateOrderPage: NextPage<Props> = ({}) => {
     const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");

@@ -4,9 +4,7 @@ import Image from 'next/image';
 import ActionButton from '../../components/universals/buttons/action-button/action-button';
 import { jwtVerify } from 'jose';
 
-interface LogoutPageProps {
-    
-}
+type LogoutPageProps = Record<string, never>;
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 const LogoutPage: React.FC<LogoutPageProps> =  () => {
     const [message, setMessage] = React.useState('Logging out...');
