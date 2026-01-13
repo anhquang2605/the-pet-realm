@@ -107,9 +107,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
     const removeFile = (index: number) => {
         setStagingImages((prev) => { 
-            let curItems = [...prev];
+            const curItems = [...prev];
             curItems.filter((_, i) => i !== index)
-            console.log(curItems);
             return curItems;
         });
     }
@@ -231,7 +230,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         Status: <span className="font-bold text-green-600">Fresh</span>
                     </p>
                     <p className="text-xs text-gray-400 text-center">
-                        Status is automatically set to "fresh" for new orders
+                        Status is automatically set to &quot;fresh&quot; for new orders
                     </p>
                 </div>
 

@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import style from './chat-bubble.module.css';
 
-interface ChatBubbleProps {
-
-}
-
+type ChatBubbleProps = Record<string, never>;
 const ChatBubble: React.FC<ChatBubbleProps> = ({}) => {
     useEffect(() => {
 

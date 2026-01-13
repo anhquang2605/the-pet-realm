@@ -2,10 +2,7 @@ import React from 'react';
 import style from './home-icon.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-interface HomeIconProps {
-
-}
-
+type HomeIconProps = Record<string, never>;
 const HomeIcon: React.FC<HomeIconProps> = ({}) => {
     const router = useRouter();
     const handleOnClick = () => {

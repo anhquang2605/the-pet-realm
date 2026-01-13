@@ -1,9 +1,7 @@
 import React from 'react';
 import style from './search-bar.module.css';
 import { IoSearch } from "react-icons/io5";
-interface SearchBarProps {
-
-}
+type SearchBarProps = Record<string, never>;
 const searchPet = (value:string | null) => {
 
 }

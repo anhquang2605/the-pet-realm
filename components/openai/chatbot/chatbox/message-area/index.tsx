@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import style from './message-area.module.css';
 
-interface MessageAreaProps {
-
-}
+type MessageAreaProps = Record<string, never>;
 
 const MessageArea: React.FC<MessageAreaProps> = ({}) => {
     useEffect(() => {
