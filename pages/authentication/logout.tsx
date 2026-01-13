@@ -8,7 +8,7 @@ interface LogoutPageProps {
     
 }
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
-const LogoutPage: React.FC<LogoutPageProps> =  ({}) => {
+const LogoutPage: React.FC<LogoutPageProps> =  () => {
     const [message, setMessage] = React.useState('Logging out...');
     const performLogout = async () => {
         const token = localStorage.getItem('admin_token');
