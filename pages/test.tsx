@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface TestProps {
-  data: any; // Replace 'any' with the actual type of your data
-}
+type TestProps = Record<string, unknown>;
 
 export async function getStaticProps() {
   // Fetch data here
-  const data = {}; // Replace with actual data fetching logic
+  const data: Record<string, unknown> = {
+    exampleKey: 'exampleValue',
+  }; // Replace with actual data fetching logic
   return {
     props: { data },
   };
