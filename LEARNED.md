@@ -1,0 +1,1 @@
+1. {} in typescript means that it is any value that is not null. try not to use them to define an empty object
