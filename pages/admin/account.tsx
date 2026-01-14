@@ -10,7 +10,12 @@ interface AccountPageProps {
 const URL = process.env.URL;
 export const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
     // Simulate an API call to fetch the account data
-    const account: AdminAccount = await getAccount('admin@shop.com');
+    const account: AdminAccount | null = await getAccount('admin@shop.com');
+    if (!account) {
+        return {
+            notFound: true,
+        };
+    }
     return {
         props: {
             account,
@@ -22,10 +27,14 @@ const getAccount = async (email: string) => {
     const params = new URLSearchParams();
     params.append('email', email);
     const response = await fetch(`${URL}/api/admin/info?${params}`);
+    if (!response) {
+        return null;
+    }
     const account: AdminAccount = await response.json();
     return account;
 }
 export default function AccountPage({ account }: AccountPageProps) {
+
     const [accountData, setAccountData] = useState<AdminAccount | null>(null);
     useEffect(() => {
         setAccountData(account);

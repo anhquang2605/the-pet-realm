@@ -9,6 +9,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const admin = await adminCollection.findOne({ email: req.query.email });
     
     if(!admin) return res.status(404).json({ message: "Admin not found" });
-    console.log("Admin found:", admin);
     res.status(200).json(admin);
 }
