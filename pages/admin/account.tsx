@@ -1,9 +1,9 @@
 //generate an account page for next.js with getStaticProps
 import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
-import { AdminAccount } from '../../../types/admin';
+import { AdminAccount } from '../../types/admin';
 import  styles  from  '../../page-styles/admin-account.module.css'
-import RevealBox from '../../../components/universals/reveal-box/reveal-box';
+import RevealBox from '../../components/universals/reveal-box/reveal-box';
 interface AccountPageProps {
     account: AdminAccount;
 }
@@ -57,4 +57,3 @@ export default function AccountPage({ account }: AccountPageProps) {
        </section>
     );
 };
-
