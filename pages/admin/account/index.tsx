@@ -3,7 +3,6 @@ import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import { AdminAccount } from '../../../types/admin';
 import  styles  from  '../../page-styles/admin-account.module.css'
-import { useRouter } from 'next/router';
 import RevealBox from '../../../components/universals/reveal-box/reveal-box';
 interface AccountPageProps {
     account: AdminAccount;
