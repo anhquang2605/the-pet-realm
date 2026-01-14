@@ -3,7 +3,7 @@ import style from './search-bar.module.css';
 import { IoSearch } from "react-icons/io5";
 type SearchBarProps = Record<string, never>;
 const searchPet = (value:string | null) => {
-
+    console.log("Searching pet with value: ", value);
 }
 const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const toggleSearchBar = () => {
