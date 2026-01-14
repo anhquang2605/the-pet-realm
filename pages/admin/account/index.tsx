@@ -27,7 +27,6 @@ const getAccount = async (email: string) => {
     return account;
 }
 export default function AccountPage({ account }: AccountPageProps) {
-     const router  = useRouter();
     const [accountData, setAccountData] = useState<AdminAccount | null>(null);
     useEffect(() => {
         setAccountData(account);
