@@ -8,8 +8,8 @@
     flex: 1;
     padding: 8px;
     border-radius: var(--border-radius-small);
-    border: 1px solid var(--border-line-color);
        background-color: var(--secondary-bg);
+       outline: none;
 }
 .send-button{
 
