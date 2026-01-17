@@ -1,3 +1,5 @@
 .chat-bubble{
-    
+    border-radius: var(--border-radius-small);
+    padding: var(--quarter-spacing);
+    max-width: 80%;
 }
