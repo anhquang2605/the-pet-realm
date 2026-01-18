@@ -11,7 +11,7 @@ type ChatbotProps = Record<string, never>; // No props for now, this define that
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const [messages, setMessages] = useState<string[]>([]);
     const [isChatOpen, setIsChatOpen] = useState(false);
-    const [sendingMessage, setSendingMessage] = useState<string | null>(null);
+    const [sendingMessage, setSendingMessage] = useState<string>("");
     const handleMessageSending = async (message: string) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */
@@ -25,7 +25,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     },[])
     //when user sends a message
     useEffect(() => {
-        if(sendingMessage) {
+        if(sendingMessage && sendingMessage.length > 0) {
             console.log(messages);
             const lastMessage = messages[messages.length - 1];
             //send last message to OpenAI
