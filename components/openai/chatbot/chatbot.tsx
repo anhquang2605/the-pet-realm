@@ -10,6 +10,8 @@ type ChatbotProps = Record<string, never>; // No props for now, this define that
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const [messages, setMessages] = useState<string[]>([]);
+    const [sentMessages, setSentMessages] = useState<string[]>([]);
+    const [reponses, setReponses] = useState<string[]>([]);
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [sendingMessage, setSendingMessage] = useState<string>("");
     const handleMessageSending = async (message: string) => {
@@ -26,10 +28,10 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     //when user sends a message
     useEffect(() => {
         if(sendingMessage && sendingMessage.length > 0) {
-            console.log(messages);
-            const lastMessage = messages[messages.length - 1];
-            //send last message to OpenAI
-            handleMessageSending(lastMessage);
+
+           //send last message to OpenAI
+            handleMessageSending(sendingMessage);
+
         }
     }, [sendingMessage]);
     return (
@@ -46,7 +48,8 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                 />
                 <Chatbox
                     setSendingMessage={setSendingMessage}
-                    messages={messages}
+                    responses={reponses}
+                    messages={sentMessages}
                     isOpen={isChatOpen}
                 />
               

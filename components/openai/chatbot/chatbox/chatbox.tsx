@@ -6,14 +6,14 @@ import MessageArea from './message-area';
 interface ChatboxProps {
     setSendingMessage: React.Dispatch<React.SetStateAction<string>>;
     messages?: string[];
-    reponses?: string[];
+    responses?: string[];
     isOpen?: boolean;
 }
 
 const Chatbox: React.FC<ChatboxProps> = ({
     setSendingMessage,
     messages,
-    reponses,
+    responses,
     isOpen,
 }) => {
     const [inputMessage, setInputMessage] = useState('');
