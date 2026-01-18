@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import style from './message-area.module.css';
 
-type MessageAreaProps = Record<string, never>;
+type MessageAreaProps = {
+    messages?: string[];
+    responses?: string[];
+}
 
-const MessageArea: React.FC<MessageAreaProps> = ({}) => {
+const MessageArea: React.FC<MessageAreaProps> = ({
+    messages,
+    responses
+}) => {
     useEffect(() => {
 
     }, []);

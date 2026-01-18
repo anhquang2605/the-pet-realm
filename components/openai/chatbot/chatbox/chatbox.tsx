@@ -25,7 +25,10 @@ const Chatbox: React.FC<ChatboxProps> = ({
     }, []);
     return (
         <div className={style['chatbox'] + (isOpen ? ` ${style['is-open']}` : '')}>
-            <MessageArea />
+            <MessageArea 
+                messages={messages}
+                responses={responses}
+            />
             <Textbox
                 setInputMessage ={setSendingMessage}
                 inputMessage={inputMessage}
