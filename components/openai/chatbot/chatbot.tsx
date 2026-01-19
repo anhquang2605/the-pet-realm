@@ -17,7 +17,21 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const handleMessageSending = async (message: string) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */
-
+        const reponse = await sendMessageToMockOpenAI(message);
+        setSentMessages(prev => [...prev, message]);
+        setReponses(prev => [...prev, reponse]);
+        setMessageStream(prev => [...prev, message, reponse]);
+        return 
+    }
+    const sendMessageToMockOpenAI = async (message: string) => {
+       //have a timeout to return a mock response in 1000ms
+        return new Promise<string>((resolve) => {
+            setTimeout(() => {
+                const mockResponse = `This is a mock response to your message: "${message}"`;
+                //update sentMessages and reponses state
+                resolve(mockResponse);
+            }, 1000);
+        });
     }
     const toggleChatbox = () => {
         setIsChatOpen(prev => !prev);
@@ -48,8 +62,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                 />
                 <Chatbox
                     setSendingMessage={setSendingMessage}
-                    responses={reponses}
-                    messages={sentMessages}
+                    messages={messageStream}
                     isOpen={isChatOpen}
                 />
               
