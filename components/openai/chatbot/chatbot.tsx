@@ -28,7 +28,9 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         console.log('OpenAI response:', response); */
         setIsSendingMessage(true);
         const reponse: string = await sendMessageToMockOpenAI(message);
-        setSentMessages(prev => [...prev, message]);
+        setSentMessages( (prev) => {
+            return [...prev, message];
+        });
         setResponses(prev => [...prev, reponse]);
         setMessages(prev => [...prev, message, reponse]);
         setIsSendingMessage(false);

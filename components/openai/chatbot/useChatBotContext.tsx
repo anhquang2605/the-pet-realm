@@ -1,14 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 interface ChatBotContextType {
   isSendingMessage: boolean;
   setIsSendingMessage: (isSending: boolean) => void;
   sentMessages: string[];
-  setSentMessages: (messages: string[]) => void;
-responses: string[];
-  setResponses: (responses: string[]) => void;
-    messages: string[];
-  setMessages: (messages: string[]) => void;
+  setSentMessages: React.Dispatch<React.SetStateAction<string[]>>;
+  responses: string[];
+  setResponses: React.Dispatch<React.SetStateAction<string[]>>;
+  messages: string[];
+  setMessages: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const ChatBotContext = createContext<ChatBotContextType | undefined>(undefined);
