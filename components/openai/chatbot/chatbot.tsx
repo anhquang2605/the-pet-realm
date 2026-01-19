@@ -65,6 +65,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                     onClick={() => toggleChatbox()}
                 />
                 <Chatbox
+                    
                     setSendingMessage={setSendingMessage}
                     messages={messageStream}
                     isOpen={isChatOpen}
