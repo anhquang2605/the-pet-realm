@@ -17,6 +17,8 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         setResponses,
        isSendingMessage,
          setIsSendingMessage,
+         messages,
+        setMessages,
 
     } = useChatBotContext();
     const [isChatOpen, setIsChatOpen] = useState(false);
@@ -28,7 +30,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         const reponse: string = await sendMessageToMockOpenAI(message);
         setSentMessages(prev => [...prev, message]);
         setResponses(prev => [...prev, reponse]);
-        setMessageStream(prev => [...prev, message, reponse]);
+        setMessages(prev => [...prev, message, reponse]);
         setIsSendingMessage(false);
         
     }
