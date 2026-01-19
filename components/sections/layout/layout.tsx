@@ -5,6 +5,7 @@ import { jwtVerify } from 'jose';
 import { usePathname } from 'next/navigation'
 import path from 'path';
 import Chatbot from '../../openai/chatbot/chatbot';
+import { ChatBotProvider } from '../../openai/chatbot/useChatBotContext';
 interface LayoutProps {
     children: React.ReactNode
 }
@@ -69,7 +70,9 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
             {!pathnameHook.includes('authentication') && !sessionExpired  && 
             <Header isAuthenticated={isAuthenticated} />
             }
-            <Chatbot />
+            <ChatBotProvider>
+                <Chatbot />
+            </ChatBotProvider>
              {children}
         </>
            

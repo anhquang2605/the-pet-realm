@@ -1,12 +1,11 @@
-import React, { use } from 'react';
+import React from 'react';
 import style from './chatbot.module.css';
 import { insertToPostAPI } from '../../../libs/api-interactions';
 import { useState, useEffect } from 'react';
 import Chatbox from './chatbox/chatbox';
-import { Chat } from 'openai/resources';
 import ChatToggleIcon from './chat-toggle-icon/chat-toggle-icon';
 import CloseChatButton from './close-chat-button';
-import { set } from 'mongoose';
+
 type ChatbotProps = Record<string, never>; // No props for now, this define that the component doesn't accept any props
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
