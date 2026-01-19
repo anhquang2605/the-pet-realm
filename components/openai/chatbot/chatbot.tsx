@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { use } from 'react';
 import style from './chatbot.module.css';
 import { insertToPostAPI } from '../../../libs/api-interactions';
 import { useState, useEffect } from 'react';
 import Chatbox from './chatbox/chatbox';
 import ChatToggleIcon from './chat-toggle-icon/chat-toggle-icon';
 import CloseChatButton from './close-chat-button';
+import { useChatBotContext } from './useChatBotContext';
 
 type ChatbotProps = Record<string, never>; // No props for now, this define that the component doesn't accept any props
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
-   
+    const {
+        sentMessages,
+        setSentMessages,
+        responses,
+        setResponses,
+       isSendingMessage,
+         setIsSendingMessage,
+
+    } = useChatBotContext();
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [sendingMessage, setSendingMessage] = useState<string>("");
     const handleMessageSending = async (message: string) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */
-        setIsResponding(true);
-        const reponse = await sendMessageToMockOpenAI(message);
+        setIsSendingMessage(true);
+        const reponse: string = await sendMessageToMockOpenAI(message);
         setSentMessages(prev => [...prev, message]);
-        setReponses(prev => [...prev, reponse]);
+        setResponses(prev => [...prev, reponse]);
         setMessageStream(prev => [...prev, message, reponse]);
-        setIsResponding(false);
-        return 
+        setIsSendingMessage(false);
+        
     }
     const sendMessageToMockOpenAI = async (message: string) => {
        //have a timeout to return a mock response in 1000ms
