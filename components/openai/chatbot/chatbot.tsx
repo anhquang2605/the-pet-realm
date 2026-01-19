@@ -62,8 +62,6 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                 />
                 <Chatbox
                     
-                    setSendingMessage={setSendingMessage}
-                    messages={messageStream}
                     isOpen={isChatOpen}
                 />
               
