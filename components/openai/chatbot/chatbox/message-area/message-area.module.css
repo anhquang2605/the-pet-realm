@@ -2,3 +2,31 @@
     flex: 1;
     
 }
+.is-sending-message{
+    --bot-response-bg: #f0f0f0;
+    --bot-response-text: #333;
+    --user-message-bg: #007bff;
+    --user-message-text: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: var(--small-border-radius);
+
+}
+.user-message{
+    background-color: var(--user-message-bg);
+    color: var(--user-message-text);
+    border-radius: var(--border-radius-small);
+    padding: var(--quarter-spacing);
+    max-width: 80%;
+    margin-bottom: var(--small-spacing);
+}
+.bot-response{
+    background-color: var(--bot-response-bg);
+    color: var(--bot-response-text);
+    border-radius: var(--border-radius-small);
+    padding: var(--quarter-spacing);
+    max-width: 80%;
+    margin-bottom: var(--small-spacing);
+}

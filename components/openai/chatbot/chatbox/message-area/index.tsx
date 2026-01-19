@@ -1,22 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import style from './message-area.module.css';
+import { useChatBotContext } from '../../useChatBotContext';
 
 type MessageAreaProps = {
-    messages?: string[];
-    responses?: string[];
 }
 
 const MessageArea: React.FC<MessageAreaProps> = ({
-    messages,
-    responses
 }) => {
+    const { isSendingMessage, messages } = useChatBotContext();
     useEffect(() => {
 
     }, []);
 
     return (
         <div className={style['message-area']}>
-            
+            {
+                messages.map((msg, index) => (
+                    <div key={index} className={index % 2 === 0 ? style['user-message'] : style['bot-response']}>
+                        {msg}
+                    </div>
+                ))
+            }
         </div>
     );
 };
