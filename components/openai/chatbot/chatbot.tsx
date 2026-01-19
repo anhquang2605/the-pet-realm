@@ -9,7 +9,7 @@ import CloseChatButton from './close-chat-button';
 type ChatbotProps = Record<string, never>; // No props for now, this define that the component doesn't accept any props
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
-    const [messages, setMessages] = useState<string[]>([]);
+    const [messageStream, setMessageStream] = useState<string[]>([]);
     const [sentMessages, setSentMessages] = useState<string[]>([]);
     const [reponses, setReponses] = useState<string[]>([]);
     const [isChatOpen, setIsChatOpen] = useState(false);
