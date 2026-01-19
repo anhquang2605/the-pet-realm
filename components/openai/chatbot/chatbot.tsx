@@ -10,12 +10,9 @@ import { set } from 'mongoose';
 type ChatbotProps = Record<string, never>; // No props for now, this define that the component doesn't accept any props
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
-    const [messageStream, setMessageStream] = useState<string[]>([]);
-    const [sentMessages, setSentMessages] = useState<string[]>([]);
-    const [reponses, setReponses] = useState<string[]>([]);
+   
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [sendingMessage, setSendingMessage] = useState<string>("");
-    const [isReponding, setIsResponding] = useState(false);
     const handleMessageSending = async (message: string) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */

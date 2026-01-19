@@ -24,7 +24,7 @@ export const ChatBotProvider = ({ children }: { children: React.ReactNode }) => 
   const [sentMessages, setSentMessages] = useState<string[]>([]);
   const [responses, setResponses] = useState<string[]>([]);
   const [messages, setMessages] = useState<string[]>([]);
-
+  
   return (
     <ChatBotContext.Provider value={{ isSendingMessage, setIsSendingMessage, sentMessages, setSentMessages, responses, setResponses }}>
       {children}
