@@ -6,6 +6,7 @@ import Chatbox from './chatbox/chatbox';
 import { Chat } from 'openai/resources';
 import ChatToggleIcon from './chat-toggle-icon/chat-toggle-icon';
 import CloseChatButton from './close-chat-button';
+import { set } from 'mongoose';
 type ChatbotProps = Record<string, never>; // No props for now, this define that the component doesn't accept any props
 
 const Chatbot: React.FC<ChatbotProps> = ({}) => {
@@ -14,13 +15,16 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const [reponses, setReponses] = useState<string[]>([]);
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [sendingMessage, setSendingMessage] = useState<string>("");
+    const [isReponding, setIsResponding] = useState(false);
     const handleMessageSending = async (message: string) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */
+        setIsResponding(true);
         const reponse = await sendMessageToMockOpenAI(message);
         setSentMessages(prev => [...prev, message]);
         setReponses(prev => [...prev, reponse]);
         setMessageStream(prev => [...prev, message, reponse]);
+        setIsResponding(false);
         return 
     }
     const sendMessageToMockOpenAI = async (message: string) => {
