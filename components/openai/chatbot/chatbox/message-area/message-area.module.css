@@ -30,3 +30,15 @@
     max-width: 80%;
     margin-bottom: var(--small-spacing);
 }
+.is-sending-message{
+    padding: var(--quarter-spacing);
+    background: var(--secondary-bg);
+    color: lightgray;
+    border-radius: var(--border-radius-small);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    
+}

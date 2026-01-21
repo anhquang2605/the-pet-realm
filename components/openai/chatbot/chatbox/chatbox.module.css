@@ -25,6 +25,7 @@
  .send-button:hover{
     background-color: var(--primary-accent-hover);
  }
+ 
  @media screen and (min-width: 768px) {
     .chatbox{
         width: 350px;
