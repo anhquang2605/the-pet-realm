@@ -32,13 +32,13 @@
 }
 .is-sending-message{
     padding: var(--quarter-spacing);
-    background: var(--secondary-bg);
+    background: var(--third-bg);
     color: lightgray;
-    border-radius: var(--border-radius-small);
+    border-radius: var(--border-radius);
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 1.2em;
-    
+    width: 100px;
 }

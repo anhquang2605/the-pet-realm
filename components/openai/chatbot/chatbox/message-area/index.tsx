@@ -23,7 +23,7 @@ const MessageArea: React.FC<MessageAreaProps> = ({
                     </div>
                 ))
             }
-            {isSendingMessage && <div className={style['is-sending-message']}>...</div>}
+            {isSendingMessage && <div className={style['is-sending-message'] + " animate-pulse"}>...</div>}
         </div>
     );
 };
