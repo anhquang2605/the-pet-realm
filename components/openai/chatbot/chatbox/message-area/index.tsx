@@ -3,9 +3,11 @@ import style from './message-area.module.css';
 import { useChatBotContext } from '../../useChatBotContext';
 
 type MessageAreaProps = {
+
 }
 
 const MessageArea: React.FC<MessageAreaProps> = ({
+    
 }) => {
     const { isSendingMessage, messages } = useChatBotContext();
     useEffect(() => {
@@ -21,6 +23,7 @@ const MessageArea: React.FC<MessageAreaProps> = ({
                     </div>
                 ))
             }
+            {isSendingMessage && <div className={style['is-sending-message']}>...</div>}
         </div>
     );
 };
