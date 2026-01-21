@@ -2,6 +2,8 @@
     display: flex;
     gap: 8px;
     padding: 8px;
+    max-height: 100px;
+    overflow-y: auto;
  
 }
 .text-input{
@@ -12,7 +14,14 @@
        outline: none;
 }
 .send-button{
-
+    padding: 8px 16px;
+    border-radius: var(--border-radius-small);
+    color: white;
+    cursor: pointer;
+}
+.send-button:hover{
+    background-color: var(--third-bg);
+    color: var(--main-bg);
 }
 .sending{
     cursor: not-allowed;

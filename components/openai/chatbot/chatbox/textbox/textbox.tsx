@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import style from './textbox.module.css';
 import { useChatBotContext } from '../../useChatBotContext';
-
+import { IoSend } from "react-icons/io5";
 interface TextboxProps {
     setInputMessage?: React.Dispatch<React.SetStateAction<string>>;
     inputMessage?: string;
@@ -23,9 +23,9 @@ const Textbox: React.FC<TextboxProps> = ({setInputMessage, inputMessage}) => {
     }
     return (
         <section className={style['textbox']}>
-            <textarea className={style['text-input']} placeholder="Type your question here..." value={message} onChange={handleMessage} />
+            <textarea className={style['text-input']} field-sizing="fixed" rows={1}  placeholder="Type your question here" value={message} onChange={handleMessage} />
             <button className={style['send-button'] + " " + (isSendingMessage ? style['sending'] : '')} disabled={isSendingMessage}
-            onClick={handleSend}>Send</button>
+            onClick={handleSend}><IoSend /></button>
         </section>
     );
 };
