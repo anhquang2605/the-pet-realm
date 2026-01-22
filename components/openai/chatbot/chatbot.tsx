@@ -29,10 +29,22 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         setIsSendingMessage(true);
         const reponse: string = await sendMessageToMockOpenAI(message);
         setSentMessages( (prev) => {
-            return [...prev, message];
+            return [...prev, {
+                sender: 'user',
+                content: message
+            }];
         });
-        setResponses(prev => [...prev, reponse]);
-        setMessages(prev => [...prev, message, reponse]);
+        setResponses(prev => [...prev, {
+            sender: 'bot',
+            content: reponse
+        }]);
+        setMessages(prev => [...prev, {
+            sender: 'user',
+            content: message
+        }, {
+            sender: 'bot',
+            content: reponse
+        }]);
         setIsSendingMessage(false);
         
     }
@@ -54,10 +66,11 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     },[])
     //when user sends a message
     useEffect(() => {
-        if(sendingMessage && sendingMessage.length > 0) {
+        const message = sendingMessage.content;
+        if(message && message.length > 0) {
 
            //send last message to OpenAI
-            handleMessageSending(sendingMessage);
+            handleMessageSending(message);
 
         }
     }, [sendingMessage]);
