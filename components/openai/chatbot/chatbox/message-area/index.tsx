@@ -18,8 +18,8 @@ const MessageArea: React.FC<MessageAreaProps> = ({
         <div className={style['message-area']}>
             {
                 messages.map((msg, index) => (
-                    <div key={index} className={index % 2 === 0 ? style['user-message'] : style['bot-response']}>
-                        {msg}
+                    <div key={index} className={msg.sender === 'user' ? style['user-message'] : style['bot-response']}>
+                        {msg.content}
                     </div>
                 ))
             }
