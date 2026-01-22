@@ -13,7 +13,6 @@ const Chatbox: React.FC<ChatboxProps> = ({
 
     isOpen,
 }) => {
-    const [inputMessage, setInputMessage] = useState('');
     useEffect(() => {
 
     }, []);
@@ -26,8 +25,7 @@ const Chatbox: React.FC<ChatboxProps> = ({
                 
             />
             <Textbox
-                
-                inputMessage={inputMessage}
+
             />
         </div>
     );

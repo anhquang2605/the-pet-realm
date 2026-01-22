@@ -3,13 +3,12 @@ import style from './textbox.module.css';
 import { useChatBotContext } from '../../useChatBotContext';
 import { IoSend } from "react-icons/io5";
 interface TextboxProps {
-    setInputMessage?: React.Dispatch<React.SetStateAction<string>>;
-    inputMessage?: string;
+
 }
 
-const Textbox: React.FC<TextboxProps> = ({setInputMessage, inputMessage}) => {
+const Textbox: React.FC<TextboxProps> = ({}) => {
     const [message, setMessage] = useState('');
-    const { isSendingMessage } = useChatBotContext();
+    const { isSendingMessage, setSendingMessage } = useChatBotContext();
     useEffect(() => {
 
     }, []);
@@ -17,9 +16,10 @@ const Textbox: React.FC<TextboxProps> = ({setInputMessage, inputMessage}) => {
         setMessage(e.target.value);
     }
     const handleSend = (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (setInputMessage) {
-            setInputMessage(message);
-        }
+        e.preventDefault();
+        if(message.trim().length === 0) return;
+        setSendingMessage(message.trim());
+        setMessage('');
     }
     return (
         <section className={style['textbox']}>
