@@ -9,6 +9,8 @@ interface ChatBotContextType {
   setResponses: React.Dispatch<React.SetStateAction<string[]>>;
   messages: string[];
   setMessages: React.Dispatch<React.SetStateAction<string[]>>;
+  sendingMessage: string;
+  setSendingMessage: React.Dispatch<React.SetStateAction<string>>
 }
 
 const ChatBotContext = createContext<ChatBotContextType | undefined>(undefined);
@@ -26,9 +28,10 @@ export const ChatBotProvider = ({ children }: { children: React.ReactNode }) => 
   const [sentMessages, setSentMessages] = useState<string[]>([]);
   const [responses, setResponses] = useState<string[]>([]);
   const [messages, setMessages] = useState<string[]>([]);
-  
+  const [sendingMessage, setSendingMessage] = useState<string>("");
+
   return (
-    <ChatBotContext.Provider value={{ isSendingMessage, setIsSendingMessage, sentMessages, setSentMessages, responses, setResponses, messages, setMessages }}>
+    <ChatBotContext.Provider value={{ isSendingMessage, setIsSendingMessage, sentMessages, setSentMessages, responses, setResponses, messages, setMessages, sendingMessage, setSendingMessage }}>
       {children}
     </ChatBotContext.Provider>
   );

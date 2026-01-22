@@ -19,10 +19,10 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
          setIsSendingMessage,
          messages,
         setMessages,
+        sendingMessage
 
     } = useChatBotContext();
     const [isChatOpen, setIsChatOpen] = useState(false);
-    const [sendingMessage, setSendingMessage] = useState<string>("");
     const handleMessageSending = async (message: string) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */
