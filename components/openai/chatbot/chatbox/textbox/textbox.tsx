@@ -18,7 +18,7 @@ const Textbox: React.FC<TextboxProps> = ({}) => {
     const handleSend = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if(message.trim().length === 0) return;
-        setSendingMessage(message.trim());
+        setSendingMessage({content:message.trim(), sender: 'user'});
         setMessage('');
     }
     return (
