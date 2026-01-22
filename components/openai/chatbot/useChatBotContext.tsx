@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
-
+import { Message } from "../../../types/chat";
 interface ChatBotContextType {
   isSendingMessage: boolean;
   setIsSendingMessage: (isSending: boolean) => void;
-  sentMessages: string[];
-  setSentMessages: React.Dispatch<React.SetStateAction<string[]>>;
-  responses: string[];
-  setResponses: React.Dispatch<React.SetStateAction<string[]>>;
-  messages: string[];
-  setMessages: React.Dispatch<React.SetStateAction<string[]>>;
+  sentMessages: Message[];
+  setSentMessages: React.Dispatch<React.SetStateAction<Message[]>>;
+  responses: Message[];
+  setResponses: React.Dispatch<React.SetStateAction<Message[]>>;
+  messages: Message[];
+  setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
   sendingMessage: string;
   setSendingMessage: React.Dispatch<React.SetStateAction<string>>
 }
@@ -25,9 +25,9 @@ export const useChatBotContext = () => {
 
 export const ChatBotProvider = ({ children }: { children: React.ReactNode }) => {
   const [isSendingMessage, setIsSendingMessage] = useState<boolean>(false);
-  const [sentMessages, setSentMessages] = useState<string[]>([]);
-  const [responses, setResponses] = useState<string[]>([]);
-  const [messages, setMessages] = useState<string[]>([]);
+  const [sentMessages, setSentMessages] = useState<Message[]>([]);
+  const [responses, setResponses] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [sendingMessage, setSendingMessage] = useState<string>("");
 
   return (
