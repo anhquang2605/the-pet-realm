@@ -27,21 +27,23 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */
         setIsSendingMessage(true);
-        const reponse: string = await sendMessageToMockOpenAI(message);
-        setSentMessages( (prev) => {
+        setMessages(prev => [...prev, {
+            sender: 'user',
+            content: message
+        }]);
+          setSentMessages( (prev) => {
             return [...prev, {
                 sender: 'user',
                 content: message
             }];
         });
+        const reponse: string = await sendMessageToMockOpenAI(message);
+      
         setResponses(prev => [...prev, {
             sender: 'bot',
             content: reponse
         }]);
         setMessages(prev => [...prev, {
-            sender: 'user',
-            content: message
-        }, {
             sender: 'bot',
             content: reponse
         }]);
