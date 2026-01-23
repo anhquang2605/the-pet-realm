@@ -1,10 +1,12 @@
 .message-area{
     flex: 1;
-    --bot-response-bg: #f0f0f0;
-    --bot-response-text: #333;
-    --user-message-bg: #007bff;
+    --bot-response-bg: var(--third-bg);
+    --bot-response-text: lightgray;
+    --user-message-bg: var(--user-color);
     --user-message-text: #fff;
-    gap: var(--small-spacing);
+    gap: var(--quarter-spacing);
+    display: flex;
+    flex-direction: column;
 }
 .is-sending-message{
 
