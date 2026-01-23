@@ -27,10 +27,6 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */
         setIsSendingMessage(true);
-        setMessages(prev => [...prev, {
-            sender: 'user',
-            content: message
-        }]);
           setSentMessages( (prev) => {
             return [...prev, {
                 sender: 'user',
@@ -70,7 +66,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     useEffect(() => {
         const message = sendingMessage.content;
         if(message && message.length > 0) {
-
+            setMessages(prev => [...prev, sendingMessage]);
            //send last message to OpenAI
             handleMessageSending(message);
 
