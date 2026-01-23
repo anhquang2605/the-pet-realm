@@ -22,12 +22,15 @@ export const useChatBotContext = () => {
   }
   return context;
 };
-
+const INITIAL_MESSAGE: Message = {
+  sender: 'bot',
+  content: 'Hello! How can I assist you today?'
+};
 export const ChatBotProvider = ({ children }: { children: React.ReactNode }) => {
   const [isSendingMessage, setIsSendingMessage] = useState<boolean>(false);
   const [sentMessages, setSentMessages] = useState<Message[]>([]);
   const [responses, setResponses] = useState<Message[]>([]);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
   const [sendingMessage, setSendingMessage] = useState<Message>({
     sender: 'user',
     content: ''
