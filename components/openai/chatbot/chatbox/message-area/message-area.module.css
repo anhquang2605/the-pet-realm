@@ -7,6 +7,7 @@
     gap: var(--quarter-spacing);
     display: flex;
     flex-direction: column;
+    color-scheme: dark;
 }
 .is-sending-message{
 
