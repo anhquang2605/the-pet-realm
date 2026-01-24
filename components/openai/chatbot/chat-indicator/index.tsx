@@ -9,7 +9,9 @@ const ChatIndicator: React.FC<ChatIndicatorProps> = ({}) => {
     }, []);
 
     return (
-        <div className={style['chat-indicator'] + " animate-ping"}>
+        <div className={style['chat-indicator'] }>
+                <span className={style['chat-indicator-dot'] + " animate-ping" }></span>
+                <span className={style['chat-indicator-dot']}></span>
         </div>
     );
 };
