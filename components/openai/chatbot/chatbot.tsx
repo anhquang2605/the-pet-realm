@@ -23,6 +23,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
 
     } = useChatBotContext();
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const [isRead, setIsRead] = useState(true);
     const handleMessageSending = async (message: string) => {
         /* const response = await sendMessageToOpenAI(message);
         console.log('OpenAI response:', response); */
@@ -88,7 +89,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                     
                     isOpen={isChatOpen}
                 />
-              
+                
             </section>
         </>
 
