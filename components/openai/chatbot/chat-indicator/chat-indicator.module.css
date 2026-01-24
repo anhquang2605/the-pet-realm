@@ -1,3 +1,8 @@
 .chat-indicator{
+    width: 8px;
+    height: 8px;
+    background-color: tomato;
+    border-radius: 50%;
+    position: absolute;
     
 }

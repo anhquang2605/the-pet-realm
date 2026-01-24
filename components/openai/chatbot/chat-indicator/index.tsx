@@ -5,7 +5,7 @@ type ChatIndicatorProps = Record<string, never>;
 
 const ChatIndicator: React.FC<ChatIndicatorProps> = ({}) => {
     useEffect(() => {
-
+        
     }, []);
 
     return (
