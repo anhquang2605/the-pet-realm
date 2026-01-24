@@ -1,7 +1,7 @@
 
 
 .chat-toggle-icon{
-    --1st-color: gray;
+    --1st-color: var(--main-bg);
     --2nd-color: white;
     color: var(--1st-color);
     background-color: var(--2nd-color);
@@ -9,6 +9,10 @@
     border-radius: 50%;
     font-size: 1.5em;
     cursor: pointer;
+}
+.chat-toggle-icon:hover{
+    background-color: var(--1st-color);
+    color: var(--2nd-color);
 }
 .is-open {
     display:none;
