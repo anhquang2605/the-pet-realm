@@ -10,6 +10,7 @@
     color-scheme: dark;
     overflow-y: auto;
     overscroll-behavior: contain;
+    border: 1px solid var(--border-color);
 }
 .is-sending-message{
 
