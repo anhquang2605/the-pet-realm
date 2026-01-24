@@ -91,7 +91,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                     
                     isOpen={isChatOpen}
                 />
-                <ChatIndicator />
+                { !isRead && <ChatIndicator />}
             </section>
         </>
 
