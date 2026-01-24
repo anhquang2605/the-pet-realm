@@ -4,7 +4,6 @@
     height: 450px;
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid #ccc;
 }
 .pet-image{
     position:absolute;
