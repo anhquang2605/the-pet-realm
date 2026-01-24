@@ -8,6 +8,8 @@
     display: flex;
     flex-direction: column;
     color-scheme: dark;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }
 .is-sending-message{
 
