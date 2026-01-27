@@ -37,7 +37,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
             }];
         });
         const reponse: string = await sendMessageToMockOpenAI(message);
-      
+        
         setResponses(prev => [...prev, {
             sender: 'bot',
             content: reponse
@@ -62,9 +62,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const toggleChatbox = () => {
         setIsChatOpen(prev => !prev);
     }
-    useEffect(() => {
-        
-    },[])
+    
     //when user sends a message
     useEffect(() => {
         const message = sendingMessage.content;
@@ -76,14 +74,20 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         }
     }, [sendingMessage]);
         useEffect(() => {
-        if(isSendingMessage === false) {
-            if(!isChatOpen) {
-                setIsRead(false);
-            } else {
+            if(isChatOpen) {
                 setIsRead(true);
             }
-        }
         }, [isChatOpen]);
+        //when responses change
+        useEffect(() => {
+            if(responses.length > 0) {
+                if(!isChatOpen) {
+                    setIsRead(false);
+                } else {
+                    setIsRead(true);
+                }
+            }
+        }, [responses]);
     return (
         <>
             <section className={style['chatbot']}>
