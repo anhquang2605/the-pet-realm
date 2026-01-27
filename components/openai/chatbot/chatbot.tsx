@@ -56,7 +56,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                 const mockResponse = `This is a mock response to your message: "${message}"`;
                 //update sentMessages and reponses state
                 resolve(mockResponse);
-            }, 1000);
+            }, 4000);
         });
     }
     const toggleChatbox = () => {
@@ -75,6 +75,15 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
 
         }
     }, [sendingMessage]);
+        useEffect(() => {
+        if(isSendingMessage === false) {
+            if(!isChatOpen) {
+                setIsRead(false);
+            } else {
+                setIsRead(true);
+            }
+        }
+        }, [isSendingMessage]);
     return (
         <>
             <section className={style['chatbot']}>
