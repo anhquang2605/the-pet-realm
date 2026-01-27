@@ -83,7 +83,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                 setIsRead(true);
             }
         }
-        }, [isSendingMessage]);
+        }, [isSendingMessage, isChatOpen]);
     return (
         <>
             <section className={style['chatbot']}>
