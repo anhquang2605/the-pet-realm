@@ -6,6 +6,7 @@ export default async function POST(request: NextApiRequest) {
         return new Response('Method Not Allowed', { status: 405 });
     }
     const { messages } = await request.body;
+    console.log('Received messages:', messages);
    /*  const response = await openai.chat.completions.create({
         model: 'gpt-5',
         messages: messages,
@@ -23,10 +24,15 @@ export default async function POST(request: NextApiRequest) {
     });
             const encoder = new TextEncoder();
      */
+    const systemPrompt = "You are a helpful assistant.";
     try {
     const completion = await openai.chat.completions.create({
       model: "google/gemma-3-4b-it",
       messages: [
+        {
+          role: "system",
+          content: systemPrompt,
+        },
         {
           role: "user",
           content: messages,

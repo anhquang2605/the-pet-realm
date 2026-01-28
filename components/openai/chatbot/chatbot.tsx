@@ -6,7 +6,6 @@ import Chatbox from './chatbox/chatbox';
 import ChatToggleIcon from './chat-toggle-icon/chat-toggle-icon';
 import CloseChatButton from './close-chat-button';
 import { useChatBotContext } from './useChatBotContext';
-import { Chat } from 'openai/resources';
 import ChatIndicator from './chat-indicator';
 
 type ChatbotProps = Record<string, never>; // No props for now, this define that the component doesn't accept any props
