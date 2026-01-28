@@ -27,8 +27,8 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [isRead, setIsRead] = useState(true);
     const handleMessageSending = async (message: string) => {
-        /* const response = await sendMessageToOpenAI(message);
-        console.log('OpenAI response:', response); */
+       
+    
         setIsSendingMessage(true);
           setSentMessages( (prev) => {
             return [...prev, {
@@ -36,15 +36,16 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                 content: message
             }];
         });
-        const reponse: string = await sendMessageToMockOpenAI(message);
-        
+        //const reponse: string = await sendMessageToMockOpenAI(message);
+         const response = await sendMessageToOpenAI(message);
+             console.log('OpenAI response:', response);
         setResponses(prev => [...prev, {
             sender: 'bot',
-            content: reponse
+            content: response
         }]);
         setMessages(prev => [...prev, {
             sender: 'bot',
-            content: reponse
+            content: response
         }]);
         setIsSendingMessage(false);
         
