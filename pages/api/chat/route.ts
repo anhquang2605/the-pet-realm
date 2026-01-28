@@ -25,7 +25,7 @@ export default async function POST(request: NextApiRequest) {
      */
     try {
     const completion = await openai.chat.completions.create({
-      model: "google/gemma-3-27b-it",
+      model: "google/gemma-3-4b-it",
       messages: [
         {
           role: "user",
