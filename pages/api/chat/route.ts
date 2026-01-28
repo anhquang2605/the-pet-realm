@@ -40,7 +40,7 @@ export default async function POST(request: NextApiRequest) {
       console.error("Error generating completion:", error);
       return NextResponse.json({ error: "Error generating completion" }, { status: 500 });
     }
-   
+}
 
 /* function encodeText(text: string) {
     return new TextEncoder().encode(text);
