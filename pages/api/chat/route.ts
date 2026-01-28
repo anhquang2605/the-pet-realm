@@ -34,10 +34,13 @@ export default async function POST(request: NextApiRequest) {
       ],
       temperature: 0.7,
     });
-
-    const response = completion.choices[0].message.content;
-    return NextResponse.json(response);
-}
+        const response = completion.choices[0].message.content;
+        return NextResponse.json(response);
+    } catch (error) {
+      console.error("Error generating completion:", error);
+      return NextResponse.json({ error: "Error generating completion" }, { status: 500 });
+    }
+   
 
 /* function encodeText(text: string) {
     return new TextEncoder().encode(text);
