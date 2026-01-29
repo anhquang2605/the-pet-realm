@@ -112,8 +112,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
 };
 const sendMessageToOpenAI = async (message: string) => {
     const path = '/chat/route';
-    console.log('Sending message to OpenAI:', message);
-    const reponse = insertToPostAPI(path, {message});
+    const reponse = insertToPostAPI(path, {message: message});
     return reponse;
 }
 
