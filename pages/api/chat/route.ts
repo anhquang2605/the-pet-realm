@@ -1,11 +1,10 @@
-import { NextApiRequest } from 'next';
+import { NextApiRequest, NextApiResponse  } from 'next';
 import {openai} from '../../../libs/openai';
-import { NextResponse } from 'next/server'; 
-export default async function POST(request: NextApiRequest) {
-    if (request.method !== 'POST') {
+export default async function POST(req: NextApiRequest, res: NextApiResponse) {
+    if (req.method !== 'POST') {
         return new Response('Method Not Allowed', { status: 405 });
     }
-    const { message } = await request.body;
+    const { message } = req.body;
    /*  const response = await openai.chat.completions.create({
         model: 'gpt-5',
         messages: messages,
@@ -40,10 +39,10 @@ export default async function POST(request: NextApiRequest) {
       temperature: 0.7,
     });
         const response = completion.choices[0].message.content;
-        return NextResponse.json(response);
+        return res.json(response);
     } catch (error) {
       console.error("Error generating completion:", error);
-      return NextResponse.json({ error: "Error generating completion" }, { status: 500 });
+      return res.json({ error: "Error generating completion" });
     }
 }
 
