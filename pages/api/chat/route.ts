@@ -22,8 +22,12 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
     });
             const encoder = new TextEncoder();
      */
+    if(!message || message.trim().length === 0) {
+        return res.json({ error: "Message is required" });
+    }
     const systemPrompt = "You are a helpful assistant.";
     try {
+        console.log("Generating completion for message:", message);
     const completion = await openai.chat.completions.create({
       model: "google/gemma-3-4b-it",
       messages: [
