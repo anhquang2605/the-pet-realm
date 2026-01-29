@@ -4,7 +4,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
         return new Response('Method Not Allowed', { status: 405 });
     }
-    const { message } = req.body;
+    const { message } = req.body as { message: string };
    /*  const response = await openai.chat.completions.create({
         model: 'gpt-5',
         messages: messages,
