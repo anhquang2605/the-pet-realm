@@ -25,7 +25,7 @@ export default async function POST(request: NextApiRequest) {
             const encoder = new TextEncoder();
      */
     const systemPrompt = "You are a helpful assistant.";
-    try {
+/*     try {
     const completion = await openai.chat.completions.create({
       model: "google/gemma-3-4b-it",
       messages: [
@@ -45,7 +45,7 @@ export default async function POST(request: NextApiRequest) {
     } catch (error) {
       console.error("Error generating completion:", error);
       return NextResponse.json({ error: "Error generating completion" }, { status: 500 });
-    }
+    } */
 }
 
 /* function encodeText(text: string) {
