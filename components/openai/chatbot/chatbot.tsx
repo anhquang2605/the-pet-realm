@@ -49,16 +49,7 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
         setIsSendingMessage(false);
         
     }
-    const sendMessageToMockOpenAI = async (message: string) => {
-       //have a timeout to return a mock response in 1000ms
-        return new Promise<string>((resolve) => {
-            setTimeout(() => {
-                const mockResponse = `This is a mock response to your message: "${message}"`;
-                //update sentMessages and reponses state
-                resolve(mockResponse);
-            }, 4000);
-        });
-    }
+
     const toggleChatbox = () => {
         setIsChatOpen(prev => !prev);
     }
