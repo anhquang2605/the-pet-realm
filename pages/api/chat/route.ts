@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse  } from 'next';
 import {openai} from '../../../libs/openai';
+import { GoogleGenAI } from '@google/genai';
 export default async function POST(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
         return new Response('Method Not Allowed', { status: 405 });
@@ -27,7 +28,8 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
     }
     const systemPrompt = "You are a helpful assistant.";
     try {
-        console.log("Generating completion for message:", message);
+/*         console.log("Generating completion for message:", message);
+
     const completion = await openai.chat.completions.create({
       model: "google/gemma-3-4b-it",
       messages: [
@@ -42,7 +44,14 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
       ],
       temperature: 0.7,
     });
-        const response = completion.choices[0].message.content;
+        const response = completion.choices[0].message.content; */
+        const ai = new GoogleGenAI({
+            apiKey: process.env.GEMINI_API_KEY || '',
+        });
+        const response = await ai.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: message
+        })
         return res.json(response);
     } catch (error) {
       console.error("Error generating completion:", error);
