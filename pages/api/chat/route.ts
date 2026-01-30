@@ -52,6 +52,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
             model: "gemini-3-flash-preview",
             contents: message
         })
+
         return res.json(response);
     } catch (error) {
       console.error("Error generating completion:", error);

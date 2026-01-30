@@ -36,8 +36,8 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
             }];
         });
         //const reponse: string = await sendMessageToMockOpenAI(message);
-         const response = await sendMessageToOpenAI(message);
-             console.log('OpenAI response:', response);
+         const responseObject = await sendMessageToOpenAI(message);
+         const response = responseObject.candidates[0].content.parts[0].text;    
         setResponses(prev => [...prev, {
             sender: 'bot',
             content: response
