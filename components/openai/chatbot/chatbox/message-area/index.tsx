@@ -24,7 +24,7 @@ const MessageArea: React.FC<MessageAreaProps> = ({
 
                 ))
             }
-            {isSendingMessage && <div className={style['is-sending-message'] + " animate-pulse"}>...</div>}
+            {isSendingMessage && <ChatBubble text={"..."} type={'is-sending'} />}
         </div>
     );
 };
