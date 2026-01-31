@@ -15,15 +15,23 @@ const Textbox: React.FC<TextboxProps> = ({}) => {
     const handleMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
     }
+    const handleMessaging = (e: React.KeyboardEvent<HTMLTextAreaElement> | React.MouseEvent<HTMLButtonElement> ) => {
+            e.preventDefault();
+            if(message.trim().length === 0) return;
+            setSendingMessage({content:message.trim(), sender: 'user'});
+            setMessage('');
+    }
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            handleMessaging(e);
+        }
+    }
     const handleSend = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        if(message.trim().length === 0) return;
-        setSendingMessage({content:message.trim(), sender: 'user'});
-        setMessage('');
+        handleMessaging(e);
     }
     return (
         <section className={style['textbox']}>
-            <textarea className={style['text-input']} field-sizing="fixed" rows={1}  placeholder="Type your question here" value={message} onChange={handleMessage} />
+            <textarea className={style['text-input']} field-sizing="fixed" rows={1}  placeholder="Type your question here" value={message} onChange={handleMessage} onKeyUp={handleKeyPress} />
             <button className={style['send-button'] + " " + (isSendingMessage ? style['sending'] : '')} disabled={isSendingMessage}
             onClick={handleSend}><IoSend /></button>
         </section>
