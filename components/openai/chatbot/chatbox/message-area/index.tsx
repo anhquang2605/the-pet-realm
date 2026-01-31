@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import style from './message-area.module.css';
 import { useChatBotContext } from '../../useChatBotContext';
+import { Chat } from 'openai/resources';
+import ChatBubble from '../chat-bubble';
 
 type MessageAreaProps = {
 
@@ -18,9 +20,8 @@ const MessageArea: React.FC<MessageAreaProps> = ({
         <div className={style['message-area']}>
             {
                 messages.map((msg, index) => (
-                    <div key={index} className={style['message'] + " " + (msg.sender === 'user' ? style['user-message'] : style['bot-response'])}>
-                        {msg.content}
-                    </div>
+                    <ChatBubble key={index} text={msg.content} type={msg.sender} />
+
                 ))
             }
             {isSendingMessage && <div className={style['is-sending-message'] + " animate-pulse"}>...</div>}
