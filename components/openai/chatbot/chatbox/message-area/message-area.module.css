@@ -21,32 +21,3 @@
     border-radius: var(--small-border-radius);
 
 }
-.user-message{
-    background-color: var(--user-message-bg);
-    color: var(--user-message-text);
-    border-radius: var(--border-radius-small);
-    padding: var(--quarter-spacing);
-    max-width: 80%;
-    margin-bottom: var(--small-spacing);
-    margin-left: auto;
-}
-.bot-response{
-    background-color: var(--bot-response-bg);
-    color: var(--bot-response-text);
-    border-radius: var(--border-radius-small);
-    padding: var(--quarter-spacing);
-    max-width: 80%;
-    margin-bottom: var(--small-spacing);
-}
-.is-sending-message{
-    padding: var(--quarter-spacing);
-    background: var(--third-bg);
-    color: lightgray;
-    border-radius: var(--border-radius);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.2em;
-    width: 100px;
-}
