@@ -24,7 +24,7 @@ export const useChatBotContext = () => {
 };
 const INITIAL_MESSAGE: Message = {
   sender: 'bot',
-  content: 'Hello! How can I assist you today?'
+  content: 'Hey there! How can I assist you today?'
 };
 export const ChatBotProvider = ({ children }: { children: React.ReactNode }) => {
   const [isSendingMessage, setIsSendingMessage] = useState<boolean>(false);
