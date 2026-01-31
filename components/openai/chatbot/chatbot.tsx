@@ -35,8 +35,10 @@ const Chatbot: React.FC<ChatbotProps> = ({}) => {
                 content: message
             }];
         });
+        const systemPrompt = "Please be concise and helpful. summarize your responses between 10 to 70 words.";
+        const modifedMessage = message + ". " + systemPrompt;
         //const reponse: string = await sendMessageToMockOpenAI(message);
-         const responseObject = await sendMessageToOpenAI(message);
+         const responseObject = await sendMessageToOpenAI(modifedMessage);
          const response = responseObject.candidates[0].content.parts[0].text;    
         setResponses(prev => [...prev, {
             sender: 'bot',
