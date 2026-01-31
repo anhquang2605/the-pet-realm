@@ -31,7 +31,7 @@ const Textbox: React.FC<TextboxProps> = ({}) => {
     }
     return (
         <section className={style['textbox']}>
-            <textarea className={style['text-input']} field-sizing="fixed" rows={1}  placeholder="Type your question here" value={message} onChange={handleMessage} onKeyUp={handleKeyPress} />
+            <textarea className={style['text-input']} field-sizing="fixed" rows={1}  placeholder="Type your question here" value={message} onChange={handleMessage} disabled={isSendingMessage} onKeyUp={handleKeyPress} />
             <button className={style['send-button'] + " " + (isSendingMessage ? style['sending'] : '')} disabled={isSendingMessage}
             onClick={handleSend}><IoSend /></button>
         </section>
