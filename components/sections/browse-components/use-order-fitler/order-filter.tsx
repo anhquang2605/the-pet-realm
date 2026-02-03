@@ -79,7 +79,7 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         <>
             <section id="order-filter" className={style['order-filter']}>
                 <h3 className={style['order-filter__toggle']} onClick={handleToggleFilter}> 
-                    <BiSolidFilterAlt size={48} />
+                    <BiSolidFilterAlt size={24} />
                     <span className={style["order-filter__text"]}>Filter</span>
                 </h3>
                 <button className={style['hide-filter-button--mobile']} onClick={handleCloseButtonClick} >
