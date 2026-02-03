@@ -36,7 +36,8 @@
 }
 .discount{
     color: orangered;
-    background-color: gold;
+    background-color: rgba(233, 219, 94, 1);
+    
 }
 .original-price{
     text-decoration: line-through;
