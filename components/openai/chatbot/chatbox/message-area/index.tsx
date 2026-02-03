@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import style from './message-area.module.css';
 import { useChatBotContext } from '../../useChatBotContext';
-import { Chat } from 'openai/resources';
 import ChatBubble from '../chat-bubble';
 
 type MessageAreaProps = {
