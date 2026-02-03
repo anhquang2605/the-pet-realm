@@ -17,7 +17,7 @@ const MessageArea: React.FC<MessageAreaProps> = ({
     }, []);
 
     return (
-        <div className={style['message-area']}>
+        <section className={style['message-area']}>
             {
                 messages.map((msg, index) => (
                     <ChatBubble key={index} text={msg.content} type={msg.sender} />
@@ -25,7 +25,7 @@ const MessageArea: React.FC<MessageAreaProps> = ({
                 ))
             }
             {isSendingMessage && <ChatBubble text={"..."} type={'is-sending'} />}
-        </div>
+        </section>
     );
 };
 
