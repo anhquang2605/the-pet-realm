@@ -129,7 +129,7 @@ export const MobileFilterRevealButton = () => {
     }
     return (
         <button className={style['filter-button--mobile'] + " icon-button"} onClick={handleOnClick} aria-label="Reveal Filters" title="Reveal Filters">
-           <TbFilter />
+            <BiSolidFilterAlt size={32} />
         </button>
     );
 };
