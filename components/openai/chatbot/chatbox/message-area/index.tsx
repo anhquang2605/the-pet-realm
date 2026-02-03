@@ -3,13 +3,9 @@ import style from './message-area.module.css';
 import { useChatBotContext } from '../../useChatBotContext';
 import ChatBubble from '../chat-bubble';
 
-type MessageAreaProps = {
+type MessageAreaProps = Record<string, never>;
 
-}
-
-const MessageArea: React.FC<MessageAreaProps> = ({
-    
-}) => {
+const MessageArea: React.FC<MessageAreaProps> = () => {
     const { isSendingMessage, messages } = useChatBotContext();
     useEffect(() => {
 
