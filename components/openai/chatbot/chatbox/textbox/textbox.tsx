@@ -2,9 +2,7 @@ import React, {useState, useEffect} from 'react';
 import style from './textbox.module.css';
 import { useChatBotContext } from '../../useChatBotContext';
 import { IoSend } from "react-icons/io5";
-interface TextboxProps {
-
-}
+type TextboxProps = Record<string, never>;
 
 const Textbox: React.FC<TextboxProps> = ({}) => {
     const [message, setMessage] = useState('');
