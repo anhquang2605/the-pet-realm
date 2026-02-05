@@ -9,6 +9,7 @@
     border-radius: 50%;
     font-size: 1.5em;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .chat-toggle-icon:hover{
     background-color: var(--1st-color);
