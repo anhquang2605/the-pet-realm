@@ -8,6 +8,7 @@
     gap: var(--half-spacing);
     height: 100vh;
     border-radius: var(--border-radius-small);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .is-open{
     display: flex;
