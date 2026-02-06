@@ -15,11 +15,7 @@ export interface OrderFormData{
     discount: number;
     isFeatured: boolean;
 }
-type ErrorMessageType = {
-    message: string;
-    valid: boolean;
-} // Define the type for error messages
-type ErrorMessages = Record<string, ErrorMessageType>; // Define a type for the error messages object
+
 
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
 const IMG_EXPIRATION_TIME = 10 ; //in seconds
@@ -41,13 +37,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [message, setMessage] = useState('');
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
     const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
-    const [errorMessage, setErrorMessage] = useState<ErrorMessageI>({
-        name: '',
-        price: '',
-        discount: '',
-        isFeatured: '',
-        images: '',
-    });
+
     //form validation and other logic can be added here
     const validateForm = (): boolean => {
         if (!formData.name.trim()) {
