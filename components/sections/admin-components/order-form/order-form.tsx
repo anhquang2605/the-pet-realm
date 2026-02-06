@@ -91,17 +91,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }
     };
 
+
     const handleSubmit = async() => {
         await validateForm();
-        const filesToUpload = stagingImages;
-        let status = false;
-        if (filesToUpload.length > 0) {
-            status = await handleImageUpload(filesToUpload);
-            
-        }
-        if (filesToUpload.length > 0 || !status) {
-            return;
-        }
+      
 
          const orderData = {
         ...formData,
@@ -111,7 +104,18 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
         onSubmit(orderData); 
     };
-
+    const handleFileUpload = async (files: File[]) => {
+        const filesToUpload = [...stagingImages];
+        let status = false;
+        if (filesToUpload.length > 0) {
+            status = await handleImageUpload(filesToUpload);
+            
+        }
+        if (filesToUpload.length > 0 || !status) {
+            return;
+        }
+        return status;
+    }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
         
