@@ -111,20 +111,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return curItems;
         });
     }
-    useEffect(() => {
-        if(uploadedImages.length > 0){
-            const imageURLs: string[] = [...uploadedImages]
-            setFormData(prev => ({
-                ...prev,
-                imageUrls: imageURLs,
-            }));
-        }
-    }, [uploadedImages]);
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
             {/* Form */}
-            <form onSubmit={handleSubmit} className=" flex">
+            <form  className=" flex">
                 {/* Name Field */}
                 <div className={style['full']}>
                 <label htmlFor="name" className="block text-sm font-medium  ">
@@ -248,6 +239,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         type="submit"
                         disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
                         className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed px-2"
+                        onClick={handleSubmit}
                     >
                         {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
                     </button>
