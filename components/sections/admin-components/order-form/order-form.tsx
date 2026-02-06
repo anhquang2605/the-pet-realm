@@ -1,8 +1,9 @@
 import React, { use, useEffect, useState } from 'react';
 import style from './order-form.module.css';
 import DropFilesBox from '../../../universals/drop-files-box/drop-files-box';
-import { StatusType } from '../../../../types/status';
+import { ErrorMessages, StatusType } from '../../../../types/status';
 import axios from 'axios';
+import { initializeErrorMessages } from '../../../../libs/helpers';
 interface OrderFormProps {
   onSubmit: (orderData: OrderFormData) => void;
   status: 'idle' | 'submitting' | 'success' | 'error';
@@ -19,6 +20,7 @@ export interface OrderFormData{
 
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
 const IMG_EXPIRATION_TIME = 10 ; //in seconds
+const FIELDS = ['name', 'price', 'description', 'imageUrls', 'discount']
 const OrderForm: React.FC<OrderFormProps> = ({
     onSubmit,
     status
@@ -34,7 +36,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [uploadedImages, setUploadedImages] = useState<string[]>([]);
     const [stagingImages, setStagingImages] = useState<File[]>([]);
     const [isUploading, setIsUploading] = useState(false);
-
+    const [validationErrors, setValidationErrors] = useState<ErrorMessages>(initializeErrorMessages(FIELDS)
+    );
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
     const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
 
@@ -65,7 +68,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return true;
         } catch (error) {
             setFormStatus('error');
-            set
+            setValidationErrors(prev => ({
+                ...prev,
+                imageUrls: { message: 'Failed to upload images. Please try again.', valid: false },
+            }));
             return false;
         } finally {
             setIsUploading(false);

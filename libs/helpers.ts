@@ -23,3 +23,12 @@ export const binarySearch = <T>(
     }
     return -1;
 }
+
+//populate the error messages object with default values for each field
+export const initializeErrorMessages = (fields: string[]): Record<string, { message: string; valid: boolean }> => {
+    const errorMessages: Record<string, { message: string; valid: boolean }> = {};
+    fields.forEach((field) => {
+        errorMessages[field] = { message: '', valid: true };
+    });
+    return errorMessages;
+}
