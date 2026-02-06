@@ -15,6 +15,12 @@ export interface OrderFormData{
     discount: number;
     isFeatured: boolean;
 }
+type ErrorMessageType = {
+    message: string;
+    valid: boolean;
+} // Define the type for error messages
+type ErrorMessages = Record<string, ErrorMessageType>; // Define a type for the error messages object
+
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
 const IMG_EXPIRATION_TIME = 10 ; //in seconds
 const OrderForm: React.FC<OrderFormProps> = ({
@@ -35,6 +41,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [message, setMessage] = useState('');
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
     const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
+    const [errorMessage, setErrorMessage] = useState<ErrorMessageI>({
+        name: '',
+        price: '',
+        discount: '',
+        isFeatured: '',
+        images: '',
+    });
     //form validation and other logic can be added here
     const validateForm = (): boolean => {
         if (!formData.name.trim()) {
@@ -132,19 +145,19 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <form  className=" flex">
                 {/* Name Field */}
                 <div className={style['full']}>
-                <label htmlFor="name" className="block text-sm font-medium  ">
-                    Order Name *
-                </label>
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full"
-                    placeholder="Enter order name"
-                />
+                    <label htmlFor="name" className="block text-sm font-medium  ">
+                        Order Name *
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className={"w-full " + {}}
+                        placeholder="Enter order name"
+                    />
                 </div>
 
                 {/* Price Field */}
