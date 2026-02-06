@@ -34,25 +34,14 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [uploadedImages, setUploadedImages] = useState<string[]>([]);
     const [stagingImages, setStagingImages] = useState<File[]>([]);
     const [isUploading, setIsUploading] = useState(false);
-    const [message, setMessage] = useState('');
+
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
     const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
 
     //form validation and other logic can be added here
     const validateForm = (): boolean => {
-        if (!formData.name.trim()) {
-            setMessage('Name is required');
-            return false;
-        }
-        if (formData.price <= 0) {
-            setMessage('Price must be greater than 0');
-            return false;   
-        }
-        if (formData.discount < 0 || formData.discount > 100) {
-            setMessage('Discount must be between 0 and 100');
-            return false;
-        }
-        return true;
+      
+        return false;
     }
     // Handlers and logic for form submission, image upload, etc. would go here
     // Free image hosting service - using ImgBB (free tier available)
@@ -76,7 +65,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return true;
         } catch (error) {
             setFormStatus('error');
-            setMessage('Error uploading images');
+            set
             return false;
         } finally {
             setIsUploading(false);
