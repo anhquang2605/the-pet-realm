@@ -66,8 +66,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }
     };
 
-    const handleSubmit = async(e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async() => {
         const filesToUpload = stagingImages;
         let status = false;
         if (filesToUpload.length > 0) {
@@ -236,10 +235,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 {/* Submit Button */}
                 <div className="flex justify-end gap-1 mt-0.5 font-bold">
                      <button
-                        type="submit"
+                        onClick={
+                            handleSubmit
+                        }
                         disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
                         className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed px-2"
-                        onClick={handleSubmit}
                     >
                         {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
                     </button>
