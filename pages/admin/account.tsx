@@ -10,8 +10,8 @@ interface AccountPageProps {
 const URL = process.env.URL;
 export const getStaticProps: GetStaticProps<AccountPageProps> = async () => {
     // Simulate an API call to fetch the account data
-    const account: AdminAccount | null = null;
-    //const account: AdminAccount | null = await getAccount('admin@shop.com');
+    let account: AdminAccount | null = null;
+    account = await getAccount('admin@shop.com');
     if (!account) {
         return {
             notFound: true,
