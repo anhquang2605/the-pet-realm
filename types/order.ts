@@ -33,3 +33,9 @@ export interface FeatureItems{
     discount: number; //(from 0.1 to 1)
 }
 
+export interface OrderImage{
+    id: string | ObjectId;
+    orderId: string | ObjectId;
+    imageUrl: string;
+    dateCreated: Date;
+}

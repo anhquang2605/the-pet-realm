@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import style from './order-form.module.css';
 import DropFilesBox from '../../../universals/drop-files-box/drop-files-box';
 import { StatusType } from '../../../../types/status';
@@ -55,7 +55,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
             const uploadPromises = Array.from(files).map(file => uploadToImgBB(file));
             const urls = await Promise.all(uploadPromises);
             setUploadedImages(prev => [...prev, ...urls]);
-            console.log('Uploaded image URLs:', urls);
             return true;
         } catch (error) {
             setFormStatus('error');
@@ -112,6 +111,15 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return curItems;
         });
     }
+    useEffect(() => {
+        if(uploadedImages.length > 0){
+            const imageURLs: string[] = [...uploadedImages]
+            setFormData(prev => ({
+                ...prev,
+                imageUrls: imageURLs,
+            }));
+        }
+    }, [uploadedImages]);
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
