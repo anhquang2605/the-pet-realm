@@ -78,13 +78,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return;
         }
 
-        /* const orderData = {
+         const orderData = {
         ...formData,
         status: 'fresh' as const,
         imageUrls: uploadedImages,
         };
 
-        onSubmit(orderData); */
+        onSubmit(orderData); 
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
