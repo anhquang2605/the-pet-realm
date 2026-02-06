@@ -42,9 +42,21 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
 
     //form validation and other logic can be added here
-    const validateForm = (): boolean => {
-      
-        return false;
+    const validateForm = async (): Promise<void> => {
+        const errors: ErrorMessages = initializeErrorMessages(FIELDS);
+        if (!formData.name.trim()) {
+            errors.name = { message: 'Name is required', valid: false };
+        }
+        if (formData.price <= 0) {
+            errors.price = { message: 'Price must be greater than 0', valid: false };
+        }
+        if (!formData.description.trim()) {
+            errors.description = { message: 'Description is required', valid: false };
+        }
+        if (formData.discount < 0 || formData.discount > 100) {
+            errors.discount = { message: 'Discount must be between 0 and 100', valid: false };
+        }
+        setValidationErrors(errors);
     }
     // Handlers and logic for form submission, image upload, etc. would go here
     // Free image hosting service - using ImgBB (free tier available)
@@ -80,6 +92,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     };
 
     const handleSubmit = async() => {
+        await validateForm();
         const filesToUpload = stagingImages;
         let status = false;
         if (filesToUpload.length > 0) {
@@ -123,6 +136,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return curItems;
         });
     }
+    useEffect(() => {
+        
+    }, []);
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
