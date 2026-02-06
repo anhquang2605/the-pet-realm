@@ -25,6 +25,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const filteredOrders = ordersCollection.find((order: Order) => order.name?.toLowerCase().includes(name.toLowerCase()));
         if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
         return res.status(200).json(filteredOrders);
+      } else {
+        const allOrders = ordersCollection.find({});
+        return res.status(200).json(allOrders);
       }
         break;
     case "PUT":
