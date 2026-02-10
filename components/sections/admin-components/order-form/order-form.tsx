@@ -143,9 +143,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
     useEffect(() => {
         
     }, []);
-    useEffect(() => {
-        console.log('Form Data Updated:', formData);
-    }, [formData]);
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
