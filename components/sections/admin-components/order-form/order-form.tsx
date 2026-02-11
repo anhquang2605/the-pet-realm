@@ -42,7 +42,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
 
     //form validation and other logic can be added here
-    const validateForm = async (): Promise<void> => {
+    const validateForm = async (): Promise<ErrorMessages> => {
         const errors: ErrorMessages = initializeErrorMessages(FIELDS);
         if (!formData.name.trim()) {
             errors.name = { message: 'Name is required', valid: false };
@@ -56,7 +56,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         if (formData.discount < 0 || formData.discount > 100) {
             errors.discount = { message: 'Discount must be between 0 and 100', valid: false };
         }
-        setValidationErrors(errors);
+        return errors;
     }
     // Handlers and logic for form submission, image upload, etc. would go here
     // Free image hosting service - using ImgBB (free tier available)
@@ -93,7 +93,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
 
     const handleSubmit = async() => {
-        await validateForm();
+        const errors = await validateForm();
+        if (Object.values(errors).some(error => !error.valid)) {
+            setValidationErrors(errors);
+            return;
+        }
         await handleImageUpload(stagingImages);
 
          const orderData = {
