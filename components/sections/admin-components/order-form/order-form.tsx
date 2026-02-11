@@ -93,12 +93,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
 
     const handleSubmit = async() => {
+        const status = await handleImageUpload(stagingImages);
         const errors = await validateForm();
         if (Object.values(errors).some(error => !error.valid)) {
             setValidationErrors(errors);
             return;
         }
-        const status = await handleImageUpload(stagingImages);
+ 
         if (!status) return;
          const orderData = {
         ...formData,
