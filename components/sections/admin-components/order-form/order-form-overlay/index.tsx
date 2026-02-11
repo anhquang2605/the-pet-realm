@@ -27,7 +27,9 @@ const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
 
     return (
         <div className={style['order-form-overlay']}>
-            OrderFormOverlay
+            {
+                overlayItems.length > 0 && generateOverlayContent()
+            }
         </div>
     );
 };
