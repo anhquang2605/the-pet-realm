@@ -10,9 +10,17 @@ type OrderFormOverlayProps = {
 }
 
 const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
-    
+    overlayItems
 
 }) => {
+    const generateOverlayContent = () => {
+        return overlayItems.map((item, index) => (
+            <div key={index} className={`${style['overlay-item']} ${style[item.type]}`}>
+                {item.message}
+                {item.innerItems}
+            </div>
+        )); 
+    }
     useEffect(() => {
 
     }, []);
