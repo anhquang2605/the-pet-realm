@@ -39,7 +39,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [validationErrors, setValidationErrors] = useState<ErrorMessages>(initializeErrorMessages(FIELDS)
     );
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
-    const [fileUploadStatus, setFileUploadStatus] = useState<StatusType>('idle');
 
     //form validation and other logic can be added here
     const validateForm = async (): Promise<ErrorMessages> => {
