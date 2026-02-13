@@ -17,9 +17,7 @@ const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
     currentStatus
 }) => {
     const generateOverlayContent = () => {
-        return overlayItems.map((item, index) => (
-            <OverlayItemContainer key={index} item={item.innerItem}  />     
-        )); 
+        return  
     }
     useEffect(() => {
 
@@ -28,7 +26,9 @@ const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
     return (
         <div className={style['order-form-overlay']}>
             {
-                overlayItems.length > 0 && generateOverlayContent()
+                overlayItems.length > 0 && overlayItems.map((item, index) => (
+                    <OverlayItemContainer key={index} item={item.innerItem} isVisible={item.type === currentStatus} />     
+                ))
             }
         </div>
     );
