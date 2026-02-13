@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import style from './overlay-item-container.module.css';
 
 type OverlayItemContainerProps = {
-    item: React.ReactNode;
+    item: React.ReactNode | string;
 
 }
 

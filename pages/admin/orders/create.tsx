@@ -9,7 +9,20 @@ import { Order } from "../../../types/order";
 
 
 type Props = Record<string, never>;
-
+const OVERLAY_ITEMS = [
+    {
+        message: "Submitting order...",
+        type: "submitting",
+    },
+    {
+        message: "Order created successfully!",
+        type: "success",    
+    },
+    {
+        message: "Failed to create order. Please try again.",
+        type: "error",
+    }
+]
 const CreateOrderPage: NextPage<Props> = ({}) => {
     const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
     // Handle form submission
