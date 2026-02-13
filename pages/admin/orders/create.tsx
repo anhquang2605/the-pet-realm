@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import OrderForm, { OrderFormData } from "../../../components/sections/admin-components/order-form/order-form";
 import styles from "./../../page-styles/order-create.module.css"
 import { Order } from "../../../types/order";
+import OrderFormOverlay from "../../../components/sections/admin-components/order-form/order-form-overlay";
 
 // /d:/Front end projects/the-pet-realm/pages/orders/create.tsx
 
@@ -52,7 +53,7 @@ const CreateOrderPage: NextPage<Props> = ({}) => {
     return (
         <main className={styles['create-order']}>
             <OrderForm onSubmit={handleSubmit} status={formStatus} setStatus={setFormStatus} />
-            
+            <OrderFormOverlay overlayItems={OVERLAY_ITEMS} currentStatus={formStatus} />
         </main>
     );
 };
