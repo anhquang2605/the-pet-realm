@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import style from './order-form-overlay.module.css';
+import OverlayItemContainer from './overlay-item-container';
 export type OverlayItem = {
     message: string;
     type: string;
-    innerItems?: React.ReactNode;
+    innerItem?: React.ReactNode;
+    hasInnerItem?: boolean;
 }
 type OrderFormOverlayProps = {
     overlayItems: OverlayItem[];
@@ -11,14 +13,10 @@ type OrderFormOverlayProps = {
 
 const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
     overlayItems
-
 }) => {
     const generateOverlayContent = () => {
         return overlayItems.map((item, index) => (
-            <div key={index} className={`${style['overlay-item']} ${style[item.type]}`}>
-                {item.message}
-                {item.innerItems}
-            </div>
+            <OverlayItemContainer key={index} item={item.innerItem} />     
         )); 
     }
     useEffect(() => {
