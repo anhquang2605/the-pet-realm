@@ -9,14 +9,16 @@ export type OverlayItem = {
 }
 type OrderFormOverlayProps = {
     overlayItems: OverlayItem[];
+    currentStatus?: string;
 }
 
 const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
-    overlayItems
+    overlayItems,
+    currentStatus
 }) => {
     const generateOverlayContent = () => {
         return overlayItems.map((item, index) => (
-            <OverlayItemContainer key={index} item={item.innerItem} />     
+            <OverlayItemContainer key={index} item={item.innerItem}  />     
         )); 
     }
     useEffect(() => {
