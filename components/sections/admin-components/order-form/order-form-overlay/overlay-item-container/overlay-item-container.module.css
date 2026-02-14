@@ -2,7 +2,10 @@
     border-radius: var(--border-radius);
     padding: var(--spacing);
     min-width: 300px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+}
+.overlay-item-container.visible{
+    display: flex;
 }
