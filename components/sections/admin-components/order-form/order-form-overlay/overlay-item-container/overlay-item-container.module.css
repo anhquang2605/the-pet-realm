@@ -5,7 +5,20 @@
     display: none;
     align-items: center;
     justify-content: center;
+    color: lightgray;
 }
 .overlay-item-container.visible{
     display: flex;
+}
+.success{
+    background-color: var(--success-color);
+
+}
+.error{
+    background-color: var(--error-color);
+
+}
+.loading{
+    background-color: var(--loading-color);
+
 }
