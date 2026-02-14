@@ -1,3 +1,8 @@
 .overlay-item-container{
-    
+    border-radius: var(--border-radius);
+    padding: var(--spacing);
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
