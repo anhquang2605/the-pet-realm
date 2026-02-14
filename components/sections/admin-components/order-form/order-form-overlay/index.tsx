@@ -24,7 +24,7 @@ const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
     }, []);
 
     return (
-        <div className={style['order-form-overlay']}>
+        <div className={style['order-form-overlay'] + " backdrop-blur-md "}>
             {
                 overlayItems.length > 0 && overlayItems.map((item, index) => (
                     <OverlayItemContainer key={index} item={item.innerItem} isVisible={item.type === currentStatus} />     
