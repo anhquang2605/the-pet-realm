@@ -55,6 +55,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
         if (formData.discount < 0 || formData.discount > 100) {
             errors.discount = { message: 'Discount must be between 0 and 100', valid: false };
         }
+        if (stagingImages.length === 0) {
+            errors.imageUrls = { message: 'At least one image is required', valid: false };
+        }
         return errors;
     }
     // Handlers and logic for form submission, image upload, etc. would go here

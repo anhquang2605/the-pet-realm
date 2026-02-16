@@ -53,7 +53,7 @@ const CreateOrderPage: NextPage<Props> = ({}) => {
     return (
         <main className={styles['create-order']}>
             <OrderForm onSubmit={handleSubmit} status={formStatus} setStatus={setFormStatus} />
-            <OrderFormOverlay overlayItems={OVERLAY_ITEMS} currentStatus={formStatus} />
+            { formStatus !== "idle" && <OrderFormOverlay overlayItems={OVERLAY_ITEMS} currentStatus={formStatus} />}
         </main>
     );
 };
