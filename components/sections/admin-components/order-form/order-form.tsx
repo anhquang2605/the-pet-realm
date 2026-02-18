@@ -38,11 +38,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [isUploading, setIsUploading] = useState(false);
     const [validationErrors, setValidationErrors] = useState<ErrorMessages>(initializeErrorMessages(FIELDS)
     );
+    const [isError, setIsError] = useState(false);
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
 
     //form validation and other logic can be added here
     const validateForm = async (): Promise<ErrorMessages> => {
         const errors: ErrorMessages = initializeErrorMessages(FIELDS);
+
         if (!formData.name.trim()) {
             errors.name = { message: 'Name is required', valid: false };
         }
@@ -135,9 +137,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return curItems;
         });
     }
-    useEffect(() => {
-        
-    }, []);
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
