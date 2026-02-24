@@ -25,7 +25,7 @@ const OVERLAY_ITEMS = [
     }
 ]
 const CreateOrderPage: NextPage<Props> = ({}) => {
-    const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+    const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("submitting");
     // Handle form submission
 
     async function handleSubmit(e: OrderFormData) {
