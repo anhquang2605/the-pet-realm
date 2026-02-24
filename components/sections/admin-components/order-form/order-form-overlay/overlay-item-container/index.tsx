@@ -4,6 +4,7 @@ import style from './overlay-item-container.module.css';
 type OverlayItemContainerProps = {
     item: React.ReactNode | string;
     isVisible?: boolean;
+    status?: string;
 }
 
 const OverlayItemContainer: React.FC<OverlayItemContainerProps> = ({item = '', isVisible}) => {
