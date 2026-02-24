@@ -7,13 +7,13 @@ type OverlayItemContainerProps = {
     status?: string;
 }
 
-const OverlayItemContainer: React.FC<OverlayItemContainerProps> = ({item = '', isVisible}) => {
+const OverlayItemContainer: React.FC<OverlayItemContainerProps> = ({item = '', isVisible, status}) => {
     useEffect(() => {
 
     }, []);
 
     return (
-        <div className={style['overlay-item-container'] + (isVisible ? ` ${style['visible']}` : '')}>
+        <div className={style['overlay-item-container'] + " " + style[`${status}`] + (isVisible ? ` ${style['visible']}` : '')}>
             {item}
         </div>
     );
