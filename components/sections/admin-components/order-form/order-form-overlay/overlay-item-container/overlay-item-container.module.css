@@ -11,14 +11,15 @@
     display: flex;
 }
 .success{
-    background-color: var(--success-color);
+    color: var(--success-color);
 
 }
 .error{
-    background-color: var(--error-color);
+    color: var(--error-color);
 
 }
-.loading{
-    background-color: var(--loading-color);
+
+.submitting{
+    color: var(--loading-color);
 
 }
