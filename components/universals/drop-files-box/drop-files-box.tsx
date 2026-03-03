@@ -89,6 +89,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         if (uploadingFiles.length === 0) {
             statusSetter('idle');
             setMessage('');
+            console.log('No files uploaded');
         }
     }, [uploadingFiles]);
     return (
