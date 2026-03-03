@@ -8,7 +8,7 @@ import OrderFormOverlay from "../../../components/sections/admin-components/orde
 // /d:/Front end projects/the-pet-realm/pages/orders/create.tsx
 
 
-
+export type MessageStatus = "idle" | "submitting" | "success" | "error";
 type Props = Record<string, never>;
 const OVERLAY_ITEMS = [
     {
@@ -25,7 +25,7 @@ const OVERLAY_ITEMS = [
     }
 ]
 const CreateOrderPage: NextPage<Props> = ({}) => {
-    const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("submitting");
+    const [formStatus, setFormStatus] = useState<MessageStatus>("error");
     // Handle form submission
 
     async function handleSubmit(e: OrderFormData) {
@@ -53,7 +53,7 @@ const CreateOrderPage: NextPage<Props> = ({}) => {
     return (
         <main className={styles['create-order']}>
             <OrderForm onSubmit={handleSubmit} status={formStatus} setStatus={setFormStatus} />
-            { formStatus !== "idle" && <OrderFormOverlay overlayItems={OVERLAY_ITEMS} currentStatus={formStatus} />}
+            { formStatus !== "idle" && <OrderFormOverlay setStatus={setFormStatus} overlayItems={OVERLAY_ITEMS} currentStatus={formStatus} />}
         </main>
     );
 };

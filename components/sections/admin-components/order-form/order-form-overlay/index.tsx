@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import style from './order-form-overlay.module.css';
 import OverlayItemContainer from './overlay-item-container';
+import { RiCloseLargeFill } from "react-icons/ri";
+import { MessageStatus } from '../../../../../pages/admin/orders/create';
 export type OverlayItem = {
     message: string;
     type: string;
@@ -9,15 +11,20 @@ export type OverlayItem = {
 }
 type OrderFormOverlayProps = {
     overlayItems: OverlayItem[];
-    currentStatus?: string;
+    currentStatus?: MessageStatus;
+    setStatus?: (status: MessageStatus) => void;
 }
 
 const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
     overlayItems,
-    currentStatus
+    currentStatus,
+    setStatus = () => {},
 }) => {
     const generateOverlayContent = () => {
         return  
+    }
+    const handleClose = () => {
+        setStatus("idle");
     }
     useEffect(() => {
 
@@ -26,9 +33,9 @@ const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
     return (
         <div className={style['order-form-overlay'] + " backdrop-blur-md "}>
             {
-                currentStatus === 'eror' 
+                currentStatus === 'error' 
                 &&
-                <button className={style['close-button']} onClick={() => {}}>X</button>
+                <button className={style['close-button']} onClick={handleClose}><RiCloseLargeFill size={32}/></button>
             }
             {
                 overlayItems.length > 0 && overlayItems.map((item, index) => (
