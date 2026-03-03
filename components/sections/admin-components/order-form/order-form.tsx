@@ -136,6 +136,19 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return curItems.filter((_, i) => i !== index)
         });
     }
+    const handleReset = () => {
+        setFormData({
+            name: '',
+            price: 0,
+            description: '',        
+            discount: 0,
+            isFeatured: false,
+        });
+        setUploadedImages([]);
+        setStagingImages([]);
+        setValidationErrors(initializeErrorMessages(FIELDS));
+        setFormStatus('idle');
+    }
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
@@ -271,17 +284,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     </button>
                     
                     <button
-                        type="button"
-                        onClick={() => {
-                        setFormData({
-                            name: '',
-                            price: 0,
-                            description: '',
-                            discount: 0,
-                            isFeatured: true,
-                        });
-                        setUploadedImages([]);
-                        }}
+                        onClick={handleReset}
                         className="text-sm font-medium text-white  bg-red-500 hover:bg-red-400 rounded-md transition-colors"
                     >
                         Reset
