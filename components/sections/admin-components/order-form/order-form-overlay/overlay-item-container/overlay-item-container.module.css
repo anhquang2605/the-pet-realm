@@ -6,19 +6,22 @@
     align-items: center;
     justify-content: center;
     color: lightgray;
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 .overlay-item-container.visible{
     display: flex;
 }
 .success{
-    background-color: var(--success-color);
+    color: var(--success-color);
 
 }
 .error{
-    background-color: var(--error-color);
+    color: var(--error-color);
 
 }
-.loading{
-    background-color: var(--loading-color);
+
+.submitting{
+    color: var(--loading-color);
 
 }
