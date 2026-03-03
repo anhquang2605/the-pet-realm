@@ -26,6 +26,11 @@ const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
     return (
         <div className={style['order-form-overlay'] + " backdrop-blur-md "}>
             {
+                currentStatus === 'eror' 
+                &&
+                <button className={style['close-button']} onClick={() => {}}>X</button>
+            }
+            {
                 overlayItems.length > 0 && overlayItems.map((item, index) => (
                     <OverlayItemContainer key={index} item={item.message} isVisible={item.type === currentStatus} status={item.type} />     
                 ))
