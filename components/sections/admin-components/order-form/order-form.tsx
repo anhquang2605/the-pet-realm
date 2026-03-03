@@ -133,8 +133,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const removeFile = (index: number) => {
         setStagingImages((prev) => { 
             const curItems = [...prev];
-            curItems.filter((_, i) => i !== index)
-            return curItems;
+            return curItems.filter((_, i) => i !== index)
         });
     }
     return (
