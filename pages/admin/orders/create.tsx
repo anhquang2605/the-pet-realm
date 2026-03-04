@@ -29,9 +29,6 @@ const CreateOrderPage: NextPage<Props> = ({}) => {
     // Handle form submission
 
     async function handleSubmit(e: OrderFormData) {
-            console.log(e);
-        
-
         try {
             // Replace with your real API endpoint. This demonstrates how you'd submit.
             const res = await fetch("/api/orders", {
