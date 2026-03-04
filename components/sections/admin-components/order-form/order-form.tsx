@@ -74,7 +74,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         return response.data.data.url;
     };
 
-/*     const handleImageUpload = async (files: File[]) => {
+    const handleImageUpload = async (files: File[]) => {
         setIsUploading(true);        
         try {
             const uploadPromises = Array.from(files).map(file => uploadToImgBB(file));
@@ -93,7 +93,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             // Clear the file input
         }
     };
- */
+
 
     const handleSubmit = async() => {
         //const status = await handleImageUpload(stagingImages);
