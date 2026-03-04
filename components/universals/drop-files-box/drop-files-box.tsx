@@ -42,8 +42,6 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             setMessage('Invalid file type. Only JPEG, PNG, and GIF files are allowed.');
         }
     }, []);
-    const fileTypes = allowedFormats.length > 0 ? allowedFormats.map(format => `.${format}`).join(',') : undefined;
-    
         //Files handlers
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
     //error handlers
