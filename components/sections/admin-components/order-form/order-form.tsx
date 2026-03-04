@@ -90,7 +90,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             return false;
         } finally {
             setIsUploading(false);
-            // Clear the file input
+            
         }
     };
 
