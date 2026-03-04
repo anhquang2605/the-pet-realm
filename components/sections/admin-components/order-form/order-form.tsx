@@ -38,7 +38,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [isUploading, setIsUploading] = useState(false);
     const [validationErrors, setValidationErrors] = useState<ErrorMessages>(initializeErrorMessages(FIELDS)
     );
-    const [isError, setIsError] = useState(false);
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
 
     //form validation and other logic can be added here
@@ -75,7 +74,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         return response.data.data.url;
     };
 
-    const handleImageUpload = async (files: File[]) => {
+/*     const handleImageUpload = async (files: File[]) => {
         setIsUploading(true);        
         try {
             const uploadPromises = Array.from(files).map(file => uploadToImgBB(file));
@@ -94,7 +93,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             // Clear the file input
         }
     };
-
+ */
 
     const handleSubmit = async() => {
         //const status = await handleImageUpload(stagingImages);
