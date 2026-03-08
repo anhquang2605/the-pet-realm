@@ -67,6 +67,10 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         });
         return imagesElements;
     }
+    const handleOnClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+    }
     useEffect(() => {
         if (uploadingFiles.length === 0) {
             statusSetter('idle');
@@ -74,7 +78,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         }
     }, [uploadingFiles]);
     return (
-        <div  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
+        <div onClick={handleOnClick}  {...getRootProps()} className={style['drop-files-box'] + " " + customeClassName}>
             <input
      
             {...getInputProps()}
