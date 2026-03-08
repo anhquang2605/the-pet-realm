@@ -203,7 +203,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     id="discount"
                     name="discount"
                     value={formData.discount}
-                    onChange={/* handleChange */ ()=> {}}
+                    onChange={handleChange}
                     min="0"
                     max="100"
                     step="0.01"
