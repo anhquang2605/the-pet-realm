@@ -149,11 +149,14 @@ const OrderForm: React.FC<OrderFormProps> = ({
         setValidationErrors(initializeErrorMessages(FIELDS));
         setFormStatus('idle');
     }
+    const preventOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    }
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
             {/* Form */}
-            <form  className=" flex">
+            <form onSubmit={preventOnSubmit}  className=" flex">
                 {/* Name Field */}
                 <div className={style['full']}>
                     <label htmlFor="name" className="block text-sm font-medium  ">
