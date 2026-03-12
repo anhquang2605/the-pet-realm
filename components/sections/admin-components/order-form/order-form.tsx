@@ -152,6 +152,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const preventOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     }
+    useEffect(() => {
+        if (stagingImages.length > 0) {
+            handleImageUpload(stagingImages);
+        }
+    }, [stagingImages]);
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
