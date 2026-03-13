@@ -130,6 +130,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     };
 
     const removeFile = (index: number) => {
+        console.log('Removing file at index:', index);
         setStagingImages((prev) => { 
             const curItems = [...prev];
             curItems.splice(index, 1);
