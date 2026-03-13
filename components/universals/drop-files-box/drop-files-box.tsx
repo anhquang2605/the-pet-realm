@@ -71,6 +71,7 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
         e.stopPropagation();
     }
     useEffect(() => {
+        console.log(uploadingFiles);
         if (uploadingFiles.length === 0) {
             statusSetter('idle');
             setMessage('');
