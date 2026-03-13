@@ -51,6 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           ordersCollection.insertOne(newOrder);
           return res.status(201).json({ message: "Order created", data: newOrder });
         } catch(e){
+          console.log(e);
           return res.status(500).json({ message: "Error creating order", error: e });
         }
       }

@@ -114,7 +114,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
-        
         setFormData(prev => ({
         ...prev,
         [name]: type === 'number' ? parseFloat(value) || 0 : value,
@@ -130,7 +129,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
     };
 
     const removeFile = (index: number) => {
-        console.log('Removing file at index:', index);
         setStagingImages((prev) => { 
             const curItems = [...prev];
             curItems.splice(index, 1);
