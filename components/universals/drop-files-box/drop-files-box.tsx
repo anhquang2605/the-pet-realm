@@ -1,8 +1,7 @@
-import React, { JSX, ReactHTMLElement, useCallback, useEffect } from 'react';
+import React, { JSX, useCallback, useEffect } from 'react';
 import style from './drop-files-box.module.css';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import { StatusType } from '../../../types/status';
-import ActionButton from '../buttons/action-button/action-button';
 import ImagePreview from '../image-preview/image-preview';
 
 interface DropFilesBoxProps {
