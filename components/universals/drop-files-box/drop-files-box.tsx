@@ -102,7 +102,18 @@ const DropFilesBox: React.FC<DropFilesBoxProps> = ({
             {uploadingFiles.length > 0 ? (
             <div className={style['drop-files-box__preview-section']}>
                 <div className="grid grid-cols-3 gap-0.5">
-                    {generatePreviewImages(uploadingFiles)}
+                    {
+                        uploadingFiles.map((file, index) => {
+                            return (
+                                <ImagePreview
+                                    key={file.name}
+                                    imageSrc={URL.createObjectURL(file)}
+                                    altText={file.name}
+                                    onRemove={() => removeFile(index)}
+                                />
+                            )    
+                        })
+                    }
                 </div>
             </div>
             )
