@@ -167,7 +167,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         id="name"
                         name="name"
                         value={formData.name}
-                        onChange={/*handleChange*/  ()=>{}}
+                        onChange={handleChange}
                         required
                         className={"w-full " + {}}
                         placeholder="Enter order name"
@@ -184,7 +184,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     id="price"
                     name="price"
                     value={formData.price}
-                    onChange={/*handleChange*/  ()=>{}}
+                    onChange={handleChange}
                     required
                     min="0"
                     step="0.01"
@@ -203,7 +203,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     id="discount"
                     name="discount"
                     value={formData.discount}
-                    onChange={/*handleChange*/  ()=>{}}
+                    onChange={handleChange}
                     min="0"
                     max="100"
                     step="0.01"
@@ -235,7 +235,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         id="description"
                         name="description"
                         value={formData.description}
-                        onChange={/*handleChange*/  ()=>{}}
+                        onChange={handleChange}
                         rows={4}
                         className=""
                         placeholder="Enter order description"
