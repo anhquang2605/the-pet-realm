@@ -44,9 +44,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case "POST":
       // Create a new order
       const newData = req.body;
-      console.log(newData);
+      
       if(!newData) return res.status(400).json({ message: "No data provided" });
-      if(newData && newData.length === 1){
+      if(newData && typeof newData === "object"){
         const newOrder: Order = newData[0];
         try{
           ordersCollection.insertOne(newOrder);
@@ -56,7 +56,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           return res.status(500).json({ message: "Error creating order", error: e });
         }
       }
-      if(newData && newData.length > 1){
+      if(newData && newData.length > 0){
         const newOrders: Order[] = newData;
         try{
           ordersCollection.insertMany(newOrders);

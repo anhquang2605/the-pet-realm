@@ -108,7 +108,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
          const orderData = {
         ...formData,
         status: 'fresh' as const,
-        imageUrls: uploadedImages,
+        imageUrls: [...uploadedImages],
         };
 
         onSubmit(orderData); 
