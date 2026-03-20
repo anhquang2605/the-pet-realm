@@ -44,6 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case "POST":
       // Create a new order
       const newData = req.body;
+      console.log(newData);
       if(!newData) return res.status(400).json({ message: "No data provided" });
       if(newData && newData.length === 1){
         const newOrder: Order = newData[0];
