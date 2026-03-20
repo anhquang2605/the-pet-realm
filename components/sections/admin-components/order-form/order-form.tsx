@@ -110,7 +110,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         imageUrls: [...uploadedImages],
         };
 
-        onSubmit(orderData); 
+        //onSubmit(orderData); 
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
@@ -157,7 +157,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
             {/* Form */}
             <form onSubmit={preventOnSubmit}  className=" flex">
                 {/* Name Field */}
-                <div className={style['full']}>
+                <div className={style['full'] + ' ' + (validationErrors.name?.valid ? '' : 'border-red-500') }>
+                    <span className="text-red-500">{validationErrors.name?.message}</span>
                     <label htmlFor="name" className="block text-sm font-medium  ">
                         Order Name *
                     </label>
@@ -174,7 +175,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Price Field */}
-                <div className={style['half']}>
+                <div className={style['half'] + ' ' + (validationErrors.price?.valid ? '' : 'border-red-500')}>
+                <span className="text-red-500">{validationErrors.price?.message}</span>
                 <label htmlFor="price" className="block text-sm font-medium  ">
                     Price ($) *
                 </label>
@@ -193,7 +195,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Discount Field */}
-                <div className={style['half']}>
+                <div className={style['half'] + ' ' + (validationErrors.discount?.valid ? '' : 'border-red-500')}>
+                <span className="text-red-500">{validationErrors.discount?.message}</span>
                 <label htmlFor="discount" className="block text-sm font-medium  ">
                     Discount (%)
                 </label>
@@ -242,7 +245,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Image Upload */}
-                <div className={style['full']}>
+                <div className={style['full'] + (validationErrors.images?.valid ? '' : 'border-red-500')}>
+                    <span className="text-red-500">{validationErrors.images?.message}</span>
                     <label className="block text-sm font-medium  ">
                         Upload Images
                     </label>
