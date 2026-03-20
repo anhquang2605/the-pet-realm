@@ -229,7 +229,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
                 </div>
                 {/* Description Field */}
-                <div className={style['full']}>
+                <div className={style['full'] + ' ' + (validationErrors.description?.valid ? '' : 'border-red-500')}>
+                    <span className="text-red-500">{validationErrors.description?.message}</span>
                     <label htmlFor="description" className="block text-sm font-medium  ">
                         Description
                     </label>
@@ -245,7 +246,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 </div>
 
                 {/* Image Upload */}
-                <div className={style['full'] + (validationErrors.images?.valid ? '' : 'border-red-500')}>
+                <div className={style['full'] + (validationErrors.images?.valid ? ' ' : ' border-red-500')}>
                     <span className="text-red-500">{validationErrors.images?.message}</span>
                     <label className="block text-sm font-medium  ">
                         Upload Images
