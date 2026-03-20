@@ -103,6 +103,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             setFormStatus('error');
             return;
         }
+        let status = true;
         if (!status) return;
          const orderData = {
         ...formData,
