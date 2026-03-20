@@ -47,7 +47,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       
       if(!newData) return res.status(400).json({ message: "No data provided" });
       if(newData && typeof newData === "object"){
-        const newOrder: Order = newData[0];
+        const newOrder: Order = newData;
         try{
           ordersCollection.insertOne(newOrder);
           return res.status(201).json({ message: "Order created", data: newOrder });
