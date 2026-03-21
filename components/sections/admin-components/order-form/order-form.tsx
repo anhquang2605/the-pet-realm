@@ -249,7 +249,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 <div className={style['full'] + (validationErrors.images?.valid ? ' ' : ' border-red-500')}>
                     <span className="text-red-500">{validationErrors.images?.message}</span>
                     <label className="block text-sm font-medium  ">
-                        Upload Images
+                        Upload Images *
                     </label>
                     <DropFilesBox allowedFormats={['image/jpeg', 'image/png', 'image/gif']}   uploadingFiles={
                         stagingImages
@@ -274,6 +274,12 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         Status is automatically set to &quot;fresh&quot; for new orders
                     </p>
                 </div>
+                {/* Note*/}
+                <span>
+                    <p className=" text-gray-400 text-center flex align-center">
+                        <span className="text-2xl">*</span> Required fields
+                    </p>
+                </span>
 
                 {/* Submit Button */}
                 <div className="flex justify-end gap-1 mt-0.5 font-bold">
@@ -281,7 +287,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         onClick={
                             handleSubmit
                         }
-                        disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0}
+                        disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0  || !formData.description || stagingImages.length === 0}
                         className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed px-2"
                     >
                         {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
