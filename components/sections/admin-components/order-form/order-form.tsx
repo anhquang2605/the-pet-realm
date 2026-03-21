@@ -148,6 +148,16 @@ const OrderForm: React.FC<OrderFormProps> = ({
         setValidationErrors(initializeErrorMessages(FIELDS));
         setFormStatus('idle');
     }
+    const checkIfDisabled = () => {
+        return !(
+            formData.name.trim() &&
+            formData.price > 0 &&
+            formData.description.trim() &&
+            formData.discount >= 0 &&
+            formData.discount <= 1 &&
+            stagingImages.length > 0
+        );
+    }
     const preventOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     }
@@ -287,7 +297,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                         onClick={
                             handleSubmit
                         }
-                        disabled={status === 'submitting' || isUploading || !formData.name || formData.price <= 0  || !formData.description || stagingImages.length === 0}
+                        disabled={status === 'submitting' || isUploading || checkIfDisabled()}
                         className=" text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors disabled:cursor-not-allowed px-2"
                     >
                         {status === 'idle' ? 'Create Order' : status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Success!' : 'Error'}
