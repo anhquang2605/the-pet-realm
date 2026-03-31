@@ -80,6 +80,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
             const uploadPromises = Array.from(files).map(file => uploadToImgBB(file));
             const urls = await Promise.all(uploadPromises);
             setUploadedImages(prev => [...prev, ...urls]);
+            setIsUploading(false); 
             return true;
         } catch (error) {
             setFormStatus('error');
@@ -87,16 +88,15 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 ...prev,
                 imageUrls: { message: 'Failed to upload images. Please try again.', valid: false },
             }));
-            return false;
-        } finally {
             setIsUploading(false);
-            
-        }
+            return false;
+        } 
     };
 
 
     const handleSubmit = async() => {
         const status = await handleImageUpload(stagingImages);
+        console.log("Image upload status:", status);
         const errors = await validateForm();
         setValidationErrors(errors);
         if (Object.values(errors).some(error => !error.valid)) {
