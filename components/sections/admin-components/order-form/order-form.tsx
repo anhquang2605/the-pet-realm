@@ -110,7 +110,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         imageUrls: [...uploadedImages],
         };
 
-        //onSubmit(orderData); 
+        onSubmit(orderData); 
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
