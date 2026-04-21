@@ -168,8 +168,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }
     }, [validationErrors]);
     useEffect(() => {
-        if (formStatus === 'success' ) {
-            
+        if (formStatus === 'success' ) {      
              const orderData = {
             ...formData,
              status: 'fresh' as const,
@@ -218,7 +217,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
                     min="0"
                     step="0.01"
                     className=""
-                    placeholder="0.00"
                 />
                 </div>
 
