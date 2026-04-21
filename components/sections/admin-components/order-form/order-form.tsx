@@ -154,10 +154,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
         e.preventDefault();
     }
     const checkErrorMessages = (errors: ErrorMessages[]) => {
-        return errors.some(error => Object.values(error).some(fieldError => !fieldError.valid ));
+        return errors.some(error => Object.values(error).some(fieldError => !fieldError.valid && fieldError.message !== ''));
     }
     useEffect(() => {
-        console.log(validationErrors);
         //check this logic here
         if (checkErrorMessages([validationErrors])) {
             setFormStatus('error');
