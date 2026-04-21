@@ -41,7 +41,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const [formStatus, setFormStatus] = useState<StatusType>('idle');
 
     //form validation and other logic can be added here
-    const validateForm = async (): Promise<ErrorMessages> => {
+    const validateForm = async (uploadStatus?: boolean): Promise<ErrorMessages> => {
         const errors: ErrorMessages = initializeErrorMessages(FIELDS);
 
         if (!formData.name.trim()) {
@@ -58,6 +58,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
         }
         if (stagingImages.length === 0) {
             errors.imageUrls = { message: 'At least one image is required', valid: false };
+        }
+        if (uploadStatus === false) {
+            errors.imageUrls = { message: 'Image upload failed. Please try again.', valid: false };
         }
         return errors;
     }
@@ -96,19 +99,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
     const handleSubmit = async() => {
         const status = await handleImageUpload(stagingImages);
-        const errors = await validateForm();
+        const errors = await validateForm(status);
         setValidationErrors(errors);
-        if (Object.values(errors).some(error => !error.valid)) {
-            setFormStatus('error');
-            return;
-        }
-        if (!status) return;
-         const orderData = {
-        ...formData,
-        status: 'fresh' as const,
-        imageUrls: [...uploadedImages],
-        };
-        console.log('Submitting order data:', orderData);
+
         //onSubmit(orderData); 
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -160,6 +153,24 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const preventOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     }
+    const checkErrorMessages = (errors: ErrorMessages[]) => {
+        return errors.some(error => Object.values(error).some(fieldError => !fieldError.valid));
+    }
+    useEffect(() => {
+        if (checkErrorMessages([validationErrors])) {
+            setFormStatus('error');
+        }
+    }, [validationErrors]);
+    useEffect(() => {
+        if (formStatus === 'success' ) {
+             const orderData = {
+            ...formData,
+             status: 'fresh' as const,
+            imageUrls: [...uploadedImages],
+            };
+            console.log('Submitting order data:', orderData);
+        }
+    }, [formStatus]);
     return (
         <div className={style['order-form'] + ' ' + "mx-auto rounded-lg shadow-md flex flex-col"}>
             <h2 className="text-2xl font-bold mb-1 text-slate-200"> ✨ Create New Order ✨</h2>
