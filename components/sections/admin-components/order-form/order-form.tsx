@@ -157,7 +157,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         return errors.some(error => Object.values(error).some(fieldError => !fieldError.valid));
     }
     useEffect(() => {
-        if (checkErrorMessages([validationErrors])) {
+        if (checkErrorMessages([validationErrors]) && formStatus !== 'idle') {
             setFormStatus('error');
         } else {
             setFormStatus('success');
