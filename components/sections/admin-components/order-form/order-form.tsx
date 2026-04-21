@@ -98,6 +98,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
 
     const handleSubmit = async() => {
+        setFormStatus('submitting');
         const status = await handleImageUpload(stagingImages);
         const errors = await validateForm(status);
         setValidationErrors(errors);
@@ -158,10 +159,12 @@ const OrderForm: React.FC<OrderFormProps> = ({
     }
     useEffect(() => {
         //check this logic here
-        if (checkErrorMessages([validationErrors])) {
-            setFormStatus('error');
-        } else {
-            setFormStatus('success');
+        if(formStatus === 'submitting') {
+            if (checkErrorMessages([validationErrors])) {
+                setFormStatus('error');
+            } else {
+                setFormStatus('success');
+            }    
         }
     }, [validationErrors]);
     useEffect(() => {
