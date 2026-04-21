@@ -159,10 +159,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
     useEffect(() => {
         if (checkErrorMessages([validationErrors])) {
             setFormStatus('error');
+        } else {
+            setFormStatus('success');
         }
     }, [validationErrors]);
     useEffect(() => {
         if (formStatus === 'success' ) {
+            
              const orderData = {
             ...formData,
              status: 'fresh' as const,
