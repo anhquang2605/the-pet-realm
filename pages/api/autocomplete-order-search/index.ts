@@ -20,6 +20,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     }
                 }
             }
+        },
+        {
+            $project: {
+                _id: 1,
+                name: 1,
+                image: {
+                    $ifNull: [ {$arrayElemAt: ["$imageUrls", 0]}, null],   
+                },
+            }
         }
-    ])
+    ]).toArray()
+    .then((results: Partial<Order>[]) => {
+        res.status(200).json(results);
+    })
+    .catch((e) => {
+        console.log(e);
+        res.status(500).json({ message: "Error fetching search results" });
+    });
 }
