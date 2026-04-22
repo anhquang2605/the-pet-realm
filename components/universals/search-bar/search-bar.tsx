@@ -3,7 +3,7 @@ import style from './search-bar.module.css';
 import { IoSearch } from "react-icons/io5";
 type SearchBarProps = Record<string, never>;
 const searchPet = (value:string | null) => {
-    console.log("Searching pet with value: ", value);
+    
 }
 const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const toggleSearchBar = () => {
@@ -18,6 +18,10 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
         if(value !== null && value !== ''){
             searchPet(value);
         }
+    }
+    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            const value = e.target.value;
+                if(value !== null && value !== ''){  }      
     }
     return (
         <div className={style['search-bar']}>
