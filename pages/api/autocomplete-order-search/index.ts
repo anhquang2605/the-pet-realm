@@ -15,8 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     query: query,
                     path: "name",
                     fuzzy: {
-                        maxEdits: 2,
-                        prefixLength: 3
+                        maxEdits: 1,
+                        prefixLength: 1
                     }
                 }
             }
