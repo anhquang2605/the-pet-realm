@@ -2,9 +2,17 @@ import React from 'react';
 import style from './search-bar.module.css';
 import { IoSearch } from "react-icons/io5";
 import { debounce } from '../../../libs/helpers';
+import { fetchFromGetAPI } from '../../../libs/api-interactions';
 type SearchBarProps = Record<string, never>;
-const searchPet = (value:string | null) => {
-    
+const searchPet =   async (value:string | null) => {
+    const path = `atuocomplete-order-search`;
+    const options = { query: value };
+    try {
+        const response = await fetchFromGetAPI(path, options);
+        
+    } catch (error) {
+        console.error('Error fetching search results:', error);
+    }
 }
 const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const toggleSearchBar = () => {
