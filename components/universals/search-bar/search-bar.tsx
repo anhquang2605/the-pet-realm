@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './search-bar.module.css';
 import { IoSearch } from "react-icons/io5";
+import { debounce } from '../../../libs/helpers';
 type SearchBarProps = Record<string, never>;
 const searchPet = (value:string | null) => {
     
@@ -22,9 +23,10 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const value = e.target.value;
             if(value !== null && value !== ''){ 
-                
-                }      
+                debouncedSearch(value);    
+            }      
     }
+    const debouncedSearch = debounce(searchPet, 300);
     return (
         <div className={style['search-bar']}>
            <span onClick={
