@@ -21,7 +21,9 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
     }
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const value = e.target.value;
-                if(value !== null && value !== ''){  }      
+            if(value !== null && value !== ''){ 
+                
+                }      
     }
     return (
         <div className={style['search-bar']}>
