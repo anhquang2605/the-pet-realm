@@ -5,7 +5,15 @@ import { debounce } from '../../../libs/helpers';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import { Order } from '../../../types/order';
 type SearchBarProps = Record<string, never>;
-const searchPet =   async (value:string | null) => {
+
+const SearchBar: React.FC<SearchBarProps> = ({}) => {
+    const toggleSearchBar = () => {
+        const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
+        const searchBar = document.getElementsByClassName(style['search-bar'])[0];
+        searchBar.classList.toggle(style['search-ready']);
+        searchBarInput.focus();
+    }
+    const autoCompleteSearch =   async (value:string | null) => {
     const path = `atuocomplete-order-search`;
     const options = { query: value };
     try {
@@ -21,13 +29,6 @@ const searchPet =   async (value:string | null) => {
         return [];
     }
 }
-const SearchBar: React.FC<SearchBarProps> = ({}) => {
-    const toggleSearchBar = () => {
-        const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
-        const searchBar = document.getElementsByClassName(style['search-bar'])[0];
-        searchBar.classList.toggle(style['search-ready']);
-        searchBarInput.focus();
-    }
     const onSearchClick = () => {
         const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
         const value = searchBarInput.getAttribute('value');
@@ -42,7 +43,10 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
                   debouncedSearch(value);    
             }      
     }
-    const debouncedSearch = debounce(searchPet, 300);
+    const debouncedSearch = debounce(   autoCompleteSearch, 300);
+    const searchPet = (value: string) => {
+        
+    }
     return (
         <div className={style['search-bar']}>
            <span onClick={
