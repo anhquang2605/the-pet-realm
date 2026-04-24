@@ -18,7 +18,7 @@ const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
         <div className={style['search-suggestion']}>
             {
                 suggestions.map((suggestion) => (
-                    <SuggestionBox key={suggestion._id} suggestion={suggestion} />
+                    <SuggestionBox key={suggestion.id?.toString()} suggestion={suggestion} />
                 ))
             }
         </div>
