@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import style from './search-suggestion.module.css';
 
-type SearchSuggestionProps = Record<string, never>;
+type SearchSuggestionProps {
+    suggestions: Partial<Order>; 
+};
 
-const SearchSuggestion: React.FC<SearchSuggestionProps> = ({}) => {
+const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
+    suggestions
+}) => {
     useEffect(() => {
 
     }, []);
