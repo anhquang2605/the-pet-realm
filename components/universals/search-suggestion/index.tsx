@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import style from './search-suggestion.module.css';
+import { Order } from '../../../types/order';
+import SuggestionBox from './suggestion-box';
 
-type SearchSuggestionProps {
-    suggestions: Partial<Order>; 
+type SearchSuggestionProps = {
+    suggestions: Partial<Order>[]; 
 };
 
 const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
@@ -14,7 +16,11 @@ const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
 
     return (
         <div className={style['search-suggestion']}>
-            SearchSuggestion
+            {
+                suggestions.map((suggestion) => (
+                    <SuggestionBox key={suggestion._id} suggestion={suggestion} />
+                ))
+            }
         </div>
     );
 };
