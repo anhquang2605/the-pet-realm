@@ -4,9 +4,11 @@ import { IoSearch } from "react-icons/io5";
 import { debounce } from '../../../libs/helpers';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import { Order } from '../../../types/order';
-type SearchBarProps = Record<string, never>;
+type SearchBarProps = {
+    setAutoCompleteResults?: React.Dispatch<React.SetStateAction<Partial<Order>[]>>;
+};
 
-const SearchBar: React.FC<SearchBarProps> = ({}) => {
+const SearchBar: React.FC<SearchBarProps> = ({ setAutoCompleteResults }) => {
     const toggleSearchBar = () => {
         const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
         const searchBar = document.getElementsByClassName(style['search-bar'])[0];
@@ -18,15 +20,17 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const options = { query: value };
     try {
         const response = await fetchFromGetAPI(path, options);
+        let results:Partial<Order>[] = [];
         if(response && response.results){
-            return response.results;
-        } else {
-            return [];
+            results = response.results;
+        } 
+        if(setAutoCompleteResults){
+            setAutoCompleteResults(results);
         }
         
     } catch (error) {
         console.error('Error fetching search results:', error);
-        return [];
+        setAutoCompleteResults && setAutoCompleteResults([]);
     }
 }
     const onSearchClick = () => {
@@ -45,7 +49,7 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
     }
     const debouncedSearch = debounce(   autoCompleteSearch, 300);
     const searchPet = (value: string) => {
-        
+
     }
     return (
         <div className={style['search-bar']}>
