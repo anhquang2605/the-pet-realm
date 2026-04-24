@@ -4,17 +4,20 @@ import { Order } from '../../../types/order';
 import SuggestionBox from './suggestion-box';
 
 type SearchSuggestionProps = {
-    suggestions: Partial<Order>[]; 
+    suggestions: Partial<Order>[];
+    isLoading?: boolean;
 };
 
 const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
-    suggestions
+    suggestions,
+    isLoading = false
 }) => {
     useEffect(() => {
 
     }, []);
 
     return (
+        isLoading ? <div className={style['loading']}>Loading...</div> :
         <div className={style['search-suggestion']}>
             {
                 suggestions.map((suggestion) => (
