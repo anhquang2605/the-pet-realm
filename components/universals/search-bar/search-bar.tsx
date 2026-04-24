@@ -3,15 +3,22 @@ import style from './search-bar.module.css';
 import { IoSearch } from "react-icons/io5";
 import { debounce } from '../../../libs/helpers';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
+import { Order } from '../../../types/order';
 type SearchBarProps = Record<string, never>;
 const searchPet =   async (value:string | null) => {
     const path = `atuocomplete-order-search`;
     const options = { query: value };
     try {
         const response = await fetchFromGetAPI(path, options);
+        if(response && response.results){
+            return response.results;
+        } else {
+            return [];
+        }
         
     } catch (error) {
         console.error('Error fetching search results:', error);
+        return [];
     }
 }
 const SearchBar: React.FC<SearchBarProps> = ({}) => {
@@ -30,8 +37,9 @@ const SearchBar: React.FC<SearchBarProps> = ({}) => {
     }
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const value = e.target.value;
+            let results:Partial<Order>[] = [];
             if(value !== null && value !== ''){ 
-                debouncedSearch(value);    
+                  debouncedSearch(value);    
             }      
     }
     const debouncedSearch = debounce(searchPet, 300);
