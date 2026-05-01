@@ -3,7 +3,7 @@ import style from './search-bar.module.css';
 import { IoSearch } from "react-icons/io5";
 import { debounce } from '../../../libs/helpers';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
-import { Order } from '../../../types/order';
+import { Order, ShopSuggestion } from '../../../types/order';
 type SearchBarProps = {
     setAutoCompleteResults?: React.Dispatch<React.SetStateAction<Partial<Order>[]>>;
 };
@@ -20,7 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setAutoCompleteResults }) => {
     const options = { query: value };
     try {
         const response = await fetchFromGetAPI(path, options);
-        let results:Partial<Order>[] = [];
+        let results:ShopSuggestion[] = [];
         if(response && response.results){
             results = response.results;
         } 
