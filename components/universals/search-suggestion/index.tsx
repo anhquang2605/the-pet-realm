@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import style from './search-suggestion.module.css';
-import { Order } from '../../../types/order';
+import { Order, ShopSuggestion } from '../../../types/order';
 import SuggestionBox from './suggestion-box';
 
 type SearchSuggestionProps = {
-    suggestions: Partial<Order>[];
+    suggestions: ShopSuggestion[];
     isLoading?: boolean;
 };
 

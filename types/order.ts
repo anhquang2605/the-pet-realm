@@ -39,3 +39,9 @@ export interface OrderImage{
     imageUrl: string;
     dateCreated: Date;
 }
+
+export interface ShopSuggestion{
+    id: string | ObjectId;
+    name: string;
+   image: string;
+}

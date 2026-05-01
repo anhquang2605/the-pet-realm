@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Order } from "../../../types/order";
+import { Order, ShopSuggestion } from "../../../types/order";
 import { getCollectionFromDB } from "../../../libs/db-interactions";
 
 
@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         }
     ]).toArray()
-    .then((results: Partial<Order>[]) => {
+    .then((results: Partial<ShopSuggestion>[]) => {
         res.status(200).json(results);
     })
     .catch((e) => {

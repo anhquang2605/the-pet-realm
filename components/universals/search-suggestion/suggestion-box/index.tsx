@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import style from './suggestion-box.module.css';
-import { Order } from '../../../../types/order';
+import { Order, ShopSuggestion } from '../../../../types/order';
 
 type SuggestionBoxProps = {
-    suggestion: Partial<Order>;
+    suggestion: ShopSuggestion;
 };
 //only name, _id and image are needed for the suggestion box, so we can type it as Partial<Order> to allow for flexibility in the data we receive
 const SuggestionBox: React.FC<SuggestionBoxProps> = ({
