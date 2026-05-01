@@ -4,11 +4,10 @@ import { IoSearch } from "react-icons/io5";
 import { debounce } from '../../../libs/helpers';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import { Order, ShopSuggestion } from '../../../types/order';
-type SearchBarProps = {
-    setAutoCompleteResults?: React.Dispatch<React.SetStateAction<Partial<Order>[]>>;
-};
-
-const SearchBar: React.FC<SearchBarProps> = ({ setAutoCompleteResults }) => {
+import SearchSuggestion from '../search-suggestion';
+type SearchBarProps = Record<string, unknown>;
+const SearchBar: React.FC<SearchBarProps> = ({  }) => {
+    const [autoCompleteResults, setAutoCompleteResults] = React.useState<ShopSuggestion[]>([]);
     const toggleSearchBar = () => {
         const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
         const searchBar = document.getElementsByClassName(style['search-bar'])[0];
@@ -60,7 +59,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setAutoCompleteResults }) => {
            <button onAbort={onSearchClick} className={style['search-bar-button']}>
                 <IoSearch />
            </button>
-           
+           <SearchSuggestion suggestions={autoCompleteResults} />
         </div>
     );
 };
