@@ -15,23 +15,19 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
         searchBarInput.focus();
     }
     const autoCompleteSearch =   async (value:string | null) => {
-    const path = `autocomplete-order-search`;
-    const options = { query: value };
-    try {
-        const response = await fetchFromGetAPI(path, options);
-        let results:ShopSuggestion[] = [];
-        if(response && response.results){
-            results = response.results;
-        } 
-        if(setAutoCompleteResults){
-            setAutoCompleteResults(results);
+        const path = `autocomplete-order-search`;
+        const options = { query: value };
+        try {
+            const response = await fetchFromGetAPI(path, options);
+            if(setAutoCompleteResults){
+                setAutoCompleteResults(response);
+            }
+            
+        } catch (error) {
+            console.error('Error fetching search results:', error);
+            setAutoCompleteResults && setAutoCompleteResults([]);
         }
-        
-    } catch (error) {
-        console.error('Error fetching search results:', error);
-        setAutoCompleteResults && setAutoCompleteResults([]);
     }
-}
     const onSearchClick = () => {
         const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
         const value = searchBarInput.getAttribute('value');
@@ -46,7 +42,7 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
                   debouncedSearch(value);    
             }      
     }
-    const debouncedSearch = debounce(   autoCompleteSearch, 300);
+    const debouncedSearch = debounce(   autoCompleteSearch, 500);
     const searchPet = (value: string) => {
 
     }
