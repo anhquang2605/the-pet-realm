@@ -15,7 +15,7 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
         searchBarInput.focus();
     }
     const autoCompleteSearch =   async (value:string | null) => {
-    const path = `atuocomplete-order-search`;
+    const path = `autocomplete-order-search`;
     const options = { query: value };
     try {
         const response = await fetchFromGetAPI(path, options);
