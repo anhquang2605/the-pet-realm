@@ -15,8 +15,8 @@ const SuggestionBox: React.FC<SuggestionBoxProps> = ({
 
     return (
         <div className={style['suggestion-box']}>
-            <p>{suggestion.name}</p>
             <img className={style['suggestion-box__image']} src={suggestion.image || '/asset/images/dogpet.webp'} alt={suggestion.name} />
+            <p className={style['suggestion-box__name']}>{suggestion.name}</p>
         </div>
     );
 };

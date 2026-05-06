@@ -1,7 +1,10 @@
 .suggestion-box{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.9rem;
 }
 .suggestion-box__image{
-    width: 100px;
+    width: 32px;
+    margin-right: 4px;
 }

@@ -20,7 +20,7 @@ const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
         isLoading ? 
             <div className={style['loading'] + " " + style['search-suggestion']}>Loading...</div>
         :
-        <div className={style['search-suggestion']}>
+        suggestions.length === 0 ? null :<div className={style['search-suggestion']}>
             {
                 suggestions.map((suggestion) => (
                     <SuggestionBox key={suggestion.id?.toString()} suggestion={suggestion} />
