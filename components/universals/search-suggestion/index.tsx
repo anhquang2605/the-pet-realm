@@ -18,7 +18,7 @@ const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
 
     return (
         isLoading ? 
-            <div className={style['loading']}>Loading...</div>
+            <div className={style['loading'] + " " + style['search-suggestion']}>Loading...</div>
         :
         <div className={style['search-suggestion']}>
             {

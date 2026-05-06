@@ -8,6 +8,7 @@ import SearchSuggestion from '../search-suggestion';
 type SearchBarProps = Record<string, unknown>;
 const SearchBar: React.FC<SearchBarProps> = ({  }) => {
     const [autoCompleteResults, setAutoCompleteResults] = React.useState<ShopSuggestion[]>([]);
+    const [isLoading, setIsLoading] = React.useState(false);
     const toggleSearchBar = () => {
         const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
         const searchBar = document.getElementsByClassName(style['search-bar'])[0];
@@ -15,15 +16,19 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
         searchBarInput.focus();
     }
     const autoCompleteSearch =   async (value:string | null) => {
+        if(!value) return;
+        setIsLoading(true);
         const path = `autocomplete-order-search`;
         const options = { query: value };
         try {
             const response = await fetchFromGetAPI(path, options);
             if(setAutoCompleteResults){
+                setIsLoading(false);
                 setAutoCompleteResults(response);
             }
             
         } catch (error) {
+            setIsLoading(false);
             console.error('Error fetching search results:', error);
             setAutoCompleteResults && setAutoCompleteResults([]);
         }
@@ -58,7 +63,7 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
             </button>
             
             </div>
-            <SearchSuggestion suggestions={autoCompleteResults} />
+            <SearchSuggestion isLoading={isLoading} suggestions={autoCompleteResults} />
         </div>
     );
 };
