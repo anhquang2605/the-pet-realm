@@ -52,7 +52,7 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
 
     }
     return (
-        <div className={style['search-bar-container']}>
+        <div className={style['search-bar-container']} >
             <div className={style['search-bar']}>
             <span onClick={
                     toggleSearchBar
