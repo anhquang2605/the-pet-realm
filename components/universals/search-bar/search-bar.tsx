@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './search-bar.module.css';
 import { IoSearch } from "react-icons/io5";
 import { debounce } from '../../../libs/helpers';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import { Order, ShopSuggestion } from '../../../types/order';
 import SearchSuggestion from '../search-suggestion';
+import { useClickOutside } from '../../hooks/click-outside';
 type SearchBarProps = Record<string, unknown>;
 const SearchBar: React.FC<SearchBarProps> = ({  }) => {
     const [autoCompleteResults, setAutoCompleteResults] = React.useState<ShopSuggestion[]>([]);
     const [isLoading, setIsLoading] = React.useState(false);
+    const boxRef = React.useRef<HTMLDivElement>(null);
+    useClickOutside(boxRef, () => {
+        setAutoCompleteResults([]);
+    });
     const toggleSearchBar = () => {
         const searchBarInput:HTMLElement = document.getElementsByClassName(style['search-bar-input'])[0] as HTMLElement;
         const searchBar = document.getElementsByClassName(style['search-bar'])[0];
@@ -51,8 +56,9 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
     const searchPet = (value: string) => {
 
     }
+
     return (
-        <div className={style['search-bar-container']} >
+        <div ref={boxRef} className={style['search-bar-container']} >
             <div className={style['search-bar']}>
             <span onClick={
                     toggleSearchBar
