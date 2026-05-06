@@ -3,6 +3,7 @@
     flex-direction: row;
     align-items: center;
     font-size: 0.9rem;
+    padding: var(--quarter-spacing);
 }
 .suggestion-box__image{
     width: 32px;

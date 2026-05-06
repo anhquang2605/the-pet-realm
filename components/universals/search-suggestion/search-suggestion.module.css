@@ -6,7 +6,6 @@
     z-index: 40;;
     background-color: var(--third-bg);
     color: lightgray;
-    padding: var(--half-spacing);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     margin-top: calc(var(--quarter-spacing) / 2);
