@@ -9,12 +9,16 @@ type SuggestionBoxProps = {
 const SuggestionBox: React.FC<SuggestionBoxProps> = ({
     suggestion
 }) => {
+    const handleClick = () => {
+        const path = `order/${suggestion.id}`;
+        
+    }
     useEffect(() => {
 
     }, []);
 
     return (
-        <div className={style['suggestion-box']}>
+        <div onClick={handleClick} className={style['suggestion-box']}>
             <img className={style['suggestion-box__image']} src={suggestion.image || '/asset/images/dogpet.webp'} alt={suggestion.name} />
             <p className={style['suggestion-box__name']}>{suggestion.name}</p>
         </div>
