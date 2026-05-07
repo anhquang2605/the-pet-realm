@@ -41,7 +41,7 @@ export interface OrderImage{
 }
 
 export interface ShopSuggestion{
-    id: string | ObjectId;
+    _id: string | ObjectId;
     name: string;
    image: string;
 }

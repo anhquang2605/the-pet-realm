@@ -10,7 +10,7 @@ type SuggestionBoxProps = {
 const SuggestionBox: React.FC<SuggestionBoxProps> = ({
     suggestion
 }) => {
-    const path = `order/${suggestion.id}`;
+    const path = `order/${suggestion._id}`;
     useEffect(() => {
 
     }, []);
