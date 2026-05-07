@@ -14,7 +14,7 @@ export interface Order{
 }
 export interface RawOrder{
      name: string;
-    id: ObjectId | string;
+    _id: ObjectId;
     price: number;
     dateCreated: string; // ISO string format
     status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'

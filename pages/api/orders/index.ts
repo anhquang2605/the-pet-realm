@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Order } from "../../../types/order";
+import { RawOrder } from "../../../types/order";
 import { getCollectionFromDB } from "../../../libs/db-interactions";
 
 
@@ -10,19 +10,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   switch (req.method) {
     case "GET":
       // Get a order
-      const orders:Order[] = [
+      const orders:RawOrder[] = [
 
       ];
       if(id && typeof id === "string"){
-        const order = ordersCollection.find((order: Order) => order.id === id);
-        if(!order) return res.status(404).json({ message: "Order not found" });
+        const order = ordersCollection.find((order: RawOrder) => order._id.toString() === id);
+        if(!order) return res.status(404).json({ message: "RawOrder not found" });
         return res.status(200).json(order);
       } else if(ids && Array.isArray(ids)){
-       const filteredOrders = ordersCollection.find((order: Order) => ids.includes(order.id as string));
+       const filteredOrders = ordersCollection.find((order: RawOrder) => ids.includes(order._id.toString()));
         if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
         return res.status(200).json(filteredOrders);
       } else if (name && typeof name === "string"){
-        const filteredOrders = ordersCollection.find((order: Order) => order.name?.toLowerCase().includes(name.toLowerCase()));
+        const filteredOrders = ordersCollection.find((order: RawOrder) => order.name?.toLowerCase().includes(name.toLowerCase()));
         if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
         return res.status(200).json(filteredOrders);
       } else {
@@ -34,12 +34,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Update a order
       const updateData = req.body;
 
-      res.status(200).json({ message: `Order ${id} updated`, data: updateData });
+      res.status(200).json({ message: `RawOrder ${id} updated`, data: updateData });
       break;
 
     case "DELETE":
       // Delete a order
-      res.status(200).json({ message: `Order ${id} deleted` });
+      res.status(200).json({ message: `RawOrder ${id} deleted` });
       break;
     case "POST":
       // Create a new order
@@ -47,17 +47,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       
       if(!newData) return res.status(400).json({ message: "No data provided" });
       if(newData && typeof newData === "object"){
-        const newOrder: Order = newData;
+        const newOrder: RawOrder = newData;
         try{
           ordersCollection.insertOne(newOrder);
-          return res.status(201).json({ message: "Order created", data: newOrder });
+          return res.status(201).json({ message: "RawOrder created", data: newOrder });
         } catch(e){
           console.log(e);
           return res.status(500).json({ message: "Error creating order", error: e });
         }
       }
       if(newData && newData.length > 0){
-        const newOrders: Order[] = newData;
+        const newOrders: RawOrder[] = newData;
         try{
           ordersCollection.insertMany(newOrders);
           return res.status(201).json({ message: "Orders created", data: newOrders });
