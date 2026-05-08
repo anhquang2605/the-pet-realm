@@ -1,35 +1,30 @@
-import { useState, useEffect, useRef} from 'react';
+import { useState, useEffect, useRef}  from 'react';
+import { useSearchParams } from 'next/navigation';
 //get params from url
 import { useRouter } from 'next/router';
 import { fetchFromGetAPI } from '../../libs/api-interactions';
 import { RawOrder } from '../../types/order';
 
-interface OrderPageProps {
-    order: RawOrder | null;
-}
 
-export const getServerSideProps = async (context: any) => {
-    const { id } = context.query;
-    const path = "orders";
-    try {
-        const res = await fetchFromGetAPI(path, { id });
-        return {
-            props: {
-                order: res
-            }
-        }
-    } catch (error) {
-        console.error('Error fetching order data:', error);
-        return {
-            props: {
-                order: null,
-            }
+export default function OrdersPage( ) {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id');
+    const [order, setOrder] = useState<RawOrder | null>(null);
+    const getOrderDetails = async (id: string) => {
+        const path = 'orders';
+        try {
+            const response = await fetchFromGetAPI(path, { id });
+            setOrder(response);
+        } catch (error) {
+            console.error('Error fetching order details:', error);
         }
     }
-}
-export default function OrdersPage( { order }: OrderPageProps) {
-    const router = useRouter();
-    const { id } = router.query;
+    useEffect(() => {
+        if (id) {
+            getOrderDetails(id);
+        }
+    }, [id]);
 
     return (
         <div>
