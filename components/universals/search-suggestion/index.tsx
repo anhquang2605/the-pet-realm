@@ -6,11 +6,13 @@ import SuggestionBox from './suggestion-box';
 type SearchSuggestionProps = {
     suggestions: ShopSuggestion[];
     isLoading?: boolean;
+    setResults?: React.Dispatch<React.SetStateAction<ShopSuggestion[]>>;
 };
 
 const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
     suggestions,
-    isLoading = false
+    isLoading = false,
+    setResults
 }) => {
     useEffect(() => {
 
@@ -23,7 +25,7 @@ const SearchSuggestion: React.FC<SearchSuggestionProps> = ({
         suggestions.length === 0 ? null :<div className={style['search-suggestion']}>
             {
                 suggestions.map((suggestion) => (
-                    <SuggestionBox key={suggestion._id?.toString()} suggestion={suggestion} />
+                    <SuggestionBox setResults={setResults} key={suggestion._id?.toString()} suggestion={suggestion} />
                 ))
             }
         </div>

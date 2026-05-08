@@ -69,7 +69,7 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
             </button>
             
             </div>
-            <SearchSuggestion isLoading={isLoading} suggestions={autoCompleteResults} />
+            <SearchSuggestion setResults={setAutoCompleteResults} isLoading={isLoading} suggestions={autoCompleteResults} />
         </div>
     );
 };
