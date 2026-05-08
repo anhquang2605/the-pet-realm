@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/router';
 import { fetchFromGetAPI } from '../../libs/api-interactions';
 import { RawOrder } from '../../types/order';
-
+import styles from '../page-styles/order.module.css';
 
 export default function OrdersPage( ) {
     const router = useRouter();
@@ -15,7 +15,7 @@ export default function OrdersPage( ) {
         const path = 'orders';
         try {
             const response = await fetchFromGetAPI(path, { id });
-            setOrder(response);
+            setOrder(response[0]);
         } catch (error) {
             console.error('Error fetching order details:', error);
         }
@@ -27,9 +27,18 @@ export default function OrdersPage( ) {
     }, [id]);
 
     return (
-        <div>
-            <h1>Orders</h1>
-            <p>Order ID: {id}</p>
+        <div className={styles.order}>
+            
+        {
+            order !== null ?
+            <>
+                <h1>{order.name}</h1>
+                <p>Order ID: {id}</p>
+            </>
+            :
+            <p>Loading...</p>
+        }
+            
         </div>
     );
 }

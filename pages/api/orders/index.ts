@@ -15,13 +15,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       ];
       if(id && typeof id === "string"){
-        const order = ordersCollection.find({
+        const order = await ordersCollection.find({
           _id: new ObjectId(id)
         }).toArray();
+        console.log(order);
         if(!order) return res.status(404).json({ message: "RawOrder not found" });
-        return res.status(200).json({
-          resuls: order,
-        });
+        return res.status(200).json(
+          order);
       } else if(ids && Array.isArray(ids)){
        const filteredOrders = ordersCollection.find((order: RawOrder) => ids.includes(order._id.toString()));
         if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
