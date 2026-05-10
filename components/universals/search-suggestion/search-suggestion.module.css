@@ -13,3 +13,6 @@
     flex-direction: column;
     overflow: hidden;
 }
+.loading{
+    padding: var(--quarter-spacing);
+}
