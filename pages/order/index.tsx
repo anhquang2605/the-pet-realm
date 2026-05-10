@@ -30,6 +30,7 @@ export default function OrdersPage( ) {
         <div className={style['order-page']}>
             <h1>Orders</h1>
             <p>Order ID: {id}</p>
+            
         </div>
     );
 }
