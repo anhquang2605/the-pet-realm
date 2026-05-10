@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/router';
 import { fetchFromGetAPI } from '../../libs/api-interactions';
 import { RawOrder } from '../../types/order';
-
+import style from '../page-styles/order.module.css';
 
 export default function OrdersPage( ) {
     const router = useRouter();
@@ -27,7 +27,7 @@ export default function OrdersPage( ) {
     }, [id]);
 
     return (
-        <div>
+        <div className={style['order-page']}>
             <h1>Orders</h1>
             <p>Order ID: {id}</p>
         </div>
