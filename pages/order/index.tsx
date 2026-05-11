@@ -7,7 +7,6 @@ import { RawOrder } from '../../types/order';
 import style from '../page-styles/order.module.css';
 
 export default function OrdersPage( ) {
-    const router = useRouter();
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
     const [order, setOrder] = useState<RawOrder | null>(null);
