@@ -10,7 +10,7 @@ interface OrderProviderProps {
     children: React.ReactNode;
 }
 
-export const OrderContext = createContext(null);
+export const OrderContext = createContext<OrderContextType | null>(null);
 
 export const OrderProvider: React.FC<OrderProviderProps> = ({ children }) => {
     const [order, setOrder] = useState<Order | null>(null);
