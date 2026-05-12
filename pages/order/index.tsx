@@ -15,11 +15,11 @@ export default function OrdersPage( ) {
 
     return (
         <OrderProvider id={id}>
-            <div className={style['order-page']}>
+            <section className={style['order-page']}>
                 <OrderImages />
                 <OrderInfos />
                 <OrderButtons />
-            </div>
+            </section>
         </OrderProvider>
     );
 }
