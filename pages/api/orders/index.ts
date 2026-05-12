@@ -18,7 +18,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const order = await ordersCollection.find({
           _id: new ObjectId(id)
         }).toArray();
-        console.log(order);
         if(!order) return res.status(404).json({ message: "RawOrder not found" });
         return res.status(200).json(
           order);
