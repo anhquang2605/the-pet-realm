@@ -26,7 +26,7 @@ export default function OrdersPage( ) {
     }, [id]);
 
     return (
-        <OrderProvider>
+        <OrderProvider mainOrder={order}>
             <div className={style['order-page']}>
                 
             </div>
