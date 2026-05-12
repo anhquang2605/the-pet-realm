@@ -4,10 +4,9 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/router';
 import { fetchFromGetAPI } from '../../libs/api-interactions';
 import { RawOrder } from '../../types/order';
-import styles from '../page-styles/order.module.css';
+import style from '../page-styles/order.module.css';
 
 export default function OrdersPage( ) {
-    const router = useRouter();
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
     const [order, setOrder] = useState<RawOrder | null>(null);
@@ -27,17 +26,7 @@ export default function OrdersPage( ) {
     }, [id]);
 
     return (
-        <div className={styles.order}>
-            
-        {
-            order !== null ?
-            <>
-                <h1>{order.name}</h1>
-                <p>Order ID: {id}</p>
-            </>
-            :
-            <p>Loading...</p>
-        }
+        <div className={style['order-page']}>
             
         </div>
     );
