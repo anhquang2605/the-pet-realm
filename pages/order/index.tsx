@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { fetchFromGetAPI } from '../../libs/api-interactions';
 import { RawOrder } from '../../types/order';
 import style from '../page-styles/order.module.css';
-
+import { OrderProvider } from '../../components/sections/order-components/useOrderContext';
 export default function OrdersPage( ) {
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
@@ -26,8 +26,10 @@ export default function OrdersPage( ) {
     }, [id]);
 
     return (
-        <div className={style['order-page']}>
-            
-        </div>
+        <OrderProvider>
+            <div className={style['order-page']}>
+                
+            </div>
+        </OrderProvider>
     );
 }
