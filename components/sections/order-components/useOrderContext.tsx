@@ -29,6 +29,18 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
             setApiStatus('error');
         }
     }
+    const deliverContextByStatus = () => {
+        switch (apiStatus) {
+            case 'loading':
+                return <div className={style.loading}>Loading...</div>;
+            case 'error':
+                return <div className={style.error}>Error loading order details.</div>;
+            case 'success':
+                return children;
+            default:
+                return null;
+        }
+    }
     useEffect(() => {
         if (id) {
             getOrderDetails(id);
@@ -36,7 +48,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     }, [id]);
     return (
         <OrderContext.Provider value={{ order, setOrder }}>
-            {apiStatus === 'loading' ? <div className={style.loading}>Loading...</div> : children}
+            {deliverContextByStatus()}
         </OrderContext.Provider>
     );
 }
