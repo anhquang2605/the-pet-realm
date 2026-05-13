@@ -1,4 +1,4 @@
-import {createContext, useState, useEffect } from 'react';
+import {createContext, useState, useEffect, useContext } from 'react';
 import { Order, RawOrder } from '../../../types/order';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
@@ -51,4 +51,12 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
+}
+
+export function useOrderContext(): OrderContextType{
+    const context = useContext(OrderContext);
+    if(!context){
+        throw new Error('useOrder must be used within a OrderProvider');
+    }
+    return context;
 }

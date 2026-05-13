@@ -1,17 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import style from './order-infos.module.css';
+
+import { useOrderContext} from '../useOrderContext';
 
 type OrderInfosProps = Record<string, never>;
 
 const OrderInfos: React.FC<OrderInfosProps> = ({}) => {
+    const { order } = useOrderContext();
+
     useEffect(() => {
 
     }, []);
 
     return (
-        <div className={style['order-infos']}>
-            OrderInfos
-        </div>
+        <section className={style['order-infos']}>
+            
+        </section>
     );
 };
 
