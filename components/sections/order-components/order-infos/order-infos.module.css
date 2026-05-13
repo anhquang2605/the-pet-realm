@@ -1,3 +1,10 @@
 .order-infos{
     
 }
+.order-price{
+
+}
+.order-price.order-original{
+    text-decoration: line-through;
+    color: var(--color-secondary);
+}

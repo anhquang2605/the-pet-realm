@@ -7,7 +7,6 @@ type OrderInfosProps = Record<string, never>;
 
 const OrderInfos: React.FC<OrderInfosProps> = ({}) => {
     const { order } = useOrderContext();
-
     useEffect(() => {
 
     }, []);
@@ -20,7 +19,7 @@ const OrderInfos: React.FC<OrderInfosProps> = ({}) => {
             <p className={style['order-description']}>
                 {order.description}
             </p>
-            <span className={style['order-price']}>${order.price}</span>
+            <span className={style['order-price'] + ' ' + (order.discount > 0 && style['order-original'])}>${order.price}</span>
             <span className={style['order-discounted']}>${order.discount * order.price}</span>
         </section>
     );
