@@ -8,3 +8,6 @@
     text-decoration: line-through;
     color: var(--color-secondary);
 }
+.order-discounted{
+    color: lightgray;
+}
