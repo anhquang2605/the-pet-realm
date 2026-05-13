@@ -1,13 +1,23 @@
 .order-infos{
-    
+    color: lightgray;
 }
 .order-price{
 
 }
+.order-name{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.order-price{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
 .order-price.order-original{
     text-decoration: line-through;
-    color: var(--color-secondary);
+    color: gray;
 }
 .order-discounted{
-    color: lightgray;
+    margin-left: 4px;
+    color: goldenrod;
 }
