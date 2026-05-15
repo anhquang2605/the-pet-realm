@@ -31,7 +31,7 @@ const OrderFormOverlay: React.FC<OrderFormOverlayProps> = ({
     }, []);
 
     return (
-        <div className={style['order-form-overlay'] + " backdrop-blur-md "}>
+        <div className={style['order-form-overlay'] + " backdrop-blur-md "} onClick={handleClose} >
             {
                 currentStatus === 'error' 
                 &&
