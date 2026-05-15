@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 12px;
     width: 100%;
+    flex: 1;
 }
 .order-price{
 
@@ -25,7 +26,7 @@
     margin-left: 4px;
     color: goldenrod;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
     .order-infos{
         width: 50%;
     }
