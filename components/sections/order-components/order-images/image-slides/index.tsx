@@ -12,7 +12,12 @@ const ImageSlides: React.FC<ImageSlidesProps> = ({ images }) => {
 
     return (
         <div className={style['image-slides']}>
-            ImageSlides
+            {
+                images.map((image, index) =>  (
+                    <img key={index} className={style['image-slides__image']} src={image} alt={`Slide ${index + 1}`} />
+                ))  
+
+            }
         </div>
     );
 };
