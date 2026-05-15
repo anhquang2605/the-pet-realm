@@ -1,5 +1,9 @@
 .order-infos{
     color: lightgray;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
 }
 .order-price{
 
@@ -20,4 +24,9 @@
 .order-discounted{
     margin-left: 4px;
     color: goldenrod;
+}
+@media screen and (max-width: 768px) {
+    .order-infos{
+        width: 50%;
+    }
 }
