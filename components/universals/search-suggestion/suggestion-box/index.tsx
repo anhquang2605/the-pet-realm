@@ -22,7 +22,7 @@ const SuggestionBox: React.FC<SuggestionBoxProps> = ({
     }, []);
 
     return (
-        <Link href={path} as={suggestion.name} className={style['suggestion-box']} onClick={handleClick}>
+        <Link href={path} className={style['suggestion-box']} onClick={handleClick}>
             <img className={style['suggestion-box__image']} src={suggestion.image || '/asset/images/dogpet.webp'} alt={suggestion.name} />
             <p className={style['suggestion-box__name']}>{suggestion.name}</p>
         </Link>

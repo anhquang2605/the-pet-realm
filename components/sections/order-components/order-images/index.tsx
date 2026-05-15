@@ -10,7 +10,7 @@ const OrderImages: React.FC<OrderImagesProps> = ({}) => {
     const { order } = useOrderContext();
 
     useEffect(() => {
-
+        console.log('Order in OrderImages:', order);
     }, []);
 
     return (
