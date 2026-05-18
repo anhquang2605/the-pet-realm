@@ -2,4 +2,12 @@
     display: flex;
     width: 20%;
     flex-direction: column;
+    margin-right: 12px;
+    gap: 4px;
+}
+.image-slides__image{
+    height: 25%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: var(--border-radius);
 }

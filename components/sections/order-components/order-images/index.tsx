@@ -16,10 +16,11 @@ const OrderImages: React.FC<OrderImagesProps> = ({}) => {
     return (
         order && 
         <section className={style['order-images']}>
+            {order.imageUrls.length > 1 && (
+                <ImageSlides images={order.imageUrls} />
+            )}
             <img className={style['order-image']} src={order.imageUrls[0]} alt={order.name} />
-                {order.imageUrls.length > 1 && (
-                    <ImageSlides images={order.imageUrls} />
-                )}
+              
         </section>
     );
 };
