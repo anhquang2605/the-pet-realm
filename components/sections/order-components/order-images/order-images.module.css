@@ -1,6 +1,7 @@
 .order-images{
     display: flex;
     width: 100%;
+    height: 50vh;
 }
 .order-image{
     width: 100%;
