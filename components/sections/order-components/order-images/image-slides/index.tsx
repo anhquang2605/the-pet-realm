@@ -4,9 +4,10 @@ import style from './image-slides.module.css';
 type ImageSlidesProps = {
     images: string[];
     setCurrentImage?: (image: string) => void;
+    currentImage: string | null;
 };
 
-const ImageSlides: React.FC<ImageSlidesProps> = ({ images, setCurrentImage }) => {
+const ImageSlides: React.FC<ImageSlidesProps> = ({ images, setCurrentImage, currentImage }) => {
     useEffect(() => {
 
     }, []);
@@ -17,7 +18,7 @@ const ImageSlides: React.FC<ImageSlidesProps> = ({ images, setCurrentImage }) =>
         <div className={style['image-slides']}>
             {
                 images.map((image, index) =>  (
-                    <img key={index} className={style['image-slides__image']} src={image} alt={`Slide ${index + 1}`} onClick={() => handleImageClick(image)} />
+                    <img key={index} className={style['image-slides__image'] + " " + (currentImage === image ? style['image-slides__image--active'] : '')} src={image} alt={`Slide ${index + 1}`} onClick={() => handleImageClick(image)} />
                 ))  
                 
 

@@ -19,7 +19,7 @@ const OrderImages: React.FC<OrderImagesProps> = ({}) => {
         order && 
         <section className={style['order-images']}>
             {order.imageUrls.length > 1 && (
-                <ImageSlides setCurrentImage={setCurrentImage} images={order.imageUrls} />
+                <ImageSlides setCurrentImage={setCurrentImage} currentImage={currentImage} images={order.imageUrls} />
             )}
             <img className={style['order-image']} src={currentImage || order.imageUrls[0]} alt={order.name} />
               

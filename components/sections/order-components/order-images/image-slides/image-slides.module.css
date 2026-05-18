@@ -6,8 +6,14 @@
     gap: 4px;
 }
 .image-slides__image{
-    height: 25%;
+    height: 100px;
     object-fit: cover;
     cursor: pointer;
     border-radius: var(--border-radius);
+    opacity: 0.5;
+}
+.image-slides__image--active{
+    border: 2px solid var(--loading-color);
+    opacity: 1;
+
 }
