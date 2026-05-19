@@ -4,8 +4,7 @@
     height: 50vh;
 }
 .order-image{
-    width: 100%;
-    height: auto;
+    max-width: 100%;
     object-fit: cover;
     border-radius: var(--border-radius);
 }
@@ -14,6 +13,6 @@
         width: 50%;
     }
     .order-image{
-        width: 80%;
+        max-width: 80%;
     }
 }

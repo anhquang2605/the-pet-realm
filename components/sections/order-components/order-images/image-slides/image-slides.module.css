@@ -1,9 +1,10 @@
 .image-slides{
     display: flex;
-    width: 20%;
+    max-width: 20%;
     flex-direction: column;
     margin-right: 12px;
     gap: 4px;
+    box-sizing: border-box;
 }
 .image-slides__image{
     height: 100px;
@@ -11,6 +12,7 @@
     cursor: pointer;
     border-radius: var(--border-radius);
     opacity: 0.5;
+    box-sizing: border-box;
 }
 .image-slides__image--active{
     border: 2px solid var(--loading-color);
