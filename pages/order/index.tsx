@@ -9,16 +9,15 @@ import { OrderProvider } from '../../components/sections/order-components/useOrd
 import OrderInfos from '../../components/sections/order-components/order-infos';
 import OrderImages from '../../components/sections/order-components/order-images';
 import OrderButtons from '../../components/sections/order-components/order-buttons';
+import OrderPageSectionSwitcher from '../../components/sections/order-components/order-page-section-switcher';
 export default function OrdersPage( ) {
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
-
+    
     return (
-        <OrderProvider id={id}>
+        <OrderProvider id={id} >
             <section className={style['order-page']}>
-                <OrderImages />
-                <OrderInfos />
-                <OrderButtons />
+                <OrderPageSectionSwitcher />
             </section>
         </OrderProvider>
     );
