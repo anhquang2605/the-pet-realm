@@ -5,6 +5,9 @@ import style from './use-order-context.module.css';
 type OrderContextType = {
     order: RawOrder | null,
     setOrder: React.Dispatch<React.SetStateAction<any>>
+    sectionName: string;
+    setSectionName: React.Dispatch<React.SetStateAction<string>>
+
 }
 
 interface OrderProviderProps {
@@ -17,6 +20,7 @@ export const OrderContext = createContext<OrderContextType | null>(null);
 export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) => {
     const [order, setOrder] = useState<RawOrder | null>(null);
     const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
+    const [sectionName, setSectionName] = useState<string>('details');
     const getOrderDetails = async (id: string) => {
         setApiStatus('loading');
         const path = 'orders';
@@ -47,7 +51,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }, [id]);
     return (
-        <OrderContext.Provider value={{ order, setOrder }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
