@@ -13,7 +13,7 @@ const OrderButtons: React.FC<OrderButtonsProps> = ({}) => {
 
     return (
         <div className={style['order-buttons']}>
-            <ActionButton type='main' onClick={() => setSectionName('paymnent')} title='Order'/>
+            <ActionButton type='main' onClick={() => setSectionName('payment')} title='Order'/>
         </div>
     );
 };
