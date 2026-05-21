@@ -16,7 +16,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
 
     return (
         <div className={style['order-payment']}>
-            <button><IoReturnUpBack />Back</button>
+            <button className={style['back-button']} onClick={handleBackClick}><IoReturnUpBack />Back</button>
             OrderPayment
         </div>
     );
