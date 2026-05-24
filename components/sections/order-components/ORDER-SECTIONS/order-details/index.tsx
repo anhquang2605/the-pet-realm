@@ -13,9 +13,15 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({}) => {
 
     return (
         <div className={style['order-details']}>
-            <OrderImages />
-            <OrderInfos />
-            <OrderButtons />
+            <section className={style['order-details-lefty']}>
+                 <OrderImages />
+            </section>
+            <section className={style['order-details-righty']}>
+                  <OrderInfos />
+                <OrderButtons />
+            </section>
+           
+          
         </div>
     );
 };
