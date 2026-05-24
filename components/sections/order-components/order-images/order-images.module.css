@@ -9,9 +9,6 @@
     border-radius: var(--border-radius);
 }
 @media screen and (min-width: 768px) {
-    .order-images{
-        width: 50%;
-    }
     .order-image{
         max-width: 80%;
     }
