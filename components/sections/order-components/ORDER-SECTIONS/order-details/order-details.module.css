@@ -20,5 +20,6 @@
     .order-details-righty{
         width: 50%;
         height: auto;
+            padding: var(--spacing);
     }
 }
