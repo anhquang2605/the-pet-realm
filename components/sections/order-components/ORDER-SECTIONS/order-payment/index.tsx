@@ -23,3 +23,4 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
 };
 
 export default OrderPayment;
+
