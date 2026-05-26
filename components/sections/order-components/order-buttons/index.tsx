@@ -6,7 +6,7 @@ import ActionButton from '../../../universals/buttons/action-button/action-butto
 type OrderButtonsProps = Record<string, never>;
 
 const OrderButtons: React.FC<OrderButtonsProps> = ({}) => {
-    const {sectionName, setSectionName} = useOrderContext();
+    const {setSectionName} = useOrderContext();
     useEffect(() => {
 
     }, []);
