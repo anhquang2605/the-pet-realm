@@ -1,4 +1,4 @@
-export interface PaymentDetails {
+export interface Payments {
     cardNumber: string;
     cardHolderName: string;
     expiryDate: string; // Format: MM/YY

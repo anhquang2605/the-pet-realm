@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import style from './payment-details.module.css';
+import { useOrderContext } from './../../../useOrderContext';
+import { Payments } from '../../../../../../types/payment';
 
 type PaymentDetailsProps = Record<string, never>;
 
