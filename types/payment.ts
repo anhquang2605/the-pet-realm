@@ -10,3 +10,6 @@ export interface Payments {
     postalCode: string;
     country: string;
 }
+export interface Shipment{
+
+}
