@@ -6,7 +6,6 @@ import { Payments } from '../../../../../../types/payment';
 type PaymentDetailsProps = Record<string, never>;
 
 const PaymentDetails: React.FC<PaymentDetailsProps> = ({}) => {
-    //based on payment details interface, generate form to show payment details, make it editable and save changes to context
     const {payment} = useOrderContext();
 
     useEffect(() => {
@@ -15,7 +14,6 @@ const PaymentDetails: React.FC<PaymentDetailsProps> = ({}) => {
 
     return (
         <div className={style['payment-details']}>
-            \* Form to show payment details, make it editable and save changes to context *\
                 <h3 className={style['title']}>Payment Details</h3>
                 <div className={style['payment-info']}>
                     <div className={style['payment-info-item']}>
