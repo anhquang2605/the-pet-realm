@@ -2,12 +2,15 @@ import {createContext, useState, useEffect, useContext } from 'react';
 import { Order, RawOrder } from '../../../types/order';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
+import { PaymentDetails } from '../../../types/payment';
 type OrderContextType = {
     order: RawOrder | null,
     setOrder: React.Dispatch<React.SetStateAction<any>>
     sectionName: string;
     setSectionName: React.Dispatch<React.SetStateAction<string>>
-
+    paymentDetails: PaymentDetails | null;
+    setPaymentDetails: React.Dispatch<React.SetStateAction<PaymentDetails | null>>
+    
 }
 
 interface OrderProviderProps {
