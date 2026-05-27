@@ -19,40 +19,40 @@ const PaymentDetails: React.FC<PaymentDetailsProps> = ({}) => {
                 <h3 className={style['title']}>Payment Details</h3>
                 <div className={style['payment-info']}>
                     <div className={style['payment-info-item']}>
-                        <label>Card Number:</label> 
-                        <input type="text" value={payment.cardNumber || ''} readOnly />
+                        <label className={style['payment-info-label']}>Card Number:</label> 
+                        <input  type="text" value={payment.cardNumber || ''} readOnly />
                     </div>
                     <div className={style['payment-info-item']}>
-                        <label>Expiration Date:</label> 
+                        <label className={style['payment-info-label']}>Expiration Date:</label> 
                         <input type="text" value={payment.expiryDate || ''} readOnly />
                     </div>
                     <div className={style['payment-info-item']}>
-                        <label>CVV:</label> 
+                        <label className={style['payment-info-label']}>CVV:</label> 
                         <input type="text" value={payment.cvv || ''} readOnly />
                     </div>
                     {/* payment card holder name, billing address, city, state, postal code, country */}
                     <div className={style['payment-info-item']}>
-                        <label>Card Holder Name:</label> 
+                        <label className={style['payment-info-label']}  >Card Holder Name:</label> 
                         <input type="text" value={payment.cardHolderName || ''} readOnly />
                     </div>    
                     <div className={style['payment-info-item']}>
-                        <label>Billing Address:</label> 
+                        <label className={style['payment-info-label']}>Billing Address:</label> 
                         <input type="text" value={payment.billingAddress1 || ''} readOnly />
                     </div>    
                     <div className={style['payment-info-item']}>    
-                        <label>City:</label>    
+                        <label className={style['payment-info-label']}>City:</label>    
                         <input type="text" value={payment.city || ''} readOnly />
                     </div>    
                     <div className={style['payment-info-item']}>
-                        <label>State:</label> 
+                        <label className={style['payment-info-label']}>State:</label> 
                         <input type="text" value={payment.state || ''} readOnly />
                     </div>    
                     <div className={style['payment-info-item']}>
-                        <label>Postal Code:</label> 
+                        <label className={style['payment-info-label']}>Postal Code:</label> 
                         <input type="text" value={payment.postalCode || ''} readOnly />
                     </div>    
                     <div className={style['payment-info-item']}>
-                        <label>Country:</label> 
+                        <label className={style['payment-info-label']}>Country:</label> 
                         <input type="text" value={payment.country || ''} readOnly />
                     </div>
                 </div>
