@@ -8,8 +8,8 @@ type OrderContextType = {
     setOrder: React.Dispatch<React.SetStateAction<any>>
     sectionName: string;
     setSectionName: React.Dispatch<React.SetStateAction<string>>
-    payment: Payments | null;
-    setPayment: React.Dispatch<React.SetStateAction<Payments | null>>
+    payment: Payments;
+    setPayment: React.Dispatch<React.SetStateAction<Payments>>
     
 }
 
@@ -24,7 +24,18 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [order, setOrder] = useState<RawOrder | null>(null);
     const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
     const [sectionName, setSectionName] = useState<string>('details');
-    const [payment, setPayment] = useState<Payments | null>(null);
+    const [payment, setPayment] = useState<Payments>({
+        cardNumber: '',
+        expiryDate: '',
+        cvv: '',
+        cardHolderName: '',
+        billingAddress1: '',
+        billingAddress2: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        country: ''
+    });
     const getOrderDetails = async (id: string) => {
         setApiStatus('loading');
         const path = 'orders';
