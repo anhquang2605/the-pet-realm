@@ -2,7 +2,7 @@ import {createContext, useState, useEffect, useContext } from 'react';
 import { Order, RawOrder } from '../../../types/order';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
-import { Payments } from '../../../types/payment';
+import { Payments, Shipping } from '../../../types/payment';
 type OrderContextType = {
     order: RawOrder | null,
     setOrder: React.Dispatch<React.SetStateAction<any>>
@@ -10,7 +10,8 @@ type OrderContextType = {
     setSectionName: React.Dispatch<React.SetStateAction<string>>
     payment: Payments;
     setPayment: React.Dispatch<React.SetStateAction<Payments>>
-    
+    shipping: Shipping;
+    setShipping: React.Dispatch<React.SetStateAction<Shipping>>
 }
 
 interface OrderProviderProps {
@@ -35,6 +36,15 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         state: '',
         postalCode: '',
         country: ''
+    });
+    const [shipping, setShipping] = useState<Shipping>({
+        recipientName: '',
+        email: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        country: '',
+        phoneNumber: ''
     });
     const getOrderDetails = async (id: string) => {
         setApiStatus('loading');
@@ -66,7 +76,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }, [id]);
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment  }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
