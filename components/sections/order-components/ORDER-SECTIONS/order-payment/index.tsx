@@ -8,7 +8,7 @@ import Shipment from './shipment';
 type OrderPaymentProps = Record<string, never>;
 
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
-    const {setSectionName} = useOrderContext();
+    const {setSectionName, paymentStage} = useOrderContext();
     useEffect(() => {
 
     }, []);

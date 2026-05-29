@@ -12,6 +12,10 @@ type OrderContextType = {
     setPayment: React.Dispatch<React.SetStateAction<Payments>>
     shipping: Shipping;
     setShipping: React.Dispatch<React.SetStateAction<Shipping>>
+    paymentStage: number;
+    setPaymentStage: React.Dispatch<React.SetStateAction<number>>
+    apiStatus: 'idle' | 'loading' | 'error' | 'success';
+    setApiStatus: React.Dispatch<React.SetStateAction<'idle' | 'loading' | 'error' | 'success'>>;
 }
 
 interface OrderProviderProps {
@@ -25,6 +29,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [order, setOrder] = useState<RawOrder | null>(null);
     const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
     const [sectionName, setSectionName] = useState<string>('details');
+    const [paymentStage, setPaymentStage] = useState<number>(1);
     const [payment, setPayment] = useState<Payments>({
         cardNumber: '',
         expiryDate: '',
@@ -76,7 +81,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }, [id]);
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, paymentStage, setPaymentStage, apiStatus, setApiStatus }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
