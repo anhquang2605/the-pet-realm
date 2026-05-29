@@ -7,7 +7,26 @@ type PaymentDetailsProps = Record<string, never>;
 
 const PaymentDetails: React.FC<PaymentDetailsProps> = ({}) => {
     const {payment, setPayment} = useOrderContext();
-
+    
+    //validation for payment details
+    const validatePaymentDetails = () => {
+        const cardNumberRegex = /^\d{16}$/;
+        const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        const cvvRegex = /^\d{3}$/;
+        if (!cardNumberRegex.test(payment.cardNumber)) {
+            alert('Invalid card number. It should be 16 digits.');
+            return false;
+        }
+        if (!expiryDateRegex.test(payment.expiryDate)) {
+            alert('Invalid expiry date. It should be in MM/YY format.');
+            return false;   
+        }
+        if (!cvvRegex.test(payment.cvv)) {
+            alert('Invalid CVV. It should be 3 digits.');
+            return false;
+        }
+        return true;
+    }
     useEffect(() => {
 
     }, []);
