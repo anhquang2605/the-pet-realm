@@ -142,7 +142,8 @@ export default function PaymentForm() {
     const renderInput = (
         label: string,
         name: keyof Payments,
-        placeholder?: string
+        placeholder?: string,
+        type: string = 'text'
     ) => (
         <div className={styles.formGroup}>
             <label className={styles.label}>
@@ -150,7 +151,7 @@ export default function PaymentForm() {
             </label>
 
             <input
-                type="text"
+                type={type}
                 name={name}
                 value={formData[name] || ''}
                 onChange={handleChange}
@@ -177,7 +178,8 @@ export default function PaymentForm() {
             {renderInput(
                 'Card Number',
                 'cardNumber',
-                '1234123412341234'
+                '1234123412341234',
+                'number'
             )}
 
             {renderInput(
@@ -189,10 +191,10 @@ export default function PaymentForm() {
             {renderInput(
                 'Expiry Date',
                 'expiryDate',
-                'MM/YY'
+                'MM/YY',
             )}
 
-            {renderInput('CVV', 'cvv', '123')}
+            {renderInput('CVV', 'cvv', '123', 'number')}
 
             {renderInput(
                 'Billing Address 1',
