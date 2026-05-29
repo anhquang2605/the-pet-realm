@@ -1,50 +1,215 @@
 import React, {useState, useEffect} from 'react';
-import style from './shipment.module.css';
+import styles from './shipment.module.css';
 import { Shipping } from '../../../../../../types/payment';
 import { useOrderContext } from '../../../useOrderContext';
-type ShipmentProps = Record<string, never>;
 
-const Shipment: React.FC<ShipmentProps> = ({ }) => {
-    const {shipping, setShipping} = useOrderContext();
-    useEffect(() => {
 
-    }, []);
+type Errors = Partial<Record<keyof Shipping, string>>;
 
-    return (
-        <div className={style['shipment']}>
-                <h3 className={style['title']}>Shipment Details</h3>
-                <div className={style['shipment-info']}>
-                    <div className={style['shipment-info-item']}>   
-                        <label className={style['shipment-info-label']}>Recipient Name:</label>
-                        <input value={shipping.recipientName} type="text" onChange={(e) => setShipping(prev => ({...prev, recipientName: e.target.value}))} className={style['shipment-info-input']} placeholder="Recipient Name" />
-                    </div>
-                    <div className={style['shipment-info-item']}>
-                        <label className={style['shipment-info-label']}>Email:</label>
-                        <input value={shipping.email} type="email" onChange={(e) => setShipping(prev => ({...prev, email: e.target.value}))} className={style['shipment-info-input']} placeholder="Email" />
-                    </div>
-                </div>
-                <div className={style['shipment-info']}>
-                    <div className={style['shipment-info-item']}>
-                        <label className={style['shipment-info-label']}>City:</label>
-                        <input value={shipping.city} type="text" onChange={(e) => setShipping(prev => ({...prev, city: e.target.value}))} className={style['shipment-info-input']} placeholder="City" />
-                    </div>
-                    <div className={style['shipment-info-item']}>
-                        <label className={style['shipment-info-label']}>State:</label>
-                        <input value={shipping.state} type="text" onChange={(e) => setShipping(prev => ({...prev, state: e.target.value}))} className={style['shipment-info-input']} placeholder="State" />
-                    </div>
-                </div>
-                <div className={style['shipment-info']}>
-                    <div className={style['shipment-info-item']}>
-                        <label className={style['shipment-info-label']}>Postal Code:</label>
-                        <input value={shipping.postalCode} type="text" onChange={(e) => setShipping(prev => ({...prev, postalCode: e.target.value}))} className={style['shipment-info-input']} placeholder="Postal Code" />
-                    </div>
-                    <div className={style['shipment-info-item']}>
-                        <label className={style['shipment-info-label']}>Country:</label>
-                        <input value={shipping.country} type="text" onChange={(e) => setShipping(prev => ({...prev, country: e.target.value}))} className={style['shipment-info-input']} placeholder="Country" />
-                    </div>
-                </div>
-            </div>
-    );
+const initialForm: Shipping = {
+    recipientName: '',
+    email: '',
+    city: '',
+    state: '',
+    postalCode: '',
+    country: '',
+    phoneNumber: '',
 };
 
-export default Shipment;
+export default function ShippingForm() {
+    const { shipping, setShipping } = useOrderContext();
+    const [formData, setFormData] =
+        useState<Shipping>(initialForm);
+
+    const [errors, setErrors] =
+        useState<Errors>({});
+
+    const validateField = (
+        name: keyof Shipping,
+        value: string
+    ): string => {
+        switch (name) {
+            case 'recipientName':
+                if (value.trim().length < 2) {
+                    return 'Recipient name is required.';
+                }
+                return '';
+
+            case 'email':
+                if (
+                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+                ) {
+                    return 'Enter a valid email address.';
+                }
+                return '';
+
+            case 'city':
+                if (!value.trim()) {
+                    return 'City is required.';
+                }
+                return '';
+
+            case 'state':
+                if (!value.trim()) {
+                    return 'State is required.';
+                }
+                return '';
+
+            case 'postalCode':
+                if (
+                    !/^[A-Za-z0-9 -]{4,10}$/.test(value)
+                ) {
+                    return 'Enter a valid postal code.';
+                }
+                return '';
+
+            case 'country':
+                if (!value.trim()) {
+                    return 'Country is required.';
+                }
+                return '';
+
+            case 'phoneNumber':
+                if (
+                    !/^\+?[0-9\s()-]{7,20}$/.test(value)
+                ) {
+                    return 'Enter a valid phone number.';
+                }
+                return '';
+
+            default:
+                return '';
+        }
+    };
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+
+        const error = validateField(
+            name as keyof Shipping,
+            value
+        );
+
+        setErrors((prev) => ({
+            ...prev,
+            [name]: error,
+        }));
+    };
+
+    const validateForm = (): boolean => {
+        const newErrors: Errors = {};
+
+        (
+            Object.keys(formData) as Array<keyof Shipping>
+        ).forEach((key) => {
+            const error = validateField(
+                key,
+                formData[key]
+            );
+
+            if (error) {
+                newErrors[key] = error;
+            }
+        });
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSubmit = (
+        e: React.FormEvent
+    ) => {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        console.log('Shipping Info:', formData);
+
+        setShipping(formData);
+    };
+
+    const renderInput = (
+        label: string,
+        name: keyof Shipping,
+        placeholder?: string,
+        type: string = 'text'
+    ) => (
+        <div className={styles.formGroup}>
+            <label className={styles.label}>
+                {label}
+            </label>
+
+            <input
+                type={type}
+                name={name}
+                value={formData[name]}
+                onChange={handleChange}
+                placeholder={placeholder}
+                className={`${styles.input} ${
+                    errors[name]
+                        ? styles.inputError
+                        : ''
+                }`}
+            />
+
+            {errors[name] && (
+                <p className={styles.errorText}>
+                    {errors[name]}
+                </p>
+            )}
+        </div>
+    );
+
+    return (
+        <form
+            className={styles.form}
+            onSubmit={handleSubmit}
+            noValidate
+        >
+            {renderInput(
+                'Recipient Name',
+                'recipientName',
+                'John Doe'
+            )}
+
+            {renderInput(
+                'Email',
+                'email',
+                'john@example.com',
+                'email'
+            )}
+
+            {renderInput(
+                'Phone Number',
+                'phoneNumber',
+                '(555) 555-5555'
+            )}
+
+            {renderInput('City', 'city')}
+
+            {renderInput('State', 'state')}
+
+            {renderInput(
+                'Postal Code',
+                'postalCode'
+            )}
+
+            {renderInput('Country', 'country')}
+
+            <button
+                type="submit"
+                className={styles.submitButton}
+            >
+                Submit Shipping Info
+            </button>
+        </form>
+    );
+}
