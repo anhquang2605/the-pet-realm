@@ -12,14 +12,14 @@ const Collapsable: React.FC<CollapsableProps> = ({currentSection, items}) => {
     }, []);
     const generateContent = () => {
         return items.map((item, index) => (
-            <div key={index} className={style['collapsable-item'] + (index === currentSection ? ' ' + style['active'] : '')}>
+            <CollapsableItem key={index} isActive={index === currentSection}>
                 {item}
-            </div>
+            </CollapsableItem>
         ));
-    }
+    };
     return (
         <section className={style['collapsable']}>
-            Collapsable
+            {generateContent()}
         </section>
     );
 };
