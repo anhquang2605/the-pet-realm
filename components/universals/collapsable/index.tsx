@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import style from './collapsable.module.css';
+import CollapsableItem from './collapsable-item';
 
 type CollapsableProps = {
     currentSection: number;//based on index of items
