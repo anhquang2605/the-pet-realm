@@ -18,9 +18,9 @@ const Collapsable: React.FC<CollapsableProps> = ({currentSection, items}) => {
         ));
     }
     return (
-        <div className={style['collapsable']}>
+        <section className={style['collapsable']}>
             Collapsable
-        </div>
+        </section>
     );
 };
 
