@@ -4,7 +4,7 @@ import CollapsableItem from './collapsable-item';
 
 //map type with string as key and ReactNode as value
 export type FilledContent = {
-    [key: string]: React.ReactNode;
+    [key: string]: boolean;
 };
 
 type CollapsableProps = {

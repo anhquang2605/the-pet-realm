@@ -16,6 +16,7 @@ type OrderContextType = {
     setPaymentStage: React.Dispatch<React.SetStateAction<number>>
     apiStatus: 'idle' | 'loading' | 'error' | 'success';
     setApiStatus: React.Dispatch<React.SetStateAction<'idle' | 'loading' | 'error' | 'success'>>;
+    
 }
 
 interface OrderProviderProps {
