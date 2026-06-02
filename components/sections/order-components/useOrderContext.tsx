@@ -24,6 +24,8 @@ type OrderContextType = {
         [key: string]: boolean;
     };
     setFilledContent: React.Dispatch<React.SetStateAction<{ [key: string]: boolean; }>>;
+    setCurrentFormStage: React.Dispatch<React.SetStateAction<number>>;
+    currentFormStage: number;
 }
 
 interface OrderProviderProps {
@@ -38,6 +40,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
     const [sectionName, setSectionName] = useState<string>('details');
     const [filledContent, setFilledContent] = useState<{ [key: string]: boolean; }>({});
+    const [currentFormStage, setCurrentFormStage] = useState<number>(0);
     const [payment, setPayment] = useState<Payments>({
         cardNumber: '',
         expiryDate: '',
@@ -89,7 +92,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }, [id]);
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
