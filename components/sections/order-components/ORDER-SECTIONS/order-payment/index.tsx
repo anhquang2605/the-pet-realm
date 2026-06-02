@@ -6,7 +6,16 @@ import PaymentDetails from './payment-details';
 import Shipment from './shipment';
 
 type OrderPaymentProps = Record<string, never>;
-
+const COLLAPSABLE_SECTIONS_ITEMS = [
+    {
+        title: 'Payment Details',
+        content: <PaymentDetails />
+    },
+    {
+        title: 'Shipping Information',
+        content: <Shipment />
+    }
+]
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     const {setSectionName, filledContent} = useOrderContext();
     useEffect(() => {

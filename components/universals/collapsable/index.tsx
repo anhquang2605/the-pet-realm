@@ -10,6 +10,8 @@ type CollapsableProps = {
     filledContent: FilledContent;
 };
 
+
+
 const Collapsable: React.FC<CollapsableProps> = ({currentSection, items = [], titles}) => {
     useEffect(() => {
 
