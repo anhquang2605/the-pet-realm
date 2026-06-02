@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import style from './order-payment.module.css';
 import { IoReturnUpBack } from "react-icons/io5";
-import { useOrderContext } from '../../useOrderContext';
+import { FilledContent, useOrderContext } from '../../useOrderContext';
 import PaymentDetails from './payment-details';
 import Shipment from './shipment';
-import { FilledContent } from '../../../../universals/collapsable';
 
 type OrderPaymentProps = Record<string, never>;
 
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
-    const {setSectionName, paymentStage} = useOrderContext();
+    const {setSectionName, filledContent} = useOrderContext();
     const [completedSections, setCompletedSections] = useState<FilledContent>(
         {
             details: false,
@@ -19,11 +18,6 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     useEffect(() => {
 
     }, []);
-    useEffect(()=> {
-        if(paymentStage === 2) {
-            
-        }
-    }, [paymentStage]);
     const handleBackClick = () => {
         setSectionName('details');
     }

@@ -1,11 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import style from './collapsable.module.css';
 import CollapsableItem from './collapsable-item';
-
-//map type with string as key and ReactNode as value
-export type FilledContent = {
-    [key: string]: boolean;
-};
+import { FilledContent } from '../../sections/order-components/useOrderContext';
 
 type CollapsableProps = {
     currentSection: number;//based on index of items

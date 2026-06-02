@@ -3,6 +3,12 @@ import { Order, RawOrder } from '../../../types/order';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
 import { Payments, Shipping } from '../../../types/payment';
+
+export type FilledContent = {
+    [key: string]: boolean;
+};
+
+
 type OrderContextType = {
     order: RawOrder | null,
     setOrder: React.Dispatch<React.SetStateAction<any>>
@@ -12,11 +18,12 @@ type OrderContextType = {
     setPayment: React.Dispatch<React.SetStateAction<Payments>>
     shipping: Shipping;
     setShipping: React.Dispatch<React.SetStateAction<Shipping>>
-    paymentStage: number;
-    setPaymentStage: React.Dispatch<React.SetStateAction<number>>
     apiStatus: 'idle' | 'loading' | 'error' | 'success';
     setApiStatus: React.Dispatch<React.SetStateAction<'idle' | 'loading' | 'error' | 'success'>>;
-    
+    filledContent: {
+        [key: string]: boolean;
+    };
+    setFilledContent: React.Dispatch<React.SetStateAction<{ [key: string]: boolean; }>>;
 }
 
 interface OrderProviderProps {
@@ -30,7 +37,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [order, setOrder] = useState<RawOrder | null>(null);
     const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
     const [sectionName, setSectionName] = useState<string>('details');
-    const [paymentStage, setPaymentStage] = useState<number>(1);
+    const [filledContent, setFilledContent] = useState<{ [key: string]: boolean; }>({});
     const [payment, setPayment] = useState<Payments>({
         cardNumber: '',
         expiryDate: '',
@@ -82,7 +89,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }, [id]);
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, paymentStage, setPaymentStage, apiStatus, setApiStatus }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
