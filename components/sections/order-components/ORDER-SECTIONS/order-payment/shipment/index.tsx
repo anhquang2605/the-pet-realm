@@ -193,35 +193,44 @@ export default function ShippingForm() {
             onSubmit={handleSubmit}
             noValidate
         >
-            {renderInput(
+            {resultViewToggler(
                 'Recipient Name',
                 'recipientName',
                 'John Doe'
             )}
 
-            {renderInput(
+            {resultViewToggler(
                 'Email',
                 'email',
                 'john@example.com',
                 'email'
             )}
 
-            {renderInput(
+            {resultViewToggler(
                 'Phone Number',
                 'phoneNumber',
                 '(555) 555-5555'
             )}
 
-            {renderInput('City', 'city')}
+            {resultViewToggler(
+                'City',
+                'city'
+            )}
 
-            {renderInput('State', 'state')}
+            {resultViewToggler(
+                'State',
+                'state'
+            )}
 
-            {renderInput(
+            {resultViewToggler(
                 'Postal Code',
                 'postalCode'
             )}
 
-            {renderInput('Country', 'country')}
+            {resultViewToggler(
+                'Country',
+                'country'
+            )}
 
             <button
                 type="submit"
