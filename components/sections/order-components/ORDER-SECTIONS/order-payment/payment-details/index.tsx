@@ -22,7 +22,7 @@ const initialForm: Payments = {
 export default function PaymentForm() {
     const [formData, setFormData] = useState<Payments>(initialForm);
     const [errors, setErrors] = useState<Errors>({});
-
+    const { payment, setPayment, currentFormStage } = useOrderContext();
     const validateField = (
         name: keyof Payments,
         value: string
@@ -92,7 +92,7 @@ export default function PaymentForm() {
     ) => {
         const { name, value } = e.target;
 
-        setFormData((prev) => ({
+        setPayment((prev) => ({
             ...prev,
             [name]: value,
         }));
@@ -136,6 +136,7 @@ export default function PaymentForm() {
 
         console.log('Submitted:', formData);
 
+
         alert('Payment submitted successfully!');
     };
 
@@ -144,7 +145,14 @@ export default function PaymentForm() {
         name: keyof Payments,
         placeholder?: string,
         type: string = 'text'
-    ) => (
+    ) => {
+        if (currentFormStage === 1) {
+            return renderResult(label, payment[name] || '');
+        } else {
+            return renderField(label, name, placeholder, type);
+        }
+    }
+    const renderField = (label: string, name: keyof Payments, placeholder?: string, type: string = 'text') => (
         <div className={styles.formGroup}>
             <label className={styles.label}>
                 {label}
@@ -153,7 +161,7 @@ export default function PaymentForm() {
             <input
                 type={type}
                 name={name}
-                value={formData[name] || ''}
+                value={payment[name] || ''}
                 onChange={handleChange}
                 placeholder={placeholder}
                 className={`${styles.input} ${
@@ -167,7 +175,17 @@ export default function PaymentForm() {
                 </p>
             )}
         </div>
-    );
+    )
+    const renderResult = (label: string, value: string) => (
+        <div className={styles.resultGroup}>
+            <span className={styles.resultLabel}>
+                {label}:
+            </span>
+            <span className={styles.resultValue}>
+                {value || 'N/A'}
+            </span>
+        </div>
+    )
 
     return (
         <form
