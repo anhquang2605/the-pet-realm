@@ -4,6 +4,7 @@ import { Shipping } from '../../../../../../types/payment';
 import { useOrderContext } from '../../../useOrderContext';
 
 
+
 type Errors = Partial<Record<keyof Shipping, string>>;
 
 const initialForm: Shipping = {
@@ -17,7 +18,7 @@ const initialForm: Shipping = {
 };
 
 export default function ShippingForm() {
-    const { shipping, setShipping } = useOrderContext();
+    const { shipping, setShipping, currentFormStage, setCurrentFormStage } = useOrderContext();
     const [formData, setFormData] =
         useState<Shipping>(initialForm);
 
@@ -134,6 +135,7 @@ export default function ShippingForm() {
         console.log('Shipping Info:', formData);
 
         setShipping(formData);
+        setCurrentFormStage(currentFormStage + 1);
     };
 
     const renderInput = (
