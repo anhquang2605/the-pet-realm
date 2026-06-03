@@ -167,6 +167,19 @@ export default function ShippingForm() {
             )}
         </div>
     );
+    const renderResult = (label: string, value: string) => (
+        <div className={styles.resultGroup}>
+            <span className={styles.resultLabel}>
+                {label}:
+            </span>
+            <span className={styles.resultValue}>
+                {value}
+            </span>
+        </div>
+    )
+    const resultViewToggler = () => {
+        
+    }
 
     return (
         <form
