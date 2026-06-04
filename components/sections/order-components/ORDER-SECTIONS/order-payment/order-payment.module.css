@@ -3,6 +3,7 @@
     color: lightgray;
     flex-direction: column;
     gap: 1rem;
+    flex: 1;
 }
 .back-button{
     display: flex;
