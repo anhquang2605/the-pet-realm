@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 interface ActionButtonProps {
     href?: string
     title: string;
-    onClick?: () => void;
+    onClick?: (e?: React.FormEvent) => void;
     type: 'main' | 'link' | 'add' | 'remove' | 'edit' | 'reset' | 'submit';
     color?: string; // Optional color prop for custom styling
     extraStyle?: React.CSSProperties; // Optional style prop for additional styles;
@@ -29,8 +29,11 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         backgroundColor: color
     }
     const router = useRouter();
-    const handleClick = () => {
+    const handleClick = (e?: React.FormEvent) => {
         if (onClick) {
+            if (e) {
+                onClick(e);
+            }
             onClick();
         }
         if (href) {

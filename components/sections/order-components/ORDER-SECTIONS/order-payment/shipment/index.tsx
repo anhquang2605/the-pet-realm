@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styles from './shipment.module.css';
 import { Shipping } from '../../../../../../types/payment';
 import { useOrderContext } from '../../../useOrderContext';
+import ActionButton from '../../../../../universals/buttons/action-button/action-button';
 
 
 
@@ -232,12 +233,7 @@ export default function ShippingForm() {
                 'country'
             )}
 
-            <button
-                type="submit"
-                className={styles.submitButton}
-            >
-                Submit Shipping Info
-            </button>
+           <ActionButton type="main" title="Next" isSubmit={true} />
         </form>
     );
 }
