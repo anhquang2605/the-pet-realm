@@ -22,9 +22,9 @@ const OrderPageSectionSwitcher: React.FC<OrderPageSectionSwitcherProps> = ({ }) 
         }
     }
     return (
-        <div className={style['order-page-section-switcher']}>
+        <>
             {getSectionComponent()}
-        </div>
+        </>
     );
 };
 
