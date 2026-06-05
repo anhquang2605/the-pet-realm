@@ -240,6 +240,7 @@ export default function PaymentForm() {
                 title="Submit Payment"
                 type="submit"
                 color="green"
+                isSubmit={true}
 
             />
         </form>
