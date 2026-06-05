@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef}  from 'react';
 import { useSearchParams } from 'next/navigation';
 //get params from url
 import style from '../page-styles/order.module.css';
