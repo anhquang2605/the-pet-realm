@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styles from './payment-details.module.css';
 import { useOrderContext } from './../../../useOrderContext';
 import { Payments } from '../../../../../../types/payment';
+import ActionButton from '../../../../../universals/buttons/action-button/action-button';
 
 
 type Errors = Partial<Record<keyof Payments, string>>;
@@ -235,12 +236,12 @@ export default function PaymentForm() {
 
             {renderInput('Country', 'country')}
 
-            <button
+           <ActionButton 
+                title="Submit Payment"
                 type="submit"
-                className={styles.submitButton}
-            >
-                Submit Payment
-            </button>
+                color="green"
+
+            />
         </form>
     );
 }
