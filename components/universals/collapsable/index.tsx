@@ -19,7 +19,7 @@ const Collapsable: React.FC<CollapsableProps> = ({setCurrentSection, currentSect
     }, []);
     const generateContent = () => {
         return items.map((item, index) => (
-            <CollapsableItem title={titles[index]} setCurrentSection={setCurrentSection} key={index} isActive={index === currentSection}>
+            <CollapsableItem title={titles[index]} setCurrentSection={setCurrentSection} key={index} isActive={index === currentSection - 1}>
                 {item}
             </CollapsableItem>
         ));

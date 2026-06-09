@@ -12,7 +12,7 @@ type CollapsableItemProps = {
 
 const CollapsableItem: React.FC<CollapsableItemProps> = ({setCurrentSection, index = 0, isActive, children, title = ''}) => {
     const handleEdit = () => {
-        setCurrentSection(index);
+        setCurrentSection(index + 1);
     }
     useEffect(() => {
 
@@ -21,7 +21,7 @@ const CollapsableItem: React.FC<CollapsableItemProps> = ({setCurrentSection, ind
     return (
         <div className={style['collapsable-item'] + (isActive ? ' ' + style['active'] : '')}>
             <h3 className={style['title']}>{title}</h3>
-            <ActionButton type="main" title="Edit" color='goldenrod' />
+           { !isActive && <ActionButton type="main" title="Edit" color='goldenrod' />}
             <div className={style.content}>
                 {children}
             </div>
