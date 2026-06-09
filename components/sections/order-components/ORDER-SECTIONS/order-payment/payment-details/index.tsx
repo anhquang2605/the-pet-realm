@@ -23,7 +23,7 @@ const initialForm: Payments = {
 export default function PaymentForm() {
     const [formData, setFormData] = useState<Payments>(initialForm);
     const [errors, setErrors] = useState<Errors>({});
-    const { payment, setPayment, currentFormStage } = useOrderContext();
+    const { payment, setPayment, currentFormStage, setCurrentFormStage } = useOrderContext();
     const validateField = (
         name: keyof Payments,
         value: string
@@ -66,6 +66,7 @@ export default function PaymentForm() {
                 return '';
 
             case 'state':
+                console.log(value);
                 if (!value.trim()) {
                     return 'State is required.';
                 }
@@ -134,11 +135,7 @@ export default function PaymentForm() {
         e.preventDefault();
 
         if (!validateForm()) return;
-
-        console.log('Submitted:', formData);
-
-
-        alert('Payment submitted successfully!');
+        setCurrentFormStage(2);       
     };
 
     const renderInput = (
@@ -147,7 +144,7 @@ export default function PaymentForm() {
         placeholder?: string,
         type: string = 'text'
     ) => {
-        if (currentFormStage === 1) {
+        if (currentFormStage !== 1) {
             return renderResult(label, payment[name] || '');
         } else {
             return renderField(label, name, placeholder, type);

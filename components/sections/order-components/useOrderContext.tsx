@@ -40,7 +40,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
     const [sectionName, setSectionName] = useState<string>('details');
     const [filledContent, setFilledContent] = useState<{ [key: string]: boolean; }>({});
-    const [currentFormStage, setCurrentFormStage] = useState<number>(0);
+    const [currentFormStage, setCurrentFormStage] = useState<number>(1);
     const [payment, setPayment] = useState<Payments>({
         cardNumber: '',
         expiryDate: '',
