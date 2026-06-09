@@ -8,17 +8,18 @@ type CollapsableProps = {
     items: React.ReactNode[];
     titles: string[];
     filledContent: FilledContent;
+    setCurrentSection: React.Dispatch<React.SetStateAction<number>>;
 };
 
 
 
-const Collapsable: React.FC<CollapsableProps> = ({currentSection, items = [], titles}) => {
+const Collapsable: React.FC<CollapsableProps> = ({setCurrentSection, currentSection, items = [], titles}) => {
     useEffect(() => {
 
     }, []);
     const generateContent = () => {
         return items.map((item, index) => (
-            <CollapsableItem title={titles[index]} key={index} isActive={index === currentSection}>
+            <CollapsableItem title={titles[index]} setCurrentSection={setCurrentSection} key={index} isActive={index === currentSection}>
                 {item}
             </CollapsableItem>
         ));

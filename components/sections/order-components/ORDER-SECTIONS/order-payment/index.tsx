@@ -13,7 +13,7 @@ const COLLAPSABLE_SECTIONS_ITEMS = [
     <Shipment />
 ]
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
-    const {setSectionName, filledContent, currentFormStage} = useOrderContext();
+    const {setSectionName, filledContent, currentFormStage, setCurrentFormStage} = useOrderContext();
     useEffect(() => {
 
     }, []);
@@ -29,6 +29,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
                 items={COLLAPSABLE_SECTIONS_ITEMS}
                 titles={COLLAPSABLE_SECTIONS_TITLES}
                 filledContent={filledContent}
+                setCurrentSection={setCurrentFormStage}
             />
             
         </div>
