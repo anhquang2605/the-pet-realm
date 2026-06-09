@@ -2,3 +2,7 @@
     background: var(--main-bg);
     color: lightgray;
 }
+.active{
+    background: var(--secondary-bg);
+    color: white;
+}
