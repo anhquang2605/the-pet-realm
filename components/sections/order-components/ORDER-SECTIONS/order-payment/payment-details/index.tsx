@@ -233,13 +233,13 @@ export default function PaymentForm() {
 
             {renderInput('Country', 'country')}
 
-           <ActionButton 
+           {currentFormStage === 1 && <ActionButton 
                 title="Submit Payment"
                 type="submit"
                 color="green"
                 isSubmit={true}
 
-            />
+            />}
         </form>
     );
 }
