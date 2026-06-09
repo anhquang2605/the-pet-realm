@@ -176,7 +176,7 @@ export default function PaymentForm() {
     )
     const renderResult = (label: string, value: string) => (
         <div className={styles.resultGroup}>
-            <span className={styles.resultLabel}>
+            <span className={styles.Label}>
                 {label}:
             </span>
             <span className={styles.resultValue}>
