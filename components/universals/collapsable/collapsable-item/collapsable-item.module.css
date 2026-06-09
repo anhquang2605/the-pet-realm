@@ -1,3 +1,4 @@
 .collapsable-item{
-    
+    background: var(--main-bg);
+    color: lightgray;
 }
