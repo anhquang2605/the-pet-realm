@@ -119,7 +119,7 @@ export default function PaymentForm() {
             // Skip optional field
             if (key === 'billingAddress2') return;
 
-            const error = validateField(key, formData[key] || '');
+            const error = validateField(key, payment[key] || '');
 
             if (error) {
                 newErrors[key] = error;
