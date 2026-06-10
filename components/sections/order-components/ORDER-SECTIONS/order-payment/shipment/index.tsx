@@ -190,6 +190,12 @@ export default function ShippingForm() {
     }
 
     return (
+        <>
+            {!isDirty && currentFormStage !== 1 && <ActionButton
+                type="edit"
+                title="Edit"
+                onClick={() => setCurrentFormStage(1)}
+            />}
         <form
             className={styles.form}
             onSubmit={handleSubmit}
@@ -236,5 +242,6 @@ export default function ShippingForm() {
 
            <ActionButton type="main" title="Next" isSubmit={true} />
         </form>
+        </>
     );
 }
