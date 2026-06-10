@@ -191,57 +191,58 @@ export default function ShippingForm() {
 
     return (
         <>
-            {!isDirty && currentFormStage !== 1 && <ActionButton
+            {isDirty && currentFormStage !== 2 && <ActionButton
                 type="edit"
                 title="Edit"
                 onClick={() => setCurrentFormStage(1)}
+                color="goldenrod"
             />}
-        <form
-            className={styles.form}
-            onSubmit={handleSubmit}
-            noValidate
-        >
-            {resultViewToggler(
-                'Recipient Name',
-                'recipientName',
-                'John Doe'
-            )}
+            <form
+                className={styles.form}
+                onSubmit={handleSubmit}
+                noValidate
+            >
+                {resultViewToggler(
+                    'Recipient Name',
+                    'recipientName',
+                    'John Doe'
+                )}
 
-            {resultViewToggler(
-                'Email',
-                'email',
-                'john@example.com',
-                'email'
-            )}
+                {resultViewToggler(
+                    'Email',
+                    'email',
+                    'john@example.com',
+                    'email'
+                )}
 
-            {resultViewToggler(
-                'Phone Number',
-                'phoneNumber',
-                '(555) 555-5555'
-            )}
+                {resultViewToggler(
+                    'Phone Number',
+                    'phoneNumber',
+                    '(555) 555-5555'
+                )}
 
-            {resultViewToggler(
-                'City',
-                'city'
-            )}
+                {resultViewToggler(
+                    'City',
+                    'city'
+                )}
 
-            {resultViewToggler(
-                'State',
-                'state'
-            )}
+                {resultViewToggler(
+                    'State',
+                    'state'
+                )}
 
-            {resultViewToggler(
-                'Postal Code',
-                'postalCode'
-            )}
+                {resultViewToggler(
+                    'Postal Code',
+                    'postalCode'
+                )}
 
-            {resultViewToggler(
-                'Country',
-                'country'
-            )}
+                {resultViewToggler(
+                    'Country',
+                    'country'
+                )}
 
-           <ActionButton type="main" title="Next" isSubmit={true} />
-        </form>
+                <ActionButton type="main" title="Next" isSubmit={true} />
+            </form>
         </>
     );
 }

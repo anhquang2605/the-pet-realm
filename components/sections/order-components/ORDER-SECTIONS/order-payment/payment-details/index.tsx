@@ -188,7 +188,7 @@ export default function PaymentForm() {
 
     return (
         <>
-            {!isDirty && currentFormStage !== 1 && <ActionButton
+            {isDirty && currentFormStage !== 1 && <ActionButton
                 type="edit"
                 title="Edit"
                 color="goldenrod"
