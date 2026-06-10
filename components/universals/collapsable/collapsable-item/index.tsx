@@ -21,8 +21,7 @@ const CollapsableItem: React.FC<CollapsableItemProps> = ({setCurrentSection, ind
     return (
         <div className={style['collapsable-item'] + (isActive ? ' ' + style['active'] : '')}>
             <h3 className={style['title']}>{title}</h3>
-           { !isActive && <ActionButton type="main" title="Edit" color='goldenrod' />}
-            <div className={style.content}>
+                <div className={style.content}>
                 {children}
             </div>
         </div>

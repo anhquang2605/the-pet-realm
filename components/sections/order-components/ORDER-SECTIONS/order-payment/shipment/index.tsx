@@ -19,6 +19,7 @@ const initialForm: Shipping = {
 };
 
 export default function ShippingForm() {
+    const [isDirty, setIsDirty] = useState(false);
     const { shipping, setShipping, currentFormStage, setCurrentFormStage } = useOrderContext();
     const [formData, setFormData] =
         useState<Shipping>(initialForm);

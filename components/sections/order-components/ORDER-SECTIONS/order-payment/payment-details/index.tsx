@@ -186,60 +186,63 @@ export default function PaymentForm() {
     )
 
     return (
-        <form
+        <>
+            <form
             className={styles.form}
             onSubmit={handleSubmit}
             noValidate
-        >
-            {renderInput(
-                'Card Number',
-                'cardNumber',
-                '1234123412341234',
-                'number'
-            )}
+            >
+                {renderInput(
+                    'Card Number',
+                    'cardNumber',
+                    '1234123412341234',
+                    'number'
+                )}
 
-            {renderInput(
-                'Card Holder Name',
-                'cardHolderName',
-                'John Doe'
-            )}
+                {renderInput(
+                    'Card Holder Name',
+                    'cardHolderName',
+                    'John Doe'
+                )}
 
-            {renderInput(
-                'Expiry Date',
-                'expiryDate',
-                'MM/YY',
-            )}
+                {renderInput(
+                    'Expiry Date',
+                    'expiryDate',
+                    'MM/YY',
+                )}
 
-            {renderInput('CVV', 'cvv', '123', 'number')}
+                {renderInput('CVV', 'cvv', '123', 'number')}
 
-            {renderInput(
-                'Billing Address 1',
-                'billingAddress1'
-            )}
+                {renderInput(
+                    'Billing Address 1',
+                    'billingAddress1'
+                )}
 
-            {renderInput(
-                'Billing Address 2',
-                'billingAddress2'
-            )}
+                {renderInput(
+                    'Billing Address 2',
+                    'billingAddress2'
+                )}
 
-            {renderInput('City', 'city')}
+                {renderInput('City', 'city')}
 
-            {renderInput('State', 'state')}
+                {renderInput('State', 'state')}
 
-            {renderInput(
-                'Postal Code',
-                'postalCode'
-            )}
+                {renderInput(
+                    'Postal Code',
+                    'postalCode'
+                )}
 
-            {renderInput('Country', 'country')}
+                {renderInput('Country', 'country')}
 
-           {currentFormStage === 1 && <ActionButton 
-                title="Submit Payment"
-                type="submit"
-                color="green"
-                isSubmit={true}
+                {currentFormStage === 1 && <ActionButton 
+                    title="Submit Payment"
+                    type="submit"
+                    color="green"
+                    isSubmit={true}
 
-            />}
-        </form>
+                />}
+            </form>
+        </>
+
     );
 }
