@@ -94,7 +94,7 @@ export default function PaymentForm() {
         e: React.ChangeEvent<HTMLInputElement>
     ) => {
         const { name, value } = e.target;
-
+        if(!isDirty) setIsDirty(true);
         setPayment((prev) => ({
             ...prev,
             [name]: value,

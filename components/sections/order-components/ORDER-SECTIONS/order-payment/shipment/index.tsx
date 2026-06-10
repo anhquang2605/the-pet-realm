@@ -89,7 +89,7 @@ export default function ShippingForm() {
         e: React.ChangeEvent<HTMLInputElement>
     ) => {
         const { name, value } = e.target;
-
+        if (!isDirty) setIsDirty(true);
         setFormData((prev) => ({
             ...prev,
             [name]: value,
