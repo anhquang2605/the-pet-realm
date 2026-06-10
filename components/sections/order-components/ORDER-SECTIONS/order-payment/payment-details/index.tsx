@@ -21,6 +21,7 @@ const initialForm: Payments = {
 };
 
 export default function PaymentForm() {
+    const [isDirty, setIsDirty] = useState(false);
     const [formData, setFormData] = useState<Payments>(initialForm);
     const [errors, setErrors] = useState<Errors>({});
     const { payment, setPayment, currentFormStage, setCurrentFormStage } = useOrderContext();
@@ -187,12 +188,12 @@ export default function PaymentForm() {
 
     return (
         <>
-            <ActionButton
+            {!isDirty && currentFormStage !== 1 && <ActionButton
                 type="edit"
                 title="Edit"
                 color="goldenrod"
                 onClick={() => setCurrentFormStage(1)}
-            />
+            />}
             <form
             className={styles.form}
             onSubmit={handleSubmit}
