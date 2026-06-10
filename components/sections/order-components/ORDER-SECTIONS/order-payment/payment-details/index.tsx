@@ -187,6 +187,12 @@ export default function PaymentForm() {
 
     return (
         <>
+            <ActionButton
+                type="edit"
+                title="Edit"
+                color="goldenrod"
+                onClick={() => setCurrentFormStage(1)}
+            />
             <form
             className={styles.form}
             onSubmit={handleSubmit}
