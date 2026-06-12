@@ -37,11 +37,11 @@
 
 .input:focus {
     border-color: #666;
+    background: var(--third-bg);
 }
 
 .inputError {
     border-color: #dc2626;
-    background-color: #fff5f5;
 }
 
 .errorText {
