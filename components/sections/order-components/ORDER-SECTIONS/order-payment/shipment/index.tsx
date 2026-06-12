@@ -241,7 +241,7 @@ export default function ShippingForm() {
                     'country'
                 )}
 
-                <ActionButton type="main" title="Next" isSubmit={true} />
+                {currentFormStage === 2 && <ActionButton type="main" title="Next" isSubmit={true} />}
             </form>
         </>
     );
