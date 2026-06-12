@@ -34,6 +34,7 @@
 
 .input:focus {
     border-color: #666;
+    background: var(--third-bg);
 }
 
 .inputError {
