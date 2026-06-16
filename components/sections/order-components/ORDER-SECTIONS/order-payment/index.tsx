@@ -5,6 +5,7 @@ import { useOrderContext } from '../../useOrderContext';
 import PaymentDetails from './payment-details';
 import Shipment from './shipment';
 import Collapsable from '../../../../universals/collapsable';
+import OrderPreview from '../../order-preview';
 
 type OrderPaymentProps = Record<string, never>;
 const COLLAPSABLE_SECTIONS_TITLES = ['Payment Details', 'Shipping Information'];
@@ -31,7 +32,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
                 filledContent={filledContent}
                 setCurrentSection={setCurrentFormStage}
             />
-            
+            <OrderPreview />
         </div>
     );
 };
