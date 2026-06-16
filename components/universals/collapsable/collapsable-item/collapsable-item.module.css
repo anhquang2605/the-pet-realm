@@ -1,6 +1,8 @@
 .collapsable-item{
     background: var(--main-bg);
     color: lightgray;
+    padding: var(--padding);
+    border-radius: 12px;
 }
 .active{
     background: var(--secondary-bg);
