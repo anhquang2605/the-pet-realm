@@ -23,7 +23,7 @@ const CollapsableItem: React.FC<CollapsableItemProps> = ({setCurrentSection, ind
             <h3 className={style['title']}>{title}</h3>
                 <div className={style.content}>
                 {children}
-            </div>
+                </div>
         </div>
     );
 };
