@@ -25,14 +25,20 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     return (
         <div className={style['order-payment']}>
             <button className={style['back-button']} onClick={handleBackClick}><IoReturnUpBack />Back</button>
-            <Collapsable 
-                currentSection={currentFormStage}
-                items={COLLAPSABLE_SECTIONS_ITEMS}
-                titles={COLLAPSABLE_SECTIONS_TITLES}
-                filledContent={filledContent}
-                setCurrentSection={setCurrentFormStage}
-            />
-            <OrderPreview />
+            <section className={style['left-section']}>
+                <Collapsable 
+                    currentSection={currentFormStage}
+                    items={COLLAPSABLE_SECTIONS_ITEMS}
+                    titles={COLLAPSABLE_SECTIONS_TITLES}
+                    filledContent={filledContent}
+                    setCurrentSection={setCurrentFormStage}
+                />
+            </section>
+            <section className={style['right-section']}>
+                <OrderPreview />
+            </section>
+           
+            
         </div>
     );
 };
