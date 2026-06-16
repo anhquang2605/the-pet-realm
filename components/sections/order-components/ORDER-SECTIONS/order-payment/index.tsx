@@ -24,7 +24,9 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
 
     return (
         <div className={style['order-payment']}>
-            <button className={style['back-button']} onClick={handleBackClick}><IoReturnUpBack />Back</button>
+            <span>
+                <button className={style['back-button']} onClick={handleBackClick}><IoReturnUpBack />Back</button>
+            </span>
             <section className={style['left-section']}>
                 <Collapsable 
                     currentSection={currentFormStage}
