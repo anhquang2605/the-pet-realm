@@ -28,8 +28,6 @@
 }
 .back-button-container{
     display: flex;
-    justify-content: flex-start;
-    flex: 1;
 }
 @media (min-width: 768px) {
     .order-payment{
