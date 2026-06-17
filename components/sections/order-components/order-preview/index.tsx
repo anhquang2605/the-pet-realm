@@ -20,7 +20,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
             <p className={style['order-preview__price']}>
                 <span className={style['order-preview__currency']}>$</span>
                 <span className={style['order-preview__amount']}>{order.price.toFixed(2)}</span>
-                {order.discount > 0 && <span className={style['order-preview__discount']}>-{order.discount * 100}%</span>}
+                {order.discount > 0 && <span className={style['order-preview__discount']}>Discount -{order.discount * 100}%</span>}
                 <span className={style['order-preview__price-tax']}>
                     Tax {(TAX_RATE * 100).toFixed(2)}%: $
                     {(order.price * TAX_RATE).toFixed(2)}
