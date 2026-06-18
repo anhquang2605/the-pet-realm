@@ -28,3 +28,8 @@
 .order-preview__price-content{
     margin-left: auto;
 }
+.order-preview__final-price-container{
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 600;
+}

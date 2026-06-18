@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import style from './order-preview.module.css';
 import { useOrderContext } from '../useOrderContext';
 import {TAX_RATE} from './../../../../constants/price';
+import ActionButton from '../../../universals/buttons/action-button/action-button';
 
 type OrderPreviewProps = Record<string, never>;
 
@@ -36,11 +37,12 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
                 </span>
             </p>
             <p className={style['order-preview__final-price-container']}>
-                Total:
-                <span className={style['order-preview__final-price']}>
+                <span className={style['order-preview__price-label']}>Total:</span>
+                <span className={style['order-preview__price-content']}>
                     ${(order.price * (1 - order.discount)).toFixed(2)}
                 </span>
             </p>
+            <ActionButton title='Place Order' color='goldenrod' type='main' onClick={() => {}} />
         </div>
     );
 };
