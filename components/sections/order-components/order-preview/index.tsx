@@ -30,7 +30,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
                     <span className={style['order-preview__price-label']}>Discount</span>
                     <span className={style['order-preview__price-content']}>{(order.price * order.discount).toFixed(2)}</span>
                 </span>
-                <span className={style['order-preview__price-info']}>
+                <span className={style['order-preview__price-info'] + ' ' + style['order-preview__subtotal']}>
                     <span className={style['order-preview__price-label']}>Subtotal</span>
                     <span className={style['order-preview__price-content']}>{(order.price * (1 - order.discount) + order.price * TAX_RATE).toFixed(2)}</span>
                 </span>

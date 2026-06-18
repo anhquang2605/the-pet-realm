@@ -34,9 +34,9 @@
         flex-direction: column;
     }
     .left-section{
-        width: 60%;
+        width: 65%;
     }
     .right-section{
-        width: 40%;
+        width: 35%;
     }
 }
