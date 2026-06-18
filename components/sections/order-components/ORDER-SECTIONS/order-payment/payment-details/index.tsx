@@ -242,7 +242,7 @@ export default function PaymentForm() {
                 {renderInput('Country', 'country')}
 
                 {currentFormStage === 1 && <ActionButton 
-                    title="Submit Payment"
+                    title="Confirm Payment"
                     type="submit"
                     color="green"
                     isSubmit={true}
