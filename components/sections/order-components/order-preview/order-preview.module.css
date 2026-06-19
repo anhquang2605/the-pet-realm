@@ -25,6 +25,9 @@
     display: flex;
     gap: 0.5rem;
 }
+.order-preview__price-label{
+    font-weight: 600;
+}
 .order-preview__price-content{
     margin-left: auto;
 }
