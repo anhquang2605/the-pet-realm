@@ -74,6 +74,17 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
             setApiStatus('error');
         }
     }
+    const isPaymentFullyFilled = () => {
+        for ( const [key, value] of Object.entries(payment)) {
+            if (value === '' || value === null) {
+                return false;
+            } else if (key === 'billingAddress2') {
+                continue; // Skip billingAddress2 as it's optional
+            }
+        }
+        return true;
+    }
+        
     const deliverContextByStatus = () => {
         switch (apiStatus) {
             case 'loading':
