@@ -16,6 +16,8 @@
 
 .formGroup {
     margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
 }
 
 .label {
@@ -73,5 +75,11 @@
 @media (min-width: 768px) {
     .form {
         width: 80%;
+    }
+    .label{
+        min-width: 200px;
+    }
+    .formGroup {
+        flex-direction: row;
     }
 }
