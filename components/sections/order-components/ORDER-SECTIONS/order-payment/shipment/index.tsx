@@ -173,10 +173,10 @@ export default function ShippingForm() {
     );
     const renderResult = (label: string, value: string) => (
         <div className={styles.resultGroup}>
-            <span className={styles.resultLabel}>
+            <span className={styles.label}>
                 {label}:
             </span>
-            <span className={styles.resultValue}>
+            <span className={styles.value}>
                 {value}
             </span>
         </div>
