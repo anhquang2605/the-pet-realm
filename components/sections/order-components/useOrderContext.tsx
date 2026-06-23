@@ -26,6 +26,7 @@ type OrderContextType = {
     setFilledContent: React.Dispatch<React.SetStateAction<{ [key: string]: boolean; }>>;
     setCurrentFormStage: React.Dispatch<React.SetStateAction<number>>;
     currentFormStage: number;
+    isReadyToSubmit: () => boolean;
 }
 
 interface OrderProviderProps {
@@ -93,6 +94,9 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
         return true;
     }
+    const isReadyToSubmit = () => {
+        return isPaymentFullyFilled() && isShippingFullyFilled();
+    }
         
     const deliverContextByStatus = () => {
         switch (apiStatus) {
@@ -112,7 +116,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }, [id]);
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
