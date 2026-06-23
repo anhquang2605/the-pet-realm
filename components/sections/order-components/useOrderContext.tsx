@@ -84,6 +84,15 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
         return true;
     }
+
+    const isShippingFullyFilled = () => {
+        for ( const [key, value] of Object.entries(shipping)) {
+            if (value === '' || value === null) {
+                return false;
+            }
+        }
+        return true;
+    }
         
     const deliverContextByStatus = () => {
         switch (apiStatus) {
