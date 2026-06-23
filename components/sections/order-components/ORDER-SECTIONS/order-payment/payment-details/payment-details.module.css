@@ -17,6 +17,7 @@
     margin-bottom: 6px;
     font-size: 14px;
     font-weight: 700;
+    max-width: 300px;
 }
 
 .input {
