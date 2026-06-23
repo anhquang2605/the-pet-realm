@@ -11,6 +11,7 @@ interface ActionButtonProps {
     extraStyle?: React.CSSProperties; // Optional style prop for additional styles;
     isSubmit?: boolean; // Optional prop to determine if the button is a submit button
     classNames?: string; // Optional className for additional styling
+    isDisabled?: boolean; // Optional prop to disable the button
 }
 
 const ActionButton: React.FC<ActionButtonProps> = ({
@@ -22,6 +23,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     extraStyle = {},
     isSubmit = false,
     classNames = '',
+    isDisabled = false
 }) => {
     const styleType = type !== "main" ? `${style['action-type']} ${style[type]}` : '';
     const addedStyle = {
@@ -41,7 +43,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         }
     }
     return (
-        <button type={isSubmit ? 'submit' : 'button'} onClick={handleClick} className={style['action-button'] + " " + classNames + " " + "flex items-center justify-center" + " " + styleType} style={addedStyle}>
+        <button type={isSubmit ? 'submit' : 'button'} onClick={handleClick} className={style['action-button'] + " " + classNames + " " + "flex items-center justify-center" + " " + styleType} style={addedStyle} disabled={isDisabled}>
            {title}
         </button>
     );
