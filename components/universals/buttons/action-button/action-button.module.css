@@ -17,3 +17,10 @@
 .action-button.action-type{
     font-size: 0.75rem;
 }
+.disabled{
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.disabled:hover{
+    filter: none;
+}

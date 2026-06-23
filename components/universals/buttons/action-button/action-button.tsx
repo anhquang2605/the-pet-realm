@@ -43,7 +43,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         }
     }
     return (
-        <button type={isSubmit ? 'submit' : 'button'} onClick={handleClick} className={style['action-button'] + " " + classNames + " " + "flex items-center justify-center" + " " + styleType} style={addedStyle} disabled={isDisabled}>
+        <button type={isSubmit ? 'submit' : 'button'} onClick={handleClick} className={style['action-button'] + " " + classNames + " " + "flex items-center justify-center" + " " + styleType + " " + (isDisabled ? style['disabled'] : '')} style={addedStyle} disabled={isDisabled}>
            {title}
         </button>
     );

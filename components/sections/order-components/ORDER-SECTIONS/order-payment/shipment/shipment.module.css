@@ -77,7 +77,7 @@
         width: 80%;
     }
     .label{
-        min-width: 200px;
+        min-width: 150px;
     }
     .formGroup {
         flex-direction: row;
