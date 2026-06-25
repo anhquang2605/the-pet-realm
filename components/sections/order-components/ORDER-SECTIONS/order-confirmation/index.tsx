@@ -11,6 +11,9 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
 
     return (
         <section className={style['order-confirmation']}>
+            <h2 className={style['order-confirmation__title']}>We have received your order</h2>
+            <p className={style['order-confirmation__message']}>Thank you for your purchase! Your order has been successfully placed. You will receive an email confirmation shortly with the details of your order and how to access it.</p>
+            
         </section>
     );
 };
