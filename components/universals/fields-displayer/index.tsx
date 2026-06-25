@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import style from './fields-displayer.module.css';
 
-type FieldsDisplayerProps = Record<string, never>;
+//generic component to display fields and their values in a structured manner
+type FieldsDisplayerProps<T> = {
+    items: T[];
+};
 
-const FieldsDisplayer: React.FC<FieldsDisplayerProps> = ({}) => {
+const FieldsDisplayer: React.FC<FieldsDisplayerProps> = ({ items }) => {
     useEffect(() => {
 
     }, []);
