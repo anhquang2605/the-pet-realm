@@ -11,6 +11,8 @@ export interface Order{
     imageUrls: string[]; // Array of image URLs associated with the order
     discount: number; // Optional field for discount percentage
     isFeatured: boolean;
+    paymentId: string | ObjectId; // Optional field for payment identifier
+    shipmentId: string | ObjectId; // Optional field for shipment identifier
 }
 export interface RawOrder{
      name: string;

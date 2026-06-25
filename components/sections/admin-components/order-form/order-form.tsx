@@ -173,9 +173,14 @@ const OrderForm: React.FC<OrderFormProps> = ({
             ...formData,
              status: 'fresh' as const,
             imageUrls: [...uploadedImages],
-            };
+            dateCreated: new Date(),
+            dateUpdated: new Date(),
+            paymentId: '', // Placeholder, to be set after payment processing
+            shipmentId: '', // Placeholder, to be set after shipment processing
+        };
             onSubmit(orderData);
             handleReset();
+
         }
     }, [formStatus]);
     return (
