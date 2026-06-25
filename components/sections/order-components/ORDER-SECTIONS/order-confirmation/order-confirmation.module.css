@@ -1,3 +1,8 @@
 .order-confirmation{
-    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--main-bg);
+    padding: var(--half-spacing);
+    border-radius: var(--border-radius);
 }
