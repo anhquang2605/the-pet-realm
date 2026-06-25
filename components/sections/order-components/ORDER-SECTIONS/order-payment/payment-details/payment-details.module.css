@@ -51,7 +51,11 @@
     color: #dc2626;
     width: 100%;
 }
-
+.editButton{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 .submitButton {
     width: 100%;
     padding: 14px;

@@ -192,6 +192,7 @@ export default function PaymentForm() {
                 type="edit"
                 title="Edit"
                 color="goldenrod"
+                classNames={styles.editButton}
                 onClick={() => setCurrentFormStage(1)}
             />}
             <form
