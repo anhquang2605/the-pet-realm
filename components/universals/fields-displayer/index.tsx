@@ -13,7 +13,16 @@ const FieldsDisplayer= <T,>({ items }: FieldsDisplayerProps<T>) => {
 
     return (
         <div className={style['fields-displayer']}>
-            FieldsDisplayer
+            {items.map((item, index) => (
+                <div key={index} className={style['field-item']}>
+                    {Object.entries(item).map(([key, value]) => (
+                        <div key={key} className={style['field']}>    
+                            <span className={style['field-label']}>{key}:</span>
+                            <span className={style['field-value']}>{value}</span>
+                        </div>
+                    ))}
+                </div>
+            ))}
         </div>
     );
 };
