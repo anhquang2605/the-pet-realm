@@ -3,7 +3,7 @@ import style from './fields-displayer.module.css';
 
 //generic component to display fields and their values in a structured manner
 type FieldsDisplayerProps<T> = {
-    items: T[];
+    items: Partial<T>[];
 };
 
 const FieldsDisplayer= <T,>({ items }: FieldsDisplayerProps<T>) => {
@@ -18,7 +18,7 @@ const FieldsDisplayer= <T,>({ items }: FieldsDisplayerProps<T>) => {
                     {Object.entries(item).map(([key, value]) => (
                         <div key={key} className={style['field']}>    
                             <span className={style['field-label']}>{key}:</span>
-                            <span className={style['field-value']}>{value}</span>
+                            <span className={style['field-value']}>{value as string}</span>
                         </div>
                     ))}
                 </div>
