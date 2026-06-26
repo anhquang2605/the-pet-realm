@@ -6,7 +6,7 @@ type FieldsDisplayerProps<T> = {
     items: T[];
 };
 
-const FieldsDisplayer: React.FC<FieldsDisplayerProps> = ({ items }) => {
+const FieldsDisplayer= <T,>({ items }: FieldsDisplayerProps<T>) => {
     useEffect(() => {
 
     }, []);
