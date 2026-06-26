@@ -17,6 +17,9 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
             {order && <FieldsDisplayer items={[order]} sectionTitle="Order Details" />}
             {payment && <FieldsDisplayer items={[payment]} sectionTitle="Payment Details" />}
             {shipping && <FieldsDisplayer items={[shipping]} sectionTitle="Shipping Details" />}
+            <p className={style['order-confirmation__message']}>If you have any questions or need assistance, please contact our support team.</p>
+            <p className={style['order-confirmation__message']}>We look forward to serving you!</p>
+            
         </section>
     );
 };
