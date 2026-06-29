@@ -11,7 +11,7 @@ type OrderPaymentProps = Record<string, never>;
 const COLLAPSABLE_SECTIONS_TITLES = ['Payment Details', 'Shipping Information'];
 const COLLAPSABLE_SECTIONS_ITEMS = [
     <PaymentDetails />,
-    <Shipment />
+    <Shipment />,
 ]
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     const {setSectionName, filledContent, currentFormStage, setCurrentFormStage} = useOrderContext();
