@@ -7,7 +7,10 @@ import ActionButton from '../../../universals/buttons/action-button/action-butto
 type OrderPreviewProps = Record<string, never>;
 
 const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
-    const {order, isReadyToSubmit} = useOrderContext()!;
+    const {order, isReadyToSubmit} = useOrderContext();
+    const handlePlaceOrder = () => {
+        
+    }
     useEffect(() => {
 
     }, []);
