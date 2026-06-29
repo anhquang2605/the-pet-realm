@@ -8,7 +8,7 @@ import Collapsable from '../../../../universals/collapsable';
 import OrderPreview from '../../order-preview';
 
 type OrderPaymentProps = Record<string, never>;
-const COLLAPSABLE_SECTIONS_TITLES = ['Payment Details', 'Shipping Information'];
+const COLLAPSABLE_SECTIONS_TITLES = ['1.Payment Details', '2.Shipping Information'];
 const COLLAPSABLE_SECTIONS_ITEMS = [
     <PaymentDetails />,
     <Shipment />,
