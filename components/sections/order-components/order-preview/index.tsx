@@ -7,9 +7,10 @@ import ActionButton from '../../../universals/buttons/action-button/action-butto
 type OrderPreviewProps = Record<string, never>;
 
 const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
-    const {order, isReadyToSubmit} = useOrderContext();
+    const {order, isReadyToSubmit, setSectionName} = useOrderContext();
+    
     const handlePlaceOrder = () => {
-        
+        setSectionName('confirmation');
     }
     useEffect(() => {
 
@@ -41,7 +42,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
                     ${(order.price * (1 - order.discount) + order.price * TAX_RATE).toFixed(2)}
                 </span>
             </p>
-            <ActionButton isDisabled={!isReadyToSubmit()} title='Place Order' color='goldenrod' type='main' onClick={() => {}} />
+            <ActionButton isDisabled={!isReadyToSubmit()} title='Place Order' color='goldenrod' type='main' onClick={handlePlaceOrder} />
         </div>
     );
 };
