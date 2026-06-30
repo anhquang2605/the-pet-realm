@@ -3,7 +3,7 @@ import { Order, RawOrder } from '../../../types/order';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
 import { Payments, Shipping } from '../../../types/payment';
-
+import { MOCK_PAYMENT, MOCK_SHIPPING } from '../../../local_data/mock-payment-data';
 export type FilledContent = {
     [key: string]: boolean;
 };
@@ -110,6 +110,11 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
                 return null;
         }
     }
+    useEffect(() => {
+        // For testing purposes, we can set the payment and shipping to mock data
+        setPayment(MOCK_PAYMENT);
+        setShipping(MOCK_SHIPPING);
+    }, []);
     useEffect(() => {
         if (id) {
             getOrderDetails(id);
