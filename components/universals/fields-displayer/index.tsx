@@ -5,9 +5,10 @@ import style from './fields-displayer.module.css';
 type FieldsDisplayerProps<T> = {
     items: Partial<T>[];
     sectionTitle?: string;
+    imageUrl?: string; // Optional image URL to display at the top of the section
 };
 
-const FieldsDisplayer= <T,>({ items , sectionTitle = ""}: FieldsDisplayerProps<T>) => {
+const FieldsDisplayer= <T,>({ items , sectionTitle = "", imageUrl}: FieldsDisplayerProps<T>) => {
     useEffect(() => {
 
     }, []);
@@ -15,8 +16,10 @@ const FieldsDisplayer= <T,>({ items , sectionTitle = ""}: FieldsDisplayerProps<T
     return (
         <div className={style['fields-displayer']}>
             <h3 className={style['section-title']}>{sectionTitle}</h3>
+            {imageUrl && <img src={imageUrl} alt="Section Image" className={style['section-image']} />}
             {items.map((item, index) => (
                 <div key={index} className={style['field-item']}>
+
                     {Object.entries(item).map(([key, value]) => (
                         <div key={key} className={style['field']}>    
                             <span className={style['field-label']}>{key}:</span>
