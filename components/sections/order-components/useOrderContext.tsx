@@ -1,5 +1,5 @@
 import {createContext, useState, useEffect, useContext } from 'react';
-import { Order, RawOrder } from '../../../types/order';
+import { Order, OrderSummary, RawOrder } from '../../../types/order';
 import { fetchFromGetAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
 import { Payments, Shipping } from '../../../types/payment';
@@ -42,6 +42,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [sectionName, setSectionName] = useState<string>('confirmation');
     const [filledContent, setFilledContent] = useState<{ [key: string]: boolean; }>({});
     const [currentFormStage, setCurrentFormStage] = useState<number>(1);
+    const [orderSummary, setOrderSummary] = useState<OrderSummary | null>(null);
     const [payment, setPayment] = useState<Payments>({
         cardNumber: '',
         expiryDate: '',

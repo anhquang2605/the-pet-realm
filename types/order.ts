@@ -47,3 +47,10 @@ export interface ShopSuggestion{
     name: string;
    image: string;
 }
+export interface OrderSummary{
+    name: string;
+    price: number;
+    imageUrls: string[]; // Array of image URLs associated with the order
+    discount: number; // Optional field for discount percentage
+    totalPrice: number; // Total price after applying discount
+}
