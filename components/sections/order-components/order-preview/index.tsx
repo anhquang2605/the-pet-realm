@@ -8,15 +8,25 @@ type OrderPreviewProps = Record<string, never>;
 
 const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
     const {order, isReadyToSubmit, setSectionName, setOrderSummary} = useOrderContext();
-    
+    const [totalPrice, setTotalPrice] = useState<number>(0);
     const handlePlaceOrder = () => {
-
+        order &&
+        setOrderSummary(
+            {
+                name: order.name,
+                totalPrice: totalPrice,
+                imageUrls: order.imageUrls,
+                discount: order.discount
+            }
+        );
         setSectionName('confirmation');
     }
     useEffect(() => {
 
     }, []);
-
+    useEffect(() => {
+        setTotalPrice(order ? (order.price * (1 - order.discount) + order.price * TAX_RATE) : 0);
+    }, [order]);
     return (
         order && <div className={style['order-preview']}>
             <img className={style['order-preview__image']} src={order.imageUrls[0]} alt={order.name} />
@@ -40,7 +50,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
             <p className={style['order-preview__final-price-container']}>
                 <span className={style['order-preview__price-label']}>Total:</span>
                 <span className={style['order-preview__price-content']}>
-                    ${(order.price * (1 - order.discount) + order.price * TAX_RATE).toFixed(2)}
+                    ${totalPrice.toFixed(2)}
                 </span>
             </p>
             <ActionButton isDisabled={!isReadyToSubmit()} title='Place Order' color='goldenrod' type='main' onClick={handlePlaceOrder} />
