@@ -15,8 +15,6 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
             {
                 name: order.name,
                 totalPrice: totalPrice,
-                imageUrls: order.imageUrls,
-                discount: order.discount
             }
         );
         setSectionName('confirmation');
