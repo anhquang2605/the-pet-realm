@@ -7,9 +7,10 @@ import ActionButton from '../../../universals/buttons/action-button/action-butto
 type OrderPreviewProps = Record<string, never>;
 
 const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
-    const {order, isReadyToSubmit, setSectionName} = useOrderContext();
+    const {order, isReadyToSubmit, setSectionName, setOrderSummary} = useOrderContext();
     
     const handlePlaceOrder = () => {
+
         setSectionName('confirmation');
     }
     useEffect(() => {
