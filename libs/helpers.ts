@@ -45,3 +45,13 @@ export const debounce = <T extends (...args: any[]) => void>  (func: T, delay: n
         }, delay);
     }
 }
+
+export function camelToCapitalized(input: string): string {
+  if (typeof input !== "string" || input.trim() === "") {
+    throw new Error("Input must be a non-empty string");
+  }
+
+  // Insert space before capital letters, then capitalize first letter
+  const spaced = input.replace(/([a-z])([A-Z])/g, "$1 $2");
+  return spaced.toUpperCase();
+}

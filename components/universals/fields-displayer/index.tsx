@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import style from './fields-displayer.module.css';
+import { camelToCapitalized } from '../../../libs/helpers';
 
 //generic component to display fields and their values in a structured manner
 type FieldsDisplayerProps<T> = {
@@ -22,8 +23,8 @@ const FieldsDisplayer= <T,>({ items , sectionTitle = "", imageUrl}: FieldsDispla
 
                     {Object.entries(item).map(([key, value]) => (
                         <div key={key} className={style['field']}>    
-                            <span className={style['field-label']}>{key}:</span>
-                            <span className={style['field-value']}>{value as string}</span>
+                            <div className={style['field-label']}> {camelToCapitalized(key)}:</div>
+                            <div className={style['field-value']}> {value as string}</div>
                         </div>
                     ))}
                 </div>
