@@ -1,6 +1,7 @@
 .fields-displayer{
     display: flex;
     flex-direction: column;
+    padding: var(--half-spacing);
 }
 
 .section-title{
