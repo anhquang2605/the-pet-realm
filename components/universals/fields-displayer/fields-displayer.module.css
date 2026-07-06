@@ -2,8 +2,6 @@
     display: flex;
     flex-direction: column;
     padding: var(--half-spacing);
-    align-items: center;
-    justify-content: center;
 }
 
 .section-title{
@@ -17,6 +15,11 @@
     gap: 0.5rem;
     margin-bottom: 0.5rem;
 }
+.section-image{
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    width: 100%;
+}
 .field{
     display: flex;
     flex-direction: row;
@@ -26,4 +29,9 @@
 }
 .field-value{
     
+}
+@media screen and (min-width: 768px){
+    .section-image{
+        width: 33%;
+    }
 }
