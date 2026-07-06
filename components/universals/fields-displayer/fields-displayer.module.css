@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     padding: var(--half-spacing);
+    align-items: center;
+    justify-content: center;
 }
 
 .section-title{
