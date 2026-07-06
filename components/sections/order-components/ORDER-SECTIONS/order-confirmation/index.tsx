@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import style from './order-confirmation.module.css';
 import { useOrderContext } from '../../useOrderContext';
 import FieldsDisplayer from '../../../../universals/fields-displayer';
+import ActionButton from '../../../../universals/buttons/action-button/action-button';
 type OrderConfirmationProps = Record<string, never>;
 
 const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
@@ -19,7 +20,7 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
             {shipping && <FieldsDisplayer items={[shipping]} sectionTitle="Shipping Details" />}
             <p className={style['order-confirmation__message']}>If you have any questions or need assistance, please contact our support team.</p>
             <p className={style['order-confirmation__message']}>We look forward to serving you!</p>
-            
+            <ActionButton isDisabled={false} title='Back to Home' color='goldenrod' type='main' onClick={() => window.location.href = '/'} />
         </section>
     );
 };
