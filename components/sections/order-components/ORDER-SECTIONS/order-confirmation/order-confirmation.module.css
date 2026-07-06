@@ -9,3 +9,11 @@
     font-size: 1.2rem;
     margin: auto;
 }
+
+.order-confirmation__actions{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+}
