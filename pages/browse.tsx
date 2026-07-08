@@ -1,6 +1,7 @@
 import React, { use, useEffect } from 'react';
 import style from './page-styles/browse.module.css';
 import { Order, RawOrder } from '../types/order';
+import { orders} from '../local_data/mock-order-data';
 import OrderFilter, { MobileFilterRevealButton } from '../components/sections/browse-components/use-order-fitler/order-filter';
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
@@ -15,12 +16,12 @@ interface BrowseProps {
 const fetchBrowseData = async () => {
     const isAdmin = await checkAdminRole(JWT_SECRET);
     if (!isAdmin) { //only get orders for clients
-        return []; 
+        return orders; 
     } else {//return all orders for admin including the disabled ones 
 
     }
     // Simulate fetching data for the browse page
-    const data =  []; // This would be replaced with an actual API call
+    const data =  orders; // This would be replaced with an actual API call
     return data;
 }
 const fetchPriceRange = async () => {
@@ -36,13 +37,8 @@ export async function getStaticProps() {
     const browseData = await fetchBrowseData()
     const priceRange = await fetchPriceRange();
     if (browseData) {
-       const rawOrders: RawOrder[] = browseData.map((order: Order) => ({
-            ...order,
-            _id: new ObjectId(order.id),
-            dateCreated: order.dateCreated.toISOString(), // Convert Date to ISO string
-            dateUpdated: order.dateUpdated.toISOString(), // Convert Date to ISO string
-        }));
-          props.orders = rawOrders; // Assign the fetched data to props
+     
+        props.orders = browseData; // Assign the fetched data to props
         props.priceRange = priceRange as [number, number];
     }
       
