@@ -47,7 +47,6 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
     }
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const value = e.target.value;
-            let results:Partial<Order>[] = [];
             if(value !== null && value !== ''){ 
                   debouncedSearch(value);    
             }      
