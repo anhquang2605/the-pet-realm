@@ -9,7 +9,7 @@ const HomeIcon: React.FC<HomeIconProps> = ({}) => {
         router.push('/');
     }
     return (
-        <div className={style['home-icon']} >
+        <div className={style['home-icon']} onClick={handleOnClick}>
             <Image
                 src="/asset/icon/large-icon.png"
                 alt="Home Icon"
