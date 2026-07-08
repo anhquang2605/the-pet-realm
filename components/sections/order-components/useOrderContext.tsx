@@ -11,7 +11,7 @@ export type FilledContent = {
 
 type OrderContextType = {
     order: RawOrder | null,
-    setOrder: React.Dispatch<React.SetStateAction<any>>
+    setOrder: React.Dispatch<React.SetStateAction<RawOrder | null>>
     sectionName: string;
     setSectionName: React.Dispatch<React.SetStateAction<string>>
     payment: Payments;

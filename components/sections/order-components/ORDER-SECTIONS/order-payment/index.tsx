@@ -10,8 +10,8 @@ import OrderPreview from '../../order-preview';
 type OrderPaymentProps = Record<string, never>;
 const COLLAPSABLE_SECTIONS_TITLES = ['1. Payment Details', '2. Shipping Information'];
 const COLLAPSABLE_SECTIONS_ITEMS = [
-    <PaymentDetails />,
-    <Shipment />,
+    <PaymentDetails key={1} />,
+    <Shipment key={2} />,
 ]
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     const {setSectionName, filledContent, currentFormStage, setCurrentFormStage} = useOrderContext();
