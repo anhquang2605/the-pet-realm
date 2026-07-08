@@ -1,30 +1,27 @@
 import { ObjectId } from "mongodb";
 
-export interface Order{
-    name: string;
-    id: string | ObjectId;
+export interface BaseOrder{
+      name: string;
     price: number;
-    dateCreated: Date;
+   
     status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
     description: string; // Optional field for additional details
-    dateUpdated: Date; // Optional field for tracking updates
+   
     imageUrls: string[]; // Array of image URLs associated with the order
     discount: number; // Optional field for discount percentage
     isFeatured: boolean;
     paymentId: string | ObjectId; // Optional field for payment identifier
     shipmentId: string | ObjectId; // Optional field for shipment identifier
 }
-export interface RawOrder{
-     name: string;
+export interface Order extends BaseOrder{
+    id: string | ObjectId;
+    dateCreated: Date;
+    dateUpdated: Date;
+}
+export interface RawOrder extends BaseOrder{
     _id: ObjectId;
-    price: number;
-    dateCreated: string; // ISO string format
-    status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
-    description: string; // Optional field for additional details
-    dateUpdated: string; // Optional field for tracking updates
-    imageUrls: string[]; // Array of image URLs associated with the order
-    discount: number; // Optional field for discount percentage
-    isFeatured: boolean;
+    dateCreated: string; // ISO string representation of the date
+    dateUpdated: string; // ISO string representation of the date
 }
 export interface FeatureItems{
     id: string | ObjectId;
