@@ -95,6 +95,7 @@ export const browseOrderItems: Order[] =
     imageUrls: ["https://picsum.photos/id/237/300/200", "https://picsum.photos/id/237/300/201"],
     discount: 0.15,
     isFeatured: true
+    
   },
   {
     id: new ObjectId(),

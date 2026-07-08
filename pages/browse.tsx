@@ -1,6 +1,5 @@
 import React, { use, useEffect } from 'react';
 import style from './page-styles/browse.module.css';
-import { browseOrderItems } from '../local_data/mock-order-data';
 import { Order, RawOrder } from '../types/order';
 import OrderFilter, { MobileFilterRevealButton } from '../components/sections/browse-components/use-order-fitler/order-filter';
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
@@ -16,12 +15,12 @@ interface BrowseProps {
 const fetchBrowseData = async () => {
     const isAdmin = await checkAdminRole(JWT_SECRET);
     if (!isAdmin) { //only get orders for clients
-        return browseOrderItems; 
+        return []; 
     } else {//return all orders for admin including the disabled ones 
 
     }
     // Simulate fetching data for the browse page
-    const data =  browseOrderItems; // This would be replaced with an actual API call
+    const data =  []; // This would be replaced with an actual API call
     return data;
 }
 const fetchPriceRange = async () => {
