@@ -7,6 +7,7 @@ import OrderSorter from '../components/sections/browse-components/order-sorter/o
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
 import { OrderFilterI } from '../components/sections/browse-components/use-order-fitler/order-filter';
 import { checkAdminRole } from '../libs/admin-check';
+import { ObjectId } from 'mongodb';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 interface BrowseProps {
     orders: RawOrder[];
@@ -32,7 +33,7 @@ export async function getStaticProps() {
     if (browseData) {
        const rawOrders: RawOrder[] = browseData.map((order: Order) => ({
             ...order,
-            id: order.id.toString(),
+            _id: new ObjectId(order.id),
             dateCreated: order.dateCreated.toISOString(), // Convert Date to ISO string
             dateUpdated: order.dateUpdated.toISOString(), // Convert Date to ISO string
         }));
@@ -123,6 +124,8 @@ const Browse: React.FC<BrowseProps> = ({
 const convertToOrders = (rawOrders: RawOrder[]): Order[] => {
     return rawOrders.map((rawOrder) => ({
         ...rawOrder,
+        id: new ObjectId(rawOrder._id),
+        
         dateCreated: new Date(rawOrder.dateCreated),
         dateUpdated: new Date(rawOrder.dateUpdated),
     }));    
