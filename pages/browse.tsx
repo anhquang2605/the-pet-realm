@@ -15,8 +15,10 @@ interface BrowseProps {
 }
 const fetchBrowseData = async () => {
     const isAdmin = await checkAdminRole(JWT_SECRET);
-    if (!isAdmin) {
-        return null; // Return null or handle the case when the user is not an admin
+    if (!isAdmin) { //only get orders for clients
+        return browseOrderItems; 
+    } else {//return all orders for admin including the disabled ones 
+
     }
     // Simulate fetching data for the browse page
     const data =  browseOrderItems; // This would be replaced with an actual API call
