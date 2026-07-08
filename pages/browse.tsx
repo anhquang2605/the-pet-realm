@@ -14,6 +14,10 @@ interface BrowseProps {
     priceRange?: [number, number];
 }
 const fetchBrowseData = async () => {
+    const isAdmin = await checkAdminRole(JWT_SECRET);
+    if (!isAdmin) {
+        return null; // Return null or handle the case when the user is not an admin
+    }
     // Simulate fetching data for the browse page
     const data =  browseOrderItems; // This would be replaced with an actual API call
     return data;
@@ -125,7 +129,7 @@ const convertToOrders = (rawOrders: RawOrder[]): Order[] => {
     return rawOrders.map((rawOrder) => ({
         ...rawOrder,
         id: new ObjectId(rawOrder._id),
-        
+
         dateCreated: new Date(rawOrder.dateCreated),
         dateUpdated: new Date(rawOrder.dateUpdated),
     }));    
