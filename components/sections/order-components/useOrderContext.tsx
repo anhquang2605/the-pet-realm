@@ -41,7 +41,7 @@ export const OrderContext = createContext<OrderContextType | null>(null);
 export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) => {
     const [order, setOrder] = useState<RawOrder | null>(null);
     const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
-    const [sectionName, setSectionName] = useState<string>('confirmation');
+    const [sectionName, setSectionName] = useState<string>('details');
     const [filledContent, setFilledContent] = useState<{ [key: string]: boolean; }>({});
     const [currentFormStage, setCurrentFormStage] = useState<number>(1);
     const [orderSummary, setOrderSummary] = useState<OrderSummary | null>(null);
