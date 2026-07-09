@@ -114,13 +114,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }
     useEffect(() => {
-        // For testing purposes, we can set the payment and shipping to mock data
-        setPayment(MOCK_PAYMENT);
-        setShipping(MOCK_SHIPPING);
-        setOrderSummary({
-            name: 'Sample Order',
-            totalPrice: 90
-        });
+
     }, []);
     useEffect(() => {
         if (id) {
