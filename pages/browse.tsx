@@ -8,6 +8,7 @@ import OrderViewer from '../components/sections/browse-components/order-viewer/o
 import { OrderFilterI } from '../components/sections/browse-components/use-order-fitler/order-filter';
 import { checkAdminRole } from '../libs/admin-check';
 import { ObjectId } from 'mongodb';
+import { fetchFromGetAPI } from '../libs/api-interactions';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 interface BrowseProps {
     orders: RawOrder[];
@@ -15,10 +16,16 @@ interface BrowseProps {
 }
 const fetchBrowseData = async () => {
     const isAdmin = await checkAdminRole(JWT_SECRET);
+    const PATH = '/api/orders';
+    const options = {
+        status: '',
+    }
+    let orders = [];
     if (!isAdmin) { //only get orders for clients
-        return orders; 
+        options.status = 'fresh';
+         orders = await fetchFromGetAPI(PATH, options);
     } else {//return all orders for admin including the disabled ones 
-
+        orders = await fetchFromGetAPI(PATH, {});
     }
     // Simulate fetching data for the browse page
     const data =  orders; // This would be replaced with an actual API call
