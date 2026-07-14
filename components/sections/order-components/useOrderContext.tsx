@@ -124,7 +124,14 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         return response;
     }
     const submitPayment = async () => {
-        return insertToPostAPI('payments', payment);
+        let response;
+        try {
+            response = await insertToPostAPI('payments', payment);
+        } catch (error) {
+            console.error('Error submitting payment:', error);
+            return;
+        }
+        return response;
     }
     const updateOrder  = async (updatedOrder: RawOrder) => {
         
@@ -136,9 +143,22 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
                 console.log('Order not found');    
                 return;
             }
-        await submitShipping();
-        await submitPayment();
-        await updateOrder(order);
+
+        const shippingResponse = await submitShipping();
+        const paymentResponse = await submitPayment();
+        const updatedOrder: RawOrder = {
+            ...order,
+            shipmentId: shippingResponse?.id || order.shipmentId,
+            paymentId: paymentResponse?.id || order.paymentId,
+            dateUpdated: new Date().toISOString()
+        };
+
+        try {
+            const response = await updateOrder(updatedOrder);
+            console.log('Order updated successfully:', response);
+        } catch (error) {
+            console.error('Error updating order:', error);
+        }
     }
     useEffect(() => {
         if(sectionName === 'confirmation') {
@@ -150,6 +170,9 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
             getOrderDetails(id);
         }
     }, [id]);
+    useEffect(() => {
+
+    }, [order, ])
     return (
         <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary }}>
             {deliverContextByStatus()}
