@@ -113,20 +113,29 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
                 return null;
         }
     }
-    const submitShipping = () => {
+    const submitShipping = async () => {
         
     }
-    const submitPayment = () => {
+    const submitPayment = async () => {
         
     }
-    const updateOrder = (updatedOrder: RawOrder) => {
+    const updateOrder  = async (updatedOrder: RawOrder) => {
         
+    }
+    const submitOrder = async () => {
+
+        if(!order) 
+            {
+                console.log('Order not found');    
+                return;
+            }
+        await submitShipping();
+        await submitPayment();
+        await updateOrder(order);
     }
     useEffect(() => {
         if(sectionName === 'confirmation') {
-            // update shipping information
-            // update payment information
-            // update order
+            submitOrder();
         }
     }, [sectionName]);
     useEffect(() => {
