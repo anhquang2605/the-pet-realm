@@ -113,6 +113,15 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
                 return null;
         }
     }
+    const submitShipping = () => {
+        
+    }
+    const submitPayment = () => {
+        
+    }
+    const updateOrder = (updatedOrder: RawOrder) => {
+        
+    }
     useEffect(() => {
 
     }, []);
