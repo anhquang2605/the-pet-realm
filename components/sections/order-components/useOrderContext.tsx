@@ -123,8 +123,12 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         
     }
     useEffect(() => {
-
-    }, []);
+        if(sectionName === 'confirmation') {
+            // update shipping information
+            // update payment information
+            // update order
+        }
+    }, [sectionName]);
     useEffect(() => {
         if (id) {
             getOrderDetails(id);
