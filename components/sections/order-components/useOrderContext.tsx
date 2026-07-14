@@ -1,6 +1,6 @@
 import {createContext, useState, useEffect, useContext } from 'react';
 import { Order, OrderSummary, RawOrder } from '../../../types/order';
-import { fetchFromGetAPI, insertToPostAPI } from '../../../libs/api-interactions';
+import { fetchFromGetAPI, insertToPostAPI, updateToPutAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
 import { Payments, Shipping } from '../../../types/payment';
 import { MOCK_PAYMENT, MOCK_SHIPPING } from '../../../local_data/mock-payment-data';
@@ -134,7 +134,8 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         return response;
     }
     const updateOrder  = async (updatedOrder: RawOrder) => {
-        
+        const response = await updateToPutAPI('orders', updatedOrder);
+        return response;
     }
     const submitOrder = async () => {
 
