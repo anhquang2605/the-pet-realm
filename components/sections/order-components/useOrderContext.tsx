@@ -1,6 +1,6 @@
 import {createContext, useState, useEffect, useContext } from 'react';
 import { Order, OrderSummary, RawOrder } from '../../../types/order';
-import { fetchFromGetAPI } from '../../../libs/api-interactions';
+import { fetchFromGetAPI, insertToPostAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
 import { Payments, Shipping } from '../../../types/payment';
 import { MOCK_PAYMENT, MOCK_SHIPPING } from '../../../local_data/mock-payment-data';
@@ -114,10 +114,17 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }
     const submitShipping = async () => {
-        
+        let response;
+        try {
+            response = await insertToPostAPI('shipping', shipping);
+        } catch (error) {
+            console.error('Error submitting shipping:', error);
+            return;
+        }
+        return response;
     }
     const submitPayment = async () => {
-        
+        return insertToPostAPI('payments', payment);
     }
     const updateOrder  = async (updatedOrder: RawOrder) => {
         
