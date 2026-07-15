@@ -138,6 +138,9 @@ export default function PaymentForm() {
         if (!validateForm()) return;
         setCurrentFormStage(2);       
     };
+    const handleEdit = () => {
+        setCurrentFormStage(1);
+    }
 
     const renderInput = (
         label: string,
@@ -193,7 +196,7 @@ export default function PaymentForm() {
                 title="Edit"
                 color="goldenrod"
                 classNames={styles.editButton}
-                onClick={() => setCurrentFormStage(1)}
+                onClick={handleEdit}
             />}
             <form
             className={styles.form}
