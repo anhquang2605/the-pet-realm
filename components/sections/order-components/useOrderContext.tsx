@@ -98,7 +98,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         return true;
     }
     const isReadyToSubmit = () => {
-        return isPaymentFullyFilled() && isShippingFullyFilled();
+        return currentFormStage === 3 && isPaymentFullyFilled() && isShippingFullyFilled();
     }
       
     const deliverContextByStatus = () => {

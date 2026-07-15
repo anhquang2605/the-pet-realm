@@ -137,7 +137,7 @@ export default function ShippingForm() {
         console.log('Shipping Info:', formData);
 
         setShipping(formData);
-        setCurrentFormStage(currentFormStage + 1);
+        setCurrentFormStage(3);
     };
 
     const renderInput = (
@@ -194,7 +194,7 @@ export default function ShippingForm() {
             {isDirty && currentFormStage !== 2 && <ActionButton
                 type="edit"
                 title="Edit"
-                onClick={() => setCurrentFormStage(1)}
+                onClick={() => setCurrentFormStage(2)}
                 color="goldenrod"
                 classNames={styles.editButton}
             />}
