@@ -20,7 +20,7 @@ const initialForm: Shipping = {
 
 export default function ShippingForm() {
     const [isDirty, setIsDirty] = useState(false);
-    const { shipping, setShipping, currentFormStage, setCurrentFormStage } = useOrderContext();
+    const { shipping, setShipping, currentFormStage, setCurrentFormStage,  } = useOrderContext();
     const [formData, setFormData] =
         useState<Shipping>(initialForm);
 
@@ -188,13 +188,17 @@ export default function ShippingForm() {
             return renderInput(label, name, placeholder, type);
         }
     }
+    const handleEditClick = () => {
+
+        setCurrentFormStage(2);
+    }
 
     return (
         <>
             {isDirty && currentFormStage !== 2 && <ActionButton
                 type="edit"
                 title="Edit"
-                onClick={() => setCurrentFormStage(2)}
+                onClick={handleEditClick}
                 color="goldenrod"
                 classNames={styles.editButton}
             />}
