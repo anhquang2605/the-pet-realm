@@ -182,7 +182,7 @@ export default function ShippingForm() {
         </div>
     )
     const resultViewToggler = (label: string, name: keyof Shipping, placeholder?: string, type: string = 'text') => {
-        if (currentFormStage === 1) {
+        if (currentFormStage !== 1) {
             return renderResult(label, shipping[name]);
         } else {
             return renderInput(label, name, placeholder, type);
