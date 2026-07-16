@@ -135,9 +135,9 @@ export default function ShippingForm() {
 
         if (!validateForm()) return;
 
-        console.log('Shipping Info:', formData);
 
         setShipping(formData);
+        setIsEditing(false);
         setCurrentFormStage(3);
     };
 
