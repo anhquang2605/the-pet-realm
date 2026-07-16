@@ -1,19 +1,14 @@
 import React, { use, useEffect } from 'react';
 import style from './page-styles/browse.module.css';
 import { Order, RawOrder } from '../types/order';
-import { orders} from '../local_data/mock-order-data';
 import OrderFilter, { MobileFilterRevealButton } from '../components/sections/browse-components/use-order-fitler/order-filter';
 import OrderSorter from '../components/sections/browse-components/order-sorter/order-sorter';
 import OrderViewer from '../components/sections/browse-components/order-viewer/order-viewer';
 import { OrderFilterI } from '../components/sections/browse-components/use-order-fitler/order-filter';
 import { checkAdminRole } from '../libs/admin-check';
-import { ObjectId } from 'mongodb';
 import { fetchFromGetAPI } from '../libs/api-interactions';
 const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
-interface BrowseProps {
-    orders: RawOrder[];
-    priceRange?: [number, number];
-}
+type BrowseProps  = Record<string, unknown>;
 const fetchBrowseData = async () => {
     const isAdmin = await checkAdminRole(JWT_SECRET);
     const PATH = '/api/orders';
@@ -31,33 +26,16 @@ const fetchBrowseData = async () => {
     const data =  orders; // This would be replaced with an actual API call
     return data;
 }
-const fetchPriceRange = async () => {
+const fetchPriceRange: () => Promise<[number, number]> = async () => {
     // Simulate fetching price range data
     return [0, 1000]; // Example price range
 }
-export async function getStaticProps() {
-    const props: BrowseProps = {
-        orders: [], // Initialize with an empty array or fetch actual data
-        priceRange: [0, 1000], // Default price range
-    };
-    // Fetch data for the browse page
-    const browseData = await fetchBrowseData()
-    const priceRange = await fetchPriceRange();
-    if (browseData) {
-     
-        props.orders = browseData; // Assign the fetched data to props
-        props.priceRange = priceRange as [number, number];
-    }
-      
-    return { props,
-    };
-}
-const Browse: React.FC<BrowseProps> = ({
-    orders,
-    priceRange = [0, 1000],
-}) => {
+
+const Browse: React.FC<BrowseProps> = () => {
     const [orderItems, setOrderItems] = React.useState<Order[]>([]);
     const [filteredOrders, setFilteredOrders] = React.useState<Order[]>([]);
+    const [orders, setOrders] = React.useState<RawOrder[]>([]);
+    const [priceRange, setPriceRange] = React.useState<[number, number]>([0, 1000]);
     const [filter, setFilter] = React.useState<OrderFilterI>({
         priceRange: [0, Infinity],
         isDiscounted: false,
@@ -70,6 +48,14 @@ const Browse: React.FC<BrowseProps> = ({
     //admin check state
     const [isAdmin, setIsAdmin] = React.useState(false);
     //user Roles
+    useEffect(() => {
+        const browseData = fetchBrowseData();
+        const priceRangeData = fetchPriceRange();
+        Promise.all([browseData, priceRangeData]).then(([orders, range]) => {
+            setOrders(orders);
+            setPriceRange(range);
+        })
+    }, []);
     useEffect(()=>{ 
         const convertedOrders = convertToOrders(orders);
         setOrderItems(convertedOrders);
@@ -132,7 +118,7 @@ const Browse: React.FC<BrowseProps> = ({
 const convertToOrders = (rawOrders: RawOrder[]): Order[] => {
     return rawOrders.map((rawOrder) => ({
         ...rawOrder,
-        id: new ObjectId(rawOrder._id),
+        id: rawOrder._id.toString(),
 
         dateCreated: new Date(rawOrder.dateCreated),
         dateUpdated: new Date(rawOrder.dateUpdated),

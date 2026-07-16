@@ -1,5 +1,6 @@
 import { jwtVerify } from 'jose';
-export async function checkAdminRole(secret: string): Promise<string> {
+export const checkAdminRole: (secret: string) => Promise<string> = async (secret: string) => {
+    
       const token = localStorage.getItem('admin_token');
         if (!token) {
             return 'user';
