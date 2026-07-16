@@ -1,4 +1,4 @@
-import React, { use, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import style from './page-styles/browse.module.css';
 import { Order, RawOrder } from '../types/order';
 import OrderFilter, { MobileFilterRevealButton } from '../components/sections/browse-components/use-order-fitler/order-filter';
