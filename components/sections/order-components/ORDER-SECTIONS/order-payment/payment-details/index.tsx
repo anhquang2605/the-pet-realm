@@ -23,6 +23,7 @@ const initialForm: Payments = {
 export default function PaymentForm() {
     const [isDirty, setIsDirty] = useState(false);
     const [formData, setFormData] = useState<Payments>(initialForm);
+    const [isEditing, setIsEditing] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
     const { payment, setPayment, currentFormStage, setCurrentFormStage } = useOrderContext();
     const validateField = (
@@ -136,10 +137,16 @@ export default function PaymentForm() {
         e.preventDefault();
 
         if (!validateForm()) return;
-        setCurrentFormStage(2);       
+        if(isEditing) {
+            setIsEditing(false);
+            setCurrentFormStage(3);
+        } else {
+            setCurrentFormStage(2);
+        }
     };
     const handleEdit = () => {
         setCurrentFormStage(1);
+        setIsEditing(true);
     }
 
     const renderInput = (

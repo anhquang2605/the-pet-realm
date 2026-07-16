@@ -21,6 +21,7 @@ const initialForm: Shipping = {
 export default function ShippingForm() {
     const [isDirty, setIsDirty] = useState(false);
     const { shipping, setShipping, currentFormStage, setCurrentFormStage,  } = useOrderContext();
+    const [isEditing, setIsEditing] = useState(false);//only after the user has submitted the form and is now editing it, we will show the edit button
     const [formData, setFormData] =
         useState<Shipping>(initialForm);
 
