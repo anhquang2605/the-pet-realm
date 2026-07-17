@@ -11,7 +11,7 @@ const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 type BrowseProps  = Record<string, unknown>;
 const fetchBrowseData = async () => {
     const isAdmin = await checkAdminRole(JWT_SECRET);
-    const PATH = '/api/orders';
+    const PATH = 'orders';
     const options = {
         status: '',
     }
