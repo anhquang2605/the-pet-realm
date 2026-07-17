@@ -16,6 +16,7 @@ const fetchBrowseData = async () => {
         status: '',
     }
     let orders = [];
+    console.log('isAdmin:', isAdmin);
     if (!isAdmin) { //only get orders for clients
         options.status = 'fresh';
          orders = await fetchFromGetAPI(PATH, options);
