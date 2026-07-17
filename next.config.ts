@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       new URL("https://picsum.photos/**"),
       new URL("https://placebacon.net/**"),
+      new URL("https://i.ibb.co/**"),
     ]
   }
 };
