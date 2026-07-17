@@ -11,9 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   switch (req.method) {
     case "GET":
       // Get a order
-      const orders:RawOrder[] = [
 
-      ];
       if(id && typeof id === "string"){
         const order = await ordersCollection.find({
           _id: new ObjectId(id)
@@ -22,19 +20,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(200).json(
           order);
       } else if(ids && Array.isArray(ids)){
-       const filteredOrders = ordersCollection.find((order: RawOrder) => ids.includes(order._id.toString()));
+       const filteredOrders = await ordersCollection.find((order: RawOrder) => ids.includes(order._id.toString())).toArray();
         if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
         return res.status(200).json(filteredOrders);
       } else if (name && typeof name === "string"){
-        const filteredOrders = ordersCollection.find((order: RawOrder) => order.name?.toLowerCase().includes(name.toLowerCase()));
+        const filteredOrders = await ordersCollection.find((order: RawOrder) => order.name?.toLowerCase().includes(name.toLowerCase())).toArray();
         if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
         return res.status(200).json(filteredOrders);
       } else if (status && typeof status === "string") {
-        const filteredOrders = ordersCollection.find((order: RawOrder) => order.status === status);
+        const filteredOrders = await ordersCollection.find((order: RawOrder) => order.status === status).toArray();
         if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
         return res.status(200).json(filteredOrders);
       } else {
-        const allOrders = ordersCollection.find({});
+        const allOrders = await ordersCollection.find().toArray();
         return res.status(200).json(allOrders);
       }
         break;
