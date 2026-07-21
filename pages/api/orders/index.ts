@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { id, name, ids, status } = req.query;
+  const { id, name, ids, status, isGettingPriceRange } = req.query;
   const ordersCollection = await getCollectionFromDB("orders");
   if(!ordersCollection) return res.status(500).json({ message: "Database connection error" });
   switch (req.method) {
@@ -31,6 +31,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const filteredOrders = await ordersCollection.find((order: RawOrder) => order.status === status).toArray();
         if(!filteredOrders) return res.status(404).json({ message: "Orders not found" });
         return res.status(200).json(filteredOrders);
+      } else if(isGettingPriceRange && isGettingPriceRange === "true") {
+        ordersCollection.aggregate([
+          {
+            $group: { 
+              _id: null,
+              minPrice: { $min: "$price" },
+              maxPrice: { $max: "$price" }
+            }
+          }
+        ]).toArray()
+        .then((result) => {
+          if(result.length === 0) return res.status(404).json({ message: "No orders found" });
+          const { minPrice, maxPrice } = result[0];
+          return res.status(200).json({ minPrice, maxPrice });
+        })  
+        // Handle price range request
       } else {
         const allOrders = await ordersCollection.find().toArray();
         return res.status(200).json(allOrders);

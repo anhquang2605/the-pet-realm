@@ -16,7 +16,6 @@ const fetchBrowseData = async () => {
         status: '',
     }
     let orders = [];
-    console.log('isAdmin:', isAdmin);
     if (!isAdmin) { //only get orders for clients
         options.status = 'fresh';
          orders = await fetchFromGetAPI(PATH, options);
@@ -28,6 +27,11 @@ const fetchBrowseData = async () => {
     return data;
 }
 const fetchPriceRange: () => Promise<[number, number]> = async () => {
+    const PATH = 'orders';
+    const options = {
+        isGettingPriceRange: 'true',
+    }
+    const priceRange = await fetchFromGetAPI(PATH, options);
     // Simulate fetching price range data
     return [0, 1000]; // Example price range
 }
