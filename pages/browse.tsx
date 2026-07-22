@@ -32,8 +32,11 @@ const fetchPriceRange: () => Promise<[number, number]> = async () => {
         isGettingPriceRange: 'true',
     }
     const priceRange = await fetchFromGetAPI(PATH, options);
+    if (priceRange.minPrice === priceRange.maxPrice) {
+        return [0, priceRange.maxPrice];
+    }
     // Simulate fetching price range data
-    return [0, 1000]; // Example price range
+    return [priceRange.minPrice, priceRange.maxPrice]; // Example price range
 }
 
 const Browse: React.FC<BrowseProps> = () => {
@@ -57,6 +60,7 @@ const Browse: React.FC<BrowseProps> = () => {
         const browseData = fetchBrowseData();
         const priceRangeData = fetchPriceRange();
         Promise.all([browseData, priceRangeData]).then(([orders, range]) => {
+            console.log(range);
             setOrders(orders);
             setPriceRange(range);
         })

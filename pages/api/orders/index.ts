@@ -44,6 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         .then((result) => {
           if(result.length === 0) return res.status(404).json({ message: "No orders found" });
           const { minPrice, maxPrice } = result[0];
+          console.log(minPrice, maxPrice);
           return res.status(200).json({ minPrice, maxPrice });
         })  
         // Handle price range request
