@@ -33,7 +33,7 @@ const fetchPriceRange: () => Promise<[number, number]> = async () => {
     }
     const priceRange = await fetchFromGetAPI(PATH, options);
     // Simulate fetching price range data
-    return priceRange; // Example price range
+    return [0, 1000]; // Example price range
 }
 
 const Browse: React.FC<BrowseProps> = () => {
