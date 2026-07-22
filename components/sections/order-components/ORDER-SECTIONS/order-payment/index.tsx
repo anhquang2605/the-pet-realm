@@ -6,6 +6,7 @@ import PaymentDetails from './payment-details';
 import Shipment from './shipment';
 import Collapsable from '../../../../universals/collapsable';
 import OrderPreview from '../../order-preview';
+import ActionButton from '../../../../universals/buttons/action-button/action-button';
 
 type OrderPaymentProps = Record<string, never>;
 const COLLAPSABLE_SECTIONS_TITLES = ['1. Payment Details', '2. Shipping Information'];
@@ -25,7 +26,12 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     return (
         <div className={style['order-payment']}>
             <span className={style['back-button-container']}>
-                <button className={style['back-button']} onClick={handleBackClick}><IoReturnUpBack />Back</button>
+                <ActionButton type='link' classNames={style['back-button']} onClick={handleBackClick} title= { 
+                     <>
+                        <IoReturnUpBack />
+                        <span>Back</span>   
+                     </>                     } />
+                  
             </span>
             <section className={style['left-section']}>
                 <Collapsable 

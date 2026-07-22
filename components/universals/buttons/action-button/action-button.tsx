@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 interface ActionButtonProps {
     href?: string
-    title: string;
+    title: string | React.ReactNode;
     onClick?: (e?: React.FormEvent) => void;
     type: 'main' | 'link' | 'add' | 'remove' | 'edit' | 'reset' | 'submit';
     color?: string; // Optional color prop for custom styling
