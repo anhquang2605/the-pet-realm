@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import style from './order-filter.module.css';
 import RangeSlider, { InputEvent } from 'react-range-slider-input';
-import 'react-range-slider-input/dist/style.css';
 import ActionButton from '../../../universals/buttons/action-button/action-button';
 import { IoCloseCircle } from 'react-icons/io5';
 import { BiSolidFilterAlt } from "react-icons/bi";
