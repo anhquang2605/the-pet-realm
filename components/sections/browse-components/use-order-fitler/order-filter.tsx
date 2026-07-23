@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './order-filter.module.css';
 import RangeSlider, { InputEvent } from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
@@ -75,6 +75,9 @@ const OrderFilter: React.FC<OrderFilterProps> = ({priceRange, setFilter}) => {
         const filterSection = document.getElementsByClassName(style['order-filter'])[0];
         filterSection.classList.toggle(style['hide-filter']);
     }
+    useEffect(() => {
+        setPriceRangeValues(priceRange);
+    }, [priceRange]);
     return (
         <>
             <section id="order-filter" className={style['order-filter']}>

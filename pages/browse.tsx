@@ -60,11 +60,13 @@ const Browse: React.FC<BrowseProps> = () => {
         const browseData = fetchBrowseData();
         const priceRangeData = fetchPriceRange();
         Promise.all([browseData, priceRangeData]).then(([orders, range]) => {
-            console.log(range);
             setOrders(orders);
             setPriceRange(range);
         })
     }, []);
+    useEffect(() => {
+        console.log('Price range updated:', priceRange);
+    }, [priceRange]); 
     useEffect(()=>{ 
         const convertedOrders = convertToOrders(orders);
         setOrderItems(convertedOrders);
