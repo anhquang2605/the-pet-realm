@@ -26,7 +26,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     return (
         <div className={style['order-payment']}>
             <span className={style['back-button-container']}>
-                <ActionButton type='link' classNames={style['back-button']} onClick={handleBackClick} title= { 
+                <ActionButton color='tomato' type='link' classNames={style['back-button']} onClick={handleBackClick} title= { 
                      <>
                         <IoReturnUpBack />
                         <span>Back</span>   
