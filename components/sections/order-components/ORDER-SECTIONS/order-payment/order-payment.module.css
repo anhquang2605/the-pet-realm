@@ -13,9 +13,9 @@
     gap: 0.5rem;
     background-color: transparent;
     border: none;
-    font-size: 2rem;
+    font-size: 1rem!important;
     cursor: pointer;
-
+    color: white;
 }
 .left-section{
     display: flex;
