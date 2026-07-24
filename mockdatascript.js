@@ -1,5 +1,5 @@
 // Mock Data Generator Script
-// Document count: 30
+// Document count: 50
 
 const { faker } = require("@faker-js/faker");
 
@@ -19,16 +19,17 @@ function generateDocument() {
     description: faker.lorem.sentence(),
     discount: faker.number.float({
       min: 0,
-      max: 1000,
+      max: 100,
       fractionDigits: 2
     }),
     imageUrls: Array.from({ length: 2 }, () =>
-      faker.image.url()
+      faker.internet.url()
     ),
     isFeatured: faker.datatype.boolean(),
     name: faker.commerce.productName(),
     paymentId: faker.string.alphanumeric({
-      length: 12
+      length: 12,
+      casing: "upper"
     }),
     price: faker.number.float({
       min: 1,
@@ -36,19 +37,21 @@ function generateDocument() {
       fractionDigits: 2
     }),
     shipmentId: faker.string.alphanumeric({
-      length: 12
+      length: 12,
+      casing: "upper"
     }),
     status: faker.helpers.arrayElement([
       "pending",
-      "paid",
-      "fresh",
+      "processing",
+      "shipped",
+      "delivered",
       "cancelled"
     ])
   };
 }
 
 const BATCH_SIZE = 1000; // Number of documents to insert per batch
-const TOTAL_DOCUMENTS = 30;
+const TOTAL_DOCUMENTS = 50;
 const numBatches = Math.ceil(
   TOTAL_DOCUMENTS / BATCH_SIZE
 );
