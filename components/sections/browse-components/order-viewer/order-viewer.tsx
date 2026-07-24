@@ -14,7 +14,7 @@ const OrderViewer: React.FC<OrderViewerProps> = ({orders}) => {
                             orders.length > 0 ? 
                             (
                                 orders.map((order: Order, index: number) => (
-                                    <PetCard key={index} name={order.name} price={order.price} imageUrl={order.imageUrls[0]} description={order.description} discount={order.discount} />
+                                    <PetCard key={index} name={order.name} id={order.id} price={order.price} imageUrl={order.imageUrls[0]} description={order.description} discount={order.discount} />
                                 )
                             )) : 
                             (

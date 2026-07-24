@@ -15,6 +15,7 @@ const FeaturedItems: React.FC<FeaturedItemsProps> = ({
             <h2 className={style['featured-items-title']}>Featured Items</h2>
             {featuredItems.map((item, index) => (
                 <PetCard
+                    id={item.id}
                     key={index}
                     name={item.name}
                     price={item.price}
