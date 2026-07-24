@@ -21,8 +21,8 @@ const PetCard: React.FC<PetCardProps> = ({
     discount = 0,
     id
 }) => {
+    const router = useRouter();
     const handleBuyNow = () => {
-        const router = useRouter();
         router.push('/order?id=' + id); // Navigate to the order page with the pet's name as a query parameter
     }
     return (
@@ -32,7 +32,7 @@ const PetCard: React.FC<PetCardProps> = ({
                 <h5 className={style['pet-name']}>{name}</h5>
                 <span className={`${style['pet-price']} ${discount !== 0 ? style['discount'] : ''}`}>$ {+(price - (price * discount)).toFixed(2)}</span>
                 {discount !== 0 && <span className={style['original-price']}>$ {+price.toFixed(2)}</span>}
-                <ActionButton type="add" onClick={() => {}} title="Buy Now" color='green' extraStyle={{
+                <ActionButton type="add" onClick={handleBuyNow} title="Buy Now" color='green' extraStyle={{
                     fontSize: '1rem',
                 }} />
             </section>
