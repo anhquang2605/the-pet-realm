@@ -4,7 +4,7 @@ export interface BaseOrder{
       name: string;
     price: number;
    
-    status: 'pending' | 'completed' | 'cancelled' | 'fresh'; // e.g., 'pending', 'completed', 'cancelled'
+    status: 'pending' | 'completed' | 'cancelled' | 'fresh' | 'processing' | 'delivered' | 'shipped'; // e.g., 'pending', 'completed', 'cancelled'
     description: string; // Optional field for additional details
    
     imageUrls: string[]; // Array of image URLs associated with the order
