@@ -23,7 +23,7 @@ function generateDocument() {
       fractionDigits: 2
     }),
     imageUrls: Array.from({ length: 2 }, () =>
-      faker.internet.url()
+      "https://i.ibb.co/jvCMJD4Y/OIP.jpg"
     ),
     isFeatured: faker.datatype.boolean(),
     name: faker.commerce.productName(),
