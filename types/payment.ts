@@ -1,5 +1,5 @@
 export interface Payments {
-    cardNumber: string;
+    cardNumber: string;//last 4 digits of the card number
     cardHolderName: string;
     expiryDate: string; // Format: MM/YY
     cvv: string;
