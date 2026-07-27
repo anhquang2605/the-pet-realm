@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+
 export interface Payments {
     cardNumber: string;//last 4 digits of the card number
     cardHolderName: string;
@@ -9,6 +11,13 @@ export interface Payments {
     state: string;
     postalCode: string;
     country: string;
+}
+export interface PaymentMethod extends Payments {
+    id: string | ObjectId;
+    dateCreated: Date;
+    last4Digits: string;
+    methodType: 'credit' | 'debit' | 'paypal' | 'other'; // Example types
+    paymentIntentId: string; // For tracking payment intents if using a service like Stripe
 }
 export interface Shipping{
     recipientName: string;
