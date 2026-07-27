@@ -4,6 +4,7 @@ import RangeSlider, { InputEvent } from 'react-range-slider-input';
 import ActionButton from '../../../universals/buttons/action-button/action-button';
 import { IoCloseCircle } from 'react-icons/io5';
 import { BiSolidFilterAlt } from "react-icons/bi";
+import 'react-range-slider-input/dist/style.css';
 export interface OrderFilterI {
     priceRange: [number, number];
     isDiscounted: boolean;
