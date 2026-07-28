@@ -30,6 +30,9 @@ export default function PaymentForm() {
     const [isEditing, setIsEditing] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
     const { payment, setPayment, currentFormStage, setCurrentFormStage } = useOrderContext();
+    //STRIPES CARD PAYMENTS
+    const stripe = useStripe();
+    const elements = useElements();
     const validateField = (
         name: keyof Payments,
         value: string
@@ -136,7 +139,24 @@ export default function PaymentForm() {
 
         return Object.keys(newErrors).length === 0;
     };
+    const handleCardPayment = async () => {
+        if (!stripe || !elements) return;
 
+        const card = elements.getElement(CardElement);
+
+        const { error, paymentMethod } =
+            await stripe.createPaymentMethod({
+                type: "card",
+                card: card!,
+            });
+
+        if (error) {
+            console.log(error.message);
+            return;
+        }
+
+        console.log(paymentMethod.id);
+    }
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
