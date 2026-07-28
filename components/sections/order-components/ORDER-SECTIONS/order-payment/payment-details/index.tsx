@@ -3,7 +3,11 @@ import styles from './payment-details.module.css';
 import { useOrderContext } from './../../../useOrderContext';
 import { Payments } from '../../../../../../types/payment';
 import ActionButton from '../../../../../universals/buttons/action-button/action-button';
-
+import {
+    CardElement,
+    useStripe,
+    useElements,
+} from "@stripe/react-stripe-js";
 
 type Errors = Partial<Record<keyof Payments, string>>;
 
