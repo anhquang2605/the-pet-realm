@@ -284,6 +284,7 @@ export default function PaymentForm() {
 
                 />}
             </form>
+            <CardElement />
         </>
 
     );
