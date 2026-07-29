@@ -34,13 +34,6 @@ export default function PaymentForm() {
     //STRIPES CARD PAYMENTS
     const stripe = useStripe();
     const elements = useElements();
-    const promise = useMemo(() => {
-    return fetch('/create-checkout-session', {
-      method: 'POST',
-    })
-      .then((res) => res.json())
-      .then((data) => data.clientSecret);
-  }, []);
     const validateField = (
         name: keyof Payments,
         value: string
