@@ -3,13 +3,13 @@ import styles from './payment-details.module.css';
 import { useOrderContext } from './../../../useOrderContext';
 import { Payments } from '../../../../../../types/payment';
 import ActionButton from '../../../../../universals/buttons/action-button/action-button';
-import {CheckoutElementsProvider} from '@stripe/react-stripe-js/checkout';
+
 import {
     CardElement,
     useStripe,
     useElements,
 } from "@stripe/react-stripe-js";
-import { loadStripe } from '@stripe/stripe-js';
+
 type Errors = Partial<Record<keyof Payments, string>>;
 
 const initialForm: Payments = {
@@ -24,7 +24,7 @@ const initialForm: Payments = {
     postalCode: '',
     country: '',
 };
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+
 export default function PaymentForm() {
     const [isDirty, setIsDirty] = useState(false);
     const [formData, setFormData] = useState<Payments>(initialForm);
@@ -230,7 +230,7 @@ export default function PaymentForm() {
 
     return (
         <>
-        <CheckoutElementsProvider stripe={stripe} options={{clientSecret: promise}}>
+       
             {isDirty && currentFormStage !== 1 && <ActionButton
                 type="edit"
                 title="Edit"
@@ -294,7 +294,7 @@ export default function PaymentForm() {
                 />}
             </form>
             <CardElement />
-        </CheckoutElementsProvider>
+   
         </>
 
     );
