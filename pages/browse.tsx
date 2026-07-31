@@ -58,6 +58,7 @@ const Browse: React.FC<BrowseProps> = () => {
     //user Roles
     useEffect(() => {
         const browseData = fetchBrowseData();
+        console.log('Fetched browse data:', browseData);
         const priceRangeData = fetchPriceRange();
         Promise.all([browseData, priceRangeData]).then(([orders, range]) => {
             setOrders(orders);

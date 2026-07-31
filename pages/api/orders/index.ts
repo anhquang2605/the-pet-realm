@@ -49,7 +49,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Handle price range request
       } else {
         const allOrders = await ordersCollection.find().toArray();
-        console.log(allOrders);
         return res.status(200).json(allOrders);
       }
         break;
