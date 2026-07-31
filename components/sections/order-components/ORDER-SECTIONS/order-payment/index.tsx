@@ -8,7 +8,7 @@ import Collapsable from '../../../../universals/collapsable';
 import OrderPreview from '../../order-preview';
 import ActionButton from '../../../../universals/buttons/action-button/action-button';
 import { loadStripe } from '@stripe/stripe-js';
-import {CheckoutElementsProvider} from '@stripe/react-stripe-js/checkout';
+import { Elements as CheckoutElementsProvider } from '@stripe/react-stripe-js';
 import {
     CardElement,
     useStripe,
