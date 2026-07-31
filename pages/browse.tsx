@@ -64,9 +64,6 @@ const Browse: React.FC<BrowseProps> = () => {
             setPriceRange(range);
         })
     }, []);
-    useEffect(() => {
-        console.log('Price range updated:', priceRange);
-    }, [priceRange]); 
     useEffect(()=>{ 
         const convertedOrders = convertToOrders(orders);
         setOrderItems(convertedOrders);
