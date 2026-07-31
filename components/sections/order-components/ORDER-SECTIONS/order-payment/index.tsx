@@ -31,7 +31,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     }
     const stripe = useStripe();
     const elements = useElements();
-    const promise = useMemo(() => {
+    const promise =  useMemo(() => {
     return fetch('/create-checkout-session', {
         method: 'POST',
     })
