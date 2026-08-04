@@ -25,20 +25,21 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     const handleBackClick = () => {
         setSectionName('details');
     }
-  
-    useEffect(() => {
-  async function loadClientSecret() {
+    async function loadClientSecret() {
         const res = await fetch("/create-checkout-session", {
         method: "POST",
         });
         const data = await res.json();
         setClientSecret(data.clientSecret);
     }
-
-    loadClientSecret();
+    useEffect(() => {
+        loadClientSecret();
     }, []);
-
+    if (!clientSecret) {
+        return <div>Loading...</div>;
+    }
     return (
+        
         <Elements stripe={stripePromise} options={{clientSecret}}>
         <div className={style['order-payment']}>
             <span className={style['back-button-container']}>
