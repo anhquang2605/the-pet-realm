@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import path from 'path';
 import Chatbot from '../../openai/chatbot/chatbot';
 import { ChatBotProvider } from '../../openai/chatbot/useChatBotContext';
+
 interface LayoutProps {
     children: React.ReactNode
 }
