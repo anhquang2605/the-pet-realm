@@ -8,7 +8,7 @@ import Collapsable from '../../../../universals/collapsable';
 import OrderPreview from '../../order-preview';
 import ActionButton from '../../../../universals/buttons/action-button/action-button';
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements as CheckoutElementsProvider } from '@stripe/react-stripe-js';
+import { CheckoutElementsProvider } from '@stripe/react-stripe-js';
 import {
     CardElement,
     useStripe,
@@ -22,6 +22,7 @@ const COLLAPSABLE_SECTIONS_ITEMS = [
     <Shipment key={2} />,
 ]
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
+    const [clientSecret, setClientSecret] = useState("");
     const {setSectionName, filledContent, currentFormStage, setCurrentFormStage} = useOrderContext();
     useEffect(() => {
 
@@ -29,17 +30,16 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     const handleBackClick = () => {
         setSectionName('details');
     }
-    const stripe = useStripe();
-    const elements = useElements();
-    const promise =  useMemo(() => {
+   
+    const promise  =  useMemo(() => {
     return fetch('/create-checkout-session', {
         method: 'POST',
     })
         .then((res) => res.json())
-        .then((data) => data.clientSecret);
+        .then((data) => data.clientSecret as string);
     }, []);
     return (
-        <CheckoutElementsProvider stripe={stripe} options={{clientSecret: promise}}>
+        <CheckoutElementsProvider  options={{clientSecret: promise}}>
         <div className={style['order-payment']}>
             <span className={style['back-button-container']}>
                 <ActionButton color='tomato' type='link' classNames={style['back-button']} onClick={handleBackClick} title= { 
