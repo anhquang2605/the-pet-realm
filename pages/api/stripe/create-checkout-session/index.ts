@@ -6,11 +6,16 @@ const URL = process.env.URL;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const session = await stripe.checkout.sessions.create({
     line_items: [
-      {
-        // Provide the exact Price ID (for example, price_1234) of the product you want to sell
-        price: '{{PRICE_ID}}',
-        quantity: 1,
+    {
+      price_data: {
+        currency: 'usd',
+        unit_amount: 2000,
+        product_data: {
+          name: 'Single Purchase',
+        }
       },
+      quantity: 1,
+    }
     ],
     mode: 'payment',
     success_url: `${URL}?success=true`,
