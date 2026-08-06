@@ -19,8 +19,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ],
     mode: 'payment',
     success_url: `${URL}?success=true`,
-    // Provide a name (for example, hosted_web_0001) to label this Checkout integration and measure its conversion independently
-    integration_identifier: '{{INTEGRATION_ID}}',
   });
 
   res.status(200).json({ clientSecret: session.client_secret });
