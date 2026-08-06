@@ -5,7 +5,7 @@ import { Payments } from '../../../../../../types/payment';
 import ActionButton from '../../../../../universals/buttons/action-button/action-button';
 
 import {
-    CardElement,
+    PaymentElement,
     useStripe,
     useElements,
 } from "@stripe/react-stripe-js";
@@ -143,20 +143,9 @@ export default function PaymentForm() {
     const handleCardPayment = async () => {
         if (!stripe || !elements) return;
 
-        const card = elements.getElement(CardElement);
+        const card = elements.getElement(PaymentElement);
 
-        const { error, paymentMethod } =
-            await stripe.createPaymentMethod({
-                type: "card",
-                card: card!,
-            });
 
-        if (error) {
-            console.log(error.message);
-            return;
-        }
-
-        console.log(paymentMethod.id);
     }
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -286,7 +275,7 @@ export default function PaymentForm() {
 
                 />}
             </form>
-            <CardElement />
+            <PaymentElement />
    
         </>
 
