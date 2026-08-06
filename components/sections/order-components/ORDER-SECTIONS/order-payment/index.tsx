@@ -28,10 +28,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     }
     async function loadClientSecret() {
         const res = await getFromPOSTAPI('/stripe/create-checkout-session', { amount: 1000 }); // Replace with your actual API endpoint and parameters
-        console.log('Response from API:', res);
-        const data = await res.json();
-        console.log('Client Secret:', data.clientSecret);
-        setClientSecret(data.clientSecret);
+        setClientSecret(res.clientSecret);
     }
     useEffect(() => {
         loadClientSecret();
