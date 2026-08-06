@@ -8,7 +8,7 @@ import Collapsable from '../../../../universals/collapsable';
 import OrderPreview from '../../order-preview';
 import ActionButton from '../../../../universals/buttons/action-button/action-button';
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements  } from '@stripe/react-stripe-js';
+import {CheckoutElementsProvider} from '@stripe/react-stripe-js/checkout';
 import { getFromPOSTAPI } from '../../../../../libs/api-interactions';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 type OrderPaymentProps = Record<string, never>;
@@ -41,7 +41,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     }
     return (
         
-        <Elements stripe={stripePromise} options={{clientSecret}}>
+        <CheckoutElementsProvider stripe={stripePromise} options={{clientSecret}}>
         <div className={style['order-payment']}>
             <span className={style['back-button-container']}>
                 <ActionButton color='tomato' type='link' classNames={style['back-button']} onClick={handleBackClick} title= { 
@@ -66,7 +66,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
            
             
         </div>
-        </Elements>
+        </CheckoutElementsProvider>
     );
 };
 
