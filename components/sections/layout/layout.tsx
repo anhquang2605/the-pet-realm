@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import style from './layout.module.css';
 import Header from '../header/Header';
 import { jwtVerify } from 'jose';
 import { usePathname } from 'next/navigation'
-import path from 'path';
 import Chatbot from '../../openai/chatbot/chatbot';
 import { ChatBotProvider } from '../../openai/chatbot/useChatBotContext';
 
