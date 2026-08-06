@@ -2,7 +2,7 @@ import Stripe from "stripe";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-const URL = process.env.NEXT_PUBLIC_BASE_URL;
+const URL = process.env.URL;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const session = await stripe.checkout.sessions.create({
     line_items: [
