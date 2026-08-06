@@ -8,7 +8,7 @@ import Collapsable from '../../../../universals/collapsable';
 import OrderPreview from '../../order-preview';
 import ActionButton from '../../../../universals/buttons/action-button/action-button';
 import { loadStripe } from '@stripe/stripe-js';
-import {CheckoutElementsProvider} from '@stripe/react-stripe-js/checkout';
+import { Elements as CheckoutElementsProvider } from '@stripe/react-stripe-js';
 import { getFromPOSTAPI } from '../../../../../libs/api-interactions';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 type OrderPaymentProps = Record<string, never>;
@@ -27,7 +27,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
         setSectionName('details');
     }
     async function loadClientSecret() {
-        const res = await getFromPOSTAPI('/stripe/create-checkout-session', { amount: 1000 }); // Replace with your actual API endpoint and parameters
+        const res = await getFromPOSTAPI('/stripe/create-payment-intent', { amount: 1000 }); // Replace with your actual API endpoint and parameters
         console.log(res);
         setClientSecret(res.clientSecret);
     }
