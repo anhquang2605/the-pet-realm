@@ -18,5 +18,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     integration_identifier: '{{INTEGRATION_ID}}',
   });
 
-  res.redirect(303, session.url as string);
+  res.status(200).json({ clientSecret: session.client_secret });
 }
