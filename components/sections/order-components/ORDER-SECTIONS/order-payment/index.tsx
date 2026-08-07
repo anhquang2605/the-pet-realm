@@ -43,6 +43,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
             tabIconMoreHoverColor: 'white',
             accordionItemLabelColorText: 'white',
             accordionItemLabelSelectedColorText: 'white',
+            colorSecondaryText: 'white',
         }
     }
     useEffect(() => {
