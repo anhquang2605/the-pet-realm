@@ -17,12 +17,11 @@ const COLLAPSABLE_SECTIONS_ITEMS = [
     <PaymentDetails key={1} />,
     <Shipment key={2} />,
 ]
+//appearance constant
+
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     const [clientSecret, setClientSecret] = useState("");
     const {setSectionName, filledContent, currentFormStage, setCurrentFormStage} = useOrderContext();
-    useEffect(() => {
-
-    }, []);
     const handleBackClick = () => {
         setSectionName('details');
     }
@@ -39,7 +38,11 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
             colorText: '#30313d',
             colorBorder: 'lightgray',
             fontFamily: 'Montserrat, sans-serif',
-            colorTextSecondary: 'lightgray'
+            labelColorText: 'white',
+            colorTextPlaceholder: '#777',
+            tabIconMoreHoverColor: 'white',
+            accordionItemLabelColorText: 'white',
+            accordionItemLabelSelectedColorText: 'white',
         }
     }
     useEffect(() => {
