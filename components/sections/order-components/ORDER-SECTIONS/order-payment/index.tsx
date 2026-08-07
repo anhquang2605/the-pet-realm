@@ -38,6 +38,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
             colorBackground: '#1e2939',
             colorText: '#30313d',
             colorBorder: 'lightgray',
+            fontFamily: 'Montserrat, sans-serif',
         }
     }
     useEffect(() => {
