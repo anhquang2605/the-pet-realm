@@ -31,6 +31,15 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
         console.log(res);
         setClientSecret(res.clientSecret);
     }
+    //payment element styles
+    const appearance = {
+        theme: 'stripe' as const,
+        variables: {
+            colorBackground: '#1e2939',
+            colorText: '#30313d',
+            colorBorder: 'lightgray',
+        }
+    }
     useEffect(() => {
         loadClientSecret();
     }, []);
@@ -39,7 +48,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     }
     return (
         
-        <CheckoutElementsProvider stripe={stripePromise} options={{clientSecret}}>
+        <CheckoutElementsProvider stripe={stripePromise} options={{clientSecret, appearance}}>
         <div className={style['order-payment']}>
             <span className={style['back-button-container']}>
                 <ActionButton color='tomato' type='link' classNames={style['back-button']} onClick={handleBackClick} title= { 
