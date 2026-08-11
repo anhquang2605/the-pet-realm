@@ -44,6 +44,8 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
             accordionItemLabelColorText: 'white',
             accordionItemLabelSelectedColorText: 'white',
             colorTextSecondary: 'white',
+            buttonColorText: 'white',
+            inputSelectOptionTextColor: 'white',
         }
     }
     useEffect(() => {
