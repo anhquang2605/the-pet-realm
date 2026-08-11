@@ -33,7 +33,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     //payment element styles
     const appearance = {
         theme: 'stripe' as const,
-        variables: {
+/*         variables: {
             colorBackground: '#1e2939',
             colorText: '#30313d',
             colorBorder: 'lightgray',
@@ -51,7 +51,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
             '.Dropdown':{
                 color: 'white',
             }
-        },
+        }, */
     }
     useEffect(() => {
         loadClientSecret();
