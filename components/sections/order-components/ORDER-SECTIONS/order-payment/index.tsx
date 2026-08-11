@@ -46,7 +46,12 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
             colorTextSecondary: 'white',
             buttonColorText: 'white',
             inputSelectOptionTextColor: 'white',
-        }
+        },
+        rules: {
+            '.Dropdown':{
+                color: 'white',
+            }
+        },
     }
     useEffect(() => {
         loadClientSecret();
