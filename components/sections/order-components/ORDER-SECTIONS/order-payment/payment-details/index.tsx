@@ -220,7 +220,7 @@ export default function PaymentForm() {
                 classNames={styles.editButton}
                 onClick={handleEdit}
             />}
-            <form
+ {/*            <form
             className={styles.form}
             onSubmit={handleSubmit}
             noValidate
@@ -274,7 +274,7 @@ export default function PaymentForm() {
                     isSubmit={true}
 
                 />}
-            </form>
+            </form> */}
             <PaymentElement />
    
         </>
