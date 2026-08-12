@@ -4,12 +4,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 const URL = process.env.URL;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const { amount } = req.body;
     const session = await stripe.checkout.sessions.create({
     line_items: [
     {
       price_data: {
         currency: 'usd',
-        unit_amount: 2000,
+        unit_amount: amount,
         product_data: {
           name: 'Single Purchase',
         }
