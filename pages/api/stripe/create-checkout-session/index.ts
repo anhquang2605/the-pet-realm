@@ -20,8 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     ],
     mode: 'payment',
-   
+   return_url: `${URL}/order-confirmation`,
   });
-  console.log(session);
   res.status(200).json({ clientSecret: session.client_secret });
 }

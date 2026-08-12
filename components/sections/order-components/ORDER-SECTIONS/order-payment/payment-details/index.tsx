@@ -275,7 +275,6 @@ export default function PaymentForm() {
 
                 />}
             </form> */}
-            <PaymentElement />
    
         </>
 
