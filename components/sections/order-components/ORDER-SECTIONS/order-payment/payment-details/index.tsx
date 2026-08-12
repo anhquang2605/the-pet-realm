@@ -32,8 +32,8 @@ export default function PaymentForm() {
     const [errors, setErrors] = useState<Errors>({});
     const { payment, setPayment, currentFormStage, setCurrentFormStage } = useOrderContext();
     //STRIPES CARD PAYMENTS
-    const stripe = useStripe();
-    const elements = useElements();
+/*     const stripe = useStripe();
+    const elements = useElements(); */
     const validateField = (
         name: keyof Payments,
         value: string
@@ -140,13 +140,13 @@ export default function PaymentForm() {
 
         return Object.keys(newErrors).length === 0;
     };
-    const handleCardPayment = async () => {
+/*     const handleCardPayment = async () => {
         if (!stripe || !elements) return;
 
         const card = elements.getElement(PaymentElement);
 
 
-    }
+    } */
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
