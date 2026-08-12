@@ -6,6 +6,7 @@ const URL = process.env.URL;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { amount } = req.body;
     const session = await stripe.checkout.sessions.create({
+       ui_mode: 'embedded_page',
     line_items: [
     {
       price_data: {
@@ -19,6 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     ],
     mode: 'payment',
+   
     success_url: `${URL}?success=true`,
   });
   console.log(session);
