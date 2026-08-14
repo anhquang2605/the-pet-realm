@@ -221,7 +221,7 @@ export default function PaymentForm() {
                 classNames={styles.editButton}
                 onClick={handleEdit}
             />}
-            <EmbeddedCheckout/>
+            <PaymentElement />
  {/*            <form
             className={styles.form}
             onSubmit={handleSubmit}
