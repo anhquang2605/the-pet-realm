@@ -8,6 +8,7 @@ import {
     PaymentElement,
     useStripe,
     useElements,
+    EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
 
 type Errors = Partial<Record<keyof Payments, string>>;
@@ -220,7 +221,7 @@ export default function PaymentForm() {
                 classNames={styles.editButton}
                 onClick={handleEdit}
             />}
-            <PaymentElement />
+            <EmbeddedCheckout/>
  {/*            <form
             className={styles.form}
             onSubmit={handleSubmit}
