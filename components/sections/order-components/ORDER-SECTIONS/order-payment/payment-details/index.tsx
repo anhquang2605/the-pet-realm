@@ -220,6 +220,7 @@ export default function PaymentForm() {
                 classNames={styles.editButton}
                 onClick={handleEdit}
             />}
+            <PaymentElement />
  {/*            <form
             className={styles.form}
             onSubmit={handleSubmit}
