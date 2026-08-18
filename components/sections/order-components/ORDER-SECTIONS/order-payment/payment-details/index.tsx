@@ -148,8 +148,8 @@ export default function PaymentForm() {
 
 
     } */
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = (e?: React.FormEvent) => {
+        e?.preventDefault();
 
         if (!validateForm()) return;
         if(isEditing) {
@@ -222,6 +222,14 @@ export default function PaymentForm() {
                 onClick={handleEdit}
             />}
             <PaymentElement />
+            {currentFormStage === 1 && <ActionButton 
+                title="Confirm Payment"
+                type="submit"
+                color="green"
+                classNames={styles.confirmButton}
+                onClick={handleSubmit}
+
+            />}
  {/*            <form
             className={styles.form}
             onSubmit={handleSubmit}
