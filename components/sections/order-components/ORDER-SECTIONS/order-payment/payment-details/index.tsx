@@ -33,8 +33,8 @@ export default function PaymentForm() {
     const [errors, setErrors] = useState<Errors>({});
     const { payment, setPayment, currentFormStage, setCurrentFormStage } = useOrderContext();
     //STRIPES CARD PAYMENTS
-/*     const stripe = useStripe();
-    const elements = useElements(); */
+    const stripe = useStripe();
+    const elements = useElements(); 
     const validateField = (
         name: keyof Payments,
         value: string
@@ -150,7 +150,10 @@ export default function PaymentForm() {
     } */
     const handleSubmit = (e?: React.FormEvent) => {
         e?.preventDefault();
-
+        if(!stripe || !elements) {
+            console.error("Stripe.js has not loaded yet.");
+            return;
+        }
         if (!validateForm()) return;
         if(isEditing) {
             setIsEditing(false);
