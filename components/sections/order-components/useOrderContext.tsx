@@ -37,7 +37,7 @@ interface OrderProviderProps {
 }
 
 export const OrderContext = createContext<OrderContextType | null>(null);
-
+const TAX_RATE = 0.07; // 7% tax rate, adjust as needed BUT WILL BE REPLACED FROM SERVER
 export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) => {
     const [order, setOrder] = useState<RawOrder | null>(null);
     const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
@@ -88,7 +88,11 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
         return true;
     }
-
+    const getOrderTotalPrice = () => {
+       if(order){
+        return order.price - (order.price * order.discount) + (order.price * TAX_RATE);
+       }
+    }
     const isShippingFullyFilled = () => {
         for ( const [key, value] of Object.entries(shipping)) {
             if (value === '' || value === null) {
