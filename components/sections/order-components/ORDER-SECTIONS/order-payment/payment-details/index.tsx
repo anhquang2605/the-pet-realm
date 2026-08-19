@@ -172,7 +172,7 @@ export default function PaymentForm() {
                 {label}
             </label>
 
-            <input
+            {/* <input
                 type={type}
                 name={name}
                 value={payment[name] || ''}
@@ -182,7 +182,7 @@ export default function PaymentForm() {
                     errors[name] ? styles.inputError : ''
                 }`}
             />
-
+ */}
             {errors[name] && (
                 <p className={styles.errorText}>
                     {errors[name]}
