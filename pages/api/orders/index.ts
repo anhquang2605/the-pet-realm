@@ -78,11 +78,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         //get order by id and return partial fields
         const order = await ordersCollection.findOne({ _id: new ObjectId(orderId) });
         if(!order) return res.status(404).json({ message: "RawOrder not found" });
+        const projectObject: { [key: string]: number } = {};
         if(partialFields && Array.isArray(partialFields)){
-         //pick partial fields
-          const partialOrder = pick(order, partialFields);
-          return res.status(200).json(partialOrder);
+          partialFields.forEach((field: string) => {
+            projectObject[field] = 1;
+          });
         }
+        const partialOrder = await ordersCollection.findOne(
+          { _id: new ObjectId(orderId) },
+          { projection: projectObject }
+        );
+        if(!partialOrder) return res.status(404).json({ message: "RawOrder not found" });
+        return res.status(200).json(partialOrder);
       }
       if(!newData) return res.status(400).json({ message: "No data provided" });
       if(newData && typeof newData === "object"){
