@@ -13,29 +13,16 @@ import {
 
 type Errors = Partial<Record<keyof Payments, string>>;
 
-const initialForm: Payments = {
-    cardNumber: '',
-    cardHolderName: '',
-    expiryDate: '',
-    cvv: '',
-    billingAddress1: '',
-    billingAddress2: '',
-    city: '',
-    state: '',
-    postalCode: '',
-    country: '',
-};
 
 export default function PaymentForm() {
     const [isDirty, setIsDirty] = useState(false);
-    const [formData, setFormData] = useState<Payments>(initialForm);
     const [isEditing, setIsEditing] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
     const { payment, setPayment, currentFormStage, setCurrentFormStage } = useOrderContext();
     //STRIPES CARD PAYMENTS
     const stripe = useStripe();
     const elements = useElements(); 
-    const validateField = (
+    /* const validateField = (
         name: keyof Payments,
         value: string
     ): string => {
@@ -99,8 +86,8 @@ export default function PaymentForm() {
                 return '';
         }
     };
-
-    const handleChange = (
+ */
+    /* const handleChange = (
         e: React.ChangeEvent<HTMLInputElement>
     ) => {
         const { name, value } = e.target;
@@ -120,8 +107,8 @@ export default function PaymentForm() {
             [name]: error,
         }));
     };
-
-    const validateForm = (): boolean => {
+ */
+    /* const validateForm = (): boolean => {
         const newErrors: Errors = {};
 
         (
@@ -140,7 +127,7 @@ export default function PaymentForm() {
         setErrors(newErrors);
 
         return Object.keys(newErrors).length === 0;
-    };
+    }; */
 /*     const handleCardPayment = async () => {
         if (!stripe || !elements) return;
 
@@ -154,7 +141,7 @@ export default function PaymentForm() {
             console.error("Stripe.js has not loaded yet.");
             return;
         }
-        if (!validateForm()) return;
+        //if (!validateForm()) return;
         if(isEditing) {
             setIsEditing(false);
             setCurrentFormStage(3);
@@ -174,7 +161,7 @@ export default function PaymentForm() {
         type: string = 'text'
     ) => {
         if (currentFormStage !== 1) {
-            return renderResult(label, payment[name] || '');
+            //return renderResult(label, payment[name] || '');
         } else {
             return renderField(label, name, placeholder, type);
         }
