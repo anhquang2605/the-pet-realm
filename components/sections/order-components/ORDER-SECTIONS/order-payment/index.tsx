@@ -13,10 +13,10 @@ import {Elements as CheckoutElementsProvider} from '@stripe/react-stripe-js';
 import { getFromPOSTAPI } from '../../../../../libs/api-interactions';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 type OrderPaymentProps = Record<string, never>;
-const COLLAPSABLE_SECTIONS_TITLES = ['1. Payment Details', '2. Shipping Information'];
+const COLLAPSABLE_SECTIONS_TITLES = ['1. Shipping information', '2. Payment Details'];
 const COLLAPSABLE_SECTIONS_ITEMS = [
-    <PaymentDetails key={1} />,
-    <Shipment key={2} />,
+    <Shipment key={1} />,
+    <PaymentDetails key={2} />,
 ]
 //appearance constant
 
