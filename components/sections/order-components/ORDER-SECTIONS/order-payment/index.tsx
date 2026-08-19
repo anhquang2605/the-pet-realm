@@ -62,7 +62,7 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     }
     return (
         
-        <CheckoutElementsProvider stripe={stripePromise} options={{clientSecret}}>
+        <CheckoutElementsProvider stripe={stripePromise} options={{clientSecret, appearance}}>
         <div className={style['order-payment']}>
             <span className={style['back-button-container']}>
                 <ActionButton color='tomato' type='link' classNames={style['back-button']} onClick={handleBackClick} title= { 
