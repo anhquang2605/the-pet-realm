@@ -1,12 +1,8 @@
 import { ObjectId } from "mongodb";
 
 export interface Payments {
-    cardNumber: string;//last 4 digits of the card number
-    cardHolderName: string;
+   paymentIntentId: string; //stripe
     expiryDate: string; // Format: MM/YY
-    cvv: string;
-    billingAddress1: string;
-    billingAddress2?: string; // Optional
     city: string;
     state: string;
     postalCode: string;
