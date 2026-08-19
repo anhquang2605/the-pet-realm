@@ -5,6 +5,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 const URL = process.env.URL;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { amount } = req.body;
+  
     const session = await stripe.checkout.sessions.create({
        ui_mode: 'embedded_page',
     line_items: [
@@ -23,4 +24,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
    return_url: `${URL}/order-confirmation`,
   });
   res.status(200).json({ clientSecret: session.client_secret });
+}
+const getOrderAmount = async (orderId: string) => {
+      const order = await fetch(`${URL}/api/orders/${orderId}`);
+      const orderData = await order.json();
+      return orderData.amount;
 }
