@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { id, name, ids, status, isGettingPriceRange } = req.query;
+  const { id, name, ids, status, isGettingPriceRange, isPartial, partialFields } = req.query;
   const ordersCollection = await getCollectionFromDB("orders");
   if(!ordersCollection) return res.status(500).json({ message: "Database connection error" });
   switch (req.method) {
@@ -71,9 +71,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(200).json({ message: `RawOrder ${id} deleted` });
       break;
     case "POST":
+      // special cases, with serialized array data for specfied fields of the order object, to be used for partial obtain
       // Create a new order
-      const newData = req.body;
-      
+      const {newData, orderId, partialFields } = req.body;
+      if(orderId && typeof orderId === "string"){
+        //get order by id and return partial fields
+        const order = await ordersCollection.findOne({ _id: new ObjectId(orderId) });
+        if(!order) return res.status(404).json({ message: "RawOrder not found" });
+        if(partialFields && Array.isArray(partialFields)){
+         //pick partial fields
+          const partialOrder = pick(order, partialFields);
+          return res.status(200).json(partialOrder);
+        }
+      }
       if(!newData) return res.status(400).json({ message: "No data provided" });
       if(newData && typeof newData === "object"){
         const newOrder: RawOrder = newData;
