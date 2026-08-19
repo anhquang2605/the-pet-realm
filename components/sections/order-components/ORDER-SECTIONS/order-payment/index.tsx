@@ -22,12 +22,13 @@ const COLLAPSABLE_SECTIONS_ITEMS = [
 
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
     const [clientSecret, setClientSecret] = useState("");
-    const {setSectionName, filledContent, currentFormStage, setCurrentFormStage} = useOrderContext();
+    const {setSectionName, filledContent, currentFormStage, setCurrentFormStage, order} = useOrderContext();
     const handleBackClick = () => {
         setSectionName('details');
     }
     async function loadClientSecret() {
-        const res = await getFromPOSTAPI('/stripe/create-payment-intent', { amount: 1000 }); // Replace with your actual API endpoint and parameters
+        if (!order) return;
+        const res = await getFromPOSTAPI('/stripe/create-payment-intent', { orderId: order._id }); // Replace with your actual API endpoint and parameters
         setClientSecret(res.clientSecret);
     }
     //payment element styles
