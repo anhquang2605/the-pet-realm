@@ -2,7 +2,7 @@ import {createContext, useState, useEffect, useContext } from 'react';
 import { Order, OrderSummary, RawOrder } from '../../../types/order';
 import { fetchFromGetAPI, insertToPostAPI, updateToPutAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
-import { Payments, Shipping } from '../../../types/payment';
+import { PaymentMethod, Payments, Shipping } from '../../../types/payment';
 import { MOCK_PAYMENT, MOCK_SHIPPING } from '../../../local_data/mock-payment-data';
 export type FilledContent = {
     [key: string]: boolean;
@@ -14,8 +14,8 @@ type OrderContextType = {
     setOrder: React.Dispatch<React.SetStateAction<RawOrder | null>>
     sectionName: string;
     setSectionName: React.Dispatch<React.SetStateAction<string>>
-    payment: Payments;
-    setPayment: React.Dispatch<React.SetStateAction<Payments>>
+    paymentMethod: PaymentMethod;
+    setPaymentMethod: React.Dispatch<React.SetStateAction<PaymentMethod>>
     shipping: Shipping;
     setShipping: React.Dispatch<React.SetStateAction<Shipping>>
     apiStatus: 'idle' | 'loading' | 'error' | 'success';
@@ -45,17 +45,12 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [filledContent, setFilledContent] = useState<{ [key: string]: boolean; }>({});
     const [currentFormStage, setCurrentFormStage] = useState<number>(1);
     const [orderSummary, setOrderSummary] = useState<OrderSummary | null>(null);
-    const [payment, setPayment] = useState<Payments>({
-        cardNumber: '',
-        expiryDate: '',
-        cvv: '',
-        cardHolderName: '',
-        billingAddress1: '',
-        billingAddress2: '',
-        city: '',
-        state: '',
-        postalCode: '',
-        country: ''
+    const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>({
+      paymentIntentId: '',
+      orderId: '',
+      dateCreated: new Date(),
+      last4Digits: '',
+      methodType: 'credit'
     });
     const [shipping, setShipping] = useState<Shipping>({
         recipientName: '',
@@ -79,7 +74,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
     }
     const isPaymentFullyFilled = () => {
-        for ( const [key, value] of Object.entries(payment)) {
+        for ( const [key, value] of Object.entries(paymentMethod)) {
             if (value === '' || value === null) {
                 return false;
             } else if (key === 'billingAddress2') {
@@ -130,7 +125,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const submitPayment = async () => {
         let response;
         try {
-            response = await insertToPostAPI('payments', payment);
+            response = await insertToPostAPI('payments', paymentMethod);
         } catch (error) {
             console.error('Error submitting payment:', error);
             return;
@@ -180,7 +175,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
 
     }, [order, ])
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, payment, setPayment, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, paymentMethod, setPaymentMethod, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
