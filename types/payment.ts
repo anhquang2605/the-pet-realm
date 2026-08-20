@@ -1,6 +1,7 @@
 import { ObjectId } from "mongodb";
 
 export interface Payments {
+    _id: string | ObjectId;
    paymentIntentId: string; //stripe
     orderId: string | ObjectId;
 }

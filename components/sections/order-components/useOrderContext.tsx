@@ -46,6 +46,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [currentFormStage, setCurrentFormStage] = useState<number>(1);
     const [orderSummary, setOrderSummary] = useState<OrderSummary | null>(null);
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>({
+      _id: '',
       paymentIntentId: '',
       orderId: '',
       dateCreated: new Date(),
@@ -83,11 +84,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         }
         return true;
     }
-    const getOrderTotalPrice = () => {
-       if(order){
-        return order.price - (order.price * order.discount) + (order.price * TAX_RATE);
-       }
-    }
+    
     const isShippingFullyFilled = () => {
         for ( const [key, value] of Object.entries(shipping)) {
             if (value === '' || value === null) {
