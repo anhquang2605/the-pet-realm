@@ -3,6 +3,7 @@ import styles from './shipment.module.css';
 import { Shipping } from '../../../../../../types/payment';
 import { useOrderContext } from '../../../useOrderContext';
 import ActionButton from '../../../../../universals/buttons/action-button/action-button';
+import { getFromPOSTAPI } from '../../../../../../libs/api-interactions';
 
 
 
@@ -20,7 +21,7 @@ const initialForm: Shipping = {
 
 export default function ShippingForm() {
     const [isDirty, setIsDirty] = useState(false);
-    const { shipping, setShipping, currentFormStage, setCurrentFormStage,  } = useOrderContext();
+    const { shipping, setShipping, currentFormStage, setCurrentFormStage,order  } = useOrderContext();
     const [isEditing, setIsEditing] = useState(false);//only after the user has submitted the form and is now editing it, we will show the edit button
     const [formData, setFormData] =
         useState<Shipping>(initialForm);
@@ -127,14 +128,17 @@ export default function ShippingForm() {
 
         return Object.keys(newErrors).length === 0;
     };
-
+    const getTax = () => {
+        const calculationData = getFromPOSTAPI('/api/tax', { productid: order?._id, shipping });
+        return calculationData;
+    }
     const handleSubmit = (
         e: React.FormEvent
     ) => {
         e.preventDefault();
 
         if (!validateForm()) return;
-
+        
 
         setShipping(formData);
         setIsEditing(false);
