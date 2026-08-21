@@ -29,6 +29,8 @@ type OrderContextType = {
     isReadyToSubmit: () => boolean;
     orderSummary: OrderSummary | null;
     setOrderSummary: React.Dispatch<React.SetStateAction<OrderSummary | null>>;
+    tax: number;
+    setTax: React.Dispatch<React.SetStateAction<number>>
 }
 
 interface OrderProviderProps {
@@ -45,6 +47,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [filledContent, setFilledContent] = useState<{ [key: string]: boolean; }>({});
     const [currentFormStage, setCurrentFormStage] = useState<number>(1);
     const [orderSummary, setOrderSummary] = useState<OrderSummary | null>(null);
+    const [tax, setTax] = useState<number>(0);
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>({
       _id: '',
       paymentIntentId: '',
@@ -172,7 +175,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
 
     }, [order, ])
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, paymentMethod, setPaymentMethod, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, paymentMethod, setPaymentMethod, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary, tax, setTax }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
