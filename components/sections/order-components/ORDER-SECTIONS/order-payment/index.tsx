@@ -50,7 +50,6 @@ const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
            
             
         </div>
-        </CheckoutElementsProvider>
     );
 };
 
