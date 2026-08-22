@@ -144,7 +144,7 @@ export default function ShippingForm() {
         setTax(tax);
         setShipping(formData);
         setIsEditing(false);
-        setCurrentFormStage(3);
+        setCurrentFormStage(2);
     };
 
     const renderInput = (
