@@ -7,11 +7,7 @@ import Shipment from './shipment';
 import Collapsable from '../../../../universals/collapsable';
 import OrderPreview from '../../order-preview';
 import ActionButton from '../../../../universals/buttons/action-button/action-button';
-import { loadStripe } from '@stripe/stripe-js';
-import {Elements as CheckoutElementsProvider} from '@stripe/react-stripe-js';
-//import { EmbeddedCheckoutProvider as CheckoutElementsProvider } from '@stripe/react-stripe-js';
-import { getFromPOSTAPI } from '../../../../../libs/api-interactions';
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+
 type OrderPaymentProps = Record<string, never>;
 const COLLAPSABLE_SECTIONS_TITLES = ['1. Shipping information', '2. Payment Details'];
 const COLLAPSABLE_SECTIONS_ITEMS = [
@@ -21,49 +17,15 @@ const COLLAPSABLE_SECTIONS_ITEMS = [
 //appearance constant
 
 const OrderPayment: React.FC<OrderPaymentProps> = ({}) => {
-    const [clientSecret, setClientSecret] = useState("");
+
     const {setSectionName, filledContent, currentFormStage, setCurrentFormStage, order} = useOrderContext();
     const handleBackClick = () => {
         setSectionName('details');
     }
-    async function loadClientSecret() {
-        if (!order) return;
-        const res = await getFromPOSTAPI('/stripe/create-payment-intent', { orderId: order._id }); // Replace with your actual API endpoint and parameters
-        setClientSecret(res.clientSecret);
-    }
-    //payment element styles
-    const appearance = {
-        theme: 'stripe' as const,
-        variables: {
-            colorBackground: '#1e2939',
-            colorText: '#30313d',
-            colorBorder: 'lightgray',
-            fontFamily: 'Montserrat, sans-serif',
-            labelColorText: 'white',
-            colorTextPlaceholder: '#777',
-            tabIconMoreHoverColor: 'white',
-            accordionItemLabelColorText: 'white',
-            accordionItemLabelSelectedColorText: 'white',
-            colorTextSecondary: 'white',
-            buttonColorText: 'white',
-            inputSelectOptionTextColor: 'white',
-        },
-        rules: {
-            '.Dropdown':{
-                color: 'white',
-            }
-        },
-    }
-    //issue here, need to get shipping info from the order context and pass it to the stripe checkout session creation api, then get the client secret and pass it to the stripe elements provider
-    useEffect(() => {
-        loadClientSecret();
-    }, []);
-    if (!clientSecret) {
-        return <div>Loading...</div>;
-    }
+
     return (
         
-        <CheckoutElementsProvider stripe={stripePromise} options={{clientSecret, appearance}}>
+       
         <div className={style['order-payment']}>
             <span className={style['back-button-container']}>
                 <ActionButton color='tomato' type='link' classNames={style['back-button']} onClick={handleBackClick} title= { 

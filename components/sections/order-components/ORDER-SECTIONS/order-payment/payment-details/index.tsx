@@ -3,7 +3,11 @@ import styles from './payment-details.module.css';
 import { useOrderContext } from './../../../useOrderContext';
 import { Payments } from '../../../../../../types/payment';
 import ActionButton from '../../../../../universals/buttons/action-button/action-button';
-
+import { loadStripe } from '@stripe/stripe-js';
+import {Elements as CheckoutElementsProvider} from '@stripe/react-stripe-js';
+//import { EmbeddedCheckoutProvider as CheckoutElementsProvider } from '@stripe/react-stripe-js';
+import { getFromPOSTAPI } from '../../../../../../libs/api-interactions';
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 import {
     PaymentElement,
     useStripe,
@@ -11,14 +15,16 @@ import {
     EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
 
+
 type Errors = Partial<Record<keyof Payments, string>>;
 
 
 export default function PaymentForm() {
+    const [clientSecret, setClientSecret] = useState("");
     const [isDirty, setIsDirty] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
-    const { paymentMethod, setPaymentMethod, currentFormStage, setCurrentFormStage } = useOrderContext();
+    const { paymentMethod, setPaymentMethod, order, currentFormStage, setCurrentFormStage } = useOrderContext();
     //STRIPES CARD PAYMENTS
     const stripe = useStripe();
     const elements = useElements(); 
@@ -200,10 +206,44 @@ export default function PaymentForm() {
             </span>
         </div>
     )
-
+    async function loadClientSecret() {
+        if (!order) return;
+        const res = await getFromPOSTAPI('/stripe/create-payment-intent', { orderId: order._id }); // Replace with your actual API endpoint and parameters
+        setClientSecret(res.clientSecret);
+    }
+    //payment element styles
+    const appearance = {
+        theme: 'stripe' as const,
+        variables: {
+            colorBackground: '#1e2939',
+            colorText: '#30313d',
+            colorBorder: 'lightgray',
+            fontFamily: 'Montserrat, sans-serif',
+            labelColorText: 'white',
+            colorTextPlaceholder: '#777',
+            tabIconMoreHoverColor: 'white',
+            accordionItemLabelColorText: 'white',
+            accordionItemLabelSelectedColorText: 'white',
+            colorTextSecondary: 'white',
+            buttonColorText: 'white',
+            inputSelectOptionTextColor: 'white',
+        },
+        rules: {
+            '.Dropdown':{
+                color: 'white',
+            }
+        },
+    }
+    //issue here, need to get shipping info from the order context and pass it to the stripe checkout session creation api, then get the client secret and pass it to the stripe elements provider
+    useEffect(() => {
+        loadClientSecret();
+    }, []);
+    if (!clientSecret) {
+        return <div>Loading...</div>;
+    }
     return (
         <>
-       
+         <CheckoutElementsProvider stripe={stripePromise} options={{clientSecret, appearance}}>
             {isDirty && currentFormStage !== 1 && <ActionButton
                 type="edit"
                 title="Edit"
@@ -275,7 +315,7 @@ export default function PaymentForm() {
 
                 />}
             </form> */}
-   
+        </CheckoutElementsProvider>
         </>
 
     );
