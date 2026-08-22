@@ -18,7 +18,7 @@ export default function PaymentForm() {
     const [isDirty, setIsDirty] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
-    const { payment, setPayment, currentFormStage, setCurrentFormStage } = useOrderContext();
+    const { paymentMethod, setPaymentMethod, currentFormStage, setCurrentFormStage } = useOrderContext();
     //STRIPES CARD PAYMENTS
     const stripe = useStripe();
     const elements = useElements(); 
