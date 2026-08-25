@@ -234,7 +234,6 @@ export default function PaymentForm() {
             }
         },
     }
-    //issue here, need to get shipping info from the order context and pass it to the stripe checkout session creation api, then get the client secret and pass it to the stripe elements provider
     useEffect(() => {
         loadClientSecret();
     }, []);
