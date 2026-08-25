@@ -143,11 +143,9 @@ export default function PaymentForm() {
     
         //if (!validateForm()) return;
         if(isEditing) {
-            setIsEditing(false);
-            setCurrentFormStage(3);
-        } else {
-            setCurrentFormStage(1);
-        }
+            setIsEditing(false);    
+        } 
+        setCurrentFormStage(3);
     };
     const handleEdit = () => {
         setCurrentFormStage(2);
