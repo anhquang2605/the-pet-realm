@@ -22,7 +22,7 @@ const initialForm: Shipping = {
 
 export default function ShippingForm() {
     const [isDirty, setIsDirty] = useState(false);
-    const { shipping, setShipping, currentFormStage, setCurrentFormStage,order, setTax  } = useOrderContext();
+    const { shipping, setShipping, currentFormStage, setCurrentFormStage,order,  setCalculation } = useOrderContext();
     const [isEditing, setIsEditing] = useState(false);//only after the user has submitted the form and is now editing it, we will show the edit button
     const [formData, setFormData] =
         useState<Shipping>(initialForm);
@@ -129,9 +129,9 @@ export default function ShippingForm() {
 
         return Object.keys(newErrors).length === 0;
     };
-    const getTax = async () => {
+    const getCalculationFromServer = async () => {
         const calculationData: Stripe.Tax.Calculation = await getFromPOSTAPI('/api/tax', { productid: order?._id, shipping });
-        return calculationData.tax_amount_exclusive;
+        return calculationData;
     }
     const handleSubmit = async (
         e: React.FormEvent
@@ -140,8 +140,8 @@ export default function ShippingForm() {
 
         if (!validateForm()) return;
         
-        const tax = await getTax();
-        setTax(tax);
+        const calculation = await getCalculationFromServer();
+        setCalculation(calculation);
         setShipping(formData);
         setIsEditing(false);
         setCurrentFormStage(2);
