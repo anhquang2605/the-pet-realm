@@ -13,6 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             break;
         case "POST":
             const { shipping, productId } = req.body;
+            console.log("Received POST request with body:", req.body);
             if (!shipping || !productId) {
                 return res.status(400).json({ message: "Missing required fields" });
             }

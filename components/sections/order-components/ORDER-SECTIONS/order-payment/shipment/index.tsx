@@ -129,8 +129,8 @@ export default function ShippingForm() {
 
         return Object.keys(newErrors).length === 0;
     };
-    const getCalculationFromServer = async () => {
-        const calculationData: Stripe.Tax.Calculation = await getFromPOSTAPI('/api/tax', { productid: order?._id, shipping });
+    const getCalculationFromServer = async (shipping?: Shipping) => {
+        const calculationData: Stripe.Tax.Calculation = await getFromPOSTAPI('/tax', { productid: order?._id, shipping });
         return calculationData;
     }
     const handleSubmit = async (
@@ -140,7 +140,7 @@ export default function ShippingForm() {
 
         if (!validateForm()) return;
         
-        const calculation = await getCalculationFromServer();
+        const calculation = await getCalculationFromServer(formData);
         setCalculation(calculation);
         setShipping(formData);
         setIsEditing(false);
@@ -189,7 +189,7 @@ export default function ShippingForm() {
         </div>
     )
     const resultViewToggler = (label: string, name: keyof Shipping, placeholder?: string, type: string = 'text') => {
-        if (currentFormStage !== 2) {
+        if (currentFormStage !== 1) {
             return renderResult(label, shipping[name]);
         } else {
             return renderInput(label, name, placeholder, type);
@@ -202,7 +202,7 @@ export default function ShippingForm() {
 
     return (
         <>
-            {isDirty && currentFormStage !== 2 && <ActionButton
+            {isDirty && currentFormStage !== 1 && <ActionButton
                 type="edit"
                 title="Edit"
                 onClick={handleEditClick}
@@ -253,7 +253,7 @@ export default function ShippingForm() {
                     'country'
                 )}
 
-                {currentFormStage === 1 && <ActionButton type="main" title="Next" isSubmit={true} />}
+                {currentFormStage === 1 && <ActionButton type="main" title="Next"  isSubmit={true} />}
             </form>
         </>
     );
