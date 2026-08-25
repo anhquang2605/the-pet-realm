@@ -24,16 +24,13 @@ export default function PaymentForm() {
     const [isDirty, setIsDirty] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
-    const { paymentMethod, setPaymentMethod, order, currentFormStage, setCurrentFormStage } = useOrderContext();
-    //STRIPES CARD PAYMENTS
-    const stripe = useStripe();
-    const elements = useElements(); 
+    const { paymentMethod, setPaymentMethod, order, currentFormStage, setCurrentFormStage } = useOrderContext(); 
     /* const validateField = (
         name: keyof Payments,
         value: string
     ): string => {
         switch (name) {
-            case 'cardNumber':
+            case 'cardNumbefr':
                 if (!/^\d{16}$/.test(value.replace(/\s/g, ''))) {
                     return 'Card number must be 16 digits.';
                 }
@@ -143,10 +140,7 @@ export default function PaymentForm() {
     } */
     const handleSubmit = (e?: React.FormEvent) => {
         e?.preventDefault();
-        if(!stripe || !elements) {
-            console.error("Stripe.js has not loaded yet.");
-            return;
-        }
+    
         //if (!validateForm()) return;
         if(isEditing) {
             setIsEditing(false);
