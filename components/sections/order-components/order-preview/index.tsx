@@ -23,8 +23,8 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
 
     }, []);
     useEffect(() => {
-        setTotalPrice(order ? (order.price * (1 - order.discount) + order.price * TAX_RATE) : 0);
-    }, [order]);
+        setTotalPrice(order ? (order.price * (1 - order.discount) + (calculation? calculation.tax_amount_exclusive : 0) ) : 0);
+    }, [order, calculation]);
     return (
         calculation !== null && order ? <div className={style['order-preview']}>
             <img className={style['order-preview__image']} src={order.imageUrls[0]} alt={order.name} />
@@ -38,7 +38,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
                 </span>
                 <span className={style['order-preview__price-info']}>
                     <span className={style['order-preview__price-label']}>Tax</span>
-                    <span className={style['order-preview__price-content']}>{(order.price * TAX_RATE).toFixed(2)}</span>
+                    <span className={style['order-preview__price-content']}>{(calculation.tax_amount_exclusive).toFixed(2)}</span>
                 </span>
                 <span className={style['order-preview__price-info']}>
                     <span className={style['order-preview__price-label']}>Discount</span>
