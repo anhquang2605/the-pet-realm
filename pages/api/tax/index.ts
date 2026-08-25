@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 line_items: [
                     {
-                        product: productId,
+                        product: productid,
                         quantity: 1,
                         amount: priceamount.price - (priceamount.discount * priceamount.price ),
                     },
