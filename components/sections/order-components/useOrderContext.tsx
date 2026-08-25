@@ -32,6 +32,8 @@ type OrderContextType = {
     setOrderSummary: React.Dispatch<React.SetStateAction<OrderSummary | null>>;
     tax: number;
     setTax: React.Dispatch<React.SetStateAction<number>>
+    calculation: Stripe.Tax.Calculation | null;
+    setCalculation: React.Dispatch<React.SetStateAction<Stripe.Tax.Calculation | null>>
 }
 
 interface OrderProviderProps {
@@ -177,7 +179,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
 
     }, [order, ])
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, paymentMethod, setPaymentMethod, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary, tax, setTax }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, paymentMethod, setPaymentMethod, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary, tax, setTax, calculation, setCalculation }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
