@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (!orderCollection) {
                 return res.status(500).json({ message: "Database connection error" });
             }
-            const priceamount = await orderCollection.findOne({ _id: new ObjectId(productId) }, { projection: { price: 1 } });
+            const priceamount = await orderCollection.findOne({ _id: new ObjectId(productId) }, { projection: { price: 1, discount: 1 } });
             if (!priceamount) {
                 return res.status(404).json({ message: "Product not found" });
             }
@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     {
                         product: productId,
                         quantity: 1,
-                        amount: priceamount.price
+                        amount: priceamount.price - (priceamount.discount * priceamount.price ),
                     },
                 ],
                 customer_details: {
