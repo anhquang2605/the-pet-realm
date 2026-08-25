@@ -4,6 +4,7 @@ import { fetchFromGetAPI, insertToPostAPI, updateToPutAPI } from '../../../libs/
 import style from './use-order-context.module.css';
 import { PaymentMethod, Payments, Shipping } from '../../../types/payment';
 import { MOCK_PAYMENT, MOCK_SHIPPING } from '../../../local_data/mock-payment-data';
+import { Stripe } from 'stripe';
 export type FilledContent = {
     [key: string]: boolean;
 };
@@ -48,6 +49,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [currentFormStage, setCurrentFormStage] = useState<number>(1);
     const [orderSummary, setOrderSummary] = useState<OrderSummary | null>(null);
     const [tax, setTax] = useState<number>(0);
+    const [calculation, setCalculation] = useState<Stripe.Tax.Calculation | null>(null);
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>({
       _id: '',
       paymentIntentId: '',
