@@ -7,7 +7,7 @@ import ActionButton from '../../../universals/buttons/action-button/action-butto
 type OrderPreviewProps = Record<string, never>;
 
 const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
-    const {order, isReadyToSubmit, setSectionName, setOrderSummary} = useOrderContext();
+    const {order, isReadyToSubmit, setSectionName, setOrderSummary, calculation} = useOrderContext();
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const handlePlaceOrder = () => {
         order &&
@@ -26,7 +26,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
         setTotalPrice(order ? (order.price * (1 - order.discount) + order.price * TAX_RATE) : 0);
     }, [order]);
     return (
-        order && <div className={style['order-preview']}>
+        calculation !== null && order ? <div className={style['order-preview']}>
             <img className={style['order-preview__image']} src={order.imageUrls[0]} alt={order.name} />
             <h4 className={style['order-preview__title']}>
                 {order.name}
@@ -53,6 +53,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
             </p>
             <ActionButton isDisabled={!isReadyToSubmit()} title='Place Order' color='goldenrod' type='main' onClick={handlePlaceOrder} />
         </div>
+    : null 
     );
 };
 
