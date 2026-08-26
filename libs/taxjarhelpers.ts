@@ -1,19 +1,18 @@
 import Taxjar from 'taxjar';
+import { Shipping } from '../types/payment';
 const key = process.env.TAXJAR_API_KEY;
 const client = new Taxjar({
     apiKey: key || '',
 });
-export const calculateTax = async (amount: number) => {
+export const calculateTax = async (shipping: Shipping, amount: number) => {
     try {
         const tax = await client.taxForOrder({
             from_country: 'US',
             from_zip: '10001',
-            from_state: 'NY',
-            to_country: 'US',
-            to_zip: '90001',
-            to_state: 'NY',
+            to_country: shipping.country,
+            to_zip: shipping.postalCode,
             amount: amount,
-            shipping: 0,
+            shipping: 0
         }) 
         return tax;
     } catch (error) {
