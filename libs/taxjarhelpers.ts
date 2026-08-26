@@ -4,7 +4,7 @@ const key = process.env.TAXJAR_API_KEY;
 const client = new Taxjar({
     apiKey: key || '',
 });
-export const calculateTax = async (shipping: Shipping, amount: number) => {
+export const calculateTaxFromTaxJar = async (shipping: Shipping, amount: number) => {
     try {
         const tax = await client.taxForOrder({
             from_country: 'US',

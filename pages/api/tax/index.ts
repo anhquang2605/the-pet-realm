@@ -2,6 +2,7 @@ import {NextApiRequest, NextApiResponse} from "next";
 import { getCollectionFromDB } from "../../../libs/db-interactions";
 import { ObjectId } from "mongodb";
 import Stripe from "stripe";
+import { calculateTaxFromTaxJar } from "../../../libs/taxjarhelpers";
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -24,27 +25,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (!priceamount) {
                 return res.status(404).json({ message: "Product not found" });
             }
-            const calculation = await stripe.tax.calculations.create({
-                currency: 'usd',
-
-                line_items: [
-                    {
-                        product: productid,
-                        quantity: 1,
-                        amount: priceamount.price - (priceamount.discount * priceamount.price ),
-                    },
-                ],
-                customer_details: {
-                    address: {
-                        city: shipping.city,
-                        country: shipping.country,
-                        line1: shipping.address,
-                        postal_code: shipping.postalCode,
-                        state: shipping.state,
-                    },
-                }
-            })
-            res.status(200).json({ message: "POST request received", calculation });
+            const tax = await calculateTaxFromTaxJar(shipping, priceamount.price - (priceamount.discount || 0)); 
+            res.status(200).json({ message: "POST request received", tax });
             break;
         default:
             res.status(405).json({ message: "Method not allowed" });
