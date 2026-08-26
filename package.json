@@ -31,7 +31,8 @@
     "react-icons": "^5.5.0",
     "react-range-slider-input": "^3.2.1",
     "resend": "^6.9.1",
-    "stripe": "^22.3.2"
+    "stripe": "^22.3.2",
+    "taxjar": "^4.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
