@@ -155,7 +155,13 @@ export default function ShippingForm() {
         setIsEditing(false);
         setCurrentFormStage(2);
     };
-
+    const generateOptionsForCountries = (countries: string[]) => {
+        return countries.map((country) => (
+            <option key={country[1]} value={country[2]}>
+                {country[1]}
+            </option>
+        ));
+    };
     const renderInput = (
         label: string,
         name: keyof Shipping,
@@ -174,7 +180,7 @@ export default function ShippingForm() {
                         onChange={handleSelectChange} className={`${styles.input} ${errors[name] ? styles.inputError : ''}`}
                     />
                     : 
-                    <input
+                    <input  
                         type={type}
                         name={name}
                         value={formData[name]}
