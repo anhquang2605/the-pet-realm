@@ -25,8 +25,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (!priceamount) {
                 return res.status(404).json({ message: "Product not found" });
             }
-            const tax = await calculateTaxFromTaxJar(shipping, priceamount.price - (priceamount.discount || 0)); 
-            res.status(200).json({ message: "POST request received", tax });
+            const tax = await calculateTaxFromTaxJar(shipping, priceamount.price * (1 - (priceamount.discount || 0)) ); 
+            res.status(200).json({ message: "POST request received", tax        });
             break;
         default:
             res.status(405).json({ message: "Method not allowed" });
