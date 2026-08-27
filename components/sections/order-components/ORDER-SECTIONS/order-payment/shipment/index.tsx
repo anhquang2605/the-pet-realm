@@ -5,6 +5,7 @@ import { useOrderContext } from '../../../useOrderContext';
 import ActionButton from '../../../../../universals/buttons/action-button/action-button';
 import { getFromPOSTAPI } from '../../../../../../libs/api-interactions';
 import { Stripe } from 'stripe';
+import { COUNTRIES } from '../../../../../../constants/countries';
 
 
 
@@ -155,10 +156,10 @@ export default function ShippingForm() {
         setIsEditing(false);
         setCurrentFormStage(2);
     };
-    const generateOptionsForCountries = (countries: string[]) => {
+    const generateOptionsForCountries = (countries: string[][]) => {
         return countries.map((country) => (
-            <option key={country[1]} value={country[2]}>
-                {country[1]}
+            <option key={country[0]} value={country[1]}>
+                {country[0]}
             </option>
         ));
     };
@@ -178,7 +179,10 @@ export default function ShippingForm() {
                         name={name}
                         value={formData[name]}
                         onChange={handleSelectChange} className={`${styles.input} ${errors[name] ? styles.inputError : ''}`}
-                    />
+                    >
+                        <option value="">Select a country</option>
+                        {generateOptionsForCountries(COUNTRIES)}
+                    </select>
                     : 
                     <input  
                         type={type}
