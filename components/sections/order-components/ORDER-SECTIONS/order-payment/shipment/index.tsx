@@ -108,7 +108,16 @@ export default function ShippingForm() {
             [name]: error,
         }));
     };
-
+    const handleSelectChange = (
+        e: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        const { value } = e.target;
+        if (!isDirty) setIsDirty(true);
+        setFormData((prev) => ({
+            ...prev,
+            country: value,
+        }));
+    };
     const validateForm = (): boolean => {
         const newErrors: Errors = {};
 
@@ -157,19 +166,30 @@ export default function ShippingForm() {
             <label className={styles.label}>
                 {label}
             </label>
+            {
+                type === 'select' ? 
+                    <select
+                        name={name}
+                        value={formData[name]}
+                        onChange={handleSelectChange} className={`${styles.input} ${errors[name] ? styles.inputError : ''}`}
+                    />
+                    : 
+                    <input
+                        type={type}
+                        name={name}
+                        value={formData[name]}
+                        onChange={handleChange}
+                        placeholder={placeholder}
+                        className={`${styles.input} ${
+                            errors[name]
+                                ? styles.inputError
+                                : ''
+                        }`}
+                    />
+                          
 
-            <input
-                type={type}
-                name={name}
-                value={formData[name]}
-                onChange={handleChange}
-                placeholder={placeholder}
-                className={`${styles.input} ${
-                    errors[name]
-                        ? styles.inputError
-                        : ''
-                }`}
-            />
+            }
+            
 
             {errors[name] && (
                 <p className={styles.errorText}>
@@ -250,7 +270,9 @@ export default function ShippingForm() {
 
                 {resultViewToggler(
                     'Country',
-                    'country'
+                    'country',
+                    '',
+                    'select'
                 )}
 
                 {currentFormStage === 1 && <ActionButton type="main" title="Next"  isSubmit={true} />}
