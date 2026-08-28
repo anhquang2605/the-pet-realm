@@ -11,6 +11,7 @@ export const calculateTaxFromTaxJar = async (shipping: Shipping, amount: number)
             from_zip: '10001',
             to_country: shipping.country,
             to_zip: shipping.postalCode,
+            to_state: shipping.state,
             amount: amount,
             shipping: 0
         }) 
