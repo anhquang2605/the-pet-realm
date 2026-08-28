@@ -1,10 +1,17 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import Stripe from "stripe";
+import { getCollectionFromDB } from "../../../../libs/db-interactions";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { amount } = req.body;
+    const { tax, orderId } = req.body;
+    if(!tax || !orderId) return res.status(400).json({ message: "Missing required fields" });
+    const orderCollection = await getCollectionFromDB("orders");
+    if(!orderCollection) return res.status(500).json({ message: "Database connection error" });
+    const order = await orderCollection.findOne({ _id: orderId });
+    if(!order) return res.status(404).json({ message: "Order not found" });
+    const amount = Math.round((order.amount *(1 - (order.discount || 0)) + tax) * 100); // Convert to cents 
     const paymentIntent = await stripe.paymentIntents.create({
         amount,
         currency: "usd",
