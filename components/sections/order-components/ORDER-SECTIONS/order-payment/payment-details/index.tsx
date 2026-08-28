@@ -21,7 +21,7 @@ export default function PaymentForm() {
     const [isDirty, setIsDirty] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [errors, setErrors] = useState<Errors>({});
-    const { paymentMethod, setPaymentMethod, order, currentFormStage, setCurrentFormStage } = useOrderContext(); 
+    const { paymentMethod, setPaymentMethod, order, currentFormStage, setCurrentFormStage, tax } = useOrderContext(); 
     /* const validateField = (
         name: keyof Payments,
         value: string
@@ -197,7 +197,7 @@ export default function PaymentForm() {
     )
     async function loadClientSecret() {
         if (!order) return;
-        const res = await getFromPOSTAPI('/stripe/create-payment-intent', { orderId: order._id }); // Replace with your actual API endpoint and parameters
+        const res = await getFromPOSTAPI('/stripe/create-payment-intent', { orderId: order._id, tax }); // Replace with your actual API endpoint and parameters
         setClientSecret(res.clientSecret);
     }
     //payment element styles
