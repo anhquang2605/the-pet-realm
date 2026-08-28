@@ -23,7 +23,7 @@ const initialForm: Shipping = {
 
 export default function ShippingForm() {
     const [isDirty, setIsDirty] = useState(false);
-    const { shipping, setShipping, currentFormStage, setCurrentFormStage,order,  setCalculation } = useOrderContext();
+    const { shipping, setShipping, currentFormStage, setCurrentFormStage,order,  setTax } = useOrderContext();
     const [isEditing, setIsEditing] = useState(false);//only after the user has submitted the form and is now editing it, we will show the edit button
     const [formData, setFormData] =
         useState<Shipping>(initialForm);
@@ -150,8 +150,8 @@ export default function ShippingForm() {
 
         if (!validateForm()) return;
         
-        const calculation = await getCalculationFromServer(formData);
-        setCalculation(calculation);
+        const tax = await getCalculationFromServer(formData);
+        setTax(tax.amount_total);
         setShipping(formData);
         setIsEditing(false);
         setCurrentFormStage(2);
