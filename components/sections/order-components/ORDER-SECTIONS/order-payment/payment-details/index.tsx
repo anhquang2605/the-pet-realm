@@ -10,9 +10,6 @@ import { getFromPOSTAPI } from '../../../../../../libs/api-interactions';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 import {
     PaymentElement,
-    useStripe,
-    useElements,
-    EmbeddedCheckout,
 } from "@stripe/react-stripe-js";
 
 
