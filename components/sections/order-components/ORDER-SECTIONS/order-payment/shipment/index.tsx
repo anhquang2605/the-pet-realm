@@ -140,8 +140,8 @@ export default function ShippingForm() {
         return Object.keys(newErrors).length === 0;
     };
     const getCalculationFromServer = async (shipping?: Shipping) => {
-        const calculationData: Stripe.Tax.Calculation = await getFromPOSTAPI('/tax', { productid: order?._id, shipping });
-        return calculationData;
+    const {tax}: any = await getFromPOSTAPI('/tax', { productid: order?._id, shipping });
+        return tax;
     }
     const handleSubmit = async (
         e: React.FormEvent
@@ -151,7 +151,7 @@ export default function ShippingForm() {
         if (!validateForm()) return;
         
         const tax = await getCalculationFromServer(formData);
-        setTax(tax.amount_total);
+        setTax(tax.amount_to_collect);
         setShipping(formData);
         setIsEditing(false);
         setCurrentFormStage(2);
