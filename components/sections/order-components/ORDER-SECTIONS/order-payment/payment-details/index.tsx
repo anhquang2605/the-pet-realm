@@ -197,7 +197,7 @@ export default function PaymentForm() {
     )
     async function loadClientSecret() {
         if (!order) return;
-        
+        console.log(tax);
         const res = await getFromPOSTAPI('/stripe/create-payment-intent', { orderId: order._id, tax }); // Replace with your actual API endpoint and parameters
         setClientSecret(res.clientSecret);
     }
@@ -225,8 +225,9 @@ export default function PaymentForm() {
         },
     }
     useEffect(() => {
+        if (!tax) return;
         loadClientSecret();
-    }, []);
+    }, [tax]);
     if (!clientSecret) {
         return <div>Loading...</div>;
     }
