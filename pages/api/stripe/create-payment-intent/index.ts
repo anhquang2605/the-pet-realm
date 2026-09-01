@@ -6,6 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { tax, orderId } = req.body;
+    console.log(tax, orderId);
     if(!tax || !orderId) return res.status(400).json({ message: "Missing required fields" });
     const orderCollection = await getCollectionFromDB("orders");
     if(!orderCollection) return res.status(500).json({ message: "Database connection error" });
