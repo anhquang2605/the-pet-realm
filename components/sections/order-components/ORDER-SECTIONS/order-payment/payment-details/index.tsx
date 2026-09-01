@@ -225,6 +225,7 @@ export default function PaymentForm() {
         },
     }
     useEffect(() => {
+        console.log('tax changed:', tax);
         if (!tax) return;
         loadClientSecret();
     }, [tax]);
