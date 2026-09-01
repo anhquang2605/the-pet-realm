@@ -9,7 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { tax, orderId } = req.body;
     if(!tax || !orderId) return res.status(400).json({ message: "Missing required fields" });
     const orderCollection = await getCollectionFromDB("orders");
-    console.log(orderCollection);
     if(!orderCollection) return res.status(500).json({ message: "Database connection error" });
     const order = await orderCollection.findOne({ _id: new ObjectId(orderId) });
     if(!order) return res.status(404).json({ message: "Order not found" });
