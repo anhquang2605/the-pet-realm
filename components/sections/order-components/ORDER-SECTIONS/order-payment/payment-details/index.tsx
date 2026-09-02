@@ -15,6 +15,12 @@ import {
 
 type Errors = Partial<Record<keyof Payments, string>>;
 
+const TESTING_CARD = {
+    number: "4242 4242 4242 4242",
+    exp: "12/34",
+    cvc: "123",
+    ZIP: "95112"
+}
 
 export default function PaymentForm() {
     const [clientSecret, setClientSecret] = useState("");
