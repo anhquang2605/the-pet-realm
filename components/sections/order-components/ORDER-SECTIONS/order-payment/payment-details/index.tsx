@@ -228,7 +228,7 @@ export default function PaymentForm() {
         loadClientSecret();
     }, [tax]);
     if (!clientSecret) {
-        return <div>Loading...</div>;
+        return <div>Please enter shipping informaton to proceed with payment</div>;
     }
     return (
         <>
