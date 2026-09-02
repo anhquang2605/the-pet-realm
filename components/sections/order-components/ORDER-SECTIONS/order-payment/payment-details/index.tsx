@@ -314,8 +314,9 @@ function PaymentWrapper() {
         const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: `${window.location.origin}/payment/result`,
+                // no return_url
             },
+            redirect: "if_required",
         });
 
         if (result.error) {
