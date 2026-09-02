@@ -240,15 +240,8 @@ export default function PaymentForm() {
                 classNames={styles.editButton}
                 onClick={handleEdit}
             />}
-            <PaymentElement />
-            {currentFormStage === 1 && <ActionButton 
-                title="Confirm Payment"
-                type="submit"
-                color="green"
-                classNames={styles.confirmButton}
-                onClick={handleSubmit}
-
-            />}
+            <PaymentWrapper />
+            
  {/*            <form
             className={styles.form}
             onSubmit={handleSubmit}
@@ -308,4 +301,26 @@ export default function PaymentForm() {
         </>
 
     );
+}
+
+function PaymentWrapper() {
+
+    const { currentFormStage, setCurrentFormStage } = useOrderContext();
+    const handleSubmit = (e?: React.FormEvent) => {
+        e?.preventDefault();
+        setCurrentFormStage(2);
+    }
+    return (
+        <div className={styles.paymentWrapper}>
+            <PaymentElement />
+            {currentFormStage === 1 && <ActionButton 
+                title="Confirm Payment"
+                type="submit"
+                color="green"
+                classNames={styles.confirmButton}
+                onClick={handleSubmit}
+            />}
+        </div>
+    );
+
 }
