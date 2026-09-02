@@ -4,7 +4,7 @@ import { useOrderContext } from './../../../useOrderContext';
 import { Payments } from '../../../../../../types/payment';
 import ActionButton from '../../../../../universals/buttons/action-button/action-button';
 import { loadStripe } from '@stripe/stripe-js';
-import {Elements as CheckoutElementsProvider} from '@stripe/react-stripe-js';
+import {Elements as CheckoutElementsProvider, useElements, useStripe} from '@stripe/react-stripe-js';
 //import { EmbeddedCheckoutProvider as CheckoutElementsProvider } from '@stripe/react-stripe-js';
 import { getFromPOSTAPI } from '../../../../../../libs/api-interactions';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
@@ -304,11 +304,23 @@ export default function PaymentForm() {
 }
 
 function PaymentWrapper() {
-
+    const stripe = useStripe();
+    const elements = useElements();
     const { currentFormStage, setCurrentFormStage } = useOrderContext();
-    const handleSubmit = (e?: React.FormEvent) => {
+    const handleSubmit = async(e?: React.FormEvent) => {
         e?.preventDefault();
         setCurrentFormStage(2);
+        if (!stripe || !elements) return;
+        const result = await stripe.confirmPayment({
+            elements,
+            confirmParams: {
+                return_url: `${window.location.origin}/payment/result`,
+            },
+        });
+
+        if (result.error) {
+            console.error(result.error.message);
+        }
     }
     return (
         <div className={styles.paymentWrapper}>
