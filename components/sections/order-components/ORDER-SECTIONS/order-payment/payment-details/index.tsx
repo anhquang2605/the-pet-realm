@@ -204,6 +204,12 @@ export default function PaymentForm() {
     async function loadClientSecret() {
         if (!order) return;
         const res = await getFromPOSTAPI('/stripe/create-payment-intent', { orderId: order._id, tax }); // Replace with your actual API endpoint and parameters
+        setPaymentMethod(
+            prev => ({
+                ...prev,
+                paymentIntentId: res.paymentIntentId
+            })
+        );
         setClientSecret(res.clientSecret);
     }
     //payment element styles
