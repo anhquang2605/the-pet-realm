@@ -318,7 +318,7 @@ export default function PaymentForm() {
 function PaymentWrapper() {
     const stripe = useStripe();
     const elements = useElements();
-    const { currentFormStage, setCurrentFormStage } = useOrderContext();
+    const { currentFormStage, setCurrentFormStage, setPaymentMethod, order } = useOrderContext();
     const handleSubmit = async(e?: React.FormEvent) => {
         e?.preventDefault();
         setCurrentFormStage(2);
@@ -333,6 +333,18 @@ function PaymentWrapper() {
 
         if (result.error) {
             console.error(result.error.message);
+        } else {
+            const paymentIntent = result.paymentIntent;
+            console.log('PaymentIntent:', paymentIntent);
+            if (paymentIntent) {
+                setPaymentMethod(prev => ({
+                    ...prev,
+                    orderId: order?._id || '',
+                    dateCreated: new Date(),
+                    last4Digits: "",
+                    paymentIntentId: paymentIntent.id
+                }));
+            }
         }
     }
     return (
