@@ -335,7 +335,6 @@ function PaymentWrapper() {
             console.error(result.error.message);
         } else {
             const paymentIntent = result.paymentIntent;
-            console.log('PaymentIntent:', paymentIntent);
             if (paymentIntent) {
                 setPaymentMethod(prev => ({
                     ...prev,
