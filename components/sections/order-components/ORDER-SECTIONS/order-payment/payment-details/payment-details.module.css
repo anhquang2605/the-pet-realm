@@ -75,10 +75,13 @@
     opacity: 0.9;
 }
 .errorText {
-    margin-top: 6px;
-    font-size: 12px;
+    margin-top: var(--quarter-spacing);
+    font-size: 1rem;
     color: #dc2626;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 768px) {
