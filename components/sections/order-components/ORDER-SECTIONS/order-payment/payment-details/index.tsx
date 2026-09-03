@@ -23,6 +23,7 @@ const TESTING_CARD = {
 }
 
 export default function PaymentForm() {
+
     const [clientSecret, setClientSecret] = useState("");
     const [isDirty, setIsDirty] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
@@ -318,6 +319,7 @@ export default function PaymentForm() {
 function PaymentWrapper() {
     const stripe = useStripe();
     const elements = useElements();
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const { currentFormStage, setCurrentFormStage, setPaymentMethod, order } = useOrderContext();
     const handleSubmit = async(e?: React.FormEvent) => {
         e?.preventDefault();
@@ -330,9 +332,9 @@ function PaymentWrapper() {
             },
             redirect: "if_required",
         });
-
-        if (result.error) {
-            console.error(result.error.message);
+        const {paymentIntent} = result
+        if (!paymentIntent || paymentIntent.status !== "succeeded") {
+            setErrorMessage(result.error?.message || "Payment failed. Please try again.");
         } else {
             const paymentIntent = result.paymentIntent;
             if (paymentIntent) {
@@ -356,6 +358,7 @@ function PaymentWrapper() {
                 classNames={styles.submitButton}
                 onClick={handleSubmit}
             />}
+            {errorMessage && <p className={styles.errorText}>{errorMessage}</p>}
         </div>
     );
 
