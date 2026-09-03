@@ -350,11 +350,11 @@ function PaymentWrapper() {
     return (
         <div className={styles.paymentWrapper}>
             <PaymentElement />
-            {currentFormStage === 1 && <ActionButton 
+            {currentFormStage === 2 && <ActionButton 
                 title="Confirm Payment"
                 type="submit"
                 color="green"
-                classNames={styles.confirmButton}
+                classNames={styles.submitButton}
                 onClick={handleSubmit}
             />}
         </div>
