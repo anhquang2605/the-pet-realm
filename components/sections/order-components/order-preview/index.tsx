@@ -7,7 +7,7 @@ import ActionButton from '../../../universals/buttons/action-button/action-butto
 type OrderPreviewProps = Record<string, never>;
 
 const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
-    const {order, isReadyToSubmit, setSectionName, setOrderSummary, calculation} = useOrderContext();
+    const {order, isReadyToSubmit, setSectionName, setOrderSummary, tax} = useOrderContext();
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const handlePlaceOrder = () => {
         order &&
@@ -23,10 +23,11 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
 
     }, []);
     useEffect(() => {
-        setTotalPrice(order ? (order.price * (1 - order.discount) + (calculation? calculation.tax_amount_exclusive : 0) ) : 0);
-    }, [order, calculation]);
+        if(tax === null) return;
+        setTotalPrice(order ? (order.price * (1 - order.discount) + (tax/100) ) : 0);
+    }, [order, tax]);
     return (
-        calculation !== null && order ? <div className={style['order-preview']}>
+        order ? <div className={style['order-preview']}>
             <img className={style['order-preview__image']} src={order.imageUrls[0]} alt={order.name} />
             <h4 className={style['order-preview__title']}>
                 {order.name}
@@ -38,7 +39,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
                 </span>
                 <span className={style['order-preview__price-info']}>
                     <span className={style['order-preview__price-label']}>Tax</span>
-                    <span className={style['order-preview__price-content']}>{(calculation.tax_amount_exclusive).toFixed(2)}</span>
+                    <span className={style['order-preview__price-content']}>{tax / 100}</span>
                 </span>
                 <span className={style['order-preview__price-info']}>
                     <span className={style['order-preview__price-label']}>Discount</span>
