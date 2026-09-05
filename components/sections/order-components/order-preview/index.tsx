@@ -24,7 +24,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
     }, []);
     useEffect(() => {
         if(tax === null) return;
-        setTotalPrice(order ? (order.price * (1 - order.discount) + (tax/100) ) : 0);
+        setTotalPrice(order ? (order.price * (1 - order.discount) + (tax) ) : 0);
     }, [order, tax]);
     return (
         order ? <div className={style['order-preview']}>
@@ -39,7 +39,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
                 </span>
                 <span className={style['order-preview__price-info']}>
                     <span className={style['order-preview__price-label']}>Tax</span>
-                    <span className={style['order-preview__price-content']}>{tax / 100}</span>
+                    <span className={style['order-preview__price-content']}>{tax.toFixed(2)}</span>
                 </span>
                 <span className={style['order-preview__price-info']}>
                     <span className={style['order-preview__price-label']}>Discount</span>
