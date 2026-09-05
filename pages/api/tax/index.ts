@@ -6,7 +6,6 @@ import { calculateTaxFromTaxJar } from "../../../libs/taxjarhelpers";
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
     const method = req.method;
     switch (method) {
         case "GET":
