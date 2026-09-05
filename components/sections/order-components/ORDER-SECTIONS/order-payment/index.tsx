@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React from 'react';
 import style from './order-payment.module.css';
 import { IoReturnUpBack } from "react-icons/io5";
 import { useOrderContext } from '../../useOrderContext';

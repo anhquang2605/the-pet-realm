@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import style from './order-preview.module.css';
 import { useOrderContext } from '../useOrderContext';
-import {TAX_RATE} from './../../../../constants/price';
 import ActionButton from '../../../universals/buttons/action-button/action-button';
 
 type OrderPreviewProps = Record<string, never>;

@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styles from './shipment.module.css';
 import { Shipping } from '../../../../../../types/payment';
 import { useOrderContext } from '../../../useOrderContext';
 import ActionButton from '../../../../../universals/buttons/action-button/action-button';
 import { getFromPOSTAPI } from '../../../../../../libs/api-interactions';
-import { Stripe } from 'stripe';
 import { COUNTRIES } from '../../../../../../constants/countries';
 
 
