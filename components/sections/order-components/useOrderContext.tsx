@@ -1,9 +1,8 @@
 import {createContext, useState, useEffect, useContext } from 'react';
-import { Order, OrderSummary, RawOrder } from '../../../types/order';
+import { OrderSummary, RawOrder } from '../../../types/order';
 import { fetchFromGetAPI, insertToPostAPI, updateToPutAPI } from '../../../libs/api-interactions';
 import style from './use-order-context.module.css';
-import { PaymentMethod, Payments, Shipping } from '../../../types/payment';
-import { MOCK_PAYMENT, MOCK_SHIPPING } from '../../../local_data/mock-payment-data';
+import { PaymentMethod, Shipping } from '../../../types/payment';
 import { Stripe } from 'stripe';
 export type FilledContent = {
     [key: string]: boolean;
