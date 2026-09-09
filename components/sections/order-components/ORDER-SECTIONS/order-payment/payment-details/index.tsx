@@ -353,7 +353,7 @@ function PaymentWrapper() {
             <PaymentElement />
             {currentFormStage === 2 && <ActionButton 
                 title="Confirm Payment"
-                type="submit"
+                type="add"
                 color="green"
                 classNames={styles.submitButton}
                 onClick={handleSubmit}
