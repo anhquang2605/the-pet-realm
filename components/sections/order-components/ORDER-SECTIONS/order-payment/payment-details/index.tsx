@@ -321,6 +321,7 @@ function PaymentWrapper() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const { currentFormStage, setCurrentFormStage, setPaymentMethod, order } = useOrderContext();
     const handleSubmit = async(e?: React.FormEvent) => {
+        console.log("Submit");
         e?.preventDefault();
         setCurrentFormStage(3);
         if (!stripe || !elements) return;
