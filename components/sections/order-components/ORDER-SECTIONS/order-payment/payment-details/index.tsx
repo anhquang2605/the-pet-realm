@@ -324,7 +324,6 @@ function PaymentWrapper() {
         e?.preventDefault();
         setCurrentFormStage(2);
         if (!stripe || !elements) return;
-        console.log("Submitting payment with stripe:", stripe, elements);
         const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
