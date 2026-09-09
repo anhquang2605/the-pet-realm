@@ -322,7 +322,7 @@ function PaymentWrapper() {
     const { currentFormStage, setCurrentFormStage, setPaymentMethod, order } = useOrderContext();
     const handleSubmit = async(e?: React.FormEvent) => {
         e?.preventDefault();
-        setCurrentFormStage(2);
+        setCurrentFormStage(3);
         if (!stripe || !elements) return;
         const result = await stripe.confirmPayment({
             elements,
