@@ -326,7 +326,7 @@ function PaymentWrapper() {
         e.preventDefault();
         if (isSubmitting) return;
         setIsSubmitting(true);
-        setCurrentFormStage(3);
+
         if (!stripe || !elements) return;
         const result = await stripe.confirmPayment({
             elements,
@@ -336,7 +336,6 @@ function PaymentWrapper() {
             redirect: "if_required",
         });
         const {paymentIntent} = result
-        console.log("Payment Result:", result);
         if (!paymentIntent || paymentIntent.status !== "succeeded") {
             setErrorMessage(result.error?.message || "Payment failed. Please try again.");
         } else {
@@ -347,8 +346,10 @@ function PaymentWrapper() {
                     orderId: order?._id || '',
                     dateCreated: new Date(),
                     last4Digits: "",
-                    paymentIntentId: paymentIntent.id
+                    paymentIntentId: paymentIntent.id,
+                    methodType: paymentIntent.payment_method_types[0] as 'credit' | 'debit' | 'paypal' | 'other',
                 }));
+                setCurrentFormStage(3);
             }
         }
         setIsSubmitting(false);
