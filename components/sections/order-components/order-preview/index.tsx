@@ -22,7 +22,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
 
     }, []);
     useEffect(() => {
-        if(tax === null) return;
+        if(tax === null || tax === 0) return;
         setTotalPrice(order ? (order.price * (1 - order.discount) + (tax) ) : 0);
     }, [order, tax]);
     return (
