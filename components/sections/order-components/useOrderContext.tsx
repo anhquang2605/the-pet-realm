@@ -82,6 +82,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     }
     const isPaymentFullyFilled = () => {
         for ( const [key, value] of Object.entries(paymentMethod)) {
+            console.log(key, value)
             if (value === '' || value === null) {
                 return false;
             } else if (key === 'billingAddress2') {
