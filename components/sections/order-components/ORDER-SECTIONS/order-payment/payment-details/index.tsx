@@ -319,10 +319,13 @@ function PaymentWrapper() {
     const stripe = useStripe();
     const elements = useElements();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const { currentFormStage, setCurrentFormStage, setPaymentMethod, order } = useOrderContext();
     const handleSubmit = async(e: React.FormEvent | undefined) => {
         if (!e) return;
         e.preventDefault();
+        if (isSubmitting) return;
+        setIsSubmitting(true);
         setCurrentFormStage(3);
         if (!stripe || !elements) return;
         const result = await stripe.confirmPayment({
@@ -348,6 +351,7 @@ function PaymentWrapper() {
                 }));
             }
         }
+        setIsSubmitting(false);
     }
     return (
         <div className={styles.paymentWrapper}>
