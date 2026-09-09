@@ -38,7 +38,7 @@ const OrderPreview: React.FC<OrderPreviewProps> = ({}) => {
                 </span>
                 <span className={style['order-preview__price-info']}>
                     <span className={style['order-preview__price-label']}>Tax</span>
-                    <span className={style['order-preview__price-content']}>{tax === null ?  'To be calculated based on shipping information' : tax.toFixed(2)}</span>
+                    <span className={style['order-preview__price-content']}>{tax === 0 ?  'To be calculated' : tax.toFixed(2)}</span>
                 </span>
                 <span className={style['order-preview__price-info']}>
                     <span className={style['order-preview__price-label']}>Discount</span>
