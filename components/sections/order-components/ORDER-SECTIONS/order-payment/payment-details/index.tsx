@@ -325,7 +325,7 @@ function PaymentWrapper() {
         e?.preventDefault();
         setCurrentFormStage(3);
         if (!stripe || !elements) return;
-        const result = await stripe.confirmPayment({
+      /*   const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
                 // no return_url
@@ -347,7 +347,7 @@ function PaymentWrapper() {
                     paymentIntentId: paymentIntent.id
                 }));
             }
-        }
+        } */
     }
     return (
         <div className={styles.paymentWrapper}>
