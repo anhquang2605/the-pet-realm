@@ -82,12 +82,12 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     }
     const isPaymentFullyFilled = () => {
         for ( const [key, value] of Object.entries(paymentMethod)) {
-            console.log(key, value)
+            if(key === '_id' ||  key === 'last4Digits') {
+                continue; // Skip these keys as they are not required for validation
+            }
             if (value === '' || value === null) {
                 return false;
-            } else if (key === 'billingAddress2') {
-                continue; // Skip billingAddress2 as it's optional
-            }
+            } 
         }
         return true;
     }
