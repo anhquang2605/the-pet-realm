@@ -320,12 +320,12 @@ function PaymentWrapper() {
     const elements = useElements();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const { currentFormStage, setCurrentFormStage, setPaymentMethod, order } = useOrderContext();
-    const handleSubmit = async(e?: React.FormEvent) => {
-        console.log("Submit");
-        e?.preventDefault();
+    const handleSubmit = async(e: React.FormEvent | undefined) => {
+        if (!e) return;
+        e.preventDefault();
         setCurrentFormStage(3);
         if (!stripe || !elements) return;
-      /*   const result = await stripe.confirmPayment({
+        const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
                 // no return_url
@@ -347,7 +347,7 @@ function PaymentWrapper() {
                     paymentIntentId: paymentIntent.id
                 }));
             }
-        } */
+        }
     }
     return (
         <div className={styles.paymentWrapper}>
@@ -357,7 +357,7 @@ function PaymentWrapper() {
                 type="add"
                 color="green"
                 classNames={styles.submitButton}
-                onClick={handleSubmit}
+                onClick={e => handleSubmit(e)}
             />}
             {errorMessage && <p className={styles.errorText}>{errorMessage}</p>}
         </div>
