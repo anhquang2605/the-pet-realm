@@ -155,7 +155,8 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
             ...order,
             shipmentId: shippingResponse?.id || order.shipmentId,
             paymentId: paymentResponse?.id || order.paymentId,
-            dateUpdated: new Date().toISOString()
+            dateUpdated: new Date().toISOString(),
+            status: 'pending'
         };
 
         try {
