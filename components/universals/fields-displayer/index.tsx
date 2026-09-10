@@ -24,7 +24,7 @@ const FieldsDisplayer= <T,>({ items , sectionTitle = "", imageUrl}: FieldsDispla
                     {Object.entries(item).map(([key, value]) => (
                         <div key={key} className={style['field']}>    
                             <div className={style['field-label']}> {camelToCapitalized(key)}:</div>
-                            <div className={style['field-value']}> {value as string}</div>
+                            <div className={style['field-value']}> { typeof value === 'string' ? value : JSON.stringify(value)}</div>
                         </div>
                     ))}
                 </div>
