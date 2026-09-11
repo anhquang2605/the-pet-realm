@@ -52,7 +52,6 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [tax, setTax] = useState<number>(0);
     const [calculation, setCalculation] = useState<Stripe.Tax.Calculation | null>(null);
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>({
-      _id: '',
       paymentIntentId: '',
       orderId: '',
       dateCreated: new Date(),
