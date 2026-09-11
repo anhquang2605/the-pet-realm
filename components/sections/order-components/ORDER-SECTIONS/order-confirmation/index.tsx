@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import style from './order-confirmation.module.css';
 import { useOrderContext } from '../../useOrderContext';
 import FieldsDisplayer from '../../../../universals/fields-displayer';

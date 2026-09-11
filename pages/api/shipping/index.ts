@@ -1,6 +1,5 @@
 import {NextApiRequest, NextApiResponse} from 'next';
 import { getCollectionFromDB } from '../../../libs/db-interactions';
-import { ObjectId } from 'mongodb';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const collection = await getCollectionFromDB("shipping");
