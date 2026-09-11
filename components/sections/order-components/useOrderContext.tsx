@@ -150,10 +150,12 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
 
         const shippingResponse = await submitShipping();
         const paymentResponse = await submitPayment();
+        if(!shippingResponse || !paymentResponse){console.log('Error submitting order'); return} ;
+        
         const updatedOrder: RawOrder = {
             ...order,
             shipmentId: shippingResponse?.id || order.shipmentId,
-            paymentId: paymentResponse?.id || order.paymentId,
+            paymentId: paymentMethod.paymentIntentId,
             dateUpdated: new Date().toISOString(),
             status: 'pending'
         };
