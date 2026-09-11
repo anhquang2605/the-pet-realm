@@ -20,7 +20,6 @@ const FieldsDisplayer= <T,>({ items , sectionTitle = "", imageUrl}: FieldsDispla
             {imageUrl && <img src={imageUrl} alt="Section Image" className={style['section-image']} />}
             {items.map((item, index) => (
                 <div key={index} className={style['field-item']}>
-
                     {Object.entries(item).map(([key, value]) => (
                         <div key={key} className={style['field']}>    
                             <div className={style['field-label']}> {camelToCapitalized(key)}:</div>

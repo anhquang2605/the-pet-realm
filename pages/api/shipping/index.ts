@@ -1,6 +1,7 @@
 import {NextApiRequest, NextApiResponse} from 'next';
 import { getCollectionFromDB } from '../../../libs/db-interactions';
 
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const collection = await getCollectionFromDB("shipping");
     if(!collection) return res.status(500).json({ message: "Database connection error" });
