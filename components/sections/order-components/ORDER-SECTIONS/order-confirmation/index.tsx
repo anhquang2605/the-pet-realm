@@ -7,6 +7,32 @@ type OrderConfirmationProps = Record<string, never>;
 
 const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
     const {orderSummary, isOrderSubmitted, shipping, order} = useOrderContext();
+    const sentEmailConfirmation = async () => {
+        if (!order || !orderSummary || !shipping) {
+            console.error('Missing order, order summary, or shipping information.');
+            return;
+        }
+        try {
+            const response = await fetch('/api/resend', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    order: order,
+                    orderSummary: orderSummary,
+                    shipping: shipping,
+                }),
+            });
+            if (response.ok) {
+                console.log('Email sent successfully');
+            } else {
+                console.error('Failed to send email');
+            }
+        } catch (error) {
+            console.error('Error sending email:', error);
+                }
+    }
     useEffect(() => {
 
     }, []);
