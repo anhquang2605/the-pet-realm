@@ -32,7 +32,9 @@ type OrderContextType = {
     tax: number;
     setTax: React.Dispatch<React.SetStateAction<number>>
     calculation: Stripe.Tax.Calculation | null;
-    setCalculation: React.Dispatch<React.SetStateAction<Stripe.Tax.Calculation | null>>
+    setCalculation: React.Dispatch<React.SetStateAction<Stripe.Tax.Calculation | null>>;
+    isOrderSubmitted: boolean;
+    setIsOrderSubmitted: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 interface OrderProviderProps {
@@ -51,6 +53,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
     const [orderSummary, setOrderSummary] = useState<OrderSummary | null>(null);
     const [tax, setTax] = useState<number>(0);
     const [calculation, setCalculation] = useState<Stripe.Tax.Calculation | null>(null);
+    const [isOrderSubmitted, setIsOrderSubmitted] = useState<boolean>(false);
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>({
       paymentIntentId: '',
       orderId: '',
@@ -141,7 +144,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         return response;
     }
     const submitOrder = async () => {
-
+        setIsOrderSubmitted(false);
         if(!order) 
             {
                 console.log('Order not found');    
@@ -162,7 +165,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
 
         try {
             const response = await updateOrder(updatedOrder);
-            console.log('Order updated successfully:', response);
+            setIsOrderSubmitted(true);
         } catch (error) {
             console.error('Error updating order:', error);
         }
@@ -181,7 +184,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
 
     }, [order, ])
     return (
-        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, paymentMethod, setPaymentMethod, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary, tax, setTax, calculation, setCalculation }}>
+        <OrderContext.Provider value={{ order, setOrder, sectionName, setSectionName, paymentMethod, setPaymentMethod, shipping, setShipping, apiStatus, setApiStatus, filledContent, setFilledContent, setCurrentFormStage, currentFormStage, isReadyToSubmit, orderSummary, setOrderSummary, tax, setTax, calculation, setCalculation, isOrderSubmitted, setIsOrderSubmitted }}>
             {deliverContextByStatus()}
         </OrderContext.Provider>
     );
