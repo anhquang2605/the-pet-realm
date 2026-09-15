@@ -6,12 +6,18 @@ import ActionButton from '../../../../universals/buttons/action-button/action-bu
 type OrderConfirmationProps = Record<string, never>;
 
 const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
-    const {orderSummary, paymentMethod, shipping, order} = useOrderContext();
+    const {orderSummary, isOrderSubmitted, shipping, order} = useOrderContext();
     useEffect(() => {
 
     }, []);
 
     return (
+        isOrderSubmitted === false ?
+        <section className={style['order-confirmation']}>
+            <h2 className={style['order-confirmation__title']}>Processing your order...</h2>
+            <p className={style['order-confirmation__message']}>Please wait while we finalize your order. This may take a few moments.</p>
+        </section>
+        :
         <section className={style['order-confirmation']}>
             <h2 className={style['order-confirmation__title']}>We have received your order</h2>
             <p className={style['order-confirmation__message']}>Thank you for your purchase! Your order has been successfully placed. You will receive an email confirmation shortly with the details of your order and how to access it.</p>
