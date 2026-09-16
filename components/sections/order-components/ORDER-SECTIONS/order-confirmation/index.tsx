@@ -4,7 +4,11 @@ import { useOrderContext } from '../../useOrderContext';
 import FieldsDisplayer from '../../../../universals/fields-displayer';
 import ActionButton from '../../../../universals/buttons/action-button/action-button';
 type OrderConfirmationProps = Record<string, never>;
-
+type BroadOrderDetail = {
+    _id: string;
+    name: string;
+    price: number;
+}
 const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
     const {orderSummary, isOrderSubmitted, shipping, order} = useOrderContext();
     const sentEmailConfirmation = async () => {
@@ -49,6 +53,11 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
             <h2 className={style['order-confirmation__title']}>We have received your order</h2>
             <p className={style['order-confirmation__message']}>Thank you for your purchase! Your order has been successfully placed. You will receive an email confirmation shortly with the details of your order and how to access it.</p>
             {orderSummary && order && <FieldsDisplayer items={[orderSummary]} imageUrl={order.imageUrls[0]} sectionTitle="Order Details" />}
+            {order && <FieldsDisplayer items={[{
+                _id: order._id,
+                name: order.name,
+                price: order.price
+            }]} sectionTitle="Order Information" />}
             {shipping && <FieldsDisplayer items={[shipping]} sectionTitle="Shipping Details" />}
             <p className={style['order-confirmation__message']}>If you have any questions or need assistance, please contact our support team.</p>
             <p className={style['order-confirmation__message']}>We look forward to serving you!</p>
