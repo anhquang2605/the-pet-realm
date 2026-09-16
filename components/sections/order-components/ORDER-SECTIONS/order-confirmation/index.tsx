@@ -19,9 +19,10 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    order: order,
-                    orderSummary: orderSummary,
-                    shipping: shipping,
+                    orderId: order._id,
+                    customerEmail: shipping.email,
+                    customerName: shipping.recipientName,
+                    total: orderSummary.totalPrice,
                 }),
             });
             if (response.ok) {
