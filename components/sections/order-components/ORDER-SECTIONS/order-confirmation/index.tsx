@@ -18,7 +18,7 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
             return;
         }
         try {
-            const response = await insertToPostAPI('/api/email/send', {
+            const response = await insertToPostAPI('send', {
                 orderId: order._id,
                 customerEmail: shipping.email,
                 customerName: shipping.recipientName,
@@ -34,8 +34,10 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
                 }
     }
     useEffect(() => {
-
-    }, []);
+        if (isOrderSubmitted) {
+            sentEmailConfirmation();
+        }
+    }, [isOrderSubmitted]);
 
     return (
         isOrderSubmitted === false ?
