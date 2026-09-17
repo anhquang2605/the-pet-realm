@@ -5,11 +5,6 @@ import FieldsDisplayer from '../../../../universals/fields-displayer';
 import ActionButton from '../../../../universals/buttons/action-button/action-button';
 import { insertToPostAPI } from '../../../../../libs/api-interactions';
 type OrderConfirmationProps = Record<string, never>;
-type BroadOrderDetail = {
-    _id: string;
-    name: string;
-    price: number;
-}
 const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
     const {orderSummary, isOrderSubmitted, shipping, order} = useOrderContext();
     const sentEmailConfirmation = async () => {
