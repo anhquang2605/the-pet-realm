@@ -3,6 +3,7 @@ import style from './order-confirmation.module.css';
 import { useOrderContext } from '../../useOrderContext';
 import FieldsDisplayer from '../../../../universals/fields-displayer';
 import ActionButton from '../../../../universals/buttons/action-button/action-button';
+import { insertToPostAPI } from '../../../../../libs/api-interactions';
 type OrderConfirmationProps = Record<string, never>;
 type BroadOrderDetail = {
     _id: string;
@@ -17,17 +18,11 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
             return;
         }
         try {
-            const response = await fetch('/api/resend', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    orderId: order._id,
-                    customerEmail: shipping.email,
-                    customerName: shipping.recipientName,
-                    total: orderSummary.totalPrice,
-                }),
+            const response = await insertToPostAPI('/api/email/send', {
+                orderId: order._id,
+                customerEmail: shipping.email,
+                customerName: shipping.recipientName,
+                total: orderSummary.totalPrice
             });
             if (response.ok) {
                 console.log('Email sent successfully');

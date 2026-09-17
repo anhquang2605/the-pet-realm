@@ -35,7 +35,7 @@ export default async function handler(
 
     // Confirmation email to customer
     await resend.emails.send({
-      from: "orders@yourdomain.com",
+      from: "anhquang2605@gmail.com",
       to: customerEmail,
       subject: `Your Order #${orderId} is Confirmed`,
       html: `
