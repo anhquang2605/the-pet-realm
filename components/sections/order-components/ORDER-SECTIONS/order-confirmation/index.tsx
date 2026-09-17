@@ -13,7 +13,7 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
             return;
         }
         try {
-            const response = await insertToPostAPI('send', {
+            const response = await insertToPostAPI('resend', {
                 orderId: order._id,
                 customerEmail: shipping.email,
                 customerName: shipping.recipientName,
