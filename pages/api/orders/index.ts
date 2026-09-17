@@ -54,14 +54,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         break;
     case "PUT":
       // Update a order
-      const updateData = req.body;
+      const {_id, ...updateData} = req.body;
       if(!updateData) return res.status(400).json({ message: "No data provided" });
       const result = await ordersCollection.updateOne(
-        { _id: updateData._id },
+        { _id: new ObjectId(_id as string) },
         { $set: updateData }
       );
       if(result.modifiedCount === 0) return res.status(404).json({ message: "RawOrder not found or no changes made" });
-      res.status(200).json({ message: `RawOrder ${id} updated`, data: updateData });
+      res.status(200).json({ message: `RawOrder ${_id} updated`, data: updateData });
       break;
 
     case "DELETE":
