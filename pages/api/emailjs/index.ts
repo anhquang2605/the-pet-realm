@@ -39,6 +39,7 @@ export default async function handler(
           service_id: SERVICE_ID,
           template_id: TEMPLATE_ID,
           user_id: PUBLIC_KEY,
+          private_key: process.env.EMAILJS_PRIVATE_KEY,
           template_params: templateParams,
         }),
       }
