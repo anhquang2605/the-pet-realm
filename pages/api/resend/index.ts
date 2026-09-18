@@ -36,7 +36,11 @@ export default async function handler(
         <p>Order: #${orderId}</p>
         <p>Total: $${total}</p>
       `,
-    });
+      },
+      {
+        publicKey: process.env.EMAILJS_PUBLIC_KEY!,
+      }
+    );
 
     // Confirmation email to customer
     await emailjs.send(
@@ -52,6 +56,9 @@ export default async function handler(
           <p>Your order #${orderId} has been successfully received.</p>
           <p>Total: $${total}</p>
         `,
+      },
+      {
+        publicKey: process.env.EMAILJS_PUBLIC_KEY!,
       }
     );
 
