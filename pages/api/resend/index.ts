@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Resend } from "resend";
+import emailjs from "@emailjs/browser";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 export default async function handler(
   req: NextApiRequest,
@@ -20,7 +20,7 @@ export default async function handler(
 
   try {
     // Email to business owner
-    await resend.emails.send({
+    await emailjs.send({
       from: "orders@yourdomain.com",
       to: process.env.BUSINESS_EMAIL!,
       subject: `New Order #${orderId}`,
