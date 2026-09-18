@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 const SERVICE_ID = process.env.EMAILJS_SERVICE_ID!;
 const TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID!;
 const PUBLIC_KEY = process.env.EMAILJS_PUBLIC_KEY!;
-
+const PRIVATE_KEY = process.env.EMAILJS_PRIVATE_KEY!; // Ensure this is set in your environment variables
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -39,8 +39,8 @@ export default async function handler(
           service_id: SERVICE_ID,
           template_id: TEMPLATE_ID,
           user_id: PUBLIC_KEY,
-          private_key: process.env.EMAILJS_PRIVATE_KEY,
           template_params: templateParams,
+          accessToken: PRIVATE_KEY, // Use the private key for server-side requests
         }),
       }
     );
