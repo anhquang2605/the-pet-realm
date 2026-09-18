@@ -226,7 +226,7 @@ export default function ShippingForm() {
     }
     const handleEditClick = () => {
 
-        setCurrentFormStage(2);
+        setCurrentFormStage(1);
     }
 
     return (
