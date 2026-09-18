@@ -26,6 +26,7 @@ export default async function handler(
       customer_email: customerEmail,
       order_id: orderId,
       total: total,
+      name: "The Pet Realm",
     };
 
     const response = await fetch(
