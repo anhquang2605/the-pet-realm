@@ -17,6 +17,8 @@ export default async function handler(
     customerName,
     orderId,
     total,
+    imgUrl,
+    petName
   } = req.body;
 
   try {
@@ -24,9 +26,11 @@ export default async function handler(
     const templateParams = {
       customer_name: customerName,
       customer_email: customerEmail,
-      order_id: orderId,
+      orderId: orderId,
       total: total,
       name: "The Pet Realm",
+      imgUrl: imgUrl,
+      petName: petName
     };
 
     const response = await fetch(
