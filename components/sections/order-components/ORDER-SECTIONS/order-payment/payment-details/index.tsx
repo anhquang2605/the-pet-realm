@@ -6,7 +6,7 @@ import ActionButton from '../../../../../universals/buttons/action-button/action
 import { loadStripe } from '@stripe/stripe-js';
 import {Elements as CheckoutElementsProvider, useElements, useStripe} from '@stripe/react-stripe-js';
 import { getFromPOSTAPI } from '../../../../../../libs/api-interactions';
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY || '');
 import {
     PaymentElement,
 } from "@stripe/react-stripe-js";
