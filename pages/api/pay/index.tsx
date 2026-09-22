@@ -2,7 +2,7 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
-export async function POST(req: Request) {
+export default async function POST(req: Request) {
     const { paymentMethodId, amount } =
         await req.json();
 
