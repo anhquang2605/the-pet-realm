@@ -62,8 +62,8 @@ const SearchBar: React.FC<SearchBarProps> = ({  }) => {
             <span onClick={
                     toggleSearchBar
                 } className={style['search-bar-placeholder'] + " " + style['search-bar-shared']} >Find your pet!</span>
-            <input onInput={onInputChange} className={style['search-bar-input'] + " " + style['search-bar-shared']} type="text" />
-            <button onAbort={onSearchClick} className={style['search-bar-button']}>
+            <input onChange={onInputChange} className={style['search-bar-input'] + " " + style['search-bar-shared']} type="text" />
+            <button onClick={onSearchClick} className={style['search-bar-button']}>
                     <IoSearch />
             </button>
             
