@@ -14,5 +14,15 @@ describe('sum', () => {
   test('adds -2 + 4 to equal 2', () => {
     expect(sum(-2, 4)).toBe(2)
   })
+
+  test.only('adds 1 + 1 to equal 2', () => {
+    expect(sum(1, 1)).toBe(2)
+  }) //only this test will run
+
+  test.skip('adds 1 + 1 to equal 2', () => {
+    expect(sum(1, 1)).toBe(2)
+  })//this test will be skipped
+
+  test.todo('adds 1 + 1 to equal 2')//to mark futre test
 })
  
