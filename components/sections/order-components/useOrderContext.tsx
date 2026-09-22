@@ -139,8 +139,7 @@ export const OrderProvider: React.FC<OrderProviderProps> = ({ children, id }) =>
         return response;
     }
     const updateOrder  = async (updatedOrder: RawOrder) => {
-        let response;
-        response = await updateToPutAPI('orders', updatedOrder);
+        const response = await updateToPutAPI('orders', updatedOrder);
         return response;
     }
     const submitOrder = async () => {

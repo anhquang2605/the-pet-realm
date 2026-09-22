@@ -139,7 +139,7 @@ export default function ShippingForm() {
         return Object.keys(newErrors).length === 0;
     };
     const getCalculationFromServer = async (shipping?: Shipping) => {
-        const {tax}: any = await getFromPOSTAPI('/tax', { productid: order?._id, shipping });
+        const {tax} = await getFromPOSTAPI('/tax', { productid: order?._id, shipping });
         return tax.tax;
     }
     const handleSubmit = async (
