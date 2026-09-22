@@ -21,6 +21,7 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
                 imgUrl: order.imageUrls[0],
                 orderName: order.name
             });
+            console.log('EmailJS response:', response);
             if (response.ok) {
                 console.log('Email sent successfully');
             } else {
