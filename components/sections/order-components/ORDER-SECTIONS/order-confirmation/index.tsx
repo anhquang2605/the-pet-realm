@@ -19,7 +19,7 @@ const OrderConfirmation: React.FC<OrderConfirmationProps> = ({}) => {
                 customerName: shipping.recipientName,
                 total: orderSummary.totalPrice,
                 imgUrl: order.imageUrls[0],
-                petName: order.name
+                orderName: order.name
             });
             if (response.ok) {
                 console.log('Email sent successfully');
