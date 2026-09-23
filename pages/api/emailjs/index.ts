@@ -51,7 +51,6 @@ export default async function handler(
     );
 
     if (!response.ok) {
-      const errorText = await response.text();
       return res.status(500).json({
         error: "Failed to send email",
       });
