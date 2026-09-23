@@ -1,10 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from 'bcryptjs';
-import { connectDB } from './../../../libs/mongoose';
 import Admin from './../../../models/Admin';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  //let con = await connectDB();
   try {
      const existing = await Admin.find({ email: 'admin@shop.com' });
       if (existing.length !== 0) return res.status(200).json({ message: 'Admin already exists' });
@@ -12,9 +10,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       console.log(error);
    
   }
- 
- 
-
   const hashed = await bcrypt.hash('admin123', 10);
   try{
       await Admin.create({ email: 'admin@shop.com', password: hashed, name: 'Shop Owner' });
