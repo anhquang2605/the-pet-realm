@@ -35,7 +35,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(200).json(results);
     })
     .catch((e) => {
-        console.log(e);
         res.status(500).json({ message: "Error fetching search results" });
     });
 }
