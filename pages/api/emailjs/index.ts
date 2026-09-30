@@ -51,10 +51,6 @@ export default async function handler(
     );
 
     if (!response.ok) {
-      const errorText = await response.text();
-
-      console.error("EmailJS error:", errorText);
-
       return res.status(500).json({
         error: "Failed to send email",
       });
@@ -64,8 +60,6 @@ export default async function handler(
       success: true,
     });
   } catch (error) {
-    console.error("Email error:", error);
-
     return res.status(500).json({
       error: "Failed to send email",
     });

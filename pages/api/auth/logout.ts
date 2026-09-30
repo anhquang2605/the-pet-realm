@@ -1,15 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import bcrypt from 'bcryptjs';
 import { connectDB } from './../../../libs/mongoose';
 import Admin from './../../../models/Admin';
-import {SignJWT} from 'jose';
-const JWT_SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || 'supersecretkey';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'DELETE') return res.status(405).end();
-
   await connectDB();
-
   const { email } = req.body;
     if (!email) return res.status(400).json({ message: 'Missing fields' });
     const admin = await Admin.findOne({ email });
