@@ -39,5 +39,5 @@ const createUser = (name: string, age: number): User => {
 test('create user', () => {
   const user = createUser('John', 30)
   expect(user).toEqual({ name: 'John', age: 30 })
-  expect(user.name).toBe('John')
+  expect(user.name).toBe('John');
 })
