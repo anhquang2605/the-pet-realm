@@ -49,10 +49,24 @@ describe('create user with different ages', () => {
     { name: 'Bob', age: 30 },
     { name: 'Charlie', age: 35 },
   ]
+  const testCases2 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ]
   //%i will seek out any intefger property, $property will seek out any property of the object
   test.each(testCases)('create user with age %i', (user) => {
     expect(createUser(user.name, user.age)).toEqual(user)
   })
+  test.for(
+    testCases2)
+    ('create user with age %i %i %i',
+    ([age1, age2, age3]) => {//make sure that the data type is matched here.
+      expect(createUser('John', age1)).toEqual({ name: 'John', age: age1 })
+      expect(createUser('John', age2)).toEqual({ name: 'John', age: age2 })
+      expect(createUser('John', age3)).toEqual({ name: 'John', age: age3 })
+    })
+
   test.for([
     { name: 'Alice', age: 25 },
     { name: 'Bob', age: 30 },
