@@ -41,3 +41,24 @@ test('create user', () => {
   expect(user).toEqual({ name: 'John', age: 30 })
   expect(user.name).toBe('John');
 })
+
+//parameterized test
+describe('create user with different ages', () => {
+  const testCases = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 },
+  ]
+  //%i will seek out any intefger property, $property will seek out any property of the object
+  test.each(testCases)('create user with age %i', (user) => {
+    expect(createUser(user.name, user.age)).toEqual(user)
+  })
+  test.for([
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 },
+  ])('create user with name $name and age $age', ({ name, age }) => {
+    expect(createUser(name, age)).toEqual({ name, age })
+  })
+    
+})
